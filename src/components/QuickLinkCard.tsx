@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowDownIcon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 
 interface QuickLinkCardProps {
   title: string;
@@ -28,7 +28,7 @@ const QuickLinkCard: React.FC<QuickLinkCardProps> = ({
           )}
         </div>
         <div className="bg-designer-gray rounded-full p-2 group-hover:bg-designer-red transition-colors">
-          <ArrowDownIcon size={18} className="text-gray-700 group-hover:text-white transition-colors" />
+          <ArrowRightIcon size={18} className="text-gray-700 group-hover:text-white transition-colors" />
         </div>
       </div>
     </a>

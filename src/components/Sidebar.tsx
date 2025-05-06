@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
   
   const menuItems = [
     { name: 'Home', path: '/', icon: <Home size={20} /> },
-    { name: 'Product Designs', path: '/product-designs', icon: <LayoutDashboard size={20} /> },
+    { name: 'UXUI Designs', path: '/product-designs', icon: <LayoutDashboard size={20} /> },
     { name: 'Graphic Designs', path: '/graphic-designs', icon: <Image size={20} /> },
     { name: 'About', path: '/about', icon: <HelpCircle size={20} /> },
     { name: 'Contact me', path: '/contact', icon: <MessageSquare size={20} /> },

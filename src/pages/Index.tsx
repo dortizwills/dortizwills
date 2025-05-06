@@ -7,18 +7,18 @@ const Index = () => {
   const quickLinks = [
     {
       title: 'Redesigning "Quick Services"',
-      description: 'No matter how busy you are',
+      description: 'Reduce checkout times to 2-3 minutes',
       href: '/product-designs/quick-services'
-    },
-    {
-      title: 'Gourmet Recipes Anytime',
-      description: 'Access great recipes on demand',
-      href: '/product-designs/gourmet-recipes'
     },
     {
       title: 'Camping Made Easy',
       description: 'Camp no matter your skill level',
       href: '/product-designs/camping-app'
+    },
+    {
+      title: 'Gourmet Recipes Anytime',
+      description: 'Access great recipes on demand',
+      href: '/product-designs/gourmet-recipes'
     }
   ];
 
