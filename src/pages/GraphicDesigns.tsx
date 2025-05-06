@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Book, Mail, Rebranding, Social, Advertising, CaseStudy, Event } from 'lucide-react';
+import { Book, Mail, RefreshCcw, Share2, FileText, Tent } from 'lucide-react';
 
 const GraphicDesigns = () => {
   const projects = [
@@ -17,22 +17,22 @@ const GraphicDesigns = () => {
     {
       title: "Rebranding Assets",
       description: "Rebranding assets for Series C funding that refined Shopmonkey's brand",
-      icon: <Rebranding size={24} className="text-designer-red" />
+      icon: <RefreshCcw size={24} className="text-designer-red" />
     },
     {
       title: "Social Media Campaigns",
       description: "Social media and advertising campaigns that separated Shopmonkey in the Automotive software community",
-      icon: <Social size={24} className="text-designer-red" />
+      icon: <Share2 size={24} className="text-designer-red" />
     },
     {
       title: "Case Studies",
       description: "Story telling case studies that encapsulate success stories from different automotive shops – from repair to custom builds",
-      icon: <CaseStudy size={24} className="text-designer-red" />
+      icon: <FileText size={24} className="text-designer-red" />
     },
     {
       title: "Event Designs",
       description: "Booth and event designs displaying Shopmonkey's friendly brand towards a skeptical crowd at SEMA – The largest tradeshow in the automotive sphere",
-      icon: <Event size={24} className="text-designer-red" />
+      icon: <Tent size={24} className="text-designer-red" />
     }
   ];
 

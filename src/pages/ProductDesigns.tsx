@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FileCode, Camping, Recipe, Mobile, Branding } from 'lucide-react';
+import { FileCode, Tent, BookOpen, Smartphone, Briefcase } from 'lucide-react';
 
 const ProductDesigns = () => {
   const projects = [
@@ -13,25 +13,25 @@ const ProductDesigns = () => {
     {
       title: "Camping Made Easy",
       description: "Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level",
-      icon: <Camping className="text-designer-red" size={24} />,
+      icon: <Tent className="text-designer-red" size={24} />,
       path: "/product-designs/camping-app"
     },
     {
       title: "Gourmet Recipes Anytime",
       description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are",
-      icon: <Recipe className="text-designer-red" size={24} />,
+      icon: <BookOpen className="text-designer-red" size={24} />,
       path: "/product-designs/gourmet-recipes"
     },
     {
       title: "Adhere+",
       description: "0 to 1 web and branding design for a Adhere Plus's flagship app",
-      icon: <Branding className="text-designer-red" size={24} />,
+      icon: <Briefcase className="text-designer-red" size={24} />,
       path: "/product-designs/adhere-plus"
     },
     {
       title: "Mobile App Explorations",
       description: "Cold selling mobile applications for startup companies. Delivering apps that deliver vision and brand exploration",
-      icon: <Mobile className="text-designer-red" size={24} />,
+      icon: <Smartphone className="text-designer-red" size={24} />,
       path: "/product-designs/mobile-apps"
     }
   ];
