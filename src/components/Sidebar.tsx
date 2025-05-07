@@ -53,15 +53,6 @@ const Sidebar: FC = () => {
           })}
         </ul>
       </nav>
-      
-      <div className="mt-auto">
-        <Link 
-          to="/subscribe"
-          className="flex items-center gap-3 font-medium text-lg text-gray-500 hover:text-designer-darkgray transition-colors"
-        >
-          Subscribe
-        </Link>
-      </div>
     </aside>
   );
 };

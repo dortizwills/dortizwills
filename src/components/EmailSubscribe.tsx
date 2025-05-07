@@ -5,18 +5,60 @@ import { MailIcon } from 'lucide-react';
 
 const EmailSubscribe = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendNotificationEmail = async (subscriberEmail: string) => {
+    try {
+      // In a real-world scenario, you would use a server endpoint to send emails
+      // This is a simplified example that would need backend implementation
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+          template_id: 'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+          user_id: 'YOUR_USER_ID', // Replace with your EmailJS user ID
+          template_params: {
+            to_email: 'dortizwills@gmail.com',
+            from_email: subscriberEmail,
+            message: `${subscriberEmail} has subscribed for updates!`,
+          },
+        }),
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error sending notification:', error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast.error('Please enter your email address');
       return;
     }
     
-    // Here you would typically send the email to your backend
-    console.log('Email submitted:', email);
-    toast.success('Thank you for subscribing!');
-    setEmail('');
+    setIsSubmitting(true);
+    
+    try {
+      // Here you would typically send the email to your backend
+      console.log('Email submitted:', email);
+      
+      // Send notification to your email
+      await sendNotificationEmail(email);
+      
+      toast.success('Thank you for subscribing!');
+      setEmail('');
+    } catch (error) {
+      console.error('Subscription error:', error);
+      toast.error('Could not process your subscription. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,9 +82,10 @@ const EmailSubscribe = () => {
         />
         <button 
           type="submit" 
-          className="bg-designer-red hover:bg-red-600 text-white font-medium py-3 px-6 rounded-md transition-colors"
+          disabled={isSubmitting}
+          className="bg-designer-red hover:bg-red-600 text-white font-medium py-3 px-6 rounded-md transition-colors disabled:opacity-70"
         >
-          Subscribe
+          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </button>
       </form>
     </div>
