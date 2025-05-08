@@ -90,16 +90,17 @@ const TestimonialCarousel: React.FC = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
-        <div className="hidden md:block">
-          <CarouselPrevious className="absolute left-0" />
-          <CarouselNext className="absolute right-0" />
-        </div>
+        <CarouselPrevious className="hidden md:flex absolute left-0 -translate-x-1/2" />
+        <CarouselNext className="hidden md:flex absolute right-0 translate-x-1/2" />
       </Carousel>
       
       <div className="flex justify-center gap-2 mt-4 md:hidden">
-        <CarouselPrevious />
-        <CarouselNext />
+        <Carousel>
+          <CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </CarouselContent>
+        </Carousel>
       </div>
     </div>
   );
