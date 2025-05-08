@@ -1,6 +1,6 @@
 
-import { FC } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { FC, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Index from './pages/Index';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -27,6 +27,13 @@ import AdherePlus from './pages/AdherePlus';
 import GrammyMuseum from './pages/GrammyMuseum';
 
 const App: FC = () => {
+  const location = useLocation();
+
+  // Scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <>
       <Sidebar />

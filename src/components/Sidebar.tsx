@@ -1,7 +1,6 @@
 
-import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { FC, useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Home, 
   LayoutDashboard, 
@@ -20,6 +19,11 @@ const Sidebar: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
+  
+  // Ensure the page scrolls to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -78,7 +82,7 @@ const Sidebar: FC = () => {
                     <div 
                       className={`flex items-center justify-between cursor-pointer ${
                         isParentActive 
-                          ? 'text-designer-darkgray active-nav-item' 
+                          ? 'text-designer-darkgray' 
                           : 'text-gray-500 hover:text-designer-darkgray transition-colors'
                       }`}
                       onClick={!collapsed ? item.toggle : undefined}
@@ -87,7 +91,9 @@ const Sidebar: FC = () => {
                         to={item.path}
                         className="flex items-center gap-3 font-medium text-lg"
                       >
-                        <span className={isParentActive ? "border-b-2 border-designer-red pb-1" : ""}>{item.icon}</span>
+                        <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                          {item.icon}
+                        </span>
                         {!collapsed && <span>{item.name}</span>}
                       </Link>
                       {!collapsed && (
@@ -127,11 +133,13 @@ const Sidebar: FC = () => {
                     to={item.path}
                     className={`flex items-center gap-3 font-medium text-lg ${
                       isActive 
-                        ? 'text-designer-darkgray active-nav-item' 
+                        ? 'text-designer-darkgray' 
                         : 'text-gray-500 hover:text-designer-darkgray transition-colors'
                     }`}
                   >
-                    <span className={isActive ? "border-b-2 border-designer-red pb-1" : ""}>{item.icon}</span>
+                    <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                      {item.icon}
+                    </span>
                     {!collapsed && <span>{item.name}</span>}
                   </Link>
                 )}
@@ -141,12 +149,19 @@ const Sidebar: FC = () => {
         </ul>
       </nav>
       
-      <div className="mt-auto pt-4">
+      <div className="mt-auto pt-4 border-t border-gray-100">
         <button 
           onClick={toggleCollapsed} 
-          className="w-full flex justify-center text-gray-500 hover:text-designer-darkgray py-2"
+          className={`py-2 text-gray-500 hover:text-designer-darkgray flex ${collapsed ? 'justify-center' : 'items-center'}`}
         >
-          {collapsed ? <Expand size={20} /> : <Minimize size={20} />}
+          {collapsed ? (
+            <Expand size={20} />
+          ) : (
+            <>
+              <Minimize size={20} className="ml-0" />
+              <span className="ml-3">Collapse menu</span>
+            </>
+          )}
         </button>
       </div>
     </aside>

@@ -28,6 +28,7 @@ const AdherePlus = () => {
         responsibilities: "Branding, UX/UI Design, Design System Creation",
         results: "100% client satisfaction, on-time delivery"
       }}
+      relatedProjects={relatedProjects}
     >
       <div>
         <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>

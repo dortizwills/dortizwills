@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileCode, Tent, BookOpen, Smartphone, Briefcase, Music } from 'lucide-react';
+import { FileCode, Tent, BookOpen, Smartphone, Briefcase, Music, ArrowRight } from 'lucide-react';
 
 const ProductDesigns = () => {
   const projects = [
@@ -82,9 +82,14 @@ const ProductDesigns = () => {
                 <p className="text-gray-600 mb-4">
                   {project.description}
                 </p>
-                <span className="text-designer-red font-medium hover:underline">
-                  {project.inProgress ? "Coming Soon" : "View Case Study"}
-                </span>
+                <div className="flex items-center text-designer-red font-medium">
+                  {project.inProgress ? "Coming Soon" : (
+                    <>
+                      <span className="mr-2">View Project</span>
+                      <ArrowRight size={16} />
+                    </>
+                  )}
+                </div>
               </div>
             </Link>
           ))}

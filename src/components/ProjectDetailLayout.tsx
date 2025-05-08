@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ProjectDetailLayoutProps {
@@ -31,6 +31,11 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   projectDetails,
   relatedProjects
 }) => {
+  // Ensure the page scrolls to top when mounted
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="pl-[220px]">
       <main className="max-w-7xl mx-auto px-6 py-12">
@@ -41,37 +46,46 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-8">{title}</h1>
         
-        {headerImage && (
-          <div className="mb-8">
+        {/* Hero image with 1:2.25 aspect ratio */}
+        <div className="mb-8">
+          {headerImage ? (
             <img 
               src={headerImage} 
               alt={title} 
-              className="w-full rounded-lg object-cover h-[400px]" 
+              className="w-full rounded-lg object-cover" 
               style={{ aspectRatio: '2.25/1', objectPosition: 'center' }}
             />
-          </div>
-        )}
+          ) : (
+            <div 
+              className="w-full rounded-lg bg-designer-gray flex items-center justify-center"
+              style={{ aspectRatio: '2.25/1' }}
+            >
+              <p className="text-gray-500">Project image coming soon</p>
+            </div>
+          )}
+        </div>
         
+        {/* Project details section immediately after hero image */}
         {projectDetails && (
           <div className="bg-gray-50 p-6 rounded-lg mb-10">
             <div className="grid grid-cols-3 gap-6">
               {projectDetails.timeline && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-sm">Team</div>
+                  <div className="font-medium text-gray-900 text-xs">Timeline</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.timeline}</div>
                 </div>
               )}
               
               {projectDetails.responsibilities && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-sm">Responsibilities</div>
+                  <div className="font-medium text-gray-900 text-xs">Responsibilities</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.responsibilities}</div>
                 </div>
               )}
               
               {projectDetails.results && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-sm">Results</div>
+                  <div className="font-medium text-gray-900 text-xs">Results</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.results}</div>
                 </div>
               )}
@@ -93,7 +107,10 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   to={project.path}
                   className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
                 >
-                  <div className="aspect-video bg-designer-gray overflow-hidden">
+                  <div 
+                    className="bg-designer-gray overflow-hidden"
+                    style={{ aspectRatio: '2.25/1' }}
+                  >
                     {project.image ? (
                       <img 
                         src={project.image} 
@@ -111,9 +128,10 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     <p className="text-gray-600 mb-4">
                       {project.description}
                     </p>
-                    <span className="text-designer-red font-medium">
-                      View Case Study
-                    </span>
+                    <div className="flex items-center text-designer-red font-medium">
+                      <span className="mr-2">View Project</span>
+                      <ArrowRight size={16} />
+                    </div>
                   </div>
                 </Link>
               ))}
