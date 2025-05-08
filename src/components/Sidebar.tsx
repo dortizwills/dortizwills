@@ -12,7 +12,7 @@ import {
   ChevronRight,
   ChevronDown,
   Expand,
-  Compress
+  Minimize // Replacing Compress with Minimize which is available
 } from 'lucide-react';
 
 const Sidebar: FC = () => {
@@ -63,7 +63,7 @@ const Sidebar: FC = () => {
           UX
         </div>
         <button onClick={toggleCollapsed} className="text-gray-500 hover:text-designer-darkgray">
-          {collapsed ? <Expand size={20} /> : <Compress size={20} />}
+          {collapsed ? <Expand size={20} /> : <Minimize size={20} />}
         </button>
       </div>
       
