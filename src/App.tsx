@@ -20,6 +20,14 @@ import Resume from "./pages/Resume";
 import NotFound from "./pages/NotFound";
 import Sidebar from "./components/Sidebar";
 
+// Graphic Design Detail Pages
+import DataDrivenEbooks from "./pages/graphic-designs/DataDrivenEbooks";
+import EmailMarketing from "./pages/graphic-designs/EmailMarketing";
+import ProductIllustrations from "./pages/graphic-designs/ProductIllustrations";
+import SocialMedia from "./pages/graphic-designs/SocialMedia";
+import CaseStudies from "./pages/graphic-designs/CaseStudies";
+import EventDesigns from "./pages/graphic-designs/EventDesigns";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -39,6 +47,12 @@ const App = () => (
           <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
           <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
           <Route path="/graphic-designs" element={<GraphicDesigns />} />
+          <Route path="/graphic-designs/data-driven-ebooks" element={<DataDrivenEbooks />} />
+          <Route path="/graphic-designs/email-marketing" element={<EmailMarketing />} />
+          <Route path="/graphic-designs/product-illustrations" element={<ProductIllustrations />} />
+          <Route path="/graphic-designs/social-media" element={<SocialMedia />} />
+          <Route path="/graphic-designs/case-studies" element={<CaseStudies />} />
+          <Route path="/graphic-designs/event-designs" element={<EventDesigns />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />

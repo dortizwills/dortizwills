@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Book, Mail, RefreshCcw, Share2, FileText, Tent } from 'lucide-react';
 
 const GraphicDesigns = () => {
@@ -7,32 +8,44 @@ const GraphicDesigns = () => {
     {
       title: "Data-Driven eBooks",
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less",
-      icon: <Book size={24} className="text-designer-red" />
+      icon: <Book size={24} className="text-designer-red" />,
+      path: "/graphic-designs/data-driven-ebooks",
+      image: "/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
     },
     {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined",
-      icon: <Mail size={24} className="text-designer-red" />
+      icon: <Mail size={24} className="text-designer-red" />,
+      path: "/graphic-designs/email-marketing",
+      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
     },
     {
-      title: "Rebranding Assets",
+      title: "Refining Product Illustrations",
       description: "Rebranding assets for Series C funding that refined Shopmonkey's brand",
-      icon: <RefreshCcw size={24} className="text-designer-red" />
+      icon: <RefreshCcw size={24} className="text-designer-red" />,
+      path: "/graphic-designs/product-illustrations",
+      image: "/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
     },
     {
       title: "Social Media Campaigns",
       description: "Social media and advertising campaigns that separated Shopmonkey in the Automotive software community",
-      icon: <Share2 size={24} className="text-designer-red" />
+      icon: <Share2 size={24} className="text-designer-red" />,
+      path: "/graphic-designs/social-media",
+      image: "/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png"
     },
     {
       title: "Case Studies",
       description: "Story telling case studies that encapsulate success stories from different automotive shops – from repair to custom builds",
-      icon: <FileText size={24} className="text-designer-red" />
+      icon: <FileText size={24} className="text-designer-red" />,
+      path: "/graphic-designs/case-studies",
+      image: "/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
     },
     {
       title: "Event Designs",
       description: "Booth and event designs displaying Shopmonkey's friendly brand towards a skeptical crowd at SEMA – The largest tradeshow in the automotive sphere",
-      icon: <Tent size={24} className="text-designer-red" />
+      icon: <Tent size={24} className="text-designer-red" />,
+      path: "/graphic-designs/event-designs",
+      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
     }
   ];
 
@@ -41,23 +54,34 @@ const GraphicDesigns = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">Graphic Designs</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div 
+            <Link 
               key={project.title} 
-              className="group relative overflow-hidden rounded-lg"
+              to={project.path}
+              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="aspect-square bg-designer-gray flex items-center justify-center p-6 flex-col">
-                {project.icon}
-                <h3 className="mt-4 text-lg font-medium text-gray-700">{project.title}</h3>
+              <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  project.icon
+                )}
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="text-center text-white p-4">
-                  <h3 className="text-lg font-medium mb-2">{project.title}</h3>
-                  <p className="text-sm">{project.description}</p>
-                </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4">
+                  {project.description}
+                </p>
+                <span className="text-designer-red font-medium hover:underline">
+                  View Case Study
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>
