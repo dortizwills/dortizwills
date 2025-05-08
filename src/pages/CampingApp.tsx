@@ -18,45 +18,151 @@ const CampingApp = () => {
         
         <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         <p className="mb-6">
-          Camping shouldn't be hard, or that's what this app helps users to think. This application helps users camp no matter their skill level, from beginners to seasoned outdoor enthusiasts.
+          In mid 2023 my brother asked for some advice for his first camping trip. He'd never been before and between all the supply lists, internet articles, and recommendations from other friends he didn't know where to start.
         </p>
         
-        <p className="mb-8">
-          This case study explores how we made camping accessible to everyone by simplifying the process of finding and booking campsites based on experience level and needed amenities.
-        </p>
-        
-        <h2 className="text-2xl font-display font-semibold mb-4">Problem Statement</h2>
         <p className="mb-6">
-          Many potential campers are intimidated by the complexity of planning a camping trip. They worry about choosing the right location, packing the correct gear, and ensuring they'll have access to necessary facilities.
+          I've been on dozens of camping trips, led outdoor adventures, and gave expert advice at REI for years. Without guides like myself, most aspiring campers tend to give up after their first camping trip because it was too rough physically, expensive, or delivered an unexpected experience.
         </p>
         
-        <h2 className="text-2xl font-display font-semibold mb-4">Solution</h2>
         <p className="mb-6">
-          We created a camping app that categorizes campsites by difficulty level, provides customized packing lists based on the chosen campsite and weather conditions, and offers step-by-step guides for setting up camp.
+          I held these insights in mind as I focused on bridging the knowledge gap between inexperienced campers and their desire to camp. With so many options in the outdoors for camping there really is an experience for everyone, all we have to do is connect the proper dots.
         </p>
         
-        <h2 className="text-2xl font-display font-semibold mb-4">Design Process</h2>
+        <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
+        <h3 className="text-xl font-display font-medium mb-3">Research</h3>
         <p className="mb-6">
-          Our design process included extensive user research, competitive analysis, and iterative design cycles with continuous user testing.
+          I wanted to build an MVP for new campers, and this list would be difficult to solve all at once. Using my past decade of interviewing dozens of customers and friends I developed a list of people need in order to feel comfortable camping.
         </p>
         
-        <h2 className="text-2xl font-display font-semibold mb-4">Key Features</h2>
+        <p className="mb-6">
+          I decided to solve the most pressing issues first which were concluded through interviewing some core users.
+        </p>
+        
+        <p className="mb-6">
+          Below is a list of common questions my app would not be solving initially:
+        </p>
         <ul className="list-disc pl-5 mb-6 space-y-2">
-          <li>Campsite difficulty ratings (Beginner, Intermediate, Advanced)</li>
-          <li>Custom packing lists based on campsite facilities and weather</li>
-          <li>Step-by-step setup guides with AR visualization</li>
-          <li>Offline access to maps and guides</li>
-          <li>Emergency assistance feature with GPS location sharing</li>
+          <li>Where do I go to book a campsite</li>
+          <li>Would this be the right campsite for my needs</li>
+          <li>What crucial equipment do they need</li>
+          <li>Do they have to buy new, used, or can they rent gear</li>
+          <li>Do they need a guide</li>
+          <li>What do campers do at these campgrounds</li>
         </ul>
         
-        <h2 className="text-2xl font-display font-semibold mb-4">User Testing Insights</h2>
         <p className="mb-6">
-          User testing revealed that beginners particularly valued the difficulty ratings and guided setup instructions, while experienced campers appreciated the detailed information about facilities and trail conditions.
+          Following are additional questions that would be important to answer after a core user base was established:
+        </p>
+        <ul className="list-disc pl-5 mb-6 space-y-2">
+          <li>Where should I go to get all my supplies</li>
+          <li>How do I use maps or find good trails</li>
+          <li>Can I use things from around my house</li>
+          <li>Will what I own be enough for me</li>
+          <li>What time of the year to camp</li>
+          <li>Will I be comfortable out there</li>
+        </ul>
+        
+        <p className="mb-6">
+          Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
+        </p>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">User Profiles</h2>
+        <p className="mb-6">
+          From my time at REI, the customers that needed the most help were one of the two categories.
+        </p>
+        
+        <p className="mb-6">
+          First, someone who wanted to go outside after or near retirement. It was very common for these customers to want as much advice over even the smallest decisions so they could comfortably purchase an item knowing it would last beyond the trips and into daily life.
+        </p>
+        
+        <p className="mb-6">
+          Second, individuals who had seen picturesque locations from social media and wanted to visit those locations themselves. These individuals were younger and eager to take the first piece of advice as justification for their next decision. "I thought so" and "couldn't I just do this instead" were some of their most common phrases.
+        </p>
+        
+        <p className="mb-6">
+          In this application I needed to balance the quality and quantity of information, as a poor camping experience often guarantees people rarely camping again.
+        </p>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Validation Process</h2>
+        <h3 className="text-xl font-display font-medium mb-3">User Flows</h3>
+        <p className="mb-6">
+          In my initial corrections, I decided to use some low fidelity prototypes to take users through a guided process instead of placing them immediately into the app. This made them feel more in control of their camping decisions, but they still had too many decisions to make upfront – so I added a skip option to investigate further on the app.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
+        <p className="mb-6">
+          I changed the activity users started on so the base activity was more clear and simple.
+        </p>
+        
+        <p className="mb-6">
+          Initially I set up users with Backpacking, a more complicated version of camping – Now they would start simply with camping. I began adding fidelity for users to understand new information and additional options.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
+        <p className="mb-6">
+          I noticed my testers continuing to struggle with gear requirements and campsite details. Especially where the were camping and what to expect while there, critical pieces for users to enjoy a new experience.
+        </p>
+        
+        <p className="mb-6">
+          I decided to include options where they could rent gear. Directly followed by adding additional options to inspect their campsite's activities, events, and wildlife.
+        </p>
+        
+        <p className="mb-6">
+          My users seemed to be pleased with this version of the app but they still struggled with finding the rental option for the campsites. They didn't know it was nested within their selected campsite.
+        </p>
+        
+        <p className="mb-6">
+          Using the gathered findings from this iteration of the app I decided there was enough information to finalize the core user flows.
+        </p>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Revised User Flow</h2>
+        <p className="mb-6">
+          In this version of the app the core path required more information than I initially placed for our users. By including the information, I adjusted from my initial map below to the updated version so that users could be well prepared for their trips.
+        </p>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Primary Happy Path</h2>
+        <p className="mb-6">
+          After discussing with my users I wanted them to experience booking from start to finish. I retested initial users of the app in the desire to see if their initial hesitations with the app were solved. For some the majority of issues were resolved.
+        </p>
+        
+        <p className="mb-6">
+          Other users wondered what they could do if they really liked camping. For these users I added a few extra screens that would be off the main path, but still easily discovered.
+        </p>
+        
+        <p className="mb-6">
+          When I included a path for returning campers it was a good solution for those campers who wanted to reuse gear or revisit prior experiences. I also opened up opportunities for future rounds of monetization by including a method for campers to buy their previously used gear.
+        </p>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
+        <p className="mb-6">
+          From all the information I received over my app, I decided that it was time for final designs. The focus at this stage was to ensure I demonstrated the core of my user's needs –customization and information.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">User Need 1: Customization</h3>
+        <p className="mb-6">
+          People choose to camp for their own unique reasons. I decided the ability to prioritize user preferences was paramount for users to find a camping experience they enjoyed. I included reviews, similar experiences, and individually tailored experiences to allow campers to enjoy outside on their own terms.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">User Need 2: Information</h3>
+        <p className="mb-6">
+          It's hard enjoy something when you know very little about it. Users seemed more interested in camping when they found out what they could expect when they were there and what it would look like for them to enjoy themselves. I added more opportunities for users to be informed and because of that they seemed ready to participate in new camping experiences.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">Final Booking Demonstration</h3>
+        <p className="mb-6">
+          I recorded a final version of my app for ease of viewing, especially demonstrating how users could expect to book their first experience for camping. You can view additional paths to explore in my prototype linked below this video.
         </p>
         
         <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
+        <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
         <p className="mb-6">
-          The app has successfully reduced the barrier to entry for new campers, with 78% of beginner users reporting they felt more confident about camping after using the app. Booking conversions increased by 45% compared to the previous booking system.
+          By offering booking experiences for both seasoned and novice campers Camp Buddy received positive reviews following my user research group. Over half of interviewed users expressed interest in renting gear with an option to buy, especially if they used same gear over multiple campsite trips.
+        </p>
+        
+        <h3 className="text-xl font-display font-medium mb-3">New Experiences</h3>
+        <p className="mb-6">
+          At the start, I knew I'd need to engage every type of user to be successful. My work ensures that regardless of income, experience levels, age, or diversity campers can forgo their reservations and enjoy the outdoors. After conducting interviews I found this was the only time my users had even considered camping and I was credited with bringing a new level of access to camping for them.
         </p>
       </div>
       
@@ -72,12 +178,12 @@ const CampingApp = () => {
             
             <div>
               <h4 className="font-medium text-gray-900">Responsibilities</h4>
-              <p className="text-gray-600">UX Research, UI Design, User Testing, Interaction Design</p>
+              <p className="text-gray-600">User Research, User Testing, Project Management, Interaction Design, Experience Design, Visual Design</p>
             </div>
             
             <div>
               <h4 className="font-medium text-gray-900">Results</h4>
-              <p className="text-gray-600">45% increase in booking conversions, 78% increase in user confidence</p>
+              <p className="text-gray-600">50% increase of interest in camping based on these proposed features and add on purchase options</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileCode, Tent, BookOpen, Smartphone, Briefcase } from 'lucide-react';
+import { FileCode, Tent, BookOpen, Smartphone, Briefcase, Music } from 'lucide-react';
 
 const ProductDesigns = () => {
   const projects = [
@@ -30,13 +30,22 @@ const ProductDesigns = () => {
       title: "Adhere+",
       description: "0 to 1 web and branding design for a Adhere Plus's flagship app",
       icon: <Briefcase className="text-designer-red" size={24} />,
-      path: "/product-designs/adhere-plus"
+      path: "/product-designs/adhere-plus",
+      inProgress: true
     },
     {
       title: "Mobile App Explorations",
       description: "Cold selling mobile applications for startup companies. Delivering apps that deliver vision and brand exploration",
       icon: <Smartphone className="text-designer-red" size={24} />,
-      path: "/product-designs/mobile-apps"
+      path: "/product-designs/mobile-apps",
+      inProgress: true
+    },
+    {
+      title: "Grammy Museum",
+      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education",
+      icon: <Music className="text-designer-red" size={24} />,
+      path: "/product-designs/grammy-museum",
+      inProgress: true
     }
   ];
 
@@ -52,7 +61,7 @@ const ProductDesigns = () => {
               to={project.path}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden">
+              <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
                 {project.image ? (
                   <img 
                     src={project.image} 
@@ -62,6 +71,11 @@ const ProductDesigns = () => {
                 ) : (
                   project.icon
                 )}
+                {project.inProgress && (
+                  <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium px-2 py-1 rounded">
+                    In Progress
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
@@ -69,7 +83,7 @@ const ProductDesigns = () => {
                   {project.description}
                 </p>
                 <span className="text-designer-red font-medium hover:underline">
-                  View Case Study
+                  {project.inProgress ? "Coming Soon" : "View Case Study"}
                 </span>
               </div>
             </Link>

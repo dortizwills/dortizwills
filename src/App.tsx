@@ -12,6 +12,7 @@ import CampingApp from "./pages/CampingApp";
 import QuickServices from "./pages/QuickServices";
 import AdherePlus from "./pages/AdherePlus";
 import MobileApps from "./pages/MobileApps";
+import GrammyMuseum from "./pages/GrammyMuseum";
 import GraphicDesigns from "./pages/GraphicDesigns";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/product-designs/quick-services" element={<QuickServices />} />
           <Route path="/product-designs/adhere-plus" element={<AdherePlus />} />
           <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
+          <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
           <Route path="/graphic-designs" element={<GraphicDesigns />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
