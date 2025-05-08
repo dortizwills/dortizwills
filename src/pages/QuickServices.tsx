@@ -5,7 +5,7 @@ import ProjectDetailLayout from '../components/ProjectDetailLayout';
 const QuickServices = () => {
   return (
     <ProjectDetailLayout 
-      title="Redesigning \"Quick Services\"" 
+      title="Redesigning 'Quick Services'" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
     >
