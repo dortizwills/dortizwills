@@ -47,31 +47,32 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
               src={headerImage} 
               alt={title} 
               className="w-full rounded-lg object-cover h-[400px]" 
+              style={{ aspectRatio: '2.25/1', objectPosition: 'center' }}
             />
           </div>
         )}
         
         {projectDetails && (
           <div className="bg-gray-50 p-6 rounded-lg mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               {projectDetails.timeline && (
-                <div>
-                  <h4 className="font-medium text-gray-900">Timeline</h4>
-                  <p className="text-gray-600 text-base">{projectDetails.timeline}</p>
+                <div className="flex flex-col">
+                  <div className="font-medium text-gray-900 text-sm">Team</div>
+                  <div className="text-gray-600 text-sm mt-2">{projectDetails.timeline}</div>
                 </div>
               )}
               
               {projectDetails.responsibilities && (
-                <div>
-                  <h4 className="font-medium text-gray-900">Responsibilities</h4>
-                  <p className="text-gray-600 text-base">{projectDetails.responsibilities}</p>
+                <div className="flex flex-col">
+                  <div className="font-medium text-gray-900 text-sm">Responsibilities</div>
+                  <div className="text-gray-600 text-sm mt-2">{projectDetails.responsibilities}</div>
                 </div>
               )}
               
               {projectDetails.results && (
-                <div>
-                  <h4 className="font-medium text-gray-900">Results</h4>
-                  <p className="text-gray-600 text-base">{projectDetails.results}</p>
+                <div className="flex flex-col">
+                  <div className="font-medium text-gray-900 text-sm">Results</div>
+                  <div className="text-gray-600 text-sm mt-2">{projectDetails.results}</div>
                 </div>
               )}
             </div>

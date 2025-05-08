@@ -8,13 +8,13 @@ const SocialMedia = () => {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined.",
       path: "/graphic-designs/email-marketing",
-      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
+      image: "/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
     },
     {
       title: "Case Studies",
       description: "Story telling case studies that encapsulate success stories from different automotive shops.",
       path: "/graphic-designs/case-studies",
-      image: "/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
+      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
     }
   ];
   
@@ -22,7 +22,7 @@ const SocialMedia = () => {
     <ProjectDetailLayout 
       title="Social Media Campaigns" 
       backTo="/graphic-designs"
-      backLabel="Back to Graphic Designs"
+      backLabel="Back to Marketing Designs"
       headerImage="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png"
       projectDetails={{
         timeline: "Ongoing, 12-month campaign",

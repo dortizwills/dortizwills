@@ -8,7 +8,7 @@ const DataDrivenEbooks = () => {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined.",
       path: "/graphic-designs/email-marketing",
-      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
+      image: "/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
     },
     {
       title: "Social Media Campaigns",
@@ -22,8 +22,8 @@ const DataDrivenEbooks = () => {
     <ProjectDetailLayout 
       title="Data-Driven eBooks" 
       backTo="/graphic-designs"
-      backLabel="Back to Graphic Designs"
-      headerImage="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
+      backLabel="Back to Marketing Designs"
+      headerImage="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
       projectDetails={{
         timeline: "3 Months",
         responsibilities: "Research Analysis, Content Strategy, Visual Design, Illustration, Layout Design",
@@ -56,7 +56,7 @@ const DataDrivenEbooks = () => {
           We identified our primary audience as independent auto shop owners and managers who are typically time-constrained, pragmatic decision-makers seeking concrete solutions to business challenges rather than theoretical discussions.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="eBook Cover" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png" alt="eBook Cover" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We began by analyzing Shopmonkey's customer data and industry trends to identify the most pressing challenges faced by auto shop owners. We collaborated with the data science team to extract meaningful insights from thousands of data points across customer surveys and industry reports.
@@ -66,7 +66,7 @@ const DataDrivenEbooks = () => {
           Based on our research, we developed a three-part eBook series focused on actionable solutions for key pain points: financial management, customer retention, and operational efficiency. Each eBook was limited to 30 pages, with content broken into scannable sections with clear takeaways.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="eBook Interior" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png" alt="eBook Interior" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We created a visual language that balanced professionalism with accessibility, using Shopmonkey's brand colors but introducing custom illustrations to simplify complex concepts. Data visualizations were designed to communicate trends at a glance.
@@ -80,7 +80,7 @@ const DataDrivenEbooks = () => {
           Average time spent with the eBooks was 12 minutes per session, significantly higher than industry benchmarks for digital content. The content received high engagement on social media, with sections being shared by industry influencers.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="Results" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png" alt="Results" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           Shopmonkey's leadership team was extremely pleased with the results, particularly the quality of leads generated. The eBook series became a cornerstone of their content marketing strategy, with regular updates scheduled to incorporate new data and trends.

@@ -14,7 +14,7 @@ const CaseStudies = () => {
       title: "Data-Driven eBooks",
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less.",
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
+      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
     }
   ];
   
@@ -22,8 +22,8 @@ const CaseStudies = () => {
     <ProjectDetailLayout 
       title="Case Studies" 
       backTo="/graphic-designs"
-      backLabel="Back to Graphic Designs"
-      headerImage="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
+      backLabel="Back to Marketing Designs"
+      headerImage="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
       projectDetails={{
         timeline: "Ongoing, 18-month project",
         responsibilities: "Research, Interviewing, Narrative Development, Design, Illustration",
@@ -56,7 +56,7 @@ const CaseStudies = () => {
           The automotive repair industry includes diverse business types, from general repair to specialized services like custom builds, tire shops, and dealership service departments. Each has unique workflows, challenges, and needs that require different software configurations.
         </p>
         
-        <img src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png" alt="Case Study Overview" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Case Study Overview" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We developed a systematic approach to identify and document customer success stories. This involved data analysis to find shops with exceptional metrics, followed by in-depth interviews with owners, managers, and technicians to understand their transformation journey.
@@ -66,7 +66,7 @@ const CaseStudies = () => {
           Rather than focusing solely on features and benefits, we created a consistent narrative arc for each case study: the shop's history and unique character, challenges faced before Shopmonkey, implementation experience, and measurable results with emotional impact.
         </p>
         
-        <img src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png" alt="Narrative Examples" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Narrative Examples" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We created a flexible design system that maintained brand consistency while allowing for customization based on each shop's personality. We paired professional photography with data visualizations to balance emotional appeal with concrete results.
@@ -80,7 +80,7 @@ const CaseStudies = () => {
           Featured shops reported significant benefits from participating, including local publicity, increased credibility, and networking opportunities with other shop owners. This created a pipeline of customers eager to be featured in future case studies.
         </p>
         
-        <img src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png" alt="Customer Feedback" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Customer Feedback" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           The case studies generated considerable organic engagement across marketing channels. When repurposed for social media, case study content achieved 3.2x higher engagement than other content types. The library of stories became Shopmonkey's most valuable content asset.

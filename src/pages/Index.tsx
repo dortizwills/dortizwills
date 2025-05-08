@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import QuickLinkCard from '../components/QuickLinkCard';
 import EmailSubscribe from '../components/EmailSubscribe';
 import { ArrowRightIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,13 +12,13 @@ const Index = () => {
       title: 'Data-Driven eBooks',
       description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
       href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png'
+      imagePath: '/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png'
     },
     {
       title: 'Email Marketing Campaigns',
       description: 'Email marketing campaigns for an audience that is not reading inclined',
       href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png'
+      imagePath: '/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png'
     },
     {
       title: 'Social Media Campaigns',

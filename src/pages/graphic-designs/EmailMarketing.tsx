@@ -8,7 +8,7 @@ const EmailMarketing = () => {
       title: "Data-Driven eBooks",
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less.",
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
+      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
     },
     {
       title: "Social Media Campaigns",
@@ -22,8 +22,8 @@ const EmailMarketing = () => {
     <ProjectDetailLayout 
       title="Email Marketing Campaigns" 
       backTo="/graphic-designs"
-      backLabel="Back to Graphic Designs"
-      headerImage="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
+      backLabel="Back to Marketing Designs"
+      headerImage="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
       projectDetails={{
         timeline: "Ongoing",
         responsibilities: "Email Strategy, Content Creation, Visual Design, Audience Segmentation, Analytics",
@@ -55,7 +55,7 @@ const EmailMarketing = () => {
           Through audience research, we discovered that our target users checked emails primarily on mobile devices during breaks between servicing vehicles. They valued practical, applicable information and were skeptical of marketing jargon. Most importantly, they responded better to showing than telling.
         </p>
         
-        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Email Template" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Email Template" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We developed a visual-first email strategy that relied on clean, impactful imagery, minimal text, and clear call-to-actions. Each email focused on a single message or value proposition, using auto shop imagery that readers would immediately recognize and relate to.
@@ -65,7 +65,7 @@ const EmailMarketing = () => {
           We implemented advanced segmentation based on shop size, services offered, and previous interactions with Shopmonkey. Dynamic content blocks allowed us to personalize emails with relevant information without creating entirely separate campaigns for each segment.
         </p>
         
-        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Email Examples" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Email Examples" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
           We established a robust A/B testing protocol for subject lines, preview text, imagery, and CTAs. Over time, we built a database of what resonated best with different segments. The design system evolved based on these insights, with each iteration showing improved performance.
@@ -79,7 +79,7 @@ const EmailMarketing = () => {
           Email became Shopmonkey's highest-converting digital channel, responsible for 27% of demo requests. The nurture campaigns reduced sales cycle length by 30% by preparing prospects with the right information before sales conversations.
         </p>
         
-        <img src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" alt="Results Dashboard" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Results Dashboard" className="w-full rounded-lg mb-10" />
       </div>
     </ProjectDetailLayout>
   );
