@@ -52,8 +52,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             <img 
               src={headerImage} 
               alt={title} 
-              className="w-full rounded-lg object-cover" 
-              style={{ aspectRatio: '2.25/1', objectPosition: 'center' }}
+              className="w-full rounded-lg object-cover object-top" 
+              style={{ aspectRatio: '2.25/1' }}
             />
           ) : (
             <div 
@@ -98,12 +98,12 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedProjects.map((project, index) => (
                 <Link 
                   key={index}
                   to={project.path}
-                  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+                  className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 ${index === 1 ? 'md:col-span-2' : ''}`}
                 >
                   <div 
                     className="bg-designer-gray overflow-hidden"
