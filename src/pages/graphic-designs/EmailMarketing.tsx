@@ -8,7 +8,7 @@ const EmailMarketing = () => {
       title: "Data-Driven eBooks",
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less.",
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
+      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
     },
     {
       title: "Social Media Campaigns",
@@ -23,7 +23,7 @@ const EmailMarketing = () => {
       title="Email Marketing Campaigns" 
       backTo="/graphic-designs"
       backLabel="Back to Marketing Designs"
-      headerImage="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
+      headerImage="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
       projectDetails={{
         timeline: "Ongoing",
         responsibilities: "Email Strategy, Content Creation, Visual Design, Audience Segmentation, Analytics",
@@ -32,54 +32,68 @@ const EmailMarketing = () => {
       relatedProjects={relatedProjects}
     >
       <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Challenge</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Audience Analysis</h3>
+        <p className="mb-6">
+          Shopmonkey's marketing team desired to differentiate their brand by establishing a news station for all things automotive with the goal of becoming an industry expert in what's new. Shopmonkey positioned themselves to become the brand name for automotive shops even before they knew what the software was capable of delivering.
+        </p>
         
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Strategy & Design</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Visual-First Approach</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Segmentation & Personalization</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Testing & Optimization</h3>
+        <h2 className="text-2xl font-display font-semibold mb-4">Approach</h2>
+        <p className="mb-6">
+          These emails were set to release in addition to other Shopmonkey marketing emails so they would need to feel less like a sales promotion and more as an automotive insider. This challenge would partially be addressed by my visual decisions but primarily by including less sales content. This required me to design unique headers, footers, buttons, content blocks, iconography, type styles, and content layouts.
+        </p>
         
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Results</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Engagement Metrics</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Business Impact</h3>
+        <h2 className="text-2xl font-display font-semibold mb-4">Engaging First Looks</h2>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Continued Attention</h2>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Formatted Email Examples</h2>
+        <h3 className="text-xl font-display font-medium mb-3">Text Based</h3>
+        
+        <h3 className="text-xl font-display font-medium mb-3">Article Based</h3>
+        
+        <h3 className="text-xl font-display font-medium mb-3">Deliverable Based</h3>
+        
+        <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
+        <h3 className="text-xl font-display font-medium mb-3">Final Demonstration</h3>
+        
+        <h3 className="text-xl font-display font-medium mb-3">Continued Adoption</h3>
       </div>
       
       <div>
         <p className="mb-6">
-          Shopmonkey needed to engage an audience of auto shop owners who typically don't respond to text-heavy communications. These busy professionals rarely have time to read extensive emails and are more likely to respond to visual content that communicates value quickly.
+          In order to engage readers from the outset I encouraged our team to use headers that differentiate Shopmonkey from competitors. They include illustrations, iconography, type styles, and content blocks.
+        </p>
+        
+        <img src="/lovable-uploads/d5ef881c-8550-4b78-b9e1-88ed45814d3c.png" alt="Email Headers" className="w-full rounded-lg mb-10" />
+        
+        <p className="mb-6">
+          I created variations on content blocks that would enable our email content team to piece together any type of content for the Shopmonkey News emails.
+        </p>
+        
+        <img src="/lovable-uploads/9dcbd64b-2ec2-466a-abe3-4684680a0b80.png" alt="Content Blocks" className="w-full rounded-lg mb-10" />
+        
+        <p className="mb-6">
+          In order for these news articles to be repeatable between photography heavy content we needed to create a captivating method in displaying text driven emails.
+        </p>
+        
+        <img src="/lovable-uploads/dcf85e13-9236-4eac-a296-15d4574f6e1c.png" alt="Text Driven Emails" className="w-full rounded-lg mb-10" />
+        
+        <p className="mb-6">
+          These emails were the highlighted version of Shopmonkey News. These held retention easily since they focused on high performing content like blogs, industry reports, and customer stories.
         </p>
         
         <p className="mb-6">
-          Through audience research, we discovered that our target users checked emails primarily on mobile devices during breaks between servicing vehicles. They valued practical, applicable information and were skeptical of marketing jargon. Most importantly, they responded better to showing than telling.
+          These emails focused on Shopmonkey's robust offerings of downloadable resources. Viewers enjoyed these articles since they provided action steps in addition to news.
         </p>
         
-        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Email Template" className="w-full rounded-lg mb-10" />
+        <img src="/lovable-uploads/9dcbd64b-2ec2-466a-abe3-4684680a0b80.png" alt="Downloadable Resources" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
-          We developed a visual-first email strategy that relied on clean, impactful imagery, minimal text, and clear call-to-actions. Each email focused on a single message or value proposition, using auto shop imagery that readers would immediately recognize and relate to.
-        </p>
-        
-        <p className="mb-6">
-          We implemented advanced segmentation based on shop size, services offered, and previous interactions with Shopmonkey. Dynamic content blocks allowed us to personalize emails with relevant information without creating entirely separate campaigns for each segment.
-        </p>
-        
-        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Email Examples" className="w-full rounded-lg mb-10" />
-        
-        <p className="mb-6">
-          We established a robust A/B testing protocol for subject lines, preview text, imagery, and CTAs. Over time, we built a database of what resonated best with different segments. The design system evolved based on these insights, with each iteration showing improved performance.
+          I presented the entire system to our VP of Marketing and he gave us the green light to proceed. The marketing team rallied behind this decision. They were able to reproduce content easily which offered additional streams to produce interest for inbound customers.
         </p>
         
         <p className="mb-6">
-          Our visual approach doubled standard industry open rates, achieving a consistent 42% open rate across campaigns. Click-through rates averaged 3.5%, significantly above the industry average of 2.5%. Unsubscribe rates remained below 0.2%.
+          In 2023 Shopmonkey conducted a series of employee layoffs including the content writer and email marketing portions of the Marketing team. Despite these layoffs, this design system is still used by the remaining team because of its adaptable and reusable designs.
         </p>
-        
-        <p className="mb-6">
-          Email became Shopmonkey's highest-converting digital channel, responsible for 27% of demo requests. The nurture campaigns reduced sales cycle length by 30% by preparing prospects with the right information before sales conversations.
-        </p>
-        
-        <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Results Dashboard" className="w-full rounded-lg mb-10" />
       </div>
     </ProjectDetailLayout>
   );

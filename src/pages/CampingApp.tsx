@@ -3,19 +3,35 @@ import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 
 const CampingApp = () => {
+  const relatedProjects = [
+    {
+      title: "Quick Services",
+      description: "Reduce checkout times to 2-3 minutes for automotive shops.",
+      path: "/product-designs/quick-services",
+      image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+    },
+    {
+      title: "Gourmet Recipes",
+      description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.",
+      path: "/product-designs/gourmet-recipes",
+      image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
+    }
+  ];
+
   return (
     <ProjectDetailLayout 
       title="Camping Made Easy" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
+      headerImage="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
+      projectDetails={{
+        timeline: "3 Months",
+        responsibilities: "User Research, User Testing, Project Management, Interaction Design, Experience Design, Visual Design",
+        results: "50% increase of interest in camping based on these proposed features and add on purchase options"
+      }}
+      relatedProjects={relatedProjects}
     >
       <div className="md:col-span-8">
-        <img 
-          src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" 
-          alt="Camping App" 
-          className="w-full rounded-lg mb-8"
-        />
-        
         <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         <p className="mb-6">
           In mid 2023 my brother asked for some advice for his first camping trip. He'd never been before and between all the supply lists, internet articles, and recommendations from other friends he didn't know where to start.

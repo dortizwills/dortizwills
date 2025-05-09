@@ -8,14 +8,14 @@ const QuickServices = () => {
       title="Redesigning 'Quick Services'" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
+      headerImage="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+      projectDetails={{
+        timeline: "3 Months",
+        responsibilities: "User Research, Interaction Design, Experience Design, Visual Design",
+        results: "Enterprise partnership for a total of +200 shop locations, worth over $500M"
+      }}
     >
       <div className="md:col-span-8">
-        <img 
-          src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" 
-          alt="Quick Services App" 
-          className="w-full rounded-lg mb-8"
-        />
-        
         <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         <p className="mb-6">
           Have you ever needed to service your vehicle? I bet it was quick, definitely not over 45 minutes to hours. If that's the case, then this project isn't relevant, but if you're like millions of other auto shop customers then this will interest you.
