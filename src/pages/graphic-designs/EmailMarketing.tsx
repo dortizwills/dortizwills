@@ -32,7 +32,7 @@ const EmailMarketing = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div className="col-span-2 mb-6">
+      <div className="mb-10">
         <p>
           Shopmonkey's marketing team desired to differentiate their brand by establishing a news station for all things automotive with the goal of becoming an industry expert in what's new. Shopmonkey positioned themselves to become the brand name for automotive shops even before they knew what the software was capable of delivering.
         </p>
@@ -81,78 +81,74 @@ const EmailMarketing = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="space-y-10">
-          <h2 className="text-2xl font-display font-semibold">Formatted Email Examples</h2>
-          
-          <div>
-            <h3 className="text-xl font-display font-medium mb-3">Text Based</h3>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-display font-medium mb-3">Article Based</h3>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-display font-medium mb-3">Deliverable Based</h3>
-          </div>
-        </div>
-        <div className="md:col-span-2 space-y-10">
-          <div>
-            <p className="mb-6">
+      {/* Formatted Email Examples with 3 column layout */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-display font-semibold mb-8">Formatted Email Examples</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 bg-gray-900 rounded-lg p-8">
+          {/* Text Based Column */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-display font-medium text-white">Text Based</h3>
+            <p className="text-gray-300">
               In order for these news articles to be repeatable between photography heavy content we needed to create a captivating method in displaying text driven emails.
             </p>
-            <ImageModal 
-              src="/lovable-uploads/dcf85e13-9236-4eac-a296-15d4574f6e1c.png" 
-              alt="Text Driven Emails" 
-              className="mb-6" 
-            />
+            <div className="mt-6">
+              <ImageModal 
+                src="/lovable-uploads/dcf85e13-9236-4eac-a296-15d4574f6e1c.png" 
+                alt="Text Driven Emails" 
+                className="mt-2"
+              />
+            </div>
           </div>
           
-          <div>
-            <p className="mb-6">
+          {/* Article Based Column */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-display font-medium text-white">Article Based</h3>
+            <p className="text-gray-300">
               These emails were the highlighted version of Shopmonkey News. These held retention easily since they focused on high performing content like blogs, industry reports, and customer stories.
             </p>
-            <ImageModal 
-              src="/lovable-uploads/7f39b9e9-b5b3-4331-ba4a-96b322b3d22b.png" 
-              alt="Article Based Emails" 
-              className="mb-6" 
-            />
+            <div className="mt-6">
+              <ImageModal 
+                src="/lovable-uploads/7f39b9e9-b5b3-4331-ba4a-96b322b3d22b.png" 
+                alt="Article Based Emails" 
+                className="mt-2"
+              />
+            </div>
           </div>
           
-          <div>
-            <p className="mb-6">
+          {/* Deliverable Based Column */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-display font-medium text-white">Deliverable Based</h3>
+            <p className="text-gray-300">
               These emails focused on Shopmonkey's robust offerings of downloadable resources. Viewers enjoyed these articles since they provided action steps in addition to news.
             </p>
-            <ImageModal 
-              src="/lovable-uploads/5b8a5441-df1a-401e-9e3b-269952c42ca9.png" 
-              alt="Deliverable Based Resources" 
-              className="mb-6" 
-            />
+            <div className="mt-6">
+              <ImageModal 
+                src="/lovable-uploads/5b8a5441-df1a-401e-9e3b-269952c42ca9.png" 
+                alt="Deliverable Based Resources" 
+                className="mt-2"
+              />
+            </div>
           </div>
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="space-y-10">
-          <h2 className="text-2xl font-display font-semibold">Results</h2>
-          
+      {/* Results section with the new format */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-display font-medium mb-3">Final Demonstration</h3>
           </div>
-          
-          <div>
-            <h3 className="text-xl font-display font-medium mb-3">Continued Adoption</h3>
-          </div>
-        </div>
-        <div className="md:col-span-2 space-y-10">
-          <div>
+          <div className="md:col-span-2">
             <p className="mb-6">
               I presented the entire system to our VP of Marketing and he gave us the green light to proceed. The marketing team rallied behind this decision. They were able to reproduce content easily which offered additional streams to produce interest for inbound customers.
             </p>
           </div>
-          
+
           <div>
+            <h3 className="text-xl font-display font-medium mb-3">Continued Adoption</h3>
+          </div>
+          <div className="md:col-span-2">
             <p className="mb-6">
               In 2023 Shopmonkey conducted a series of employee layoffs including the content writer and email marketing portions of the Marketing team. Despite these layoffs, this design system is still used by the remaining team because of its adaptable and reusable designs.
             </p>

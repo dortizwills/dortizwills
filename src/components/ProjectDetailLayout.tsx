@@ -98,41 +98,77 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {relatedProjects.map((project, index) => (
-                <Link 
-                  key={index}
-                  to={project.path}
-                  className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 ${index === 1 ? 'md:col-span-2' : ''}`}
-                >
-                  <div 
-                    className="bg-designer-gray overflow-hidden"
-                    style={{ aspectRatio: '2.25/1' }}
+            <div className="grid grid-cols-3 gap-8">
+              {/* First project */}
+              {relatedProjects[0] && (
+                <div className="col-span-1">
+                  <Link 
+                    to={relatedProjects[0].path}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
                   >
-                    {project.image ? (
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="h-full flex items-center justify-center">
-                        <span className="text-gray-400">Image coming soon</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
-                    <p className="text-gray-600 mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex items-center text-designer-red font-medium">
-                      <span className="mr-2">View Project</span>
-                      <ArrowRight size={16} />
+                    <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                      {relatedProjects[0].image ? (
+                        <img 
+                          src={relatedProjects[0].image} 
+                          alt={relatedProjects[0].title} 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="h-full flex items-center justify-center">
+                          <span className="text-gray-400">Image coming soon</span>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="p-6">
+                      <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[0].title}</h3>
+                      <p className="text-gray-600 mb-4">
+                        {relatedProjects[0].description}
+                      </p>
+                      <div className="flex items-center text-designer-red font-medium">
+                        <span className="mr-2">View Project</span>
+                        <ArrowRight size={16} />
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              )}
+              
+              {/* Empty middle column */}
+              <div className="col-span-1"></div>
+              
+              {/* Second project */}
+              {relatedProjects[1] && (
+                <div className="col-span-1">
+                  <Link 
+                    to={relatedProjects[1].path}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
+                  >
+                    <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                      {relatedProjects[1].image ? (
+                        <img 
+                          src={relatedProjects[1].image} 
+                          alt={relatedProjects[1].title} 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="h-full flex items-center justify-center">
+                          <span className="text-gray-400">Image coming soon</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[1].title}</h3>
+                      <p className="text-gray-600 mb-4">
+                        {relatedProjects[1].description}
+                      </p>
+                      <div className="flex items-center text-designer-red font-medium">
+                        <span className="mr-2">View Project</span>
+                        <ArrowRight size={16} />
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
