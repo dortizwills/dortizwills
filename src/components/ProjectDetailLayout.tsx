@@ -68,7 +68,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {/* Project details section immediately after hero image */}
         {projectDetails && (
           <div className="bg-gray-50 p-6 rounded-lg mb-10">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projectDetails.timeline && (
                 <div className="flex flex-col">
                   <div className="font-medium text-gray-900 text-xs">Timeline</div>
@@ -93,14 +93,12 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
           </div>
         )}
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-          {children}
-        </div>
+        {children}
         
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {relatedProjects.map((project, index) => (
                 <Link 
                   key={index}

@@ -10,21 +10,21 @@ const MarketingDesigns = () => {
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less",
       icon: <Book size={24} className="text-designer-red" />,
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" // Updated image
+      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
     },
     {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined",
       icon: <Mail size={24} className="text-designer-red" />,
       path: "/graphic-designs/email-marketing",
-      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png" // Updated image
+      image: "/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
     },
     {
       title: "Refining Product Illustrations",
       description: "Rebranding assets for Series C funding that refined Shopmonkey's brand",
       icon: <RefreshCcw size={24} className="text-designer-red" />,
       path: "/graphic-designs/product-illustrations",
-      image: "/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" // Updated image
+      image: "/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
     },
     {
       title: "Social Media Campaigns",
@@ -38,14 +38,14 @@ const MarketingDesigns = () => {
       description: "Story telling case studies that encapsulate success stories from different automotive shops – from repair to custom builds",
       icon: <FileText size={24} className="text-designer-red" />,
       path: "/graphic-designs/case-studies",
-      image: "/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" // Updated image
+      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
     },
     {
       title: "Event Designs",
       description: "Booth and event designs displaying Shopmonkey's friendly brand towards a skeptical crowd at SEMA – The largest tradeshow in the automotive sphere",
       icon: <Tent size={24} className="text-designer-red" />,
       path: "/graphic-designs/event-designs",
-      image: "/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png" // Updated image
+      image: "/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
     }
   ];
 
@@ -54,7 +54,7 @@ const MarketingDesigns = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">Marketing Designs</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Link 
               key={project.title} 
