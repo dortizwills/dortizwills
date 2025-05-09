@@ -1,106 +1,120 @@
 
-import React from 'react';
-import { Star } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-interface Testimonial {
+interface TestimonialProps {
   quote: string;
-  name: string;
+  author: string;
   title: string;
-  rating: number;
-  avatarUrl?: string;
 }
 
-const TestimonialCarousel: React.FC = () => {
-  const testimonials: Testimonial[] = [
-    {
-      quote: "Daniel's design work completely transformed our product. The user experience is now seamless and our customer satisfaction has gone up by 40%.",
-      name: "Sarah Johnson",
-      title: "Product Manager, TechCorp",
-      rating: 5,
-      avatarUrl: "/placeholder.svg"
-    },
-    {
-      quote: "Working with Daniel was a game-changer for our startup. His ability to translate complex ideas into intuitive interfaces helped us secure our Series A funding.",
-      name: "Michael Chen",
-      title: "Founder, StartupX",
-      rating: 5,
-      avatarUrl: "/placeholder.svg"
-    },
-    {
-      quote: "The UX research Daniel conducted gave us insights we never would have discovered ourselves. His methodology is thorough and his recommendations were spot-on.",
-      name: "Priya Sharma",
-      title: "UX Director, DesignFirm",
-      rating: 5,
-      avatarUrl: "/placeholder.svg"
-    },
-    {
-      quote: "We hired Daniel to redesign our e-commerce platform and saw conversion rates increase by 28% within the first month after launch.",
-      name: "James Wilson",
-      title: "CMO, RetailBrand",
-      rating: 5,
-      avatarUrl: "/placeholder.svg"
-    },
-    {
-      quote: "Daniel's attention to detail and user-centered approach made all the difference in our product redesign. Highly recommended for any UX project.",
-      name: "Elena Rodriguez",
-      title: "VP of Product, SoftwareCo",
-      rating: 5,
-      avatarUrl: "/placeholder.svg"
+interface TestimonialCarouselProps {
+  testimonials?: TestimonialProps[];
+}
+
+const defaultTestimonials = [
+  {
+    quote: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and perspectives that make him stand out in the creative field. His versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines.",
+    author: "Kyle Marks",
+    title: "Creative Director, Shopmonkey"
+  },
+  {
+    quote: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
+    author: "Steven Chic",
+    title: "VP, Alvys"
+  },
+  {
+    quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well.",
+    author: "Kelsey McAuley",
+    title: "Director of Web, Raborn Media"
+  },
+  {
+    quote: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
+    author: "Samantha Lane",
+    title: "Head of UX Design, Raborn Media"
+  },
+  {
+    quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
+    author: "Matt Stratton",
+    title: "COO, Raborn Media"
+  }
+];
+
+const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials = defaultTestimonials }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handlePrevious = () => {
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        handleNext();
+      }, 5000);
+      return () => clearInterval(interval);
     }
-  ];
+  }, [isPaused, testimonials.length]);
 
   return (
-    <div className="py-8">
-      <Carousel className="w-full" opts={{ loop: true }}>
-        <CarouselContent>
-          {testimonials.map((testimonial, index) => (
-            <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/2">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mx-2 h-full flex flex-col">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="text-yellow-400 fill-yellow-400" size={16} />
-                  ))}
-                </div>
-                
-                <p className="text-gray-700 italic mb-6 flex-grow">"{testimonial.quote}"</p>
-                
-                <div className="flex items-center mt-auto">
-                  <div className="w-10 h-10 bg-designer-gray rounded-full mr-3 overflow-hidden">
-                    {testimonial.avatarUrl && (
-                      <img 
-                        src={testimonial.avatarUrl} 
-                        alt={`${testimonial.name}'s avatar`}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
+    <div 
+      className="relative bg-designer-gray rounded-lg p-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <blockquote className="text-xl md:text-2xl mb-6 italic text-gray-800">
+            "{testimonials[activeIndex].quote}"
+          </blockquote>
+          <div className="inline-flex flex-col items-center">
+            <div className="font-medium text-lg">{testimonials[activeIndex].author}</div>
+            <div className="text-gray-600">{testimonials[activeIndex].title}</div>
+          </div>
+        </div>
+        
+        <div className="flex justify-center items-center space-x-2 mb-4">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === activeIndex ? 'bg-designer-red w-4' : 'bg-gray-300'
+              }`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
           ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden md:flex absolute left-0 -translate-x-1/2" />
-        <CarouselNext className="hidden md:flex absolute right-0 translate-x-1/2" />
-      </Carousel>
-      
-      <div className="flex justify-center gap-2 mt-4 md:hidden">
-        <Carousel>
-          <CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </CarouselContent>
-        </Carousel>
+        </div>
+        
+        <div className="flex justify-center space-x-4">
+          <Button 
+            variant="outline" 
+            size="icon"
+            onClick={handlePrevious}
+            aria-label="Previous testimonial"
+          >
+            <ArrowLeft size={16} />
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            size="icon"
+            onClick={handleNext}
+            aria-label="Next testimonial"
+          >
+            <ArrowRight size={16} />
+          </Button>
+        </div>
       </div>
     </div>
   );

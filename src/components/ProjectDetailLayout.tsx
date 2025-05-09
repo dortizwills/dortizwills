@@ -68,25 +68,26 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {/* Project details section immediately after hero image */}
         {projectDetails && (
           <div className="bg-gray-50 p-6 rounded-lg mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-2xl font-display font-semibold mb-6">Project Details</h2>
+            <div className="space-y-6">
               {projectDetails.timeline && (
-                <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Timeline</div>
-                  <div className="text-gray-600 text-sm mt-2">{projectDetails.timeline}</div>
+                <div className="border-b border-gray-200 pb-4">
+                  <div className="font-medium text-gray-900 text-lg">Timeline</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.timeline}</div>
                 </div>
               )}
               
               {projectDetails.responsibilities && (
-                <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Responsibilities</div>
-                  <div className="text-gray-600 text-sm mt-2">{projectDetails.responsibilities}</div>
+                <div className="border-b border-gray-200 pb-4">
+                  <div className="font-medium text-gray-900 text-lg">Responsibilities</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.responsibilities}</div>
                 </div>
               )}
               
               {projectDetails.results && (
-                <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Results</div>
-                  <div className="text-gray-600 text-sm mt-2">{projectDetails.results}</div>
+                <div>
+                  <div className="font-medium text-gray-900 text-lg">Results</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.results}</div>
                 </div>
               )}
             </div>

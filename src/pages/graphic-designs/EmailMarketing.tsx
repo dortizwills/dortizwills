@@ -99,7 +99,7 @@ const EmailMarketing = () => {
               <img 
                 src="/lovable-uploads/dcf85e13-9236-4eac-a296-15d4574f6e1c.png" 
                 alt="Text Driven Emails" 
-                className="w-full rounded-lg mt-2"
+                className="w-full rounded-lg"
               />
             </div>
           </div>
@@ -114,7 +114,7 @@ const EmailMarketing = () => {
               <img 
                 src="/lovable-uploads/7f39b9e9-b5b3-4331-ba4a-96b322b3d22b.png" 
                 alt="Article Based Emails" 
-                className="w-full rounded-lg mt-2"
+                className="w-full rounded-lg"
               />
             </div>
           </div>
@@ -129,14 +129,14 @@ const EmailMarketing = () => {
               <img 
                 src="/lovable-uploads/5b8a5441-df1a-401e-9e3b-269952c42ca9.png" 
                 alt="Deliverable Based Resources" 
-                className="w-full rounded-lg mt-2"
+                className="w-full rounded-lg"
               />
             </div>
           </div>
         </div>
       </div>
       
-      {/* Results section with the new format */}
+      {/* Results section */}
       <div className="mb-16">
         <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

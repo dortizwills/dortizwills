@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EmailSubscribe from '../components/EmailSubscribe';
-import { ArrowRightIcon } from 'lucide-react';
+import { ArrowRightIcon, Award, TrendingUp, Image, Users, Layout, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 
@@ -12,13 +12,13 @@ const Index = () => {
       title: 'Data-Driven eBooks',
       description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
       href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png'
+      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png'
     },
     {
       title: 'Email Marketing Campaigns',
       description: 'Email marketing campaigns for an audience that is not reading inclined',
       href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png'
+      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png'
     },
     {
       title: 'Social Media Campaigns',
@@ -28,12 +28,73 @@ const Index = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      quote: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and perspectives that make him stand out in the creative field. His versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines.",
+      author: "Kyle Marks",
+      title: "Creative Director, Shopmonkey"
+    },
+    {
+      quote: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
+      author: "Steven Chic",
+      title: "VP, Alvys"
+    },
+    {
+      quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well.",
+      author: "Kelsey McAuley",
+      title: "Director of Web, Raborn Media"
+    },
+    {
+      quote: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
+      author: "Samantha Lane",
+      title: "Head of UX Design, Raborn Media"
+    },
+    {
+      quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
+      author: "Matt Stratton",
+      title: "COO, Raborn Media"
+    }
+  ];
+
+  const skillPoints = [
+    {
+      title: "UX Design",
+      description: "I focus on creating user-centered designs that prioritize empathy and clarity, especially in complex or high-stakes environments.",
+      icon: <Layout size={24} className="text-designer-red" />
+    },
+    {
+      title: "UI Design",
+      description: "I design clean, responsive interfaces with attention to visual detail, accessibility, and consistency across mobile and web.",
+      icon: <Image size={24} className="text-designer-red" />
+    },
+    {
+      title: "Prototyping",
+      description: "I rapidly explore and iterate on multiple design projects, delivering practical prototypes that support agile development.",
+      icon: <Layout size={24} className="text-designer-red" />
+    },
+    {
+      title: "Results Focused",
+      description: "I produce high-quality work, consistently meet project goals, and iterate until the best cost efficient solution is found.",
+      icon: <Award size={24} className="text-designer-red" />
+    },
+    {
+      title: "Collaboration",
+      description: "I drive collaborative environments, encourage open feedback and communication, and build positive team cultures.",
+      icon: <Users size={24} className="text-designer-red" />
+    },
+    {
+      title: "Growth-Minded Solutions",
+      description: "I approach projects with curiosity and a desire to learn, always looking for ways to increase my skills and the company's bottom line.",
+      icon: <TrendingUp size={24} className="text-designer-red" />
+    }
+  ];
+
   return (
     <div className="pl-[220px]">
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-16">
           <p className="text-lg text-gray-600 mb-2">Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl font-bold mb-4">Daniel Ortiz-Wills' Portfolio</h1>
+          <h1 className="font-display text-6xl font-bold mb-4">Portfolio</h1>
           <p className="text-xl text-gray-600 max-w-2xl">
             Big ideas, clean pixels, happy users — I design with a little heart and a lot of hustle.
           </p>
@@ -51,7 +112,7 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="font-display text-2xl mb-2">Express Lane — Completing 15 minute services in 3 minutes</h3>
                 <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet consectetur. Pulvinar pellentesque egestas commodo enim et ornare.
+                  Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                 </p>
                 <Link to="/product-designs/quick-services" className="inline-flex items-center text-designer-red hover:text-red-600 transition-colors">
                   <span className="mr-2">View Project</span>
@@ -149,8 +210,28 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
+          <h2 className="font-display text-3xl mb-6">My Skills & Approach</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillPoints.map((skill, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <div className="bg-gray-50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                  {skill.icon}
+                </div>
+                <h3 className="text-xl font-display font-medium mb-2">{skill.title}</h3>
+                <p className="text-gray-600">{skill.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <img 
+            src="/lovable-uploads/587db56a-2a84-4b03-97f4-0a635f4a4c38.png" 
+            alt="Client Reviews" 
+            className="w-full rounded-lg mb-8" 
+          />
           <h2 className="font-display text-3xl mb-6">What Clients Say</h2>
-          <TestimonialCarousel />
+          <TestimonialCarousel testimonials={testimonials} />
         </section>
 
         <section>
