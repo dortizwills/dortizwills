@@ -71,21 +71,21 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projectDetails.timeline && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs">Timeline</div>
+                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Timeline</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.timeline}</div>
                 </div>
               )}
               
               {projectDetails.responsibilities && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs">Responsibilities</div>
+                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Responsibilities</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.responsibilities}</div>
                 </div>
               )}
               
               {projectDetails.results && (
                 <div className="flex flex-col">
-                  <div className="font-medium text-gray-900 text-xs">Results</div>
+                  <div className="font-medium text-gray-900 text-xs uppercase tracking-wider">Results</div>
                   <div className="text-gray-600 text-sm mt-2">{projectDetails.results}</div>
                 </div>
               )}
