@@ -10,14 +10,14 @@ const MarketingDesigns = () => {
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less",
       icon: <Book size={24} className="text-designer-red" />,
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png"
+      image: "/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png"
     },
     {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined",
       icon: <Mail size={24} className="text-designer-red" />,
       path: "/graphic-designs/email-marketing",
-      image: "/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png"
+      image: "/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png"
     },
     {
       title: "Refining Product Illustrations",
