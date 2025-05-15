@@ -34,16 +34,12 @@ const GourmetRecipes = () => {
       relatedProjects={relatedProjects}
     >
       {/* Early Stages */}
- <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
         </div>
-      
-      <div className="grid grid-cols-3 gap-8 mb-10">
-        <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
-        </div>
         <div className="col-span-2">
+          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
           <p className="mb-6">
             I was first introduced to Blue Apron when a relative of mine ordered a pre-made meal plan. I have a number of friends and I myself have dietary restrictions, and I stumbled across their app when I was wanting to try a new recipe.
           </p>
