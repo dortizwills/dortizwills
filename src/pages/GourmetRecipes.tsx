@@ -217,10 +217,11 @@ const GourmetRecipes = () => {
       {/* Final App Designs */}
       <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
+          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2> <br>
           <h3 className="text-xl font-display font-medium mb-3">User Need 1: Intelligent Searches</h3>
         </div>
         <div className="col-span-2">
+          <br><br><br>
           <p className="mb-6">
             After my users' research, I decided that it was time for final designs. The new focus at this stage was to demonstrate to my core audience how they could rely on Blue Apron for catered and convenient recipes.
           </p>
