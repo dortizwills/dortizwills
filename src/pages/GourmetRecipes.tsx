@@ -40,8 +40,8 @@ const GourmetRecipes = () => {
           <h3 className="text-xl font-display font-medium mb-3">Research</h3>
         </div>
         <div className="col-span-2">
-          <h2 className="text-2xl font-display font-semibold mb-4"></h2>
-          <h3 className="text-xl font-display font-medium mb-3"></h3>
+          <h2 className="text-2xl font-display font-semibold mb-4"> </h2>
+          <h3 className="text-xl font-display font-medium mb-3"> </h3>
           <p className="mb-6">
             I was first introduced to Blue Apron when a relative of mine ordered a pre-made meal plan. I have a number of friends and I myself have dietary restrictions, and I stumbled across their app when I was wanting to try a new recipe.
           </p>
