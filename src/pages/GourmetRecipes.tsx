@@ -273,7 +273,7 @@ const GourmetRecipes = () => {
         </div>
         <div className="col-span-2">
           <p className="mb-6">
-            I surveyed users at the beginning and conclusion of my project about their willingness to use Blue Apron's services. By adding this feature prior and new users expressed a 30% increase in their likelihood to use the service.
+            <br><br><br>I surveyed users at the beginning and conclusion of my project about their willingness to use Blue Apron's services. By adding this feature prior and new users expressed a 30% increase in their likelihood to use the service.
           </p>
           <p className="mb-6">
             I understand that when monetary commitment is involved, it changes the actual likelihood by about half, but a realistic 15% increase in users is still an enticing prospect for a company as large as Blue Apron.
