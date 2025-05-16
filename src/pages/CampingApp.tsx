@@ -252,13 +252,11 @@ const CampingApp = () => {
           <p className="mb-6">
             In this version of the app the core path required more information than I initially placed for our users. By including the information, I adjusted from my initial map below to the updated version so that users could be well prepared for their trips.
           </p>
-          <div className="mb-6">
             <img 
               src="/lovable-uploads/9964ce92-2dc6-4f32-af81-8bd549efddff.png" 
               alt="Revised User Flow" 
               className="rounded-lg w-2/3"
             />
-          </div>
         </div>
       </div>
       <div className="mb-12">
