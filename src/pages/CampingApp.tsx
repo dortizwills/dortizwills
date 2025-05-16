@@ -32,10 +32,13 @@ const CampingApp = () => {
       }}
       relatedProjects={relatedProjects}
     >
+
       {/* Div Block 2 */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
-        <div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             In mid 2023 my brother asked for some advice for his first camping trip. He'd never been before and between all the supply lists, internet articles, and recommendations from other friends he didn't know where to start.
           </p>
