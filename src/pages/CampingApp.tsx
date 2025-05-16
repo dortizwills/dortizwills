@@ -59,9 +59,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 4 */}
-      <div className="mb-8">
-        <h3 className="text-xl font-display font-medium mb-3">Research</h3>
-        <div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             I wanted to build an MVP for new campers, and this list would be difficult to solve all at once. Using my past decade of interviewing dozens of customers and friends I developed a list of common needs in order to feel comfortable camping.
           </p>
