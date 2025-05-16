@@ -108,11 +108,8 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 6 */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
-        <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4"></h2>
-        </div>
-        <div className="col-span-2">
+      <div className="mb-12">
+        <div className="text-right">
           <p className="mb-6">
             Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
           </p>
@@ -247,6 +244,23 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 15 */}
+       <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h2 className="text-2xl font-display font-semibold mb-4">Revised User Flow</h2>
+        </div>
+        <div className="col-span-2">
+          <p className="mb-6">
+            In this version of the app the core path required more information than I initially placed for our users. By including the information, I adjusted from my initial map below to the updated version so that users could be well prepared for their trips.
+          </p>
+          <div className="flex justify-end">
+            <img 
+              src="/lovable-uploads/9964ce92-2dc6-4f32-af81-8bd549efddff.png" 
+              alt="Revised User Flow" 
+              className="rounded-lg w-2/3"
+            />
+          </div>
+        </div>
+      </div>
       <div className="mb-12">
         <h2 className="text-2xl font-display font-semibold mb-6">Revised User Flow</h2>
         <div>
