@@ -20,7 +20,6 @@ interface ProjectDetailLayoutProps {
     path: string;
     image?: string;
   }>;
-  darkMode?: boolean;
 }
 
 const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({ 
@@ -30,25 +29,17 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   backLabel,
   headerImage,
   projectDetails,
-  relatedProjects,
-  darkMode = false
+  relatedProjects
 }) => {
   // Ensure the page scrolls to top when mounted
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const textColorClass = darkMode ? "text-white" : "text-foreground";
-  const linkColorClass = darkMode ? "text-designer-red hover:text-red-300" : "text-designer-red hover:underline";
-  const cardBgClass = darkMode ? "bg-gray-800" : "bg-gray-50";
-  const cardBorderClass = darkMode ? "border-gray-700" : "border-gray-200";
-  const cardTextClass = darkMode ? "text-gray-300" : "text-gray-600";
-  const labelClass = darkMode ? "text-gray-200" : "text-gray-900";
-
   return (
-    <div className={darkMode ? "" : "pl-[220px]"}>
-      <main className={`max-w-7xl mx-auto px-6 py-12 ${textColorClass}`}>
-        <Link to={backTo} className={`flex items-center mb-8 ${linkColorClass}`}>
+    <div className="pl-[220px]">
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        <Link to={backTo} className="flex items-center text-designer-red mb-8 hover:underline">
           <ArrowLeft size={20} className="mr-2" />
           <span>{backLabel}</span>
         </Link>
@@ -76,27 +67,27 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         
         {/* Project details section immediately after hero image */}
         {projectDetails && (
-          <div className={`${cardBgClass} p-6 rounded-lg mb-10`}>
+          <div className="bg-gray-50 p-6 rounded-lg mb-10">
             <h2 className="text-2xl font-display font-semibold mb-6">Project Details</h2>
             <div className="space-y-6">
               {projectDetails.timeline && (
-                <div className={`border-b ${cardBorderClass} pb-4`}>
-                  <div className={`font-medium ${labelClass} text-lg`}>Timeline</div>
-                  <div className={cardTextClass}>{projectDetails.timeline}</div>
+                <div className="border-b border-gray-200 pb-4">
+                  <div className="font-medium text-gray-900 text-lg">Timeline</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.timeline}</div>
                 </div>
               )}
               
               {projectDetails.responsibilities && (
-                <div className={`border-b ${cardBorderClass} pb-4`}>
-                  <div className={`font-medium ${labelClass} text-lg`}>Responsibilities</div>
-                  <div className={cardTextClass}>{projectDetails.responsibilities}</div>
+                <div className="border-b border-gray-200 pb-4">
+                  <div className="font-medium text-gray-900 text-lg">Responsibilities</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.responsibilities}</div>
                 </div>
               )}
               
               {projectDetails.results && (
                 <div>
-                  <div className={`font-medium ${labelClass} text-lg`}>Results</div>
-                  <div className={cardTextClass}>{projectDetails.results}</div>
+                  <div className="font-medium text-gray-900 text-lg">Results</div>
+                  <div className="text-gray-600 mt-1">{projectDetails.results}</div>
                 </div>
               )}
             </div>
@@ -114,7 +105,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 <div className="col-span-1">
                   <Link 
                     to={relatedProjects[0].path}
-                    className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${darkMode ? 'border-gray-700' : 'border border-gray-100'} block h-full`}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
                   >
                     <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
                       {relatedProjects[0].image ? (
@@ -131,7 +122,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[0].title}</h3>
-                      <p className={darkMode ? "text-gray-300 mb-4" : "text-gray-600 mb-4"}>
+                      <p className="text-gray-600 mb-4">
                         {relatedProjects[0].description}
                       </p>
                       <div className="flex items-center text-designer-red font-medium">
@@ -151,7 +142,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 <div className="col-span-1">
                   <Link 
                     to={relatedProjects[1].path}
-                    className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${darkMode ? 'border-gray-700' : 'border border-gray-100'} block h-full`}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
                   >
                     <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
                       {relatedProjects[1].image ? (
@@ -168,7 +159,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[1].title}</h3>
-                      <p className={darkMode ? "text-gray-300 mb-4" : "text-gray-600 mb-4"}>
+                      <p className="text-gray-600 mb-4">
                         {relatedProjects[1].description}
                       </p>
                       <div className="flex items-center text-designer-red font-medium">
