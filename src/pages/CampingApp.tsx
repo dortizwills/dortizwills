@@ -152,6 +152,7 @@ const CampingApp = () => {
             In this application I needed to balance the quality and quantity of information, as a poor camping experience often guarantees people rarely camping again.
           </p>
         </div>
+      </div> {/* Fixed: Added closing div tag for Div Block 7 */}
       
       {/* Div Block 8 */}
       <div className="mb-8">
@@ -260,10 +261,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 16 */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Primary Happy Path</h3>
-        <div>
+        </div> {/* Fixed: Corrected the div structure - added closing div and reopened */}
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             After discussing with my users I wanted them to experience booking from start to finish. I retested initial users of the app in the desire to see if their initial hesitations with the app were solved. For some the majority of issues were resolved.
           </p>
@@ -300,11 +302,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 18 */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3"></h3>
         </div>
-        <div>
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             When I included a path for returning campers it was a good solution for those campers who wanted to reuse gear or revisit prior experiences. I also opened up opportunities for future rounds of monetization by including a method for campers to buy their previously used gear.
           </p>
@@ -321,11 +323,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 20 */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-6">Final App Designs</h2>
         </div>
-        <div>
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             From all the information I received over my app, I decided that it was time for final designs. The focus at this stage was to ensure I demonstrated the core of my user's needs –customization and information.
           </p>
@@ -333,11 +335,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 21 */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Need 1: Customization</h3>
         </div>
-        <div>
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             People choose to camp for their own unique reasons. I decided the ability to prioritize user preferences was paramount for users to find a camping experience they enjoyed. I included reviews, similar experiences, and individually tailored experiences to allow campers to enjoy outside on their own terms.
           </p>
@@ -354,11 +356,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 23 */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Need 2: Information</h3>
         </div>
-        <div>
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             It's hard to enjoy something when you know very little about it. Users seemed more interested in camping when they found out what they could expect when they were there and what it would look like for them to enjoy themselves. I added more opportunities for users to be informed and because of that they seemed ready to participate in new camping experiences.
           </p>
@@ -377,8 +379,10 @@ const CampingApp = () => {
       {/* Div Block 25 */}
       <div className="mb-8">
         <h3 className="text-xl font-display font-medium mb-3">Final Booking Demonstration</h3>
-        </div>
-        <div>
+      </div>
+      <div className="grid grid-cols-3 gap-8 mb-10"> {/* Fixed: Added grid layout for consistent formatting */}
+        <div className="col-span-1"></div>
+        <div className="col-span-2">
           <p className="mb-6">
             I recorded a final version of my app for ease of viewing, especially demonstrating how users could expect to book their first experience for camping. You can view additional paths to explore in my prototype linked below this video.
           </p>
