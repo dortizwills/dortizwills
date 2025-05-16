@@ -174,9 +174,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 11 */}
-      <div className="mb-8">
-        <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
-        <div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             I changed the activity users started on so the base activity was more clear and simple.
             Initially I set up users with Backpacking, a more complicated version of camping – Now they would start simply with camping. I began adding fidelity for users to understand new information and additional options.
