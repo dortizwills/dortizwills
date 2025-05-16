@@ -108,8 +108,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 6 */}
-      <div className="mb-12">
-        <div className="text-right">
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h2 className="text-2xl font-display font-semibold mb-4"></h2>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
           </p>
