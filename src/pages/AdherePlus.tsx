@@ -23,6 +23,7 @@ const AdherePlus = () => {
       title="Adhere+" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
+      headerImage="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
       projectDetails={{
         timeline: "3 Months",
         responsibilities: "Branding, UX/UI Design, Design System Creation",

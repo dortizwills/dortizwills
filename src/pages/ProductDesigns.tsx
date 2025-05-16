@@ -1,51 +1,46 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileCode, Tent, BookOpen, Smartphone, Briefcase, Music, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const ProductDesigns = () => {
   const projects = [
     {
-      title: "Redesigning \"Quick Services\"",
-      description: "Reduce checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes",
-      icon: <FileCode className="text-designer-red" size={24} />,
+      title: "Quick Services",
+      description: "Reduce checkout times to 2-3 minutes for automotive shops.",
       path: "/product-designs/quick-services",
       image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
     },
     {
       title: "Camping Made Easy",
-      description: "Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level",
-      icon: <Tent className="text-designer-red" size={24} />,
+      description: "Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level.",
       path: "/product-designs/camping-app",
       image: "/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
     },
     {
-      title: "Gourmet Recipes Anytime",
-      description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are",
-      icon: <BookOpen className="text-designer-red" size={24} />,
+      title: "Gourmet Recipes",
+      description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.",
       path: "/product-designs/gourmet-recipes",
       image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
     },
     {
-      title: "Adhere+",
-      description: "0 to 1 web and branding design for a Adhere Plus's flagship app",
-      icon: <Briefcase className="text-designer-red" size={24} />,
-      path: "/product-designs/adhere-plus",
-      inProgress: true
-    },
-    {
-      title: "Mobile App Explorations",
-      description: "Cold selling mobile applications for startup companies. Delivering apps that deliver vision and brand exploration",
-      icon: <Smartphone className="text-designer-red" size={24} />,
-      path: "/product-designs/mobile-apps",
-      inProgress: true
-    },
-    {
       title: "Grammy Museum",
-      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education",
-      icon: <Music className="text-designer-red" size={24} />,
+      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
       path: "/product-designs/grammy-museum",
-      inProgress: true
+      image: "/placeholder.svg"
+    },
+    {
+      title: "Adhere+",
+      description: "0 to 1 web and branding design for a Adhere Plus's flagship app.",
+      path: "/product-designs/adhere-plus",
+      image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png",
+      status: "In Progress"
+    },
+    {
+      title: "Mobile App Portfolio",
+      description: "View a collection of my mobile app design work across various industries and platforms.",
+      path: "/mobile-apps",
+      image: "/lovable-uploads/f025eb45-fe5a-4b9e-8fdc-cb02e82d8fc6.png"
     }
   ];
 
@@ -61,34 +56,28 @@ const ProductDesigns = () => {
               to={project.path}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
-                {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  project.icon
-                )}
-                {project.inProgress && (
-                  <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium px-2 py-1 rounded">
-                    In Progress
-                  </div>
-                )}
+              <div className="aspect-video bg-designer-gray overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-display text-xl font-medium">{project.title}</h3>
+                  {project.status && (
+                    <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
                 <p className="text-gray-600 mb-4">
                   {project.description}
                 </p>
                 <div className="flex items-center text-designer-red font-medium">
-                  {project.inProgress ? "Coming Soon" : (
-                    <>
-                      <span className="mr-2">View Project</span>
-                      <ArrowRight size={16} />
-                    </>
-                  )}
+                  <span className="mr-2">View Project</span>
+                  <ArrowRight size={16} />
                 </div>
               </div>
             </Link>
