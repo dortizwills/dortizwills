@@ -203,11 +203,13 @@ const CampingApp = () => {
           />
         </div>
       </div>
-      
+
       {/* Div Block 13 */}
-      <div className="mb-8">
-        <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
-        <div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             I noticed my testers continuing to struggle with gear requirements and campsite details. Especially where the were camping and what to expect while there, critical pieces for users to enjoy a new experience.
           </p>
