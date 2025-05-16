@@ -255,7 +255,7 @@ const CampingApp = () => {
             <img 
               src="/lovable-uploads/9964ce92-2dc6-4f32-af81-8bd549efddff.png" 
               alt="Revised User Flow" 
-              className="rounded-lg w-2/3"
+              className="w-full rounded-lg mb-6" 
             />
         </div>
       </div>
