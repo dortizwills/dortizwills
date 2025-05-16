@@ -133,7 +133,7 @@ const Index = () => {
                     Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
                   </p>
                   <Link to="/product-designs/camping-app" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
-                    <span className="mr-1">View Now</span>
+                    <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
                   </Link>
                 </div>
@@ -149,7 +149,7 @@ const Index = () => {
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
                   <Link to="/product-designs/gourmet-recipes" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
-                    <span className="mr-1">View Now</span>
+                    <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
                   </Link>
                 </div>
@@ -157,16 +157,22 @@ const Index = () => {
               
               <div className="bg-designer-gray rounded-lg overflow-hidden flex">
                 <div className="w-1/3 aspect-[3/2]">
-                  <img src="/placeholder.svg" alt="Adhere+" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/Adhere++Hero.png" alt="Adhere+" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Adhere+</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     0 to 1 web and branding design for a Adhere Plus's flagship app
                   </p>
-                  <span className="inline-block bg-amber-500 text-white text-xs px-2 py-1 rounded">
-                    In Progress
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded mr-2">
+                      In Progress
+                    </span>
+                    <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
+                      <span className="mr-1">Preview Now</span>
+                      <ArrowRightIcon size={14} />
+                    </Link>
+                  </div>
                 </div>
               </div>
               
@@ -201,7 +207,7 @@ const Index = () => {
                     {design.description}
                   </p>
                   <span className="text-designer-red font-medium hover:underline">
-                    View Case Study
+                    View Project
                   </span>
                 </div>
               </Link>
