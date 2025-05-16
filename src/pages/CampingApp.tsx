@@ -25,7 +25,7 @@ const CampingApp = () => {
       title="Camping Made Easy" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
-      headerImage="/lovable-uploads/Camping+Hero.png"
+      headerImage="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
       projectDetails={{
         timeline: "3 Months",
         responsibilities: "User Research, User Testing, Project Management, Interaction Design, Experience Design, Visual Design",
@@ -77,9 +77,9 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Common Questions Lists - Updated to be centered */}
+      {/* Common Questions Lists */}
       <div className="grid grid-cols-3 gap-8 mb-6">
-        <div className="col-span-3 md:col-span-1 md:col-start-2">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Common Questions Not Initially Solved:</h3>
           <ul className="list-disc pl-5 mb-6 space-y-2">
             <li>Where do I go to book a campsite</li>
@@ -91,7 +91,11 @@ const CampingApp = () => {
           </ul>
         </div>
         
-        <div className="col-span-3 md:col-span-1">
+        <div className="col-span-1">
+          {/* Empty column for spacing */}
+        </div>
+        
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Questions Following A Core User Base:</h3>
           <ul className="list-disc pl-5 mb-6 space-y-2">
             <li>Where should I go to get all my supplies</li>
@@ -203,7 +207,7 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Third Round Adjustments - Updated to stack images */}
+      {/* Third Round Adjustments */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
@@ -217,15 +221,15 @@ const CampingApp = () => {
             I decided to include options where they could rent gear. Directly followed by adding additional options to inspect their campsite's activities, events, and wildlife.
           </p>
           
-          <div className="space-y-6">
+          <div className="grid grid-cols-2 gap-6">
             <img 
-              src="/lovable-uploads/Flow+5.png" 
+              src="/lovable-uploads/308883e4-ee5a-4e79-86ed-81989f746ea3.png" 
               alt="Flow 5" 
               className="w-full rounded-lg"
             />
             
             <img 
-              src="/lovable-uploads/Flow+6.png" 
+              src="/lovable-uploads/6c24665f-aab9-4810-900f-aef17606661d.png" 
               alt="Flow 6" 
               className="w-full rounded-lg"
             />
@@ -249,7 +253,7 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Primary Happy Path - Updated images */}
+      {/* Primary Happy Path */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Primary Happy Path</h3>
@@ -265,11 +269,11 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Happy Path Images - Updated */}
+      {/* Happy Path Images */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/Camp+Buddy+6.png" 
+            src="/lovable-uploads/d6c8c1cf-98b7-4c44-8158-aab52f237774.png" 
             alt="Primary Happy Path 1" 
             className="w-full rounded-lg h-auto"
           />
@@ -283,7 +287,7 @@ const CampingApp = () => {
         </div>
         <div>
           <img 
-            src="/lovable-uploads/Camp+Buddy+1.png" 
+            src="/lovable-uploads/68f0c5d6-dc72-463d-a9ab-40218d3e5743.png" 
             alt="Primary Happy Path 3"
             className="w-full rounded-lg h-auto"
           />
@@ -321,7 +325,7 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* User Need 1: Customization - Updated image */}
+      {/* User Need 1: Customization */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">User Need 1: Customization</h3>
@@ -332,14 +336,14 @@ const CampingApp = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/Screens+1.png" 
+            src="/lovable-uploads/9a2721f6-1854-4578-ae43-fd1bfabd53e9.png" 
             alt="Screens 1" 
             className="w-full rounded-lg mb-6"
           />
         </div>
       </div>
       
-      {/* User Need 2: Information - Updated image */}
+      {/* User Need 2: Information */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">User Need 2: Information</h3>
@@ -350,7 +354,7 @@ const CampingApp = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/Screens+2.png" 
+            src="/lovable-uploads/82fedfd8-1640-417b-9643-76dcaf6c497e.png" 
             alt="Screens 2" 
             className="w-full rounded-lg mb-6"
           />
@@ -369,11 +373,11 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Final Booking Demo Images - Updated */}
+      {/* Final Booking Demo Images */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/Camp+Buddy+6.png" 
+            src="/lovable-uploads/accda05d-e78c-44e0-93a6-0edcebb4cc4e.png" 
             alt="Final Booking Demo 1" 
             className="w-full rounded-lg h-auto"
           />
@@ -383,7 +387,7 @@ const CampingApp = () => {
         </div>
         <div>
           <img 
-            src="/lovable-uploads/Camp+Buddy+2.png" 
+            src="/lovable-uploads/b408b052-f1d0-47b4-9c5f-4a7a8b42b4c2.png" 
             alt="Final Booking Demo 2"
             className="w-full rounded-lg h-auto"
           />
