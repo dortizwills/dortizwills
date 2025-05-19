@@ -108,8 +108,11 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 6 */}
-      <div className="mb-12">
-        <div className="text-right">
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3"></h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
           </p>
@@ -117,17 +120,17 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 7 */}
-      <div className="mb-12">
-        <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
-        <div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             From my time at REI, the customers that needed the most help were one of the two categories.
           </p>
-          
           <p className="mb-6">
             First, someone who wanted to go outside after or near retirement. It was very common for these customers to want as much advice over even the smallest decisions so they could comfortably purchase an item knowing it would last beyond the trips and into daily life.
           </p>
-          
           <div className="mb-6">
             <img 
               src="/lovable-uploads/5b5c0b7d-e722-4bd6-9069-e1385b3307ab.png" 
@@ -135,11 +138,9 @@ const CampingApp = () => {
               className="w-full rounded-lg"
             />
           </div>
-          
           <p className="mb-6">
             Second, individuals who had seen picturesque locations from social media and wanted to visit those locations themselves. These individuals were younger and eager to take the first piece of advice as justification for their next decision. "I thought so" and "couldn't I just do this instead" were some of their most common phrases.
           </p>
-          
           <div className="mb-6">
             <img 
               src="/lovable-uploads/1e0c747e-827b-4f40-9335-86f42378a799.png" 
@@ -147,7 +148,6 @@ const CampingApp = () => {
               className="w-full rounded-lg"
             />
           </div>
-          
           <p className="mb-6">
             In this application I needed to balance the quality and quantity of information, as a poor camping experience often guarantees people rarely camping again.
           </p>
@@ -377,17 +377,17 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 25 */}
-      <div className="mb-8">
-        <h3 className="text-xl font-display font-medium mb-3">Final Booking Demonstration</h3>
-      </div>
-      <div className="grid grid-cols-3 gap-8 mb-10"> {/* Fixed: Added grid layout for consistent formatting */}
-        <div className="col-span-1"></div>
-        <div className="col-span-2">
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Final Booking Demonstration</h3>
+        </div>
+        <div className="col-span-2"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
             I recorded a final version of my app for ease of viewing, especially demonstrating how users could expect to book their first experience for camping. You can view additional paths to explore in my prototype linked below this video.
           </p>
         </div>
       </div>
+
       
       {/* Div Block 26 */}
       <div className="mb-12 grid grid-cols-3 gap-6">
@@ -414,18 +414,22 @@ const CampingApp = () => {
       <div className="mb-8">
         <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
       </div>
-      
-      {/* Div Block 28 */}
-      <div className="mb-12">
-        <h3 className="text-xl font-display font-medium mb-3">Increased New Camper Interest</h3>
-        <div>
+      {/* Div Block 9 */}
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Increased New Camper Interest</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             By offering booking experiences for both seasoned and novice campers Camp Buddy received positive reviews following my user research group. Over half of interviewed users expressed interest in renting gear with an option to buy, especially if they used the same gear over multiple campsite trips.
           </p>
         </div>
-        
-        <h3 className="text-xl font-display font-medium mb-3">New User Access</h3>
-        <div>
+      </div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">New User Access</h3>
+        </div>
+        <div className="col-span-2">
           <p className="mb-6">
             At the start, I knew I'd need to engage every type of user to be successful. My work ensures that regardless of income, experience levels, age, or diversity campers can forgo their reservations and enjoy the outdoors. After conducting interviews I found this was the only time my users had even considered camping and I was credited with bringing a new level of access to camping for them.
           </p>
