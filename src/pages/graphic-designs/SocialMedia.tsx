@@ -34,17 +34,12 @@ const SocialMedia = () => {
       <div>
         <h2 className="text-2xl font-display font-semibold mb-4">Campaign Strategy</h2>
         <h3 className="text-xl font-display font-medium mb-3">Industry Challenge</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Community Building</h3>
-        
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Content Approach</h2>
         <h3 className="text-xl font-display font-medium mb-3">Education vs. Promotion</h3>
-        <h3 className="text-xl font-display font-medium mb-3">User-Generated Content</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Shop Spotlights</h3>
-        
+
         <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Results & Impact</h2>
         <h3 className="text-xl font-display font-medium mb-3">Engagement Metrics</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Brand Perception</h3>
         <h3 className="text-xl font-display font-medium mb-3">Business Outcomes</h3>
+
       </div>
       
       <div>
@@ -59,32 +54,9 @@ const SocialMedia = () => {
         <img src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" alt="Social Media Campaign" className="w-full rounded-lg mb-10" />
         
         <p className="mb-6">
-          We implemented an 80/20 rule: 80% of content focused on educational value for shop owners, with only 20% directly promoting Shopmonkey. This built trust with the audience and established the brand as a valuable resource rather than just another vendor.
-        </p>
-        
-        <p className="mb-6">
-          We created the #ShopmonkeyShops hashtag and encouraged customers to share their success stories. This authentic content performed 3x better than branded content in terms of engagement and was more persuasive to prospective customers.
-        </p>
-        
-        <img src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" alt="User Generated Content" className="w-full rounded-lg mb-10" />
-        
-        <p className="mb-6">
           Each month, we featured a customer shop across our channels, highlighting their unique story and how they've modernized their business. These spotlights became our highest-performing content, creating a virtuous cycle where shops competed to be featured.
         </p>
         
-        <p className="mb-6">
-          Engagement across platforms increased by 284% year-over-year. LinkedIn posts regularly achieved 5-7% engagement rates (industry average: 2%). Facebook community grew from 1,200 to 9,800 members with 72% being active monthly participants.
-        </p>
-        
-        <p className="mb-6">
-          Sentiment analysis showed a shift from 60% neutral/negative mentions to 82% positive mentions over the campaign period. The perception of Shopmonkey evolved from "just another software vendor" to "partner in shop modernization."
-        </p>
-        
-        <img src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" alt="Results Dashboard" className="w-full rounded-lg mb-10" />
-        
-        <p className="mb-6">
-          Social channels became the second-highest source of qualified leads behind referrals. Cost-per-acquisition through social campaigns was 43% lower than other digital channels. The community became self-sustaining, with experienced users answering questions from prospects and reducing support burden.
-        </p>
       </div>
     </ProjectDetailLayout>
   );
