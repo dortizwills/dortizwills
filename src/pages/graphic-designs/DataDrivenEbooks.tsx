@@ -51,7 +51,9 @@ const DataDrivenEbooks = () => {
       
       <div className="grid grid-cols-3 gap-8 mt-10">
         <div>
-          <img src="/lovable-uploads/28a671dc-6276-4bb0-9e68-4e916518c0b3.png" alt="Drive Results for Your Auto Shop" className="w-full rounded-lg" />
+          <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Driven%20by%20Results/Drive-results-for-your-auto-shop_ebook_web.pdf">
+            <img src="/lovable-uploads/28a671dc-6276-4bb0-9e68-4e916518c0b3.png" alt="Drive Results for Your Auto Shop" className="w-full rounded-lg" />
+          </a>
         </div>
         <div className="col-span-2">
           <h3 className="text-xl font-display font-medium mb-3">Showcasing Success</h3>
@@ -73,7 +75,9 @@ const DataDrivenEbooks = () => {
       
       <div className="grid grid-cols-3 gap-8 mt-10">
         <div>
-          <img src="/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png" alt="5 Automotive Service Industry Trends" className="w-full rounded-lg" />
+          <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/5%20Automotive%20Service%20Industry%20Trends/5-automotive-trends-ebook.pdf">
+            <img src="/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png" alt="5 Automotive Service Industry Trends" className="w-full rounded-lg" />
+          </a>
         </div>
         <div className="col-span-2">
           <h3 className="text-xl font-display font-medium mb-3">Driving Data</h3>
@@ -96,7 +100,9 @@ const DataDrivenEbooks = () => {
       
       <div className="grid grid-cols-3 gap-8 mt-10">
         <div>
-          <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
+          <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Ebook%205%20Steps%20to%20Grow%20Your%20Auto%20Shops%20Revenue.pdf">
+            <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
+          </a>
         </div>
         <div className="col-span-2">
           <h3 className="text-xl font-display font-medium mb-3">Establishing Brand Identity</h3>
