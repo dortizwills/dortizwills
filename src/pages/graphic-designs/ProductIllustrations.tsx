@@ -25,39 +25,38 @@ const ProductIllustrations = () => {
       backLabel="Back to Marketing Designs"
       headerImage="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
       projectDetails={{
-        timeline: "6 Months",
+        timeline: "3 months",
         responsibilities: "Illustration System Design, Visual Design, Brand Development, Style Guide Creation",
-        results: "Contributed to successful Series C funding, with investors specifically citing clear product communication"
+        results: "Contributed to successful Series C funding, with onboarding shops specifically citing clear product communication"
       }}
       relatedProjects={relatedProjects}
     >
+      {/* Div 1 */}
       <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Brand Evolution</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Stakeholder Requirements</h3>
-        
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Design Process</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Illustration System</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Character Design</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Technical Illustrations</h3>
-        
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Implementation</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Platform Integration</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Extending to Marketing</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Fundraising Materials</h3>
+        <h2 className="text-2xl font-display font-semibold mb-4">Design Process</h2>
       </div>
       
+      {/* Div 2 */}
       <div>
+        <h3 className="text-xl font-display font-medium mb-3">Brand Evolution</h3>
         <p className="mb-6">
           As Shopmonkey prepared for Series C funding, they needed to refine their brand to reflect their growth from a startup to an industry leader. A key component was developing a cohesive illustration system that could explain complex software features to non-technical automotive professionals.
         </p>
         
         <p className="mb-6">
-          Leadership wanted illustrations that maintained Shopmonkey's approachable character while conveying greater sophistication and reliability. The illustrations needed to work across product, marketing, sales, and investor communications with a consistent style.
+          Leadership wanted illustrations that maintained Shopmonkey's approachable character while conveying greater sophistication and reliability. The illustrations needed to work across product, marketing, sales, and onboarding shops communications with a consistent style.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="Illustration System" className="w-full rounded-lg mb-10" />
-        
+        <img 
+          src="/lovable-uploads/7859156b-5625-49de-aaea-6e79dfb72375.png" 
+          alt="Cohesive Illustrations" 
+          className="w-full rounded-lg mb-10"
+        />
+      </div>
+      
+      {/* Div 3 */}
+      <div>
+        <h3 className="text-xl font-display font-medium mb-3">Illustration System & Character Design</h3>
         <p className="mb-6">
           I created a flexible illustration system with clear guidelines for style, color usage, and composition. The system focused on simplifying complex concepts through metaphor rather than literal representation, making software features more intuitive.
         </p>
@@ -66,8 +65,21 @@ const ProductIllustrations = () => {
           We developed a set of diverse character illustrations representing shop owners, technicians, and customers. These characters maintained consistent proportions and style while reflecting the diversity of Shopmonkey's user base.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="Character Illustrations" className="w-full rounded-lg mb-10" />
-        
+        <img 
+          src="/lovable-uploads/7a28a045-e535-4ae2-8345-e4887b8fcc1c.png" 
+          alt="Diverse Base" 
+          className="w-full rounded-lg mb-10"
+        />
+      </div>
+      
+      {/* Div 4 */}
+      <div>
+        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Implementation</h2>
+      </div>
+      
+      {/* Div 5 */}
+      <div>
+        <h3 className="text-xl font-display font-medium mb-3">Product Extending to Marketing</h3>
         <p className="mb-6">
           For more complex features, we created technical illustrations that combined simplified diagrams with our character system. These showed users interacting with the software in context, making abstract concepts more concrete.
         </p>
@@ -80,11 +92,25 @@ const ProductIllustrations = () => {
           The illustration system extended to marketing materials, creating a cohesive visual experience from initial awareness through product usage. This strengthened brand recognition and reinforced key messages across all touchpoints.
         </p>
         
-        <img src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" alt="Implementation Examples" className="w-full rounded-lg mb-10" />
-        
-        <p className="mb-6">
-          For the Series C pitch deck, we created custom illustrations that visualized Shopmonkey's market position, growth trajectory, and product roadmap. Investors specifically mentioned the clarity of communication as a factor in their funding decision.
-        </p>
+        <div className="space-y-6">
+          <img 
+            src="/lovable-uploads/ca4960a8-b221-407b-adaf-139f0110fceb.png" 
+            alt="Simplified Diagrams" 
+            className="w-full rounded-lg"
+          />
+          
+          <img 
+            src="/lovable-uploads/c6d221a8-08e8-49c9-b113-9e46aa455cd8.png" 
+            alt="Abstract Concepts" 
+            className="w-full rounded-lg"
+          />
+          
+          <img 
+            src="/lovable-uploads/b407a62d-e4ef-4cbd-9ab6-cf318cfa5b96.png" 
+            alt="Marketing Materials" 
+            className="w-full rounded-lg"
+          />
+        </div>
       </div>
     </ProjectDetailLayout>
   );
