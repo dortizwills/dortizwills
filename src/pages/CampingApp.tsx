@@ -314,7 +314,7 @@ const CampingApp = () => {
       </div>
       
       {/* Div Block 19 */}
-      <div className="mb-12 flex justify-end">
+      <div className="mb-12 flex justify-start">
         <Button asChild className="px-8" variant="default">
           <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer">
             View Prototype
