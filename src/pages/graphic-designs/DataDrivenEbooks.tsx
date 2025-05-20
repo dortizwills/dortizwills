@@ -99,7 +99,7 @@ const DataDrivenEbooks = () => {
           <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
         </div>
         <div className="col-span-2">
-          <h3 className="text-xl font-display font-medium mb-3">Establishing Brand Identity</h2>
+          <h3 className="text-xl font-display font-medium mb-3">Establishing Brand Identity</h3>
           <p className="mb-6">
             The content within this first e-book in the series focused on features that Shopmonkey offers, and I directed the visuals towards shop stories and data. My intention drove away from seeming like a blatant sales tactic and towards industry insights.
           </p>
