@@ -31,105 +31,115 @@ const DataDrivenEbooks = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Approach</h2>
-        
-        <div className="grid grid-cols-3 gap-8 mt-10">
-          <div>
-            <img src="/lovable-uploads/28a671dc-6276-4bb0-9e68-4e916518c0b3.png" alt="Drive Results for Your Auto Shop" className="w-full rounded-lg" />
-          </div>
-          <div className="col-span-2">
-            <h2 className="text-2xl font-display font-semibold mb-4">Showcasing Success</h2>
-          </div>
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         </div>
-        
-        <div className="grid grid-cols-3 gap-8 mt-10">
-          <div>
-            <img src="/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png" alt="5 Automotive Service Industry Trends" className="w-full rounded-lg" />
-          </div>
-          <div className="col-span-2">
-            <h2 className="text-2xl font-display font-semibold mb-4">Driving Data</h2>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-3 gap-8 mt-10">
-          <div>
-            <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
-          </div>
-          <div className="col-span-2">
-            <h2 className="text-2xl font-display font-semibold mb-4">Establishing Brand Identity</h2>
-          </div>
-        </div>
-        
-        <div className="mt-10">
-          <h2 className="text-2xl font-display font-semibold mb-4">Key Results</h2>
+        <div className="col-span-2">
+          <p className="mb-6">
+          Shopmonkey's core audience is composed of small to midsized automotive repair shops. In an attempt to entice additional customers and to retain current shops, Shopmonkey desired to produce data that shops could use to propel their businesses based on the prior year's data. I was responsible for reducing 40-60 pages of content into concise 15-25 page documents so that shops could retain the information and have actionable steps once completing the ebooks.
+          </p>
+          <p className="mb-6">
+            This project required a consistent visual style with Shopmonkey's marketing materials and their product. I created a visual style guide composed of illustrations, brand elements, product screenshots, and customer photography to create consistency between ebooks and product. We were then able to pass the style guide to other graphic designers on the team for future ebooks on any subject.
+          </p>
         </div>
       </div>
       
       <div>
-        <p className="mb-6">
-          Shopmonkey's core audience is composed of small to midsized automotive repair shops. In an attempt to entice additional customers and to retain current shops, Shopmonkey desired to produce data that shops could use to propel their businesses based on the prior year's data. I was responsible for reducing 40-60 pages of content into concise 15-25 page documents so that shops could retain the information and have actionable steps once completing the ebooks.
-        </p>
+        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Approach</h2>
+      </div>
+      
+      <div className="grid grid-cols-3 gap-8 mt-10">
+        <div>
+          <img src="/lovable-uploads/28a671dc-6276-4bb0-9e68-4e916518c0b3.png" alt="Drive Results for Your Auto Shop" className="w-full rounded-lg" />
+        </div>
+        <div className="col-span-2">
+          <h3 className="text-xl font-display font-medium mb-3">Showcasing Success</h3>
+          <p className="mb-6">
+            In 2020 Automotive shops were unsure as how their profits could withstand the effects of the pandemic. I used updated photography, new layouts, and illustrations to catalog shops that achieved positive results in the midst of hard times.
+          </p>
+          <p className="mb-6">
+            <a 
+              href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Driven%20by%20Results/Drive-results-for-your-auto-shop_ebook_web.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-designer-red hover:underline flex items-center"
+            >
+              View full ebook pdf <span className="ml-1">→</span>
+            </a>
+          </p>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-3 gap-8 mt-10">
+        <div>
+          <img src="/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png" alt="5 Automotive Service Industry Trends" className="w-full rounded-lg" />
+        </div>
+        <div className="col-span-2">
+          <h3 className="text-xl font-display font-medium mb-3">Driving Data</h3>
+          <p className="mb-6">
+            I distilled all the insights from Shopmonkey's 2019 data down to 5 top trends within general repair industry. Alongside our content writer, I distilled this information into a succinct report focused on improvement plans driven by data.
+          </p>
+          
+          <p className="mb-6">
+            <a 
+              href="https://go.shopmonkey.io/hubfs/Resources/ebooks/5%20Automotive%20Service%20Industry%20Trends/5-automotive-trends-ebook.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-designer-red hover:underline flex items-center"
+            >
+              View full ebook pdf <span className="ml-1">→</span>
+            </a>
+          </p>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-3 gap-8 mt-10">
+        <div>
+          <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
+        </div>
+        <div className="col-span-2">
+          <h3 className="text-xl font-display font-medium mb-3">Establishing Brand Identity</h2>
+          <p className="mb-6">
+            The content within this first e-book in the series focused on features that Shopmonkey offers, and I directed the visuals towards shop stories and data. My intention drove away from seeming like a blatant sales tactic and towards industry insights.
+          </p>
+          <p className="mb-6">
+            <a 
+              href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Ebook%205%20Steps%20to%20Grow%20Your%20Auto%20Shops%20Revenue.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-designer-red hover:underline flex items-center"
+            >
+              View full ebook pdf <span className="ml-1">→</span>
+            </a>
+          </p>
+        </div>
+      </div>
         
-        <p className="mb-6">
-          This project required a consistent visual style with Shopmonkey's marketing materials and their product. I created a visual style guide composed of illustrations, brand elements, product screenshots, and customer photography to create consistency between ebooks and product. We were then able to pass the style guide to other graphic designers on the team for future ebooks on any subject.
-        </p>
-        
-        <p className="mb-6">
-          In 2020 Automotive shops were unsure as how their profits could withstand the effects of the pandemic. I used updated photography, new layouts, and illustrations to catalog shops that achieved positive results in the midst of hard times.
-        </p>
-        
-        <p className="mb-6">
-          <a 
-            href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Driven%20by%20Results/Drive-results-for-your-auto-shop_ebook_web.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-designer-red hover:underline flex items-center"
-          >
-            View full ebook pdf <span className="ml-1">→</span>
-          </a>
-        </p>
-        
-        <p className="mb-6">
-          I distilled all the insights from Shopmonkey's 2019 data down to 5 top trends within general repair industry. Alongside our content writer, I distilled this information into a succinct report focused on improvement plans driven by data.
-        </p>
-        
-        <p className="mb-6">
-          <a 
-            href="https://go.shopmonkey.io/hubfs/Resources/ebooks/5%20Automotive%20Service%20Industry%20Trends/5-automotive-trends-ebook.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-designer-red hover:underline flex items-center"
-          >
-            View full ebook pdf <span className="ml-1">→</span>
-          </a>
-        </p>
-        
-        <p className="mb-6">
-          The content within this first e-book in the series focused on features that Shopmonkey offers, and I directed the visuals towards shop stories and data. My intention drove away from seeming like a blatant sales tactic and towards industry insights.
-        </p>
-        
-        <p className="mb-6">
-          <a 
-            href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Ebook%205%20Steps%20to%20Grow%20Your%20Auto%20Shops%20Revenue.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-designer-red hover:underline flex items-center"
-          >
-            View full ebook pdf <span className="ml-1">→</span>
-          </a>
-        </p>
-        
-        <h3 className="text-xl font-display font-medium mb-3">Increased Traffic</h3>
-        <p className="mb-6">
-          Shops found these ebooks so helpful that following each published ebook there would be an increase of 10% to inbound traffic and 2.5% of monthly demos are still scheduled from these resources. The marketing team tracked that social media traffic and website traffic increased by 15% and 10% after an ebook released, showing the audience's excitement for this unique content.
-        </p>
-        
-        <h3 className="text-xl font-display font-medium mb-3">Ahead of the Pack</h3>
-        <p className="mb-6">
-          These ebooks went so well competitors began producing similar content in an attempt to mirror the value of these ebooks. Despite additional resources being available, these ebooks continue to be brought up with potential customers as more actionable and comprehensive than 30-60 page pdfs offered by competitors.
-        </p>
+      <div className="mt-10">
+        <h2 className="text-2xl font-display font-semibold mb-4">Key Results</h2>
+      </div>        
+       
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Increased Traffic</h3>
+        </div>
+        <div className="col-span-2">
+          <p className="mb-6">
+            Shops found these ebooks so helpful that following each published ebook there would be an increase of 10% to inbound traffic and 2.5% of monthly demos are still scheduled from these resources. The marketing team tracked that social media traffic and website traffic increased by 15% and 10% after an ebook released, showing the audience's excitement for this unique content.
+          </p>
+        </div>
+      </div>
+       
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Ahead of the Pack</h3>
+        </div>
+        <div className="col-span-2">
+          <p className="mb-6">
+            These ebooks went so well competitors began producing similar content in an attempt to mirror the value of these ebooks. Despite additional resources being available, these ebooks continue to be brought up with potential customers as more actionable and comprehensive than 30-60 page pdfs offered by competitors.
+          </p>
+        </div>
       </div>
     </ProjectDetailLayout>
   );
