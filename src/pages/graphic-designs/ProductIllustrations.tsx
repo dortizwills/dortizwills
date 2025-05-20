@@ -50,14 +50,14 @@ const ProductIllustrations = () => {
           <p className="mb-6">
             Leadership wanted illustrations that maintained Shopmonkey's approachable character while conveying greater sophistication and reliability. The illustrations needed to work across product, marketing, sales, and onboarding shops communications with a consistent style.
           </p>
-          <img 
+          
+        </div>
+      </div>
+      <img 
             src="/lovable-uploads/7859156b-5625-49de-aaea-6e79dfb72375.png" 
             alt="Cohesive Illustrations" 
             className="w-full rounded-lg mb-10"
           />
-        </div>
-      </div>
-      
       {/* Div 3 */}
       <div>
         <h3 className="text-xl font-display font-medium mb-3">Illustration System & Character Design</h3>
