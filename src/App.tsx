@@ -17,10 +17,10 @@ import Sidebar from './components/Sidebar';
 // Marketing Designs inner pages
 import DataDrivenEbooks from './pages/graphic-designs/DataDrivenEbooks';
 import EmailMarketing from './pages/graphic-designs/EmailMarketing';
+import EventDesigns from './pages/graphic-designs/EventDesigns';
 import ProductIllustrations from './pages/graphic-designs/ProductIllustrations';
 import SocialMedia from './pages/graphic-designs/SocialMedia';
 import CaseStudies from './pages/graphic-designs/CaseStudies';
-import EventDesigns from './pages/graphic-designs/EventDesigns';
 
 // UX/UI Designs inner pages
 import AdherePlus from './pages/AdherePlus';
