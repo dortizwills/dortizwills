@@ -37,21 +37,25 @@ const ProductIllustrations = () => {
       </div>
       
       {/* Div 2 */}
-      <div>
-        <h3 className="text-xl font-display font-medium mb-3">Brand Evolution</h3>
-        <p className="mb-6">
-          As Shopmonkey prepared for Series C funding, they needed to refine their brand to reflect their growth from a startup to an industry leader. A key component was developing a cohesive illustration system that could explain complex software features to non-technical automotive professionals.
-        </p>
-        
-        <p className="mb-6">
-          Leadership wanted illustrations that maintained Shopmonkey's approachable character while conveying greater sophistication and reliability. The illustrations needed to work across product, marketing, sales, and onboarding shops communications with a consistent style.
-        </p>
-        
-        <img 
-          src="/lovable-uploads/7859156b-5625-49de-aaea-6e79dfb72375.png" 
-          alt="Cohesive Illustrations" 
-          className="w-full rounded-lg mb-10"
-        />
+       
+      <div className="grid grid-cols-3 gap-8 mb-10">
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Brand Evolution</h3>
+        </div>
+        <div className="col-span-2">
+          <p className="mb-6">
+            As Shopmonkey prepared for Series C funding, they needed to refine their brand to reflect their growth from a startup to an industry leader. A key component was developing a cohesive illustration system that could explain complex software features to non-technical automotive professionals.
+          </p>
+          
+          <p className="mb-6">
+            Leadership wanted illustrations that maintained Shopmonkey's approachable character while conveying greater sophistication and reliability. The illustrations needed to work across product, marketing, sales, and onboarding shops communications with a consistent style.
+          </p>
+          <img 
+            src="/lovable-uploads/7859156b-5625-49de-aaea-6e79dfb72375.png" 
+            alt="Cohesive Illustrations" 
+            className="w-full rounded-lg mb-10"
+          />
+        </div>
       </div>
       
       {/* Div 3 */}
