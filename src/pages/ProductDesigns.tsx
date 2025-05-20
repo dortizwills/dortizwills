@@ -24,12 +24,6 @@ const ProductDesigns = () => {
       image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
     },
     {
-      title: "Grammy Museum",
-      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
-      path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg"
-    },
-    {
       title: "Adhere+",
       description: "0 to 1 web and branding design for a Adhere Plus's flagship app.",
       path: "/product-designs/adhere-plus",
@@ -37,10 +31,18 @@ const ProductDesigns = () => {
       status: "In Progress"
     },
     {
+      title: "Grammy Museum",
+      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
+      path: "/product-designs/grammy-museum",
+      image: "/placeholder.svg"
+      status: "In Progress"
+    },
+    {
       title: "Mobile App Portfolio",
       description: "View a collection of my mobile app design work across various industries and platforms.",
       path: "/mobile-apps",
-      image: "/lovable-uploads/f025eb45-fe5a-4b9e-8fdc-cb02e82d8fc6.png"
+      image: "/placeholder.svg"
+      status: "In Progress"
     }
   ];
 
