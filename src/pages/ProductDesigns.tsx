@@ -34,14 +34,14 @@ const ProductDesigns = () => {
       title: "Grammy Museum",
       description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
       path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
       status: "In Progress"
     },
     {
       title: "Mobile App Portfolio",
       description: "View a collection of my mobile app design work across various industries and platforms.",
       path: "/mobile-apps",
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
       status: "In Progress"
     }
   ];
