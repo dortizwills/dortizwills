@@ -69,14 +69,15 @@ const CaseStudies = () => {
           <p className="mb-6">
             The case studies became critical assets in the sales process, with 35% of the sales team reporting they regularly use them to overcome objections and close deals. The average time to close for deals where case studies were shared decreased by 18 days.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <img src="/lovable-uploads/db7954fe-6184-41ee-9177-05fc28c0b8b2.png" alt="Social Media Case Studies" className="w-full rounded-lg mb-10" />
-          </div>
-          <img src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" alt="Case Studies Example 2" className="w-full rounded-lg" />
-          <img src="/lovable-uploads/d1e9b259-ce68-4958-be95-d22160aa4168.png" alt="Social Media Brand Consistency 1" className="w-full rounded-lg" />
-
         </div>
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="col-span-2">
+          <img src="/lovable-uploads/db7954fe-6184-41ee-9177-05fc28c0b8b2.png" alt="Social Media Case Studies" className="w-full rounded-lg mb-10" />
+          <img src="/lovable-uploads/d1e9b259-ce68-4958-be95-d22160aa4168.png" alt="Social Media Brand Consistency 1" className="w-full rounded-lg" />
+        </div>
+      </div>
+
     </ProjectDetailLayout>
   );
 };
