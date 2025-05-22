@@ -74,6 +74,10 @@ const CaseStudies = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="col-span-2">
           <img src="/lovable-uploads/db7954fe-6184-41ee-9177-05fc28c0b8b2.png" alt="Social Media Case Studies" className="w-full rounded-lg mb-10" />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="col-span-2">
           <img src="/lovable-uploads/d1e9b259-ce68-4958-be95-d22160aa4168.png" alt="Social Media Brand Consistency 1" className="w-full rounded-lg" />
         </div>
       </div>
