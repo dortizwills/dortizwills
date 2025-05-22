@@ -30,6 +30,8 @@ const QuickServices = () => {
         responsibilities: "User Research, Interaction Design, Experience Design, Visual Design",
         results: "Enterprise partnership for a total of +200 shop locations, worth over $500M"
       }}
+            relatedProjects={relatedProjects}
+
     >
       {/* Background */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
