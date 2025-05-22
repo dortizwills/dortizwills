@@ -63,8 +63,12 @@ const Sidebar: FC = () => {
   return (
     <aside className={`fixed left-0 top-0 h-full ${collapsed ? 'w-[70px]' : 'w-[220px]'} bg-white border-r border-gray-200 flex flex-col py-8 px-4 transition-all duration-300`}>
       <div className="flex items-center justify-between mb-8">
-        <div className={`h-12 w-12 bg-designer-red rounded-full flex items-center justify-center text-white text-xl font-bold ${collapsed ? 'mx-auto' : ''}`}>
-          UX
+        <div className={`h-10 w-10 flex items-center justify-center ${collapsed ? 'mx-auto' : ''}`}>
+          <img 
+            src="/lovable-uploads/3617406d-a5d2-47e2-afcf-c36fdee0b7b4.png" 
+            alt="Logo" 
+            className="h-10 w-10 object-contain"
+          />
         </div>
         {!collapsed && <div className="h-12 w-12"></div>}
       </div>

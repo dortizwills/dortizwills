@@ -25,14 +25,14 @@ const CaseStudies = () => {
       backLabel="Back to Marketing Designs"
       headerImage="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
       projectDetails={{
-        timeline: "3 weeks to build the template, 1wk per Case Study",
+        timeline: "3 months",
         responsibilities: "Research, Design Templates, Illustration",
         results: "35% of sales team reported using case studies as critical closing tools"
       }}
       relatedProjects={relatedProjects}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <h2 className="text-2xl font-display font-semibold mb-4">Project Process</h2>
+        <h2 className="text-2xl font-display font-semibold mb-4 md:col-span-3">Project Process</h2>
       </div>
       
       <div className="grid grid-cols-3 gap-8 mb-10">
@@ -57,6 +57,7 @@ const CaseStudies = () => {
           <p className="mb-6">
             We created a flexible design system that maintained brand consistency while allowing for customization based on each shop's personality. We paired professional photography with data visualizations to balance emotional appeal with concrete results.
           </p>
+          <img src="/lovable-uploads/a2492ca5-a34c-4254-b10d-006053c17bc7.png" alt="Case Study Template" className="w-full rounded-lg mb-10" />
         </div>
       </div>
      
@@ -66,8 +67,12 @@ const CaseStudies = () => {
         </div>
         <div className="col-span-2">
           <p className="mb-6">
-          The case studies became critical assets in the sales process, with 35% of the sales team reporting they regularly use them to overcome objections and close deals. The average time to close for deals where case studies were shared decreased by 18 days.
+            The case studies became critical assets in the sales process, with 35% of the sales team reporting they regularly use them to overcome objections and close deals. The average time to close for deals where case studies were shared decreased by 18 days.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <img src="/lovable-uploads/43abf79a-b668-4802-8153-498a7ad0047a.png" alt="Case Studies Example 1" className="w-full rounded-lg" />
+            <img src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" alt="Case Studies Example 2" className="w-full rounded-lg" />
+          </div>
         </div>
       </div>
     </ProjectDetailLayout>

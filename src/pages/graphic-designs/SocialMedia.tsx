@@ -31,32 +31,52 @@ const SocialMedia = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Campaign Strategy</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Industry Challenge</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Education vs. Promotion</h3>
-
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Results & Impact</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Engagement Metrics</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Business Outcomes</h3>
-
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <h2 className="text-2xl font-display font-semibold mb-4 md:col-span-3">Background</h2>
+        <div className="md:col-span-3">
+          <p className="mb-6">
+            The automotive software industry is historically resistant to new technology solutions, with shops often relying on legacy systems or paper processes. Shopmonkey needed to differentiate itself in a market where shop owners were skeptical of software claims and wary of complex implementations.
+          </p>
+          
+          <p className="mb-6">
+            Rather than focusing solely on product promotion, we created a strategy centered on building a community of progressive shop owners. We positioned Shopmonkey as an advocate for modernization in the industry, starting conversations about efficiency and customer experience rather than just software. We backed these by releasing case studies through our social media using real shop's photography
+          </p>
+          
+          <img src="/lovable-uploads/db7954fe-6184-41ee-9177-05fc28c0b8b2.png" alt="Social Media Case Studies" className="w-full rounded-lg mb-10" />
+        </div>
       </div>
       
-      <div>
-        <p className="mb-6">
-          The automotive software industry is historically resistant to new technology solutions, with shops often relying on legacy systems or paper processes. Shopmonkey needed to differentiate itself in a market where shop owners were skeptical of software claims and wary of complex implementations.
-        </p>
-        
-        <p className="mb-6">
-          Rather than focusing solely on product promotion, we created a strategy centered on building a community of progressive shop owners. We positioned Shopmonkey as an advocate for modernization in the industry, starting conversations about efficiency and customer experience rather than just software.
-        </p>
-        
-        <img src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" alt="Social Media Campaign" className="w-full rounded-lg mb-10" />
-        
-        <p className="mb-6">
-          Each month, we featured a customer shop across our channels, highlighting their unique story and how they've modernized their business. These spotlights became our highest-performing content, creating a virtuous cycle where shops competed to be featured.
-        </p>
-        
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="md:col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Iterative Strategy</h3>
+        </div>
+        <div className="md:col-span-2">
+          <p className="mb-6">
+            I worked closely with performance marketers and content strategists to gain a clear understanding of each campaign's objectives, audience personas, and A/B testing plans. A prior goal was to push our illustrations, but after conducting a series of A/B tests we concluded that photography, graphics, and smaller tertiary elements would better serve the brand, so I adapted our designs to meet the demand.
+          </p>
+          <p className="mb-6">
+            This collaboration allowed me to contribute to the visual direction early in the process, aligning creative concepts with strategic goals and ensuring that design decisions were both intentional and results-oriented.
+          </p>
+          <img src="/lovable-uploads/94eaf5c4-1470-42ff-852e-42b278ea631d.png" alt="Social Media Top Performance" className="w-full rounded-lg mb-10" />
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="md:col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3">Brand Consistency</h3>
+        </div>
+        <div className="md:col-span-2">
+          <p className="mb-6">
+            Maintaining brand integrity was a key priority in every campaign. I ensured that all creative assets adhered to Shopmonkey's visual identity, tone of voice, and messaging standards—while also pushing for bold, eye-catching designs that could stand out against our competitors on paid social media.
+          </p>
+          <p className="mb-6">
+            Images appearing on social media and paid ads would now match the same imagery that appeared in Shopmonkey's blog, website, and product pages.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <img src="/lovable-uploads/d1e9b259-ce68-4958-be95-d22160aa4168.png" alt="Social Media Brand Consistency 1" className="w-full rounded-lg" />
+            <img src="/lovable-uploads/2f2d2b59-699b-4a37-b9e2-230ee817ff56.png" alt="Social Media Brand Consistency 2" className="w-full rounded-lg" />
+          </div>
+        </div>
       </div>
     </ProjectDetailLayout>
   );
