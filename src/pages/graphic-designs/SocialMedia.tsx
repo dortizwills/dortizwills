@@ -41,7 +41,7 @@ const SocialMedia = () => {
           <p className="mb-6">
             Rather than focusing solely on product promotion, we created a strategy centered on building a community of progressive shop owners. We positioned Shopmonkey as an advocate for modernization in the industry, starting conversations about efficiency and customer experience rather than just software. We backed these by releasing case studies through our social media using real shop's photography
           </p>
-                                <img src="/lovable-uploads/43abf79a-b668-4802-8153-498a7ad0047a.png" alt="Case Studies Example 1" className="w-full rounded-lg" />
+          <img src="/lovable-uploads/94eaf5c4-1470-42ff-852e-42b278ea631d.png" alt="Social Media Top Performance" className="w-full rounded-lg mb-10" />
 
         </div>
       </div>
@@ -59,7 +59,6 @@ const SocialMedia = () => {
           </p>
             <img src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" alt="Case Studies Example 2" className="w-full rounded-lg" />
 
-          <img src="/lovable-uploads/94eaf5c4-1470-42ff-852e-42b278ea631d.png" alt="Social Media Top Performance" className="w-full rounded-lg mb-10" />
         </div>
       </div>
       
@@ -74,9 +73,9 @@ const SocialMedia = () => {
           <p className="mb-6">
             Images appearing on social media and paid ads would now match the same imagery that appeared in Shopmonkey's blog, website, and product pages.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <img src="/lovable-uploads/2f2d2b59-699b-4a37-b9e2-230ee817ff56.png" alt="Social Media Brand Consistency 2" className="w-full rounded-lg" />
-          </div>
+          <img src="/lovable-uploads/2f2d2b59-699b-4a37-b9e2-230ee817ff56.png" alt="Social Media Brand Consistency 2" className="w-full rounded-lg" />
+          <img src="/lovable-uploads/43abf79a-b668-4802-8153-498a7ad0047a.png" alt="Case Studies Example 1" className="w-full rounded-lg" />
+
         </div>
       </div>
     </ProjectDetailLayout>
