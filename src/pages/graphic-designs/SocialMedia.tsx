@@ -32,7 +32,9 @@ const SocialMedia = () => {
       relatedProjects={relatedProjects}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <h2 className="text-2xl font-display font-semibold mb-4 md:col-span-3">Background</h2>
+        <div className="md:col-span-1">
+          <h2 className="text-2xl font-display font-semibold mb-4 md:col-span-3">Background</h2>
+        </div>
         <div className="md:col-span-3">
           <p className="mb-6">
             The automotive software industry is historically resistant to new technology solutions, with shops often relying on legacy systems or paper processes. Shopmonkey needed to differentiate itself in a market where shop owners were skeptical of software claims and wary of complex implementations.
