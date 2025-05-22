@@ -5,6 +5,20 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const QuickServices = () => {
+  const relatedProjects = [
+    {
+      title: "Gourmet Recipes",
+      description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.",
+      path: "/product-designs/gourmet-recipes",
+      image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
+    },
+    {
+      title: "Grammy Museum",
+      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
+      path: "/product-designs/grammy-museum",
+      image: "/placeholder.svg"
+    }
+  ];
   return (
     <ProjectDetailLayout 
       title="Redesigning 'Quick Services'" 
