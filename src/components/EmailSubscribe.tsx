@@ -62,9 +62,9 @@ const EmailSubscribe = () => {
   };
 
   return (
-    <div className="bg-designer-gray p-8 rounded-lg">
+    <div className="bg-white border border-black p-8 rounded-lg">
       <div className="flex items-center gap-3 mb-4">
-        <MailIcon className="text-designer-red" size={24} />
+        <MailIcon className="text-gradient-primary" size={24} />
         <h3 className="font-display text-2xl">Subscribe to Monthly Updates</h3>
       </div>
       
@@ -78,12 +78,12 @@ const EmailSubscribe = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-designer-red"
+          className="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="bg-designer-red hover:bg-red-600 text-white font-medium py-3 px-6 rounded-md transition-colors disabled:opacity-70"
+          className="bg-gradient-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-md transition-opacity disabled:opacity-70"
         >
           {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </button>

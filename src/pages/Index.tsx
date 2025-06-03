@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EmailSubscribe from '../components/EmailSubscribe';
@@ -60,32 +59,32 @@ const Index = () => {
     {
       title: "UX Design",
       description: "I focus on creating user-centered designs that prioritize empathy and clarity, especially in complex or high-stakes environments.",
-      icon: <Layout size={24} className="text-designer-red" />
+      icon: <Layout size={24} className="text-blue-600" />
     },
     {
       title: "UI Design",
       description: "I design clean, responsive interfaces with attention to visual detail, accessibility, and consistency across mobile and web.",
-      icon: <Image size={24} className="text-designer-red" />
+      icon: <Image size={24} className="text-blue-600" />
     },
     {
       title: "Prototyping",
       description: "I rapidly explore and iterate on multiple design projects, delivering practical prototypes that support agile development.",
-      icon: <Layout size={24} className="text-designer-red" />
+      icon: <Layout size={24} className="text-blue-600" />
     },
     {
       title: "Results Focused",
       description: "I produce high-quality work, consistently meet project goals, and iterate until the best cost efficient solution is found.",
-      icon: <Award size={24} className="text-designer-red" />
+      icon: <Award size={24} className="text-blue-600" />
     },
     {
       title: "Collaboration",
       description: "I drive collaborative environments, encourage open feedback and communication, and build positive team cultures.",
-      icon: <Users size={24} className="text-designer-red" />
+      icon: <Users size={24} className="text-blue-600" />
     },
     {
       title: "Growth-Minded Solutions",
       description: "I approach projects with curiosity and a desire to learn, always looking for ways to increase my skills and the company's bottom line.",
-      icon: <TrendingUp size={24} className="text-designer-red" />
+      icon: <TrendingUp size={24} className="text-blue-600" />
     }
   ];
 
@@ -114,7 +113,7 @@ const Index = () => {
                 <p className="text-gray-600 mb-4">
                   Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                 </p>
-                <Link to="/product-designs/quick-services" className="inline-flex items-center text-designer-red hover:text-red-600 transition-colors">
+                <Link to="/product-designs/quick-services" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
                   <span className="mr-2">View Project</span>
                   <ArrowRightIcon size={16} />
                 </Link>
@@ -132,7 +131,7 @@ const Index = () => {
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
                   </p>
-                  <Link to="/product-designs/camping-app" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
+                  <Link to="/product-designs/camping-app" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
                   </Link>
@@ -148,7 +147,7 @@ const Index = () => {
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
-                  <Link to="/product-designs/gourmet-recipes" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
+                  <Link to="/product-designs/gourmet-recipes" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
                   </Link>
@@ -168,7 +167,7 @@ const Index = () => {
                     <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">
                       In Progress
                     </span>
-                    <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-designer-red hover:text-red-600 transition-colors">
+                    <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                       <span className="mr-1">Preview Now</span>
                       <ArrowRightIcon size={14} />
                     </Link>
@@ -206,7 +205,7 @@ const Index = () => {
                   <p className="text-gray-600 mb-4">
                     {design.description}
                   </p>
-                  <span className="text-designer-red font-medium hover:underline">
+                  <span className="text-blue-600 font-medium hover:underline">
                     View Project
                   </span>
                 </div>
@@ -231,13 +230,19 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <img 
-            src="/lovable-uploads/587db56a-2a84-4b03-97f4-0a635f4a4c38.png" 
-            alt="Client Reviews" 
-            className="w-full rounded-lg mb-8" 
-          />
-          <h2 className="font-display text-3xl mb-6">What Clients Say</h2>
-          <TestimonialCarousel testimonials={testimonials} />
+          <h2 className="font-display text-3xl mb-8">What Clients Say</h2>
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="lg:w-1/3">
+              <img 
+                src="/lovable-uploads/587db56a-2a84-4b03-97f4-0a635f4a4c38.png" 
+                alt="Client Reviews" 
+                className="w-full rounded-lg" 
+              />
+            </div>
+            <div className="lg:w-2/3">
+              <TestimonialCarousel testimonials={testimonials} />
+            </div>
+          </div>
         </section>
 
         <section>

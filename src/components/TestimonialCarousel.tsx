@@ -68,7 +68,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
 
   return (
     <div 
-      className="relative bg-designer-gray rounded-lg p-8"
+      className="relative bg-white border border-black rounded-lg p-8"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -88,7 +88,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             <button
               key={index}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === activeIndex ? 'bg-designer-red w-4' : 'bg-gray-300'
+                index === activeIndex ? 'bg-gradient-primary w-4' : 'bg-gray-300'
               }`}
               onClick={() => handleDotClick(index)}
               aria-label={`Go to testimonial ${index + 1}`}

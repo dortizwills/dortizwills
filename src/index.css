@@ -94,6 +94,6 @@
   }
   
   .active-nav-item::after {
-    @apply content-[''] absolute -bottom-1 left-0 h-1 w-16 bg-designer-red;
+    @apply content-[''] absolute -bottom-1 left-0 h-1 w-16 bg-gradient-primary;
   }
 }

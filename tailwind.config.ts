@@ -64,11 +64,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				designer: {
-					red: '#FF5A5F',
-					gray: '#F8F8F8',
+					red: '#2037C9',
+					gray: '#D2D4FF',
 					darkgray: '#333333',
 					accent: '#00BFA5'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'linear-gradient(135deg, #2037C9 0%, #101B63 100%)',
+				'gradient-secondary': 'linear-gradient(135deg, #D2D4FF 0%, #BEABFD 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -98,8 +102,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
 			fontFamily: {
-				'display': ['Playfair Display', 'serif'],
-				'sans': ['Inter', 'sans-serif']
+				'display': ['Lexend', 'sans-serif'],
+				'sans': ['DM Sans', 'sans-serif']
 			}
 		}
 	},
