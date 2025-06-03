@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EmailSubscribe from '../components/EmailSubscribe';
@@ -91,11 +92,11 @@ const Index = () => {
   return (
     <div className="pl-[220px]">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="mb-16">
-          <p className="text-lg text-gray-600 mb-2">Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl font-bold mb-4">Portfolio</h1>
-          <p className="text-xl text-gray-600 max-w-2xl">
-            Big ideas, clean pixels, happy users — I design with a little heart and a lot of hustle.
+        <div className="mb-16 text-center">
+          <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+          <h1 className="font-display text-6xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            We don't exist alone so I don't design alone. The best work comes from a collaboration of minds, and I thrive at stoking the fires of innovation
           </p>
         </div>
 
@@ -104,7 +105,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
-            <div className="lg:col-span-2 bg-designer-gray rounded-lg overflow-hidden">
+            <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
               <div className="aspect-[16/9] relative">
                 <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
               </div>
@@ -122,7 +123,7 @@ const Index = () => {
             
             {/* Side Featured Projects - Takes 1/3 of the width on large screens */}
             <div className="space-y-6">
-              <div className="bg-designer-gray rounded-lg overflow-hidden flex">
+              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
                 <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
                 </div>
@@ -138,7 +139,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="bg-designer-gray rounded-lg overflow-hidden flex">
+              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
                 <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
                 </div>
@@ -154,7 +155,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="bg-designer-gray rounded-lg overflow-hidden flex">
+              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
                 <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Adhere+" className="w-full h-full object-cover" />
                 </div>
@@ -175,7 +176,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button asChild variant="outline" className="w-full">
+              <Button asChild variant="outline" className="w-full bg-gradient-primary text-white border-none hover:opacity-90">
                 <Link to="/product-designs">
                   View UXUI Designs
                 </Link>
@@ -191,7 +192,7 @@ const Index = () => {
               <Link 
                 key={index} 
                 to={design.href}
-                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-black"
               >
                 <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
                   <img 
@@ -214,7 +215,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">My Skills & Approach</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillPoints.map((skill, index) => (
@@ -227,7 +228,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-8">What Clients Say</h2>
