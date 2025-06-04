@@ -31,45 +31,210 @@ const AdherePlus = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Challenge</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Approach</h3>
-        
-        <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Design Process</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Research</h3>
-        <h3 className="text-xl font-display font-medium mb-3">User Testing</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Final Design</h3>
-      </div>
-      
-      <div>
-        <p className="mb-6">
-          0 to 1 web and branding design for Adhere Plus's flagship app. This project involved creating a complete brand identity and user experience for a new product in the market.
-        </p>
-        
-        <p className="mb-6">
-          The client needed a comprehensive design solution that would help establish their brand while delivering an intuitive user experience for their innovative product.
-        </p>
-        
-        <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center mb-8">
-          <p className="text-gray-500">Project image coming soon</p>
+      <div className="space-y-12">
+        {/* Background Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Background</h2>
+          </div>
+          <div className="col-span-2">
+            <p className="text-gray-700 leading-relaxed">
+              Adhere+, the client of Raborn Media and a healthcare SaaS platform, focused on helping patients follow recovery plans and stay on track with their medications.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              In this project, I led the UX and web design efforts to answer the client's goals to meet needs of both healthcare professionals and patients — aligning usability, clarity, and trust in a sensitive space.
+            </p>
+          </div>
         </div>
-        
-        <p className="mb-6">
-          Our research began with a deep dive into the competitive landscape and understanding the target audience's needs. We conducted interviews with potential users to gather insights that would inform our design decisions.
-        </p>
-        
-        <p className="mb-6">
-          We created multiple prototypes and tested them with real users, iterating based on their feedback. This ensured that the final product would meet user expectations and business goals.
-        </p>
-        
-        <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center mb-8">
-          <p className="text-gray-500">Design process image coming soon</p>
+
+        {/* Early Stages Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Early Stages</h2>
+          </div>
+          <div className="col-span-2">
+            {/* Research subsection */}
+            <div className="mb-8">
+              <h3 className="text-xl font-display font-medium mb-4">Research</h3>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Before jumping into design, I took time to understand the core users. I utilized the client's information as well as gathering research from chatbots and forums; this found a few key pieces for our end user's needs:
+              </p>
+              
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <p className="text-gray-700">Medical Practitioners desire to monitor patients and assess provider performance.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <p className="text-gray-700">Patients require assistance to stay consistent with medication schedules and treatment plans.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <p className="text-gray-700">Executives desire reducing cost from expensive treatments from disconnections between Patients and Practitioners.</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-700 leading-relaxed mb-6">
+                These insights helped us shape a design that was not only functional but empathetic — reducing friction for each vertical that would use this website.
+              </p>
+              
+              <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                <p className="text-gray-500">Image placeholder</p>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <p className="mb-6">
-          The final design included a comprehensive design system, brand guidelines, and fully functional UI components. The client was extremely satisfied with the results and the product is currently in development.
-        </p>
+
+        {/* Goals & Strategy Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Goals & Strategy</h2>
+          </div>
+          <div className="col-span-2">
+            <p className="text-gray-700 leading-relaxed mb-6">
+              After conducting some follow up conversations I uncovered Adhere Plus' core goals:
+            </p>
+            
+            <div className="space-y-4 mb-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="font-display text-lg font-semibold">1</span>
+                </div>
+                <p className="text-gray-700">Increase demo bookings for their mobile platform</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="font-display text-lg font-semibold">2</span>
+                </div>
+                <p className="text-gray-700">Modernize their website to reflect their growth</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="font-display text-lg font-semibold">3</span>
+                </div>
+                <p className="text-gray-700">Create a consistent visual style for web and social channels</p>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 leading-relaxed">
+              From Raborn Media's side, this was also a strategic project. We aimed to build long-term trust with the client and create portfolio-quality work we could reference in future pitches.
+            </p>
+          </div>
+        </div>
+
+        {/* Design Process Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">🧠 Design Process</h2>
+          </div>
+          <div className="col-span-2">
+            <p className="text-gray-700 leading-relaxed mb-8">
+              This project had a shorter timeline and lower budget. This led to a few compromises from the ideal design process of this project and we broke it into a few phases:
+            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">1</span>
+                  </div>
+                  <p className="text-gray-700">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
+                </div>
+                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                  <p className="text-gray-500">Image placeholder</p>
+                </div>
+              </div>
+              
+              <div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">2</span>
+                  </div>
+                  <p className="text-gray-700">I presented our first round of designs to the client Adhere+, where we received detailed notes on how to course correct and finalize our designs with functioning prototypes on some unique features, roughly another week period.</p>
+                </div>
+                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                  <p className="text-gray-500">Image placeholder</p>
+                </div>
+              </div>
+              
+              <div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">3</span>
+                  </div>
+                  <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin.</p>
+                </div>
+                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                  <p className="text-gray-500">Image placeholder</p>
+                </div>
+              </div>
+              
+              <div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">4</span>
+                  </div>
+                  <p className="text-gray-700">the final designs and handoff to our developers. This process was where we made some additional compromises. A junior developer had a difficult time with one of the elements and as a result our budgeted time was placed on a non-critical element.</p>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
+                      <p className="text-gray-500">Image placeholder</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Results Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Results</h2>
+          </div>
+          <div className="col-span-2">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-display font-medium mb-3">Booking Increases:</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Adhere Plus saw an over 20% increase in conversions from site landings over the next 6 months. More importantly, this satisfaction on this initial build was helpful in the perceived value from Raborn Media, which in turn positioned Raborn for completing future projects with Adhere
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-display font-medium mb-3">Future Roadmap:</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Adhere+ now has the ability to focus on their app and potentially leverage Raborn's engineering team on not only web but application development. This was a goal of Raborn to expand into new verticals and Adhere's mobile app would bolster Raborn's portfolio for future new client contracts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </ProjectDetailLayout>
   );
