@@ -125,7 +125,7 @@ const AdherePlus = () => {
               <img 
                 src="/lovable-uploads/608cd0df-2ce3-40b1-b0de-ab71fc66cd9f.png" 
                 alt="Project Timeline" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
               />
             </div>
           </div>
@@ -153,7 +153,7 @@ const AdherePlus = () => {
                   <img 
                     src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
                     alt="Design Iterations" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                   />
                 </div>
               </div>
@@ -198,7 +198,7 @@ const AdherePlus = () => {
                     <img 
                       src="/lovable-uploads/6f592365-a8f0-400f-995c-53ae03cb42c6.png" 
                       alt="Design vs Final Comparisons" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-fill"
                     />
                   </div>
                 </div>
