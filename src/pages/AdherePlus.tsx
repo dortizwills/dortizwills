@@ -117,7 +117,7 @@ const AdherePlus = () => {
               From Raborn Media's side, this was also a strategic project. We aimed to build long-term trust with the client and create portfolio-quality work we could reference in future pitches.
             </p>
             
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-4">
               Below is the timeline we developed to deliver this project on time.
             </p>
             
@@ -143,7 +143,7 @@ const AdherePlus = () => {
             
             <div className="space-y-8">
               <div>
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-2">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">1</span>
                   </div>
@@ -159,7 +159,7 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-2">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">2</span>
                   </div>
@@ -171,7 +171,7 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-2">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">3</span>
                   </div>
@@ -183,13 +183,13 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-2">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">4</span>
                   </div>
                   <p className="text-gray-700">the final designs and handoff to our developers. This process was where we made some additional compromises. A junior developer had a difficult time with one of the elements and as a result our budgeted time was placed on a non-critical element.</p>
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed mb-4">
                   During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
                 </p>
                 
