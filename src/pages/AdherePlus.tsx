@@ -121,20 +121,18 @@ const AdherePlus = () => {
               Below is the timeline we developed to deliver this project on time.
             </p>
             
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <img 
-                src="/lovable-uploads/608cd0df-2ce3-40b1-b0de-ab71fc66cd9f.png" 
-                alt="Project Timeline" 
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <img 
+              src="/lovable-uploads/608cd0df-2ce3-40b1-b0de-ab71fc66cd9f.png" 
+              alt="Project Timeline" 
+              className="w-full rounded-lg mb-6" 
+            />
           </div>
         </div>
 
         {/* Design Process Section */}
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">🧠 Design Process</h2>
+            <h2 className="text-2xl font-display font-semibold">Design Process</h2>
           </div>
           <div className="col-span-2">
             <p className="text-gray-700 leading-relaxed mb-8">
