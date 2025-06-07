@@ -1,4 +1,3 @@
-
 import { FC, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Index from './pages/Index';
@@ -47,6 +46,7 @@ const App: FC = () => {
         <Route path="/product-designs/camping-app" element={<CampingApp />} />
         <Route path="/product-designs/gourmet-recipes" element={<GourmetRecipes />} />
         <Route path="/product-designs/adhere-plus" element={<AdherePlus />} />
+        <Route path="/mobile-apps" element={<MobileApps />} />
         <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
         <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
         <Route path="/graphic-designs" element={<MarketingDesigns />} />

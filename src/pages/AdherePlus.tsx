@@ -11,10 +11,10 @@ const AdherePlus = () => {
       image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
     },
     {
-      title: "Grammy Museum",
-      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
+      title: "Non-Profit Redesign",
+      description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
       path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
     }
   ];
 
@@ -75,13 +75,9 @@ const AdherePlus = () => {
                 </div>
               </div>
               
-              <p className="text-gray-700 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed">
                 These insights helped us shape a design that was not only functional but empathetic — reducing friction for each vertical that would use this website.
               </p>
-              
-              <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">Image placeholder</p>
-              </div>
             </div>
           </div>
         </div>
@@ -117,9 +113,21 @@ const AdherePlus = () => {
               </div>
             </div>
             
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed mb-6">
               From Raborn Media's side, this was also a strategic project. We aimed to build long-term trust with the client and create portfolio-quality work we could reference in future pitches.
             </p>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Below is the timeline we developed to deliver this project on time.
+            </p>
+            
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img 
+                src="/lovable-uploads/608cd0df-2ce3-40b1-b0de-ab71fc66cd9f.png" 
+                alt="Project Timeline" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
@@ -141,8 +149,12 @@ const AdherePlus = () => {
                   </div>
                   <p className="text-gray-700">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
                 </div>
-                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Image placeholder</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
+                    alt="Design Iterations" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               
@@ -182,29 +194,12 @@ const AdherePlus = () => {
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
-                    <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Image placeholder</p>
-                    </div>
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/6f592365-a8f0-400f-995c-53ae03cb42c6.png" 
+                      alt="Design vs Final Comparisons" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>

@@ -27,21 +27,20 @@ const ProductDesigns = () => {
       title: "Adhere+",
       description: "0 to 1 web and branding design for a Adhere Plus's flagship app.",
       path: "/product-designs/adhere-plus",
-      image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png",
-      status: "In Progress"
+      image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
     },
     {
-      title: "Grammy Museum",
-      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
+      title: "Non-Profit Redesign",
+      description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
       path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png",
       status: "In Progress"
     },
     {
       title: "Mobile App Portfolio",
       description: "View a collection of my mobile app design work across various industries and platforms.",
       path: "/mobile-apps",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png",
       status: "In Progress"
     }
   ];

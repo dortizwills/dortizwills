@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EmailSubscribe from '../components/EmailSubscribe';
@@ -106,9 +105,11 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-              <div className="aspect-[16/9] relative">
-                <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
-              </div>
+              <Link to="/product-designs/quick-services" className="block">
+                <div className="aspect-[16/9] relative">
+                  <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
+                </div>
+              </Link>
               <div className="p-6">
                 <h3 className="font-display text-2xl mb-2">Express Lane — Completing 15 minute services in 3 minutes</h3>
                 <p className="text-gray-600 mb-4">
@@ -124,9 +125,9 @@ const Index = () => {
             {/* Side Featured Projects - Takes 1/3 of the width on large screens */}
             <div className="space-y-6">
               <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <div className="w-1/3 aspect-[3/2]">
+                <Link to="/product-designs/camping-app" className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
-                </div>
+                </Link>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Camping Made Easy</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
@@ -140,9 +141,9 @@ const Index = () => {
               </div>
               
               <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <div className="w-1/3 aspect-[3/2]">
+                <Link to="/product-designs/gourmet-recipes" className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
-                </div>
+                </Link>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
@@ -156,23 +157,18 @@ const Index = () => {
               </div>
               
               <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <div className="w-1/3 aspect-[3/2]">
+                <Link to="/product-designs/adhere-plus" className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Adhere+" className="w-full h-full object-cover" />
-                </div>
+                </Link>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Adhere+</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     0 to 1 web and branding design for a Adhere Plus's flagship app
                   </p>
-                  <div className="flex items-center justify-between">
-                    <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">
-                      In Progress
-                    </span>
-                    <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">Preview Now</span>
-                      <ArrowRightIcon size={14} />
-                    </Link>
-                  </div>
+                  <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-1">View Project</span>
+                    <ArrowRightIcon size={14} />
+                  </Link>
                 </div>
               </div>
               

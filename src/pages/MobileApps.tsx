@@ -8,13 +8,13 @@ const MobileApps = () => {
       title: "Adhere Plus",
       description: "0 to 1 web and branding design for Adhere Plus's flagship app.",
       path: "/product-designs/adhere-plus",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
     },
     {
-      title: "Grammy Museum",
-      description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
+      title: "Non-Profit Redesign",
+      description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
       path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
     }
   ];
 
@@ -23,6 +23,7 @@ const MobileApps = () => {
       title="Mobile App Explorations" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
+      headerImage="/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png"
       projectDetails={{
         timeline: "Various",
         responsibilities: "Mobile UI Design, Prototyping, User Testing",
@@ -30,38 +31,67 @@ const MobileApps = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div>
-        <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
-        <p className="mb-6">
-          Collection of mobile application designs created for startup companies. These projects focused on delivering apps that effectively communicate the client's vision while exploring innovative brand directions.
-        </p>
-        
-        <h2 className="text-2xl font-display font-semibold mt-8 mb-4">Design Process</h2>
-        <h3 className="text-xl font-display font-medium mb-3">Research & Discovery</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Wireframing & Prototyping</h3>
-        <h3 className="text-xl font-display font-medium mb-3">Visual Design</h3>
-      </div>
-      
-      <div>
-        <p className="mb-6">
-          These mobile applications were designed with a focus on user experience, intuitive navigation, and visually appealing interfaces that align with each client's brand identity.
-        </p>
-        
-        <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center mb-8">
-          <p className="text-gray-500">Project image coming soon</p>
+      <div className="space-y-12">
+        {/* Overview Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Overview</h2>
+          </div>
+          <div className="col-span-2">
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Collection of mobile application designs created for startup companies. These projects focused on delivering apps that effectively communicate the client's vision while exploring innovative brand directions.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Each mobile app project begins with extensive user research and competitive analysis to understand the target market and identify opportunities for innovation.
+            </p>
+          </div>
         </div>
-        
-        <p className="mb-6">
-          Each project began with extensive research into the target audience and competitive landscape. This allowed us to identify opportunities for innovation and create designs that would stand out in crowded app stores.
-        </p>
-        
-        <p className="mb-6">
-          Multiple wireframing iterations were created and tested with representative users to ensure optimal flow and functionality. Interactive prototypes helped refine the user journey before moving into final visual design.
-        </p>
-        
-        <p className="mb-6">
-          The final designs incorporated custom iconography, typography, and color schemes that reflected each brand's unique personality while maintaining usability best practices across different device sizes.
-        </p>
+
+        {/* Process Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">My Process</h2>
+          </div>
+          <div className="col-span-2">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-display font-medium mb-3">Research & Discovery</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  I start by understanding the target audience, their pain points, and the competitive landscape. This research phase helps identify unique opportunities and ensures the app will solve real user problems.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-display font-medium mb-3">Wireframing & Prototyping</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Multiple wireframing iterations are created and tested with representative users to ensure optimal flow and functionality. Interactive prototypes help refine the user journey before moving into final visual design.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-display font-medium mb-3">Visual Design</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  The final designs incorporate custom iconography, typography, and color schemes that reflect each brand's unique personality while maintaining usability best practices across different device sizes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Current Status */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Status</h2>
+          </div>
+          <div className="col-span-2">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              This portfolio section is currently being expanded with detailed case studies from my mobile app design work.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              <strong>More content coming soon!</strong> Check back for in-depth looks at specific mobile app projects, including user research findings, design iterations, and final outcomes.
+            </p>
+          </div>
+        </div>
       </div>
     </ProjectDetailLayout>
   );
