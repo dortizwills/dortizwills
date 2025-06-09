@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EmailSubscribe from '../components/EmailSubscribe';
+import ContactForm from '../components/ContactForm';
 import { ArrowRightIcon, Award, TrendingUp, Image, Users, Layout, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TestimonialCarousel from '../components/TestimonialCarousel';
@@ -89,7 +89,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="pl-[220px]">
+    <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-16 text-center">
           <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
@@ -211,21 +211,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">My Skills & Approach</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillPoints.map((skill, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <div className="bg-gray-50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  {skill.icon}
-                </div>
-                <h3 className="text-xl font-display font-medium mb-2">{skill.title}</h3>
-                <p className="text-gray-600">{skill.description}</p>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-8">What Clients Say</h2>
           <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -243,7 +228,7 @@ const Index = () => {
         </section>
 
         <section>
-          <EmailSubscribe />
+          <ContactForm />
         </section>
       </main>
     </div>

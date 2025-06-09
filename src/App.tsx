@@ -36,28 +36,30 @@ const App: FC = () => {
   return (
     <>
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/product-designs" element={<ProductDesigns />} />
-        <Route path="/product-designs/quick-services" element={<QuickServices />} />
-        <Route path="/product-designs/camping-app" element={<CampingApp />} />
-        <Route path="/product-designs/gourmet-recipes" element={<GourmetRecipes />} />
-        <Route path="/product-designs/adhere-plus" element={<AdherePlus />} />
-        <Route path="/mobile-apps" element={<MobileApps />} />
-        <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
-        <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
-        <Route path="/graphic-designs" element={<MarketingDesigns />} />
-        <Route path="/graphic-designs/data-driven-ebooks" element={<DataDrivenEbooks />} />
-        <Route path="/graphic-designs/email-marketing" element={<EmailMarketing />} />
-        <Route path="/graphic-designs/product-illustrations" element={<ProductIllustrations />} />
-        <Route path="/graphic-designs/social-media" element={<SocialMedia />} />
-        <Route path="/graphic-designs/case-studies" element={<CaseStudies />} />
-        <Route path="/graphic-designs/event-designs" element={<EventDesigns />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="pt-16 sm:pt-0">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/product-designs" element={<ProductDesigns />} />
+          <Route path="/product-designs/quick-services" element={<QuickServices />} />
+          <Route path="/product-designs/camping-app" element={<CampingApp />} />
+          <Route path="/product-designs/gourmet-recipes" element={<GourmetRecipes />} />
+          <Route path="/product-designs/adhere-plus" element={<AdherePlus />} />
+          <Route path="/mobile-apps" element={<MobileApps />} />
+          <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
+          <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
+          <Route path="/graphic-designs" element={<MarketingDesigns />} />
+          <Route path="/graphic-designs/data-driven-ebooks" element={<DataDrivenEbooks />} />
+          <Route path="/graphic-designs/email-marketing" element={<EmailMarketing />} />
+          <Route path="/graphic-designs/product-illustrations" element={<ProductIllustrations />} />
+          <Route path="/graphic-designs/social-media" element={<SocialMedia />} />
+          <Route path="/graphic-designs/case-studies" element={<CaseStudies />} />
+          <Route path="/graphic-designs/event-designs" element={<EventDesigns />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   );
 };

@@ -1,3 +1,4 @@
+
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -10,18 +11,26 @@ import {
   ChevronRight,
   ChevronDown,
   Expand,
-  Minimize
+  Minimize,
+  Menu,
+  X
 } from 'lucide-react';
 
 const Sidebar: FC = () => {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
   
   // Ensure the page scrolls to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
   }, [location.pathname]);
   
   const toggleCollapsed = () => {
@@ -31,6 +40,10 @@ const Sidebar: FC = () => {
       setMarketingDesignsOpen(false);
     }
   };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
   
   const productDesigns = [
     { name: 'Quick Services', path: '/product-designs/quick-services' },
@@ -38,7 +51,7 @@ const Sidebar: FC = () => {
     { name: 'Gourmet Recipes', path: '/product-designs/gourmet-recipes' },
     { name: 'Adhere Plus', path: '/product-designs/adhere-plus' },
     { name: 'Mobile Apps', path: '/product-designs/mobile-apps' },
-    { name: 'Grammy Museum', path: '/product-designs/grammy-museum' }
+    { name: 'Non-Profit Redesign', path: '/product-designs/grammy-museum' }
   ];
   
   const marketingDesigns = [
@@ -58,116 +71,224 @@ const Sidebar: FC = () => {
     { name: 'Contact me', path: '/contact', icon: <MessageSquare size={20} /> },
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
-  
-  return (
-    <aside className={`fixed left-0 top-0 h-full ${collapsed ? 'w-[70px]' : 'w-[220px]'} bg-white border-r border-gray-200 flex flex-col py-8 px-4 transition-all duration-300`}>
-      <div className="flex items-center justify-between mb-8">
-        <div className={`h-10 w-10 flex items-center justify-center ${collapsed ? 'mx-auto' : ''}`}>
+
+  // Mobile Header Component
+  const MobileHeader = () => (
+    <div className="block sm:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
+      <div className="flex items-center justify-between">
+        <Link to="/" className="flex items-center">
           <img 
             src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
             alt="Logo" 
-            className="h-10 w-10 object-contain"
+            className="h-8 w-8 object-contain"
           />
-        </div>
-        {!collapsed && <div className="h-12 w-12"></div>}
+        </Link>
+        <button onClick={toggleMobileMenu} className="p-2">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
-      
-      <nav className="flex-1 overflow-y-auto">
-        <ul className="space-y-6">
+    </div>
+  );
+
+  // Mobile Menu Overlay
+  const MobileMenu = () => (
+    <div className={`block sm:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className="pt-16 px-4">
+        <nav className="space-y-4">
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
             const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
             
             return (
-              <li key={item.name}>
+              <div key={item.name} className="border-b border-gray-100 pb-4">
                 {item.hasDropdown ? (
                   <div>
                     <div 
-                      className={`flex items-center justify-between cursor-pointer ${
+                      className={`flex items-center justify-between py-3 ${
                         isParentActive 
                           ? 'text-designer-darkgray' 
-                          : 'text-gray-500 hover:text-designer-darkgray transition-colors'
+                          : 'text-gray-500'
                       }`}
-                      onClick={!collapsed ? item.toggle : undefined}
+                      onClick={item.toggle}
                     >
                       <Link 
                         to={item.path}
-                        className="flex items-center gap-3 font-medium text-lg"
+                        className="flex items-center gap-3 text-lg font-medium"
                       >
                         <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                           {item.icon}
                         </span>
-                        {!collapsed && <span>{item.name}</span>}
+                        <span>{item.name}</span>
                       </Link>
-                      {!collapsed && (
-                        <button onClick={(e) => {
-                          e.preventDefault();
-                          item.toggle();
-                        }}>
-                          {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                        </button>
-                      )}
+                      <button onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        item.toggle();
+                      }}>
+                        {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                      </button>
                     </div>
                     
-                    {!collapsed && item.isOpen && (
-                      <ul className="mt-2 ml-8 space-y-2">
+                    {item.isOpen && (
+                      <div className="ml-6 mt-2 space-y-2">
                         {item.items?.map((subItem) => {
                           const isSubActive = location.pathname === subItem.path;
                           return (
-                            <li key={subItem.name}>
-                              <Link 
-                                to={subItem.path}
-                                className={`text-sm block py-1 ${
-                                  isSubActive 
-                                    ? 'text-designer-red font-medium' 
-                                    : 'text-gray-500 hover:text-designer-darkgray'
-                                }`}
-                              >
-                                {subItem.name}
-                              </Link>
-                            </li>
+                            <Link 
+                              key={subItem.name}
+                              to={subItem.path}
+                              className={`block py-2 text-base ${
+                                isSubActive 
+                                  ? 'text-designer-red font-medium' 
+                                  : 'text-gray-500'
+                              }`}
+                            >
+                              {subItem.name}
+                            </Link>
                           );
                         })}
-                      </ul>
+                      </div>
                     )}
                   </div>
                 ) : (
                   <Link 
                     to={item.path}
-                    className={`flex items-center gap-3 font-medium text-lg ${
+                    className={`flex items-center gap-3 py-3 text-lg font-medium ${
                       isActive 
                         ? 'text-designer-darkgray' 
-                        : 'text-gray-500 hover:text-designer-darkgray transition-colors'
+                        : 'text-gray-500'
                     }`}
                   >
                     <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                       {item.icon}
                     </span>
-                    {!collapsed && <span>{item.name}</span>}
+                    <span>{item.name}</span>
                   </Link>
                 )}
-              </li>
+              </div>
             );
           })}
-        </ul>
-      </nav>
-      
-      <div className="mt-auto pt-4 border-t border-gray-100">
-        <button 
-          onClick={toggleCollapsed} 
-          className={`py-2 text-gray-500 hover:text-designer-darkgray flex ${collapsed ? 'justify-center' : 'items-center'}`}
-        >
-          {collapsed ? (
-            <Expand size={20} />
-          ) : (
-            <>
-              <Minimize size={20} className="ml-0" />
-              <span className="ml-3">Collapse menu</span>
-            </>
-          )}
-        </button>
+        </nav>
       </div>
-    </aside>
+    </div>
+  );
+  
+  return (
+    <>
+      {/* Mobile Navigation */}
+      <MobileHeader />
+      <MobileMenu />
+
+      {/* Desktop Sidebar */}
+      <aside className={`hidden sm:block fixed left-0 top-0 h-full ${collapsed ? 'w-[70px]' : 'w-[220px]'} bg-white border-r border-gray-200 flex flex-col py-8 px-4 transition-all duration-300`}>
+        <div className="flex items-center justify-between mb-8">
+          <div className={`h-10 w-10 flex items-center justify-center ${collapsed ? 'mx-auto' : ''}`}>
+            <img 
+              src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+              alt="Logo" 
+              className="h-10 w-10 object-contain"
+            />
+          </div>
+          {!collapsed && <div className="h-12 w-12"></div>}
+        </div>
+        
+        <nav className="flex-1 overflow-y-auto">
+          <ul className="space-y-6">
+            {menuItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
+              
+              return (
+                <li key={item.name}>
+                  {item.hasDropdown ? (
+                    <div>
+                      <div 
+                        className={`flex items-center justify-between cursor-pointer ${
+                          isParentActive 
+                            ? 'text-designer-darkgray' 
+                            : 'text-gray-500 hover:text-designer-darkgray transition-colors'
+                        }`}
+                        onClick={!collapsed ? item.toggle : undefined}
+                      >
+                        <Link 
+                          to={item.path}
+                          className="flex items-center gap-3 font-medium text-lg"
+                        >
+                          <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                            {item.icon}
+                          </span>
+                          {!collapsed && <span>{item.name}</span>}
+                        </Link>
+                        {!collapsed && (
+                          <button onClick={(e) => {
+                            e.preventDefault();
+                            item.toggle();
+                          }}>
+                            {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                          </button>
+                        )}
+                      </div>
+                      
+                      {!collapsed && item.isOpen && (
+                        <ul className="mt-2 ml-8 space-y-2">
+                          {item.items?.map((subItem) => {
+                            const isSubActive = location.pathname === subItem.path;
+                            return (
+                              <li key={subItem.name}>
+                                <Link 
+                                  to={subItem.path}
+                                  className={`text-sm block py-1 ${
+                                    isSubActive 
+                                      ? 'text-designer-red font-medium' 
+                                      : 'text-gray-500 hover:text-designer-darkgray'
+                                  }`}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </div>
+                  ) : (
+                    <Link 
+                      to={item.path}
+                      className={`flex items-center gap-3 font-medium text-lg ${
+                        isActive 
+                          ? 'text-designer-darkgray' 
+                          : 'text-gray-500 hover:text-designer-darkgray transition-colors'
+                      }`}
+                    >
+                      <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                        {item.icon}
+                      </span>
+                      {!collapsed && <span>{item.name}</span>}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        
+        <div className="mt-auto pt-4 border-t border-gray-100">
+          <button 
+            onClick={toggleCollapsed} 
+            className={`py-2 text-gray-500 hover:text-designer-darkgray flex ${collapsed ? 'justify-center' : 'items-center'}`}
+          >
+            {collapsed ? (
+              <Expand size={20} />
+            ) : (
+              <>
+                <Minimize size={20} className="ml-0" />
+                <span className="ml-3">Collapse menu</span>
+              </>
+            )}
+          </button>
+        </div>
+      </aside>
+    </>
   );
 };
 
