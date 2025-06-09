@@ -50,7 +50,7 @@ const Sidebar: FC = () => {
     { name: 'Camping App', path: '/product-designs/camping-app' },
     { name: 'Gourmet Recipes', path: '/product-designs/gourmet-recipes' },
     { name: 'Adhere Plus', path: '/product-designs/adhere-plus' },
-    { name: 'Mobile Apps', path: '/product-designs/mobile-apps' },
+    { name: 'Mobile Apps', path: '/mobile-apps' },
     { name: 'Non-Profit Redesign', path: '/product-designs/grammy-museum' }
   ];
   
@@ -93,8 +93,8 @@ const Sidebar: FC = () => {
   // Mobile Menu Overlay
   const MobileMenu = () => (
     <div className={`block sm:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className="pt-16 px-4">
-        <nav className="space-y-4">
+      <div className="pt-16 px-4 h-full overflow-y-auto">
+        <nav className="space-y-4 pb-8">
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
             const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
@@ -192,8 +192,8 @@ const Sidebar: FC = () => {
           {!collapsed && <div className="h-12 w-12"></div>}
         </div>
         
-        <nav className="flex-1 overflow-y-auto">
-          <ul className="space-y-6">
+        <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <ul className="space-y-6 pb-8">
             {menuItems.map((item) => {
               const isActive = location.pathname === item.path;
               const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);

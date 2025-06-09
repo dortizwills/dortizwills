@@ -57,11 +57,8 @@ const ContactForm = () => {
   if (isSubmitted) {
     return (
       <div className="bg-white border border-black p-8 rounded-lg text-center">
-        <div className="flex items-center gap-3 mb-4 justify-center">
-          <Mail className="text-gradient-primary" size={24} />
-          <h3 className="font-display text-2xl">Message Sent</h3>
-        </div>
         <div className="space-y-4">
+          <h3 className="font-display text-2xl font-bold">Message Sent</h3>
           <p className="text-gray-600">Thank you for reaching out!</p>
           <p className="text-gray-600">
             You can expect a message from me in the next 24 hours. I'm happy to explore 
