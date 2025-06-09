@@ -37,8 +37,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   }, []);
 
   return (
-    <div className="pl-[220px]">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div className="sm:pl-[220px] pl-0">
+      <main className="max-w-7xl mx-auto px-6 py-12 max-sm:px-4">
         <Link to={backTo} className="flex items-center text-designer-red mb-8 hover:underline">
           <ArrowLeft size={20} className="mr-2" />
           <span>{backLabel}</span>
@@ -99,7 +99,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 max-sm:gap-6">
               {/* First project */}
               {relatedProjects[0] && (
                 <div className="col-span-1">
@@ -134,8 +134,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 </div>
               )}
               
-              {/* Empty middle column */}
-              <div className="col-span-1"></div>
+              {/* Empty middle column on desktop only */}
+              <div className="col-span-1 max-sm:hidden"></div>
               
               {/* Second project */}
               {relatedProjects[1] && (

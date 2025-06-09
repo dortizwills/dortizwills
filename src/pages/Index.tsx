@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
@@ -124,53 +125,53 @@ const Index = () => {
             
             {/* Side Featured Projects - Takes 1/3 of the width on large screens */}
             <div className="space-y-6">
-              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <Link to="/product-designs/camping-app" className="w-1/3 aspect-[3/2]">
+              <Link to="/product-designs/camping-app" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
+                <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
-                </Link>
+                </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Camping Made Easy</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
                   </p>
-                  <Link to="/product-designs/camping-app" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               
-              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <Link to="/product-designs/gourmet-recipes" className="w-1/3 aspect-[3/2]">
+              <Link to="/product-designs/gourmet-recipes" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
+                <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
-                </Link>
+                </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
-                  <Link to="/product-designs/gourmet-recipes" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               
-              <div className="bg-white border border-black rounded-lg overflow-hidden flex">
-                <Link to="/product-designs/adhere-plus" className="w-1/3 aspect-[3/2]">
+              <Link to="/product-designs/adhere-plus" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
+                <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Adhere+" className="w-full h-full object-cover" />
-                </Link>
+                </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Adhere+</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     0 to 1 web and branding design for a Adhere Plus's flagship app
                   </p>
-                  <Link to="/product-designs/adhere-plus" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
                     <ArrowRightIcon size={14} />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               
               <Button asChild variant="outline" className="w-full bg-gradient-primary text-white border-none hover:opacity-90">
                 <Link to="/product-designs">
@@ -183,7 +184,39 @@ const Index = () => {
 
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Desktop layout */}
+          <div className="hidden max-sm:block">
+            <div className="space-y-6">
+              {marketingDesigns.map((design, index) => (
+                <Link 
+                  key={index} 
+                  to={design.href}
+                  className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
+                >
+                  <div className="w-1/3 aspect-[3/2]">
+                    <img 
+                      src={design.imagePath} 
+                      alt={design.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4 w-2/3">
+                    <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                      {design.description}
+                    </p>
+                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                      <span className="mr-1">View Project</span>
+                      <ArrowRightIcon size={14} />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          {/* Mobile layout */}
+          <div className="max-sm:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 

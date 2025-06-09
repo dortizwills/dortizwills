@@ -10,6 +10,7 @@ const ContactForm = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,20 +24,24 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const form = new FormData();
-      form.append('name', formData.name);
-      form.append('email', formData.email);
-      form.append('subject', formData.subject || 'Reaching Out');
-      form.append('message', formData.message);
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('email', formData.email);
+    form.append('subject', formData.subject || 'Reaching Out');
+    form.append('message', formData.message);
 
-      const response = await fetch('https://formsubmit.co/dortizwills@gmail.com', {
+    // Set hidden fields for FormSubmit
+    form.append('_next', window.location.href);
+    form.append('_captcha', 'false');
+
+    try {
+      const response = await fetch('https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c', {
         method: 'POST',
         body: form
       });
 
       if (response.ok) {
-        toast.success('Thank you for your message! I\'ll get back to you soon.');
+        setIsSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         throw new Error('Failed to send message');
@@ -48,6 +53,31 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="bg-white border border-black p-8 rounded-lg text-center">
+        <div className="flex items-center gap-3 mb-4 justify-center">
+          <Mail className="text-gradient-primary" size={24} />
+          <h3 className="font-display text-2xl">Message Sent</h3>
+        </div>
+        <div className="space-y-4">
+          <p className="text-gray-600">Thank you for reaching out!</p>
+          <p className="text-gray-600">
+            You can expect a message from me in the next 24 hours. I'm happy to explore 
+            the vision you have for your next project.
+          </p>
+          <p className="text-gray-600 font-medium">Talk soon!</p>
+          <button 
+            onClick={() => setIsSubmitted(false)}
+            className="bg-gradient-primary text-white font-medium py-3 px-6 rounded-md transition-opacity hover:opacity-90 mt-6"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white border border-black p-8 rounded-lg">
