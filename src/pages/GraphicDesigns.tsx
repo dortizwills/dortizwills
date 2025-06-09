@@ -52,7 +52,7 @@ const MarketingDesigns = () => {
   return (
     <div className="pl-[220px]">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <h1 className="font-display text-5xl font-bold mb-8">Marketing Designs</h1>
+        <h1 className="font-display text-5xl font-bold mb-8">Visual Designs</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {projects.map((project) => (

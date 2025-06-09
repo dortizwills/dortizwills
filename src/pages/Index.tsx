@@ -182,7 +182,7 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Marketing Designs</h2>
+          <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {marketingDesigns.map((design, index) => (
               <Link 

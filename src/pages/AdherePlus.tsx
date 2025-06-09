@@ -31,7 +31,7 @@ const AdherePlus = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div className="space-y-12">
+      <div className="space-y-8">
         {/* Background Section */}
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-1">
