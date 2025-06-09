@@ -188,6 +188,20 @@ const CampingApp = () => {
             Initially I set up users with Backpacking, a more complicated version of camping – Now they would start simply with camping. I began adding fidelity for users to understand new information and additional options.
           </p>
         </div>
+        <div>
+          <img 
+            src="/lovable-uploads/7ee7e5de-82c4-4eef-951d-5fad478f3f12.png" 
+            alt="Flow 4" 
+            className="w-full rounded-lg"
+          />
+        </div>
+        <div>
+          <img 
+            src="/lovable-uploads/113eed40-b2fc-4f3c-b070-046f7b0b6f3e.png" 
+            alt="Flow 5" 
+            className="w-full rounded-lg"
+          />
+        </div>
       </div>
       
       {/* Div Block 12 */}
@@ -221,6 +235,20 @@ const CampingApp = () => {
           <p className="mb-6">
             I decided to include options where they could rent gear. Directly followed by adding additional options to inspect their campsite's activities, events, and wildlife.
           </p>
+        </div>
+        <div>
+          <img 
+            src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
+            alt="Flow 6" 
+            className="w-full rounded-lg"
+          />
+        </div>
+        <div>
+          <img 
+            src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
+            alt="Flow 6" 
+            className="w-full rounded-lg"
+          />
         </div>
       </div>
       

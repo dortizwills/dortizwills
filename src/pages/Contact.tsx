@@ -83,7 +83,7 @@ const Contact = () => {
           </div>
           
           {/* Contact Form with FormSubmit */}
-          <div className="bg-gray-50 p-8 rounded-lg">
+          <div className="bg-white border border-black p-8 rounded-lg">
             {!isSubmitted ? (
               <>
                 <h2 className="text-2xl font-display font-semibold mb-6">Send a Message</h2>

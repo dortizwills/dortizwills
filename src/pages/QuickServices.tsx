@@ -16,7 +16,7 @@ const QuickServices = () => {
       title: "Grammy Museum",
       description: "Redesigning the Grammy Museum's digital experience to showcase music history and education.",
       path: "/product-designs/grammy-museum",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
     }
   ];
   return (
