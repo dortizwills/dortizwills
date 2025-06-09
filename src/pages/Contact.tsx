@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, Clock, ChevronDown, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -52,34 +52,47 @@ const Contact = () => {
             </div>
           </div>
           
-          {/* Contact Form */}
+          {/* Contact Form with FormSubmit */}
           <div className="bg-gray-50 p-8 rounded-lg">
             <h2 className="text-2xl font-display font-semibold mb-6">Send a Message</h2>
             
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block font-medium mb-1">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block font-medium mb-1">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
-                />
+            <form 
+              action="https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c" 
+              method="POST"
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block font-medium mb-1">Name</label>
+                  <input 
+                    type="text" 
+                    id="name"
+                    name="name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block font-medium mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block font-medium mb-1">Subject</label>
                 <input 
                   type="text" 
-                  id="subject" 
+                  id="subject"
+                  name="subject"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
                 />
               </div>
@@ -87,15 +100,18 @@ const Contact = () => {
               <div>
                 <label htmlFor="message" className="block font-medium mb-1">Message</label>
                 <textarea 
-                  id="message" 
+                  id="message"
+                  name="message"
                   rows={5}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-designer-red" 
+                  placeholder="Your Message"
+                  required
                 ></textarea>
               </div>
               
               <button 
                 type="submit" 
-                className="bg-designer-red text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors"
+                className="bg-designer-red text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors w-full"
               >
                 Send Message
               </button>
