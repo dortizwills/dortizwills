@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
@@ -12,6 +11,11 @@ const Contact = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Set default subject if empty
+    if (!formData.get('subject') || formData.get('subject') === '') {
+      formData.set('subject', 'Reaching Out');
+    }
 
     try {
       await fetch('https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c', {
@@ -120,6 +124,7 @@ const Contact = () => {
                       id="subject"
                       name="subject"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-designer-red" 
+                      placeholder="Subject (optional)"
                     />
                   </div>
                   
