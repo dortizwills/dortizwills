@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { FileText, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Resume = () => {
   // Function to handle the PDF download
@@ -14,13 +15,13 @@ const Resume = () => {
       <main className="max-w-4xl mx-auto px-6 py-12">
         <div className="flex items-center justify-between mb-8">
           <h1 className="font-display text-5xl font-bold">Resume</h1>
-          <button 
+          <Button 
             onClick={handleDownloadPDF}
-            className="flex items-center gap-2 bg-designer-red hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-colors"
+            className="bg-gradient-primary text-white border-none hover:opacity-90"
           >
-            <Download size={18} />
+            <Download size={18} className="mr-2" />
             Download PDF
-          </button>
+          </Button>
         </div>
         
         <div className="space-y-12">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -140,13 +141,13 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   
-                  <button 
+                  <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="bg-designer-red text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors w-full disabled:opacity-50"
+                    className="bg-gradient-primary text-white border-none hover:opacity-90 w-full disabled:opacity-50"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
+                  </Button>
                 </form>
               </>
             ) : (
@@ -159,12 +160,12 @@ const Contact = () => {
                     the vision you have for your next project.
                   </p>
                   <p className="text-gray-600 font-medium">Talk soon!</p>
-                  <button 
+                  <Button 
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-designer-red text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors mt-6"
+                    className="bg-gradient-primary text-white border-none hover:opacity-90 mt-6"
                   >
                     Send Another Message
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}

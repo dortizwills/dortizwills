@@ -55,7 +55,10 @@ const About = () => {
               </p>
               
               <div className="mt-8">
-                <Button className="flex items-center gap-2" onClick={() => window.open('https://www.linkedin.com/in/dortiz-wills', '_blank')}>
+                <Button 
+                  className="bg-gradient-primary text-white border-none hover:opacity-90 flex items-center gap-2" 
+                  onClick={() => window.open('https://www.linkedin.com/in/dortiz-wills', '_blank')}
+                >
                   <Linkedin size={20} />
                   Connect on LinkedIn
                 </Button>

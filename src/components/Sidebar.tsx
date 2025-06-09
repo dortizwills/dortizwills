@@ -65,7 +65,7 @@ const Sidebar: FC = () => {
       <div className="flex items-center justify-between mb-8">
         <div className={`h-10 w-10 flex items-center justify-center ${collapsed ? 'mx-auto' : ''}`}>
           <img 
-            src="/lovable-uploads/3617406d-a5d2-47e2-afcf-c36fdee0b7b4.png" 
+            src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
             alt="Logo" 
             className="h-10 w-10 object-contain"
           />
