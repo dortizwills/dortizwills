@@ -38,6 +38,9 @@ const GourmetRecipes = () => {
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
         </div>
+       </div> 
+      {/* Validation Process */}
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Research</h3>
         </div>
@@ -96,6 +99,9 @@ const GourmetRecipes = () => {
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Validation Process</h2>
         </div>
+       </div> 
+     {/* Final App Designs */}      
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Early User Flows</h3>
         </div>
@@ -221,8 +227,12 @@ const GourmetRecipes = () => {
       {/* Final App Designs */}
       <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2> 
+          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
         </div>
+       </div> 
+      
+      {/* Results */}
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Need 1: Intelligent Searches</h3>
         </div>
@@ -269,12 +279,17 @@ const GourmetRecipes = () => {
           className="w-full rounded-lg" 
         />
       </div>
+
+
       
       {/* Results */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+       <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
         </div>
+       </div>
+      {/* Increased Interest */}
+      <div className="grid grid-cols-3 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
         </div>
