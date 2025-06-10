@@ -68,7 +68,7 @@ const Contact = () => {
                 <MapPin className="text-designer-red mr-4 mt-1" size={20} />
                 <div>
                   <h3 className="font-medium mb-1">Location</h3>
-                  <p className="text-gray-600">Petaluma, CA</p>
+                  <p className="text-gray-600">Rhonert Park, CA</p>
                 </div>
               </div>
               

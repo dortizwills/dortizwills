@@ -22,7 +22,7 @@ const ProductIllustrations = () => {
     <ProjectDetailLayout 
       title="Refining Product Illustrations" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
+      backLabel="Back to Visual Designs"
       headerImage="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
       projectDetails={{
         timeline: "3 months",

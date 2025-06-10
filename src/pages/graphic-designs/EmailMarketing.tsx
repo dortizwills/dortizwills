@@ -8,7 +8,7 @@ const EmailMarketing = () => {
       title: "Data-Driven eBooks",
       description: "Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less.",
       path: "/graphic-designs/data-driven-ebooks",
-      image: "/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
+      image: "/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png"
     },
     {
       title: "Social Media Campaigns",
@@ -22,7 +22,7 @@ const EmailMarketing = () => {
     <ProjectDetailLayout 
       title="Email Marketing Campaigns" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
+      backLabel="Back to Visual Designs"
       headerImage="/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png"
       projectDetails={{
         timeline: "3 months",

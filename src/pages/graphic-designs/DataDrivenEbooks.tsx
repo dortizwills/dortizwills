@@ -22,8 +22,8 @@ const DataDrivenEbooks = () => {
     <ProjectDetailLayout 
       title="Data-Driven eBooks" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
-      headerImage="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
+      backLabel="Back to Visual Designs"
+      headerImage="/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png"
       projectDetails={{
         timeline: "2.5 weeks each, 2 months total",
         responsibilities: "Research Analysis, Content Strategy, Visual Design, Illustration, Layout Design, Audience Segmentation",

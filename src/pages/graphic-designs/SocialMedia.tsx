@@ -8,7 +8,7 @@ const SocialMedia = () => {
       title: "Email Marketing Campaigns",
       description: "Email marketing campaigns for an audience that is not reading inclined.",
       path: "/graphic-designs/email-marketing",
-      image: "/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png"
+      image: "/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png"
     },
     {
       title: "Case Studies",
@@ -22,7 +22,7 @@ const SocialMedia = () => {
     <ProjectDetailLayout 
       title="Social Media Campaigns" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
+      backLabel="Back to Visual Designs"
       headerImage="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png"
       projectDetails={{
         timeline: "Ongoing, 12-month campaign",

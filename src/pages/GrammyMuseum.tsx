@@ -19,7 +19,6 @@ const GrammyMuseum = () => {
   ];
 
   return (
-    <div className="sm:pl-[220px] pl-0">
       <ProjectDetailLayout 
         title="Non-Profit Redesign" 
         backTo="/product-designs"
@@ -85,7 +84,6 @@ const GrammyMuseum = () => {
           </p>
         </div>
       </ProjectDetailLayout>
-    </div>
   );
 };
 

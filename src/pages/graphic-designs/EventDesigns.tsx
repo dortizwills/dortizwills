@@ -22,7 +22,7 @@ const EventDesigns = () => {
     <ProjectDetailLayout 
       title="Event Designs" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
+      backLabel="Back to Visual Designs"
       headerImage="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
       projectDetails={{
         timeline: "2 months",

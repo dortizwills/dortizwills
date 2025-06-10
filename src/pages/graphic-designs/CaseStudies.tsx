@@ -22,7 +22,7 @@ const CaseStudies = () => {
     <ProjectDetailLayout 
       title="Case Studies" 
       backTo="/graphic-designs"
-      backLabel="Back to Marketing Designs"
+      backLabel="Back to Visual Designs"
       headerImage="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
       projectDetails={{
         timeline: "3 months",
