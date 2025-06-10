@@ -235,15 +235,11 @@ const CampingApp = () => {
           <p className="mb-6">
             I decided to include options where they could rent gear. Directly followed by adding additional options to inspect their campsite's activities, events, and wildlife.
           </p>
-        </div>
-        <div>
           <img 
             src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
             alt="Flow 6" 
             className="w-full rounded-lg"
           />
-        </div>
-        <div>
           <img 
             src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
             alt="Flow 6" 
