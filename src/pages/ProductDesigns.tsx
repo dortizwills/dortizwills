@@ -46,18 +46,18 @@ const ProductDesigns = () => {
   ];
 
   return (
-    <div className="pl-[220px]">
+    <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">UXUI Designs</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Link 
               key={project.title} 
               to={project.path}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="aspect-video bg-designer-gray overflow-hidden">
+              <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
                 <img 
                   src={project.image} 
                   alt={project.title} 

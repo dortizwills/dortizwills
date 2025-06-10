@@ -11,9 +11,9 @@ const Resume = () => {
   };
 
   return (
-    <div className="pl-[220px]">
-      <main className="max-w-4xl mx-auto px-6 py-12">
-        <div className="flex items-center justify-between mb-8">
+    <div className="sm:pl-[220px] pl-0">
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        <h1 className="font-display text-5xl font-bold mb-8">
           <h1 className="font-display text-5xl font-bold">Resume</h1>
           <Button 
             onClick={handleDownloadPDF}
