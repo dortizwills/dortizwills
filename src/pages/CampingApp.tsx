@@ -187,15 +187,11 @@ const CampingApp = () => {
             I changed the activity users started on so the base activity was more clear and simple.
             Initially I set up users with Backpacking, a more complicated version of camping – Now they would start simply with camping. I began adding fidelity for users to understand new information and additional options.
           </p>
-        </div>
-        <div>
           <img 
             src="/lovable-uploads/7ee7e5de-82c4-4eef-951d-5fad478f3f12.png" 
             alt="Flow 4" 
             className="w-full rounded-lg"
           />
-        </div>
-        <div>
           <img 
             src="/lovable-uploads/113eed40-b2fc-4f3c-b070-046f7b0b6f3e.png" 
             alt="Flow 5" 
@@ -204,24 +200,6 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Div Block 12 */}
-      <div className="mb-8 grid grid-cols-2 max-sm:grid-cols-1 gap-8">
-        <div>
-          <img 
-            src="/lovable-uploads/7ee7e5de-82c4-4eef-951d-5fad478f3f12.png" 
-            alt="Flow 4" 
-            className="w-full rounded-lg"
-          />
-        </div>
-        <div>
-          <img 
-            src="/lovable-uploads/113eed40-b2fc-4f3c-b070-046f7b0b6f3e.png" 
-            alt="Flow 5" 
-            className="w-full rounded-lg"
-          />
-        </div>
-      </div>
-
       {/* Div Block 13 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
@@ -240,24 +218,6 @@ const CampingApp = () => {
             alt="Flow 6" 
             className="w-full rounded-lg"
           />
-          <img 
-            src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
-            alt="Flow 6" 
-            className="w-full rounded-lg"
-          />
-        </div>
-      </div>
-      
-      {/* Div Block 14 */}
-      <div className="mb-8 grid grid-cols-2 max-sm:grid-cols-1 gap-8">
-        <div>
-          <img 
-            src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
-            alt="Flow 6" 
-            className="w-full rounded-lg"
-          />
-        </div>
-        <div>
           <img 
             src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
             alt="Flow 6" 
