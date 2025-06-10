@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProjectDetailLayout from '../../components/ProjectDetailLayout';
+import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
