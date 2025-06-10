@@ -62,15 +62,21 @@ const AdherePlus = () => {
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">1</span>
+                  </div>
                   <p className="text-gray-700">Medical Practitioners desire to monitor patients and assess provider performance.</p>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">2</span>
+                  </div>
                   <p className="text-gray-700">Patients require assistance to stay consistent with medication schedules and treatment plans.</p>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
+                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-lg font-semibold">3</span>
+                  </div>
                   <p className="text-gray-700">Executives desire reducing cost from expensive treatments from disconnections between Patients and Practitioners.</p>
                 </div>
               </div>
@@ -97,19 +103,19 @@ const AdherePlus = () => {
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-lg font-semibold">1</span>
                 </div>
-                <p className="text-gray-700">Increase demo bookings for their mobile platform</p>
+                <p className="text-gray-700">Increase demo bookings for their mobile platform.</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-lg font-semibold">2</span>
                 </div>
-                <p className="text-gray-700">Modernize their website to reflect their growth</p>
+                <p className="text-gray-700">Modernize their website to reflect their growth.</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-lg font-semibold">3</span>
                 </div>
-                <p className="text-gray-700">Create a consistent visual style for web and social channels</p>
+                <p className="text-gray-700">Create a consistent visual style for web and social channels.</p>
               </div>
             </div>
             
@@ -174,23 +180,12 @@ const AdherePlus = () => {
                     <span className="font-display text-lg font-semibold">3</span>
                   </div>
                   <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin.</p>
+                  <p className="text-gray-700">I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
+                  <p className="text-gray-700">We adjusted his workload to reduce our budgeted time after he used too much time on a non-critical element.</p>
                 </div>
                 <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
                   <p className="text-gray-500">Image placeholder</p>
                 </div>
-              </div>
-              
-              <div>
-                <div className="flex items-start gap-4 mb-2">
-                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">4</span>
-                  </div>
-                  <p className="text-gray-700">the final designs and handoff to our developers. This process was where we made some additional compromises. A junior developer had a difficult time with one of the elements and as a result our budgeted time was placed on a non-critical element.</p>
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
-                </p>
-                
                 <div className="space-y-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
                     <img 
@@ -200,6 +195,12 @@ const AdherePlus = () => {
                     />
                   </div>
                 </div>
+              </div>
+              
+              <div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
+                </p>
               </div>
             </div>
           </div>
@@ -215,7 +216,7 @@ const AdherePlus = () => {
               <div>
                 <h3 className="text-xl font-display font-medium mb-3">Booking Increases:</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Adhere Plus saw an over 20% increase in conversions from site landings over the next 6 months. More importantly, this satisfaction on this initial build was helpful in the perceived value from Raborn Media, which in turn positioned Raborn for completing future projects with Adhere
+                  Adhere Plus saw an over 20% increase in conversions from site landings over the next 6 months. More importantly, this satisfaction on this initial build was helpful in the perceived value from Raborn Media, which in turn positioned Raborn for completing future projects with Adhere.
                 </p>
               </div>
               
