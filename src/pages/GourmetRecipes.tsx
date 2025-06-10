@@ -1,8 +1,8 @@
-
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { AspectRatio } from "../components/ui/aspect-ratio";
 import { Card, CardContent } from "../components/ui/card";
+import { Button } from '@/components/ui/button';
 
 const GourmetRecipes = () => {
   const relatedProjects = [
@@ -34,13 +34,13 @@ const GourmetRecipes = () => {
       relatedProjects={relatedProjects}
     >
       {/* Early Stages */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
         </div>
        </div> 
       {/* Validation Process */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Research</h3>
         </div>
@@ -55,7 +55,7 @@ const GourmetRecipes = () => {
       </div>
 
       {/* User Persona */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Persona</h3>
         </div>
@@ -72,7 +72,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Sketches/Iterations */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Sketches / Iterations</h2>
         </div>
@@ -95,13 +95,13 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Validation Process */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Validation Process</h2>
         </div>
        </div> 
      {/* Final App Designs */}      
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Early User Flows</h3>
         </div>
@@ -132,7 +132,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* The Second Iteration */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
         </div>
@@ -152,7 +152,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Change of Direction */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Change of Direction</h3>
         </div>
@@ -169,7 +169,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Third Round Adjustments */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
         </div>
@@ -178,7 +178,7 @@ const GourmetRecipes = () => {
             In my next iterations I limited my prototype fidelity to focus on a direct A/B test. The focus – which version of smart search do users prefer?
           </p>
           
-          <div className="grid grid-cols-2 gap-6 mb-10">
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div>
               <h4 className="text-lg font-display font-medium mb-3">1. Guided Filters</h4>
               <p className="mb-4">
@@ -225,14 +225,14 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Final App Designs */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
         </div>
        </div> 
       
       {/* Results */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Need 1: Intelligent Searches</h3>
         </div>
@@ -257,7 +257,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* User Need 2 */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Need 2: Convenience</h3>
         </div>
@@ -283,13 +283,13 @@ const GourmetRecipes = () => {
 
       
       {/* Results */}
-       <div className="grid grid-cols-3 gap-8 mb-10">
+       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
         </div>
        </div>
       {/* Increased Interest */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
         </div>
@@ -305,7 +305,7 @@ const GourmetRecipes = () => {
       </div>
       
       {/* Trusting the Consumer */}
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Trusting the Consumer</h3>
         </div>

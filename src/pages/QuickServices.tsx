@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,7 @@ const QuickServices = () => {
 
     >
       {/* Background */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10"> 
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         </div>
@@ -58,7 +57,7 @@ const QuickServices = () => {
       </div>
       
       {/* Early Stages */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
         </div>
@@ -66,7 +65,7 @@ const QuickServices = () => {
       </div>
       
       {/* User Personas */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
         </div>
@@ -102,7 +101,7 @@ const QuickServices = () => {
       </div>
       
       {/* Sketches & Brainstorming */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Sketches & Brainstorming</h3>
         </div>
@@ -124,7 +123,7 @@ const QuickServices = () => {
       </div>
       
       {/* Initial Designs */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Initial Designs</h3>
         </div>
@@ -158,7 +157,7 @@ const QuickServices = () => {
       </div>
       
       {/* New Directions */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">New Directions</h2>
         </div>
@@ -166,7 +165,7 @@ const QuickServices = () => {
       </div>
       
       {/* Update an Existing Design */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Update an Existing Design</h3>
         </div>
@@ -182,7 +181,7 @@ const QuickServices = () => {
       </div>
       
       {/* The New Vision */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">The New Vision</h3>
         </div>
@@ -198,7 +197,7 @@ const QuickServices = () => {
       </div>
       
       {/* The Design Process */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">The Design Process</h2>
         </div>
@@ -206,7 +205,7 @@ const QuickServices = () => {
       </div>
       
       {/* Design Sprints & User Research */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Design Sprints & User Research</h3>
         </div>
@@ -236,7 +235,7 @@ const QuickServices = () => {
       </div>
       
       {/* Takeaways */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Takeaways – a summary of the full process</h3>
         </div>
@@ -251,7 +250,7 @@ const QuickServices = () => {
       </div>
       
       {/* Design Process Snapshots */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Design Process Snapshots</h3>
         </div>
@@ -263,7 +262,7 @@ const QuickServices = () => {
       </div>
       
       {/* The Dashboard */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">The Dashboard</h3>
         </div>
@@ -275,7 +274,7 @@ const QuickServices = () => {
       </div>
       
       {/* Dashboard Images */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
             src="/lovable-uploads/635fdf26-b96f-4f61-a9c6-beb6d62fa6b3.png"
@@ -300,7 +299,7 @@ const QuickServices = () => {
       </div>
       
       {/* Co-branded Tire Portal */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Co-branded Tire Portal</h3>
         </div>
@@ -312,7 +311,7 @@ const QuickServices = () => {
       </div>
       
       {/* All Tires Images */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
             src="/lovable-uploads/73f2c0ae-6231-4d3d-adb7-ea5e3e0c4026.png"
@@ -337,7 +336,7 @@ const QuickServices = () => {
       </div>
       
       {/* Quick Tires */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Quick Tires</h3>
         </div>
@@ -349,7 +348,7 @@ const QuickServices = () => {
       </div>
       
       {/* Tire Portal Images */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
             src="/lovable-uploads/806ec7f5-a348-44c7-88c6-f04c2c0de40f.png"
@@ -374,7 +373,7 @@ const QuickServices = () => {
       </div>
       
       {/* Final Prototypes */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">Final Prototypes</h2>
         </div>
@@ -382,7 +381,7 @@ const QuickServices = () => {
       </div>
       
       {/* Service Writer */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Quickly creating orders as a Service Writer</h3>
         </div>
@@ -417,7 +416,7 @@ const QuickServices = () => {
       </div>
       
       {/* For Technicians */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Customizing Access For Technicians</h3>
         </div>
@@ -451,7 +450,7 @@ const QuickServices = () => {
       </div>
       
       {/* Results */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
         </div>
@@ -459,7 +458,7 @@ const QuickServices = () => {
       </div>
       
       {/* Enterprise Partnerships */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Enterprise Partnerships</h3>
         </div>
@@ -471,7 +470,7 @@ const QuickServices = () => {
       </div>
       
       {/* Market Differentiator */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="md:col-span-4">
           <h3 className="text-xl font-display font-medium mb-3">Market Differentiator</h3>
         </div>
