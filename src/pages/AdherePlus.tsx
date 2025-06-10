@@ -183,9 +183,6 @@ const AdherePlus = () => {
                   <p className="text-gray-700">I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
                   <p className="text-gray-700">We adjusted his workload to reduce our budgeted time after he used too much time on a non-critical element.</p>
                 </div>
-                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Image placeholder</p>
-                </div>
                 <div className="space-y-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
                     <img 
@@ -196,7 +193,6 @@ const AdherePlus = () => {
                   </div>
                 </div>
               </div>
-              
               <div>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
