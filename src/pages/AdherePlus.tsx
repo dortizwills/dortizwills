@@ -175,7 +175,7 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="flex items-start gap-4 mb-2">
+                <div className="mb-8">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">3</span>
                   </div>
