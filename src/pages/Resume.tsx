@@ -13,8 +13,8 @@ const Resume = () => {
   return (
     <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <h1 className="font-display text-5xl font-bold mb-8">
-          <h1 className="font-display text-5xl font-bold">Resume</h1>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+          <h1 className="font-display text-5xl font-bold mb-4 sm:mb-0">Resume</h1>
           <Button 
             onClick={handleDownloadPDF}
             className="bg-gradient-primary text-white border-none hover:opacity-90"
