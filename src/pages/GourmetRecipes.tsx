@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { AspectRatio } from "../components/ui/aspect-ratio";
@@ -178,7 +179,7 @@ const GourmetRecipes = () => {
             In my next iterations I limited my prototype fidelity to focus on a direct A/B test. The focus – which version of smart search do users prefer?
           </p>
           
-          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+          <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-8 mb-10">
             <div>
               <h4 className="text-lg font-display font-medium mb-3">1. Guided Filters</h4>
               <p className="mb-4">
