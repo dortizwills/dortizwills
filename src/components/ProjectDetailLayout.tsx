@@ -115,7 +115,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                       to={project.path}
                       className="block transition-all duration-300 cursor-pointer"
                     >
-                      <div className="bg-white rounded-lg overflow-hidden border border-gray-100 p-4">
+                      <div className="bg-white rounded-lg overflow-hidden">
                         <div className="bg-designer-gray overflow-hidden rounded-lg mb-4 transition-transform duration-300 hover:scale-105" style={{ aspectRatio: '16/9' }}>
                           {project.image ? (
                             <img 
@@ -156,9 +156,9 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   <Link 
                     key={index}
                     to={project.path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 border border-gray-100 block h-full cursor-pointer"
+                    className="bg-white rounded-lg overflow-hidden transition-all duration-300 block h-full cursor-pointer"
                   >
-                    <div className="bg-white rounded-lg overflow-hidden p-4">
+                    <div className="bg-white rounded-lg overflow-hidden">
                       <div className="bg-designer-gray overflow-hidden transition-transform duration-300 hover:scale-105" style={{ aspectRatio: '16/9' }}>
                         {project.image ? (
                           <img 
