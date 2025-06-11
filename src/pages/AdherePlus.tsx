@@ -137,7 +137,7 @@ const AdherePlus = () => {
           </div>
         </div>
 
-        {/* Design Process Section */}
+        {/* Design Process Section - Removed circles and numbers */}
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Design Process</h2>
@@ -149,12 +149,7 @@ const AdherePlus = () => {
             
             <div className="space-y-8">
               <div>
-                <div className="flex items-start gap-4 mb-2">
-                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">1</span>
-                  </div>
-                  <p className="text-gray-700">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
-                </div>
+                <p className="text-gray-700 mb-2">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <img 
                     src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
@@ -165,12 +160,7 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="flex items-start gap-4 mb-2">
-                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">2</span>
-                  </div>
-                  <p className="text-gray-700">I presented our first round of designs to the client Adhere+, where we received detailed notes on how to course correct and finalize our designs with functioning prototypes on some unique features, roughly another week period.</p>
-                </div>
+                <p className="text-gray-700 mb-2">I presented our first round of designs to the client Adhere+, where we received detailed notes on how to course correct and finalize our designs with functioning prototypes on some unique features, roughly another week period.</p>
                 <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
                   <p className="text-gray-500">Image placeholder</p>
                 </div>
@@ -178,9 +168,6 @@ const AdherePlus = () => {
               
               <div>
                 <div className="mb-8">
-                  <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">3</span>
-                  </div>
                   <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
                 </div>
                 <div className="space-y-4">

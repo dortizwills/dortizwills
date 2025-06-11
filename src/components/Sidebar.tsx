@@ -33,6 +33,21 @@ const Sidebar: FC = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  // Modified toggle functions to ensure only one dropdown is open at a time
+  const toggleProductDesigns = () => {
+    if (!productDesignsOpen) {
+      setMarketingDesignsOpen(false);
+    }
+    setProductDesignsOpen(!productDesignsOpen);
+  };
+
+  const toggleMarketingDesigns = () => {
+    if (!marketingDesignsOpen) {
+      setProductDesignsOpen(false);
+    }
+    setMarketingDesignsOpen(!marketingDesignsOpen);
+  };
   
   const productDesigns = [
     { name: 'Quick Services', path: '/product-designs/quick-services' },
@@ -54,8 +69,8 @@ const Sidebar: FC = () => {
   
   const menuItems = [
     { name: 'Home', path: '/', icon: <Home size={20} /> },
-    { name: 'UXUI Designs', path: '/product-designs', icon: <LayoutDashboard size={20} />, hasDropdown: true, isOpen: productDesignsOpen, toggle: () => setProductDesignsOpen(!productDesignsOpen), items: productDesigns },
-    { name: 'Visual Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: () => setMarketingDesignsOpen(!marketingDesignsOpen), items: marketingDesigns },
+    { name: 'UXUI Designs', path: '/product-designs', icon: <LayoutDashboard size={20} />, hasDropdown: true, isOpen: productDesignsOpen, toggle: toggleProductDesigns, items: productDesigns },
+    { name: 'Visual Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: toggleMarketingDesigns, items: marketingDesigns },
     { name: 'About', path: '/about', icon: <HelpCircle size={20} /> },
     { name: 'Contact me', path: '/contact', icon: <MessageSquare size={20} /> },
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
@@ -79,7 +94,6 @@ const Sidebar: FC = () => {
     </div>
   );
 
-  // Mobile Menu Overlay
   const MobileMenu = () => (
     <div className={`block sm:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
       <div className="pt-16 px-4 h-full overflow-y-auto">
