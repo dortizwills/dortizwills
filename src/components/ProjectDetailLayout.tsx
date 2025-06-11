@@ -101,10 +101,10 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             {/* Layout for 820px and above - box format */}
             <div className="hidden min-[820px]:block bg-white border border-black rounded-lg p-8">
               <div className="grid grid-cols-3 gap-8">
-                {/* Left text section */}
-                <div className="col-span-1 flex flex-col justify-center">
-                  <h1 className="font-display text-4xl font-bold mb-4">Similar Projects</h1>
-                  <p className="text-gray-600 text-lg">Like what you see? Check out some of my other projects</p>
+                {/* Left text section - top left aligned */}
+                <div className="col-span-1 flex flex-col justify-start">
+                  <h1 className="font-display text-4xl font-bold mb-4 text-left">Similar Projects</h1>
+                  <p className="text-gray-600 text-base text-left">Like what you see? Check out some of my other projects</p>
                 </div>
                 
                 {/* Right projects section */}
@@ -113,7 +113,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     <Link 
                       key={index}
                       to={project.path}
-                      className="block hover:shadow-md transition-shadow"
+                      className="block hover:shadow-lg transition-all duration-300 hover:scale-105"
                     >
                       <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
                         {project.image ? (
@@ -145,14 +145,14 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             {/* Layout for 819px and below - current format with new text */}
             <div className="min-[820px]:hidden">
               <h1 className="font-display text-4xl font-bold mb-2">Similar Projects</h1>
-              <p className="text-gray-600 text-lg mb-6">Like what you see? Check out some of my other projects</p>
+              <p className="text-gray-600 text-base mb-6">Like what you see? Check out some of my other projects</p>
               
               <div className="grid grid-cols-1 gap-6">
                 {relatedProjects.slice(0, 2).map((project, index) => (
                   <Link 
                     key={index}
                     to={project.path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 border border-gray-100 block h-full"
                   >
                     <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
                       {project.image ? (

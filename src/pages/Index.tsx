@@ -92,11 +92,11 @@ const Index = () => {
   return (
     <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* What Clients Say Section with background - Moved to top */}
+        {/* What Clients Say Section with new background */}
         <section 
           className="mb-16 relative"
           style={{
-            backgroundImage: `url('/lovable-uploads/9063cf78-dfc2-4756-a290-cd9ceb9a876f.png')`,
+            backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -116,7 +116,7 @@ const Index = () => {
               {/* Header Content - 2/3 */}
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-                <h1 className="font-display text-4xl max-[819px]:text-3xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
                   I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
                 </h1>
                 <p className="text-xl text-white/80 max-w-2xl">
