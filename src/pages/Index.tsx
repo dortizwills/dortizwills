@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
@@ -246,14 +247,20 @@ const Index = () => {
         <section className="mb-16">
           <div 
             className="relative rounded-lg overflow-hidden min-h-[500px] bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/lovable-uploads/587db56a-2a84-4b03-97f4-0a635f4a4c38.png')" }}
+            style={{ backgroundImage: "url('/lovable-uploads/dfe0bc19-2ac7-47a1-b4b1-aff94502d0b7.png')" }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
             <div className="relative z-10 p-8 h-full flex items-center">
-              <div className="w-1/3"></div>
+              <div className="w-1/3 flex justify-start items-center">
+                <img 
+                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
+                  alt="Daniel Ortiz-Wills" 
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
               <div className="w-2/3 pl-8">
                 <h2 className="font-display text-3xl mb-8 text-white">What Clients Say</h2>
-                <div className="bg-white bg-opacity-95 rounded-lg p-6">
+                <div className="rounded-lg p-6">
                   <TestimonialCarousel testimonials={testimonials} />
                 </div>
               </div>

@@ -68,18 +68,18 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
 
   return (
     <div 
-      className="relative bg-white border border-black rounded-lg p-8"
+      className="relative border border-white/20 rounded-lg p-8"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <blockquote className="text-xl md:text-2xl mb-6 italic text-gray-800">
+          <blockquote className="text-lg md:text-xl mb-6 italic text-white">
             "{testimonials[activeIndex].quote}"
           </blockquote>
           <div className="inline-flex flex-col items-center">
-            <div className="font-medium text-lg">{testimonials[activeIndex].author}</div>
-            <div className="text-gray-600">{testimonials[activeIndex].title}</div>
+            <div className="font-medium text-lg text-white">{testimonials[activeIndex].author}</div>
+            <div className="text-gray-300">{testimonials[activeIndex].title}</div>
           </div>
         </div>
         
@@ -88,7 +88,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             <button
               key={index}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === activeIndex ? 'bg-gradient-primary w-4' : 'bg-gray-300'
+                index === activeIndex ? 'bg-white w-4' : 'bg-white/50'
               }`}
               onClick={() => handleDotClick(index)}
               aria-label={`Go to testimonial ${index + 1}`}
@@ -102,6 +102,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             size="icon"
             onClick={handlePrevious}
             aria-label="Previous testimonial"
+            className="border-white/20 text-white hover:bg-white/10"
           >
             <ArrowLeft size={16} />
           </Button>
@@ -111,6 +112,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             size="icon"
             onClick={handleNext}
             aria-label="Next testimonial"
+            className="border-white/20 text-white hover:bg-white/10"
           >
             <ArrowRight size={16} />
           </Button>
