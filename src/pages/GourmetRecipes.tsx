@@ -190,25 +190,17 @@ const GourmetRecipes = () => {
         {/* Center div block */}
         <div className="col-span-1">
           <h4 className="font-medium text-lg mb-3">1. Guided Filters</h4>
-           <p className="mb-4">
+          <p className="mb-4">
              In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
-           </p>
-           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
+          </p>
+          <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
              <span className="text-gray-600">Guided Filters Video Placeholder</span>
-           </div>
-            <a 
-              href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-designer-red text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
-            >
-                Guided Filters Prototype 
-            </a>
-            <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-              <Link to="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1">
+          </div>
+          <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+             <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
                 Guided Filters Prototype
-              </Link>
-            </Button>
+             </a>
+          </Button>
         </div>
         
         {/* Right div block */}
@@ -220,14 +212,11 @@ const GourmetRecipes = () => {
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
             <span className="text-gray-600">Smart Search Video Placeholder</span>
           </div>
-          <a 
-            href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=621-10070&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=621%3A10070&show-proto-sidebar=1" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-designer-red text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
-          >
-            Smart Search Prototype
-          </a>
+          <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+            <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=621-10070&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=621%3A10070&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
+              Smart Search Prototype
+            </a>
+          </Button>
         </div>
       </div>
       {/*Previous content*/}   

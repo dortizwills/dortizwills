@@ -160,15 +160,15 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <p className="text-gray-700 mb-2">I presented our first round of designs to the client Adhere+, where we received detailed notes on how to course correct and finalize our designs with functioning prototypes on some unique features, roughly another week period.</p>
+                <p className="text-gray-700 mb-2">I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.</p>
                 <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Image placeholder</p>
+                  <p className="text-gray-500">Video displaying light functionality placeholder</p>
                 </div>
               </div>
               
               <div>
                 <div className="mb-8">
-                  <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
+                  <p className="text-gray-700">After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. <br></br>In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
                 </div>
                 <div className="space-y-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
@@ -199,15 +199,12 @@ const AdherePlus = () => {
               <p className="text-gray-700 leading-relaxed">
                 The final designs represent a balance between our design vision and practical development constraints. Here's a walkthrough of the key design decisions that made this website possible:
               </p>
-              
               <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center mb-6">
                 <p className="text-gray-500">Video placeholder - Design explanations and walkthrough</p>
               </div>
-              
-              <Button asChild className="bg-designer-red hover:bg-designer-red/90">
-                <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+              <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+               <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer" >
                   View Live Site
-                  <ExternalLink size={16} />
                 </a>
               </Button>
             </div>
