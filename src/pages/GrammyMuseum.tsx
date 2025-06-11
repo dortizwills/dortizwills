@@ -29,6 +29,7 @@ const GrammyMuseum = () => {
           responsibilities: "Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management",
           results: "ascertaining future client partnerships following project funding"
         }}
+        showWipTag={true}
         relatedProjects={relatedProjects}
       >
         <div>

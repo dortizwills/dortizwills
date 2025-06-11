@@ -29,6 +29,7 @@ const MobileApps = () => {
         responsibilities: "Branding, User flows, Mobile iOS Design, Prototyping, User Testing",
         results: "ascertaining future client partnerships following project funding"
       }}
+      showWipTag={true}
       relatedProjects={relatedProjects}
     >
       <div className="space-y-12">

@@ -28,7 +28,7 @@ const AdherePlus = () => {
       headerImage="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
       projectDetails={{
         timeline: "4 weeks design, 6 weeks of client deliberation, 3 weeks developing & QA, 3 months total",
-        responsibilities: "Branding, UX/UI Design, Design System Creation, Project Management",
+        responsibilities: "Branding, UXUI Design, Design System Creation, Project Management",
         results: "100% client satisfaction, on-time delivery, 20% booking increases"
       }}
       relatedProjects={relatedProjects}
