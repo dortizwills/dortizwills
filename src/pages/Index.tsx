@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
@@ -94,7 +93,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-16 text-center">
           <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl max-[820px]:text-[5.2rem] font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
+          <h1 className="font-display text-6xl max-[820px]:text-[5.6rem] font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We don't exist alone so I don't design alone. The best work comes from a collaboration of minds, and I thrive at stoking the fires of innovation
           </p>
@@ -185,7 +184,37 @@ const Index = () => {
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Grid layout for 820px and above */}
+          <div className="hidden min-[820px]:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {marketingDesigns.map((design, index) => (
+              <Link 
+                key={index} 
+                to={design.href}
+                className="bg-white border border-black rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-video relative">
+                  <img 
+                    src={design.imagePath} 
+                    alt={design.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="font-display text-xl mb-2">{design.title}</h4>
+                  <p className="text-gray-600 mb-4">
+                    {design.description}
+                  </p>
+                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-2">View Project</span>
+                    <ArrowRightIcon size={16} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Stacked layout for 819px and below */}
+          <div className="min-[820px]:hidden space-y-6 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
@@ -212,6 +241,15 @@ const Index = () => {
               </Link>
             ))}
           </div>
+
+          {/* View Visual Designs Button */}
+          <div className="flex justify-center">
+            <Button asChild variant="outline" className="py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90 px-8">
+              <Link to="/graphic-designs">
+                View Visual Designs
+              </Link>
+            </Button>
+          </div>
         </section>
 
         <section className="mb-16">
@@ -229,7 +267,7 @@ const Index = () => {
                 />
               </div>
               <div className="w-2/3 min-[820px]:pl-8 w-full max-[820px]:w-full max-[820px]:text-center">
-                <h2 className="font-display text-3xl mb-8 text-white">What Clients Say</h2>
+                <h2 className="font-display text-3xl mb-8 text-white max-[820px]:text-center">What Clients Say</h2>
                 <div className="rounded-lg p-6">
                   <TestimonialCarousel testimonials={testimonials} />
                 </div>
@@ -247,4 +285,3 @@ const Index = () => {
 };
 
 export default Index;
-
