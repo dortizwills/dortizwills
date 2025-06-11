@@ -70,6 +70,9 @@ const CampingApp = () => {
           <p className="mb-6">
             I decided to solve the most pressing issues first which were concluded through interviewing some core users.
           </p>
+          <p className="mb-6">
+            Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
+          </p>
         </div>
       </div>
       
@@ -103,18 +106,6 @@ const CampingApp = () => {
             <li>What time of the year to camp</li>
             <li>Will I be comfortable out there</li>
           </ul>
-        </div>
-      </div>
-      
-      {/* Div Block 6 */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3"></h3>
-        </div>
-        <div className="col-span-2 max-sm:col-span-1">
-          <p className="mb-6">
-            Both lists could all be summarized in that users' need to feel safe, empowered, prepared, and informed about their camping trip.
-          </p>
         </div>
       </div>
       
@@ -298,11 +289,6 @@ const CampingApp = () => {
       
       {/* Div Block 19 */}
       <div className="mb-12 flex justify-center">
-        <Button asChild className="px-8" variant="default">
-          <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
-            View Prototype
-          </a>
-        </Button>
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
           View Prototype
@@ -400,11 +386,6 @@ const CampingApp = () => {
       
       {/* Div Block 19 */}
       <div className="mb-12 flex justify-center">
-        <Button asChild className="px-8" variant="default">
-          <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer">
-            View Prototype
-          </a>
-        </Button>
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer">
           View Prototype

@@ -390,16 +390,11 @@ const QuickServices = () => {
             className="w-full rounded-lg mb-6"
           />
           
-          <Button className="bg-designer-red hover:bg-red-700 text-white flex items-center gap-2 mb-6">
-            <a 
-              href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              View Admin Prototype <ArrowRight size={16} />
-            </a>
-          </Button>
+        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+          <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design" target="_blank" rel="noopener noreferrer">
+            View Admin Prototype
+          </a>
+        </Button>
         </div>
       </div>
       
@@ -424,16 +419,11 @@ const QuickServices = () => {
             className="w-full rounded-lg mb-6"
           />
           
-          <Button className="bg-designer-red hover:bg-red-700 text-white flex items-center gap-2 mb-6">
-            <a 
-              href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              View Technician Prototype <ArrowRight size={16} />
-            </a>
-          </Button>
+        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+          <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design" target="_blank" rel="noopener noreferrer">
+              View Technician Prototype
+          </a>
+        </Button>
         </div>
       </div>
       
