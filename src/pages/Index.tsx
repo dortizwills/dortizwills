@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
@@ -94,7 +93,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-16 text-center">
           <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
+          <h1 className="font-display text-6xl max-[820px]:text-[5.3rem] font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We don't exist alone so I don't design alone. The best work comes from a collaboration of minds, and I thrive at stoking the fires of innovation
           </p>
@@ -184,60 +183,30 @@ const Index = () => {
 
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
-          {/* Desktop layout */}
-          <div className="hidden max-sm:block">
-            <div className="space-y-6">
-              {marketingDesigns.map((design, index) => (
-                <Link 
-                  key={index} 
-                  to={design.href}
-                  className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
-                >
-                  <div className="w-1/3 aspect-[3/2]">
-                    <img 
-                      src={design.imagePath} 
-                      alt={design.title} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4 w-2/3">
-                    <h4 className="font-display text-lg mb-1">{design.title}</h4>
-                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                      {design.description}
-                    </p>
-                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">View Project</span>
-                      <ArrowRightIcon size={14} />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
           
-          {/* Mobile layout */}
-          <div className="max-sm:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-6">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
                 to={design.href}
-                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-black"
+                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
               >
-                <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
+                <div className="w-1/3 aspect-[3/2]">
                   <img 
                     src={design.imagePath} 
                     alt={design.title} 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-medium mb-2">{design.title}</h3>
-                  <p className="text-gray-600 mb-4">
+                <div className="p-4 w-2/3">
+                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     {design.description}
                   </p>
-                  <span className="text-blue-600 font-medium hover:underline">
-                    View Project
-                  </span>
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-1">View Project</span>
+                    <ArrowRightIcon size={14} />
+                  </div>
                 </div>
               </Link>
             ))}
