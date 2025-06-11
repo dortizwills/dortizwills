@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { Button } from "@/components/ui/button";
@@ -29,15 +30,14 @@ const QuickServices = () => {
         responsibilities: "User Research, Interaction Design, Experience Design, Visual Design",
         results: "Enterprise partnership for a total of +200 shop locations, worth over $500M"
       }}
-            relatedProjects={relatedProjects}
-
+      relatedProjects={relatedProjects}
     >
       {/* Background */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10"> 
-        <div className="md:col-span-4">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+        <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             Have you ever needed to service your vehicle? I bet it was quick, definitely not over 45 minutes to hours. If that's the case, then this project isn't relevant, but if you're like millions of other auto shop customers then this will interest you.
           </p>
@@ -57,19 +57,16 @@ const QuickServices = () => {
       </div>
       
       {/* Early Stages */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
-          <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
-        </div>
-        <div className="md:col-span-8"></div>
+      <div className="mb-8">
+        <h2 className="text-2xl font-display font-semibold mb-6">Early Stages</h2>
       </div>
       
       {/* User Personas */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             The two primary express service users are a Service Writer or a Technician.
           </p>
@@ -102,10 +99,10 @@ const QuickServices = () => {
       
       {/* Sketches & Brainstorming */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Sketches & Brainstorming</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             I began to brainstorm with my manager, and after we talked he said he'd rather not look at any sketches but instead see my mid-fidelity screens.
           </p>
@@ -124,10 +121,10 @@ const QuickServices = () => {
       
       {/* Initial Designs */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Initial Designs</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             The first design I presented was a chrome extension that would be persistent on any tire page, or could be toggled on/off when the user was done.
           </p>
@@ -157,19 +154,16 @@ const QuickServices = () => {
       </div>
       
       {/* New Directions */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
-          <h2 className="text-2xl font-display font-semibold mb-4">New Directions</h2>
-        </div>
-        <div className="md:col-span-8"></div>
+      <div className="mb-8">
+        <h2 className="text-2xl font-display font-semibold mb-6">New Directions</h2>
       </div>
       
       {/* Update an Existing Design */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Update an Existing Design</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             After showcasing these two designs my manager had an idea spark. The quick nature of these concepts could be directly applied to another product undergoing research – Express Lane. My concepts, if utilized correctly, could expand the services from the quick-lube subset of shops to any shop with quick services, especially when servicing tires, battery replacements, filter changes, windows, etc.
           </p>
@@ -182,10 +176,10 @@ const QuickServices = () => {
       
       {/* The New Vision */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">The New Vision</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             I was now responsible for adding tires and other quick services to Express Lane so that any general shop could benefit from this in-house application.
           </p>
@@ -197,19 +191,16 @@ const QuickServices = () => {
       </div>
       
       {/* The Design Process */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
-          <h2 className="text-2xl font-display font-semibold mb-4">The Design Process</h2>
-        </div>
-        <div className="md:col-span-8"></div>
+      <div className="mb-8">
+        <h2 className="text-2xl font-display font-semibold mb-6">The Design Process</h2>
       </div>
       
       {/* Design Sprints & User Research */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Design Sprints & User Research</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             We worked in design sprints in this next stage of the process.
           </p>
@@ -236,10 +227,10 @@ const QuickServices = () => {
       
       {/* Takeaways */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Takeaways – a summary of the full process</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <ol className="list-decimal pl-5 mb-6 space-y-2">
             <li>Early and diverse exploration early on is better than frequently presentable prototypes from the outset.</li>
             <li>Reducing clutter and adding information later is easier than starting with too much data and needing to remove it.</li>
@@ -251,10 +242,10 @@ const QuickServices = () => {
       
       {/* Design Process Snapshots */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Design Process Snapshots</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             Without going into the full design process described above I wanted to capture a few of the sections of the project we spent extra time defining in our exploration.
           </p>
@@ -263,10 +254,10 @@ const QuickServices = () => {
       
       {/* The Dashboard */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">The Dashboard</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             I was initially prompted to only update Express Lane, not re-envision it. If I had the opportunity to redo this process I'd explore early on, even if that meant taking personal time to do so.
           </p>
@@ -300,10 +291,10 @@ const QuickServices = () => {
       
       {/* Co-branded Tire Portal */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Co-branded Tire Portal</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             This screen required frequent updates as our tire options expanded. We wanted to explore if we could make this part of our dashboard but eventually decided it needed to exist as a separate externally linked portal.
           </p>
@@ -337,10 +328,10 @@ const QuickServices = () => {
       
       {/* Quick Tires */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Quick Tires</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             Since all services in this app needed to be quick services, we used a lot of our time iterating on how to include crucial elements of tire purchasing while still enabling users to explore options in front of an inquisitive end customer.
           </p>
@@ -373,19 +364,16 @@ const QuickServices = () => {
       </div>
       
       {/* Final Prototypes */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
-          <h2 className="text-2xl font-display font-semibold mb-4">Final Prototypes</h2>
-        </div>
-        <div className="md:col-span-8"></div>
+      <div className="mb-8">
+        <h2 className="text-2xl font-display font-semibold mb-6">Final Prototypes</h2>
       </div>
       
       {/* Service Writer */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Quickly creating orders as a Service Writer</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Advance Control</h4>
           <p className="mb-6">
             Service writers create orders for their shops, so additional control is necessary to allow them to engage with customers. Service writers can add and remove services, apply discounts, and edit vehicle information. Only service writers have the ability to complete the transaction.
@@ -417,10 +405,10 @@ const QuickServices = () => {
       
       {/* For Technicians */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Customizing Access For Technicians</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Pertinent Permissions</h4>
           <p className="mb-6">
             Technicians are the main workers in the automotive repair industry, but not all of them are responsible with the shop's customer data or the pricing of services.
@@ -450,19 +438,16 @@ const QuickServices = () => {
       </div>
       
       {/* Results */}
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
-          <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
-        </div>
-        <div className="md:col-span-8"></div>
+      <div className="mb-8">
+        <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
       </div>
       
       {/* Enterprise Partnerships */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Enterprise Partnerships</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             For quicklube shop owners, Shopmonkey built in Express Lane as a native experience to their product. As a result, Shopmonkey's Express Lane was featured in B2B strategy meetings to secure strategic partnerships and expand their market reach.
           </p>
@@ -471,10 +456,10 @@ const QuickServices = () => {
       
       {/* Market Differentiator */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="md:col-span-4">
+        <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Market Differentiator</h3>
         </div>
-        <div className="md:col-span-8">
+        <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
             Shopmonkey was the first auto shop management software to offer express services, which became a differentiator between Shopmonkey and competitors. The company received positive reactions at trade shows and in dozens of customer interviews.
           </p>
