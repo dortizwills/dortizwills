@@ -1,119 +1,149 @@
+
 import React from 'react';
+import { FileText, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
 
 const Resume = () => {
+  // Function to handle the PDF download
+  const handleDownloadPDF = () => {
+    // Open resume PDF in a new tab
+    window.open('/resume.pdf', '_blank');
+  };
+
   return (
     <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-4xl mx-auto px-6 py-12 max-sm:px-4 max-sm:pt-20">
-        <div className="mb-8">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Resume</h1>
-          <p className="text-gray-600 text-lg">Download my resume or view it below.</p>
-        </div>
-        
-        <div className="mb-8">
-          <Button className="bg-designer-red hover:bg-red-700 text-white">
-            <Download className="mr-2 h-4 w-4" />
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+          <h1 className="font-display text-5xl font-bold mb-4 sm:mb-0">Resume</h1>
+          <Button 
+            onClick={handleDownloadPDF}
+            className="bg-gradient-primary text-white border-none hover:opacity-90"
+          >
+            <Download size={18} className="mr-2" />
             Download PDF
           </Button>
         </div>
         
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <div className="space-y-8">
-            {/* Header */}
-            <div className="text-center border-b border-gray-200 pb-6">
-              <h2 className="font-display text-3xl font-bold mb-2">Your Name</h2>
-              <p className="text-gray-600 mb-2">UX/UI Designer & Visual Designer</p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-                <span>email@example.com</span>
-                <span>•</span>
-                <span>(555) 123-4567</span>
-                <span>•</span>
-                <span>Portfolio Website</span>
-              </div>
-            </div>
-
-            {/* Experience */}
-            <div>
-              <h3 className="font-display text-xl font-semibold mb-4">Experience</h3>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="font-medium">Senior UX/UI Designer</h4>
-                      <p className="text-gray-600">Company Name</p>
-                    </div>
-                    <span className="text-gray-500 text-sm">2022 - Present</span>
-                  </div>
-                  <ul className="text-gray-700 space-y-1 ml-4">
-                    <li>• Led design initiatives for multiple product lines</li>
-                    <li>• Collaborated with cross-functional teams</li>
-                    <li>• Conducted user research and usability testing</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="font-medium">UX Designer</h4>
-                      <p className="text-gray-600">Previous Company</p>
-                    </div>
-                    <span className="text-gray-500 text-sm">2020 - 2022</span>
-                  </div>
-                  <ul className="text-gray-700 space-y-1 ml-4">
-                    <li>• Designed user interfaces for web and mobile applications</li>
-                    <li>• Created wireframes, prototypes, and user flows</li>
-                    <li>• Worked closely with development teams</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Education */}
-            <div>
-              <h3 className="font-display text-xl font-semibold mb-4">Education</h3>
+        <div className="space-y-12">
+          <section>
+            <h2 className="font-display text-2xl mb-4 pb-2 border-b">Experience</h2>
+            
+            <div className="space-y-8">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 className="font-medium">Bachelor of Design</h4>
-                    <p className="text-gray-600">University Name</p>
-                  </div>
-                  <span className="text-gray-500 text-sm">2016 - 2020</span>
+                  <h3 className="font-medium text-lg">Freelance UXUI Product Designer</h3>
+                  <span className="text-designer-red">2023 - Present</span>
+                </div>
+                <h4 className="text-gray-600 mb-3">Shopmonkey | Higharc | Raborn Media | & More, Remote</h4>
+                <h5 className="font-medium mb-2">Ux/Ui Designs</h5>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  <li>Performed seamless dev handoffs, QA, and content management using basic HTML, CSS, and AI-assisted development environments for dozens launches.</li>
+                  <li>Designed and prototyped 2 mobile applications from 0 to 1 for B2C companies.</li>
+                  <li>Provided mobile-first responsive designs for multiple clients during overlapping deadlines to ensure timely releases and meet client contract agreements.</li>
+                  <li>Contributed to WordPress development, addressing minor updates and UX/UI improvements.</li>
+                  <li>Designed and delivered component libraries, icons, colors, and graphics for custom client websites.</li>
+                  <li>Applied accessible design principles (WCAG 2.1) to website design systems.</li>
+                </ul>
+                <h5 className="font-medium mt-4 mb-2">Product Designs</h5>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  <li>I designed product mockups and deliverables, conducted user interviews, and finalized web and mobile app designs for 4 B2B startups.</li>
+                  <li>80% increase in client satisfaction after delivering dozens of responsive website launches from mobile-first responsive designed apps.</li>
+                  <li>Produced two 0-1 quick service app experiences by delivering 2 distinct workflows for administrators and technician users.</li>
+                  <li>I strengthened client relationships by maintaining regular communication, delivering projects on time, and providing tailored design solutions for technical needs.</li>
+                  <li>Reduced duplicate work by standardizing the design processes company wide by authoring style guides included graphics, typography, logos, and icons.</li>
+                </ul>
+              </div>
+              
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-medium text-lg">Graphic Designer & Illustrator</h3>
+                  <span className="text-designer-red">2020 - 2023</span>
+                </div>
+                <h4 className="text-gray-600 mb-3">Shopmonkey, Morgan Hill, CA</h4>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  <li>11% increased click rates through the implementation of email marketing campaigns, branding strategies, and social media ads.</li>
+                  <li>3 time Team Player Award winner for exceptional contributions to the design team's quarterly fiscal goals.</li>
+                  <li>7% conversion rates boosting user engagement and up to 28% increase in ROI for demo bookings via user personas and current design trends.</li>
+                  <li>Supported $25M Series C funding efforts by executing and developing a successful brand redesign.</li>
+                  <li>Created 100+ digital and print materials for developing marketing assets including new product launches, reports, slideshows, customer stories, and promotional campaigns.</li>
+                  <li>I created A/B-tested advertisements tailored to user personas and aligned with current design trends.</li>
+                  <li>Led company's brand execution and maintenance across email, social media, digital advertisements, blogs, deliverables, and landing pages, engaging over 3K users and generating 12K+ leads.</li>
+                </ul>
+              </div>
+              
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-medium text-lg">Jr. Product Designer</h3>
+                  <span className="text-designer-red">2019 - 2020</span>
+                </div>
+                <h4 className="text-gray-600 mb-3">Shopmonkey, San Jose, CA</h4>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  <li>Collaborated with internal teams to recognize needs, strategize solutions, and align them with company objectives. Executed large-scale events with tens of thousands of attendees by articulating design strategies and core principles to cross-functional teams.</li>
+                  <li>Launched two UX MVPs by conducting future-focused feature research, presenting mockups, prototyping, and testing designs.</li>
+                  <li>Generated 1K + valuable leads by introducing booth graphics and promotional materials for the company's debut trade show in 2019.</li>
+                  <li>Boosted social media engagement and follower base from 50 to 400 within a year via a cohesive visual style and engaging content.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          
+          <section>
+            <h2 className="font-display text-2xl mb-4 pb-2 border-b">Education</h2>
+            
+            <div className="space-y-6">
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-medium text-lg">Bachelors in Humanities & Minor in Fine Arts</h3>
+                  <span className="text-designer-red">2009 - 2017</span>
+                </div>
+                <h4 className="text-gray-600">San Jose State University</h4>
+              </div>
+            </div>
+          </section>
+          
+          <section>
+            <h2 className="font-display text-2xl mb-4 pb-2 border-b">Skills</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-medium mb-3">Design Tools</h3>
+                <div className="flex flex-wrap gap-2">
+                  {['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'InVision', 'Principle', 'Chat GPT', 'Lovable.ai', 'Bolt.new'].map((tool) => (
+                    <span key={tool} className="bg-designer-gray px-3 py-1 rounded-full text-sm">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="font-medium mb-3">Design Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    'UI Design', 
+                    'UX Research', 
+                    'Wireframing', 
+                    'Prototyping', 
+                    'User Testing', 
+                    'Information Architecture', 
+                    'Design Systems',
+                    'Iconography',
+                    'Print Design',
+                    'Email Design',
+                    'User Interviews',
+                    'Responsive Design',
+                    'Branding',
+                    'Basic CSS',
+                    'Basic HTML'
+                  ].map((skill) => (
+                    <span key={skill} className="bg-designer-gray px-3 py-1 rounded-full text-sm">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-
-            {/* Skills */}
-            <div>
-              <h3 className="font-display text-xl font-semibold mb-4">Skills</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div>
-                  <h4 className="font-medium mb-2">Design Tools</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>Figma</li>
-                    <li>Sketch</li>
-                    <li>Adobe Creative Suite</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium mb-2">Technical</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>HTML/CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium mb-2">Other</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>User Research</li>
-                    <li>Prototyping</li>
-                    <li>Design Systems</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
       </main>
     </div>

@@ -10,12 +10,15 @@ import {
   FileText,
   ChevronRight,
   ChevronDown,
+  Expand,
+  Minimize,
   Menu,
   X
 } from 'lucide-react';
 
 const Sidebar: FC = () => {
   const location = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
@@ -29,6 +32,14 @@ const Sidebar: FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+  
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+    if (!collapsed) {
+      setProductDesignsOpen(false);
+      setMarketingDesignsOpen(false);
+    }
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -169,16 +180,16 @@ const Sidebar: FC = () => {
       <MobileMenu />
 
       {/* Desktop Sidebar */}
-      <aside className="hidden sm:block fixed left-0 top-0 h-full w-[220px] bg-white border-r border-gray-200 flex flex-col py-8 px-4">
+      <aside className={`hidden sm:block fixed left-0 top-0 h-full ${collapsed ? 'w-[70px]' : 'w-[220px]'} bg-white border-r border-gray-200 flex flex-col py-8 px-4 transition-all duration-300`}>
         <div className="flex items-center justify-between mb-8">
-          <div className="h-10 w-10 flex items-center justify-center">
+          <div className={`h-10 w-10 flex items-center justify-center ${collapsed ? 'mx-auto' : ''}`}>
             <img 
               src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
               alt="Logo" 
               className="h-10 w-10 object-contain"
             />
           </div>
-          <div className="h-12 w-12"></div>
+          {!collapsed && <div className="h-12 w-12"></div>}
         </div>
         
         <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
@@ -197,7 +208,7 @@ const Sidebar: FC = () => {
                             ? 'text-designer-darkgray' 
                             : 'text-gray-500 hover:text-designer-darkgray transition-colors'
                         }`}
-                        onClick={item.toggle}
+                        onClick={!collapsed ? item.toggle : undefined}
                       >
                         <Link 
                           to={item.path}
@@ -206,17 +217,19 @@ const Sidebar: FC = () => {
                           <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                             {item.icon}
                           </span>
-                          <span>{item.name}</span>
+                          {!collapsed && <span>{item.name}</span>}
                         </Link>
-                        <button onClick={(e) => {
-                          e.preventDefault();
-                          item.toggle();
-                        }}>
-                          {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                        </button>
+                        {!collapsed && (
+                          <button onClick={(e) => {
+                            e.preventDefault();
+                            item.toggle();
+                          }}>
+                            {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                          </button>
+                        )}
                       </div>
                       
-                      {item.isOpen && (
+                      {!collapsed && item.isOpen && (
                         <ul className="mt-2 ml-8 space-y-2">
                           {item.items?.map((subItem) => {
                             const isSubActive = location.pathname === subItem.path;
@@ -250,7 +263,7 @@ const Sidebar: FC = () => {
                       <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                         {item.icon}
                       </span>
-                      <span>{item.name}</span>
+                      {!collapsed && <span>{item.name}</span>}
                     </Link>
                   )}
                 </li>
@@ -258,6 +271,22 @@ const Sidebar: FC = () => {
             })}
           </ul>
         </nav>
+        
+        <div className="mt-auto pt-4 border-t border-gray-100">
+          <button 
+            onClick={toggleCollapsed} 
+            className={`py-2 text-gray-500 hover:text-designer-darkgray flex ${collapsed ? 'justify-center' : 'items-center'}`}
+          >
+            {collapsed ? (
+              <Expand size={20} />
+            ) : (
+              <>
+                <Minimize size={20} className="ml-0" />
+                <span className="ml-3">Collapse menu</span>
+              </>
+            )}
+          </button>
+        </div>
       </aside>
     </>
   );
