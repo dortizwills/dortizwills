@@ -1,6 +1,8 @@
 
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const AdherePlus = () => {
   const relatedProjects = [
@@ -179,9 +181,7 @@ const AdherePlus = () => {
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="font-display text-lg font-semibold">3</span>
                   </div>
-                  <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin.</p>
-                  <p className="text-gray-700">I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
-                  <p className="text-gray-700">We adjusted his workload to reduce our budgeted time after he used too much time on a non-critical element.</p>
+                  <p className="text-gray-700">After rushing these designs over they deliberated and consulted their C-Suite to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
                 </div>
                 <div className="space-y-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
@@ -198,6 +198,31 @@ const AdherePlus = () => {
                   During QA, I was instructed to assist Raborn adhere to our schedule by conducting some scope reduction and compromises from the design vision to keep the site on budget; below are a few side-by-side comparisons of the designs to the final product reductions made so we could meet budget and our initial timeline agreements.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Designs Section */}
+        <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Final Designs</h2>
+          </div>
+          <div className="col-span-2">
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                The final designs represent a balance between our design vision and practical development constraints. Here's a walkthrough of the key design decisions that made this website possible:
+              </p>
+              
+              <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center mb-6">
+                <p className="text-gray-500">Video placeholder - Design explanations and walkthrough</p>
+              </div>
+              
+              <Button asChild className="bg-designer-red hover:bg-designer-red/90">
+                <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                  View Live Site
+                  <ExternalLink size={16} />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
