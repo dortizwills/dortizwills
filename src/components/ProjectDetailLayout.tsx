@@ -113,10 +113,10 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     <Link 
                       key={index}
                       to={project.path}
-                      className="block transition-all duration-300 group/card"
+                      className="block transition-all duration-300 cursor-pointer"
                     >
-                      <div className="bg-white rounded-lg overflow-hidden border border-gray-100 group-hover/card:bg-blue-500 group-hover/card:border-blue-500 transition-all duration-300 p-4">
-                        <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
+                      <div className="bg-white rounded-lg overflow-hidden border border-gray-100 p-4">
+                        <div className="bg-designer-gray overflow-hidden rounded-lg mb-4 transition-transform duration-300 hover:scale-105" style={{ aspectRatio: '16/9' }}>
                           {project.image ? (
                             <img 
                               src={project.image} 
@@ -130,11 +130,11 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                           )}
                         </div>
                         <div>
-                          <h3 className="font-display text-xl font-bold mb-2 group-hover/card:text-white transition-colors duration-300">{project.title}</h3>
-                          <p className="text-gray-600 mb-4 group-hover/card:text-white/80 transition-colors duration-300">
+                          <h3 className="font-display text-xl font-bold mb-2">{project.title}</h3>
+                          <p className="text-gray-600 mb-4">
                             {project.description}
                           </p>
-                          <div className="flex items-center text-blue-600 font-medium group-hover/card:text-white transition-colors duration-300">
+                          <div className="flex items-center text-blue-600 font-medium">
                             <span className="mr-2">View Project</span>
                             <ArrowRight size={16} />
                           </div>
@@ -156,10 +156,10 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   <Link 
                     key={index}
                     to={project.path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 border border-gray-100 block h-full group/card"
+                    className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 border border-gray-100 block h-full cursor-pointer"
                   >
-                    <div className="bg-white rounded-lg overflow-hidden group-hover/card:bg-blue-500 group-hover/card:border-blue-500 transition-all duration-300 p-4">
-                      <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                    <div className="bg-white rounded-lg overflow-hidden p-4">
+                      <div className="bg-designer-gray overflow-hidden transition-transform duration-300 hover:scale-105" style={{ aspectRatio: '16/9' }}>
                         {project.image ? (
                           <img 
                             src={project.image} 
@@ -173,11 +173,11 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                         )}
                       </div>
                       <div className="p-2">
-                        <h3 className="font-display text-xl font-medium mb-2 group-hover/card:text-white transition-colors duration-300">{project.title}</h3>
-                        <p className="text-gray-600 mb-4 group-hover/card:text-white/80 transition-colors duration-300">
+                        <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
+                        <p className="text-gray-600 mb-4">
                           {project.description}
                         </p>
-                        <div className="flex items-center text-designer-red font-medium group-hover/card:text-white transition-colors duration-300">
+                        <div className="flex items-center text-designer-red font-medium">
                           <span className="mr-2">View Project</span>
                           <ArrowRight size={16} />
                         </div>
