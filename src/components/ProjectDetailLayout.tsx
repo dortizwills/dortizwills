@@ -99,7 +99,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 max-sm:gap-6">
+            <div className="grid grid-cols-3 max-[819px]:grid-cols-1 gap-8 max-[819px]:gap-6">
               {/* First project */}
               {relatedProjects[0] && (
                 <div className="col-span-1">
@@ -135,7 +135,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
               )}
               
               {/* Empty middle column on desktop only */}
-              <div className="col-span-1 max-sm:hidden"></div>
+              <div className="col-span-1 max-[819px]:hidden"></div>
               
               {/* Second project */}
               {relatedProjects[1] && (
