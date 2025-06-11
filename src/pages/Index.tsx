@@ -92,13 +92,35 @@ const Index = () => {
   return (
     <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="mb-16 text-center">
-          <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl max-[819px]:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We don't exist alone so I don't design alone. The best work comes from a collaboration of minds, and I thrive at stoking the fires of innovation
-          </p>
-        </div>
+        {/* What Clients Say Section - Moved to top */}
+        <section className="mb-16">
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            {/* Image - 1/3 */}
+            <div className="lg:col-span-1 flex justify-center lg:justify-start">
+              <img 
+                src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
+                alt="Daniel Ortiz-Wills" 
+                className="max-w-full max-h-[400px] object-contain"
+              />
+            </div>
+            
+            {/* Header Content - 2/3 */}
+            <div className="lg:col-span-2">
+              <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+              <h1 className="font-display text-6xl max-[819px]:text-4xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
+              </h1>
+              <p className="text-xl text-gray-600 max-w-2xl">
+                Don't just take my word for it though, see what some of my previous managers and peers have said about me.
+              </p>
+            </div>
+          </div>
+          
+          {/* Testimonials Carousel - Full width below */}
+          <div className="mt-12 bg-gradient-to-r from-[#2037C9] to-[#101B63] rounded-lg p-8">
+            <TestimonialCarousel testimonials={testimonials} />
+          </div>
+        </section>
 
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Featured Projects</h2>
@@ -123,8 +145,8 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Side Featured Projects - Takes 1/3 of the width on large screens */}
-            <div className="space-y-6">
+            {/* Side Featured Projects - Takes 1/3 of the width on large screens, stretches to align with main project */}
+            <div className="space-y-6 flex flex-col">
               <Link to="/product-designs/camping-app" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
                 <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
@@ -173,11 +195,14 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-                <Link to="/product-designs">
-                  View UXUI Designs
-                </Link>
-              </Button>
+              {/* Button stretches to fill remaining space */}
+              <div className="flex-1 flex items-end">
+                <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+                  <Link to="/product-designs">
+                    View UXUI Designs
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -214,32 +239,36 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Stacked layout for 819px and below */}
-          <div className="min-[820px]:hidden space-y-6 mb-8">
+          {/* Card layout for 819px and below - matching image 1 style */}
+          <div className="min-[820px]:hidden space-y-4 mb-8">
             {marketingDesigns.map((design, index) => (
-              <Link 
-                key={index} 
-                to={design.href}
-                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
+              <div 
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
               >
-                <div className="w-1/3 aspect-[3/2]">
-                  <img 
-                    src={design.imagePath} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    {design.description}
-                  </p>
-                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-1">View Project</span>
-                    <ArrowRightIcon size={14} />
+                <div className="flex items-start gap-4">
+                  <div className="w-20 h-20 flex-shrink-0">
+                    <img 
+                      src={design.imagePath} 
+                      alt={design.title} 
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-display text-lg font-medium mb-1 text-gray-900">{design.title}</h4>
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                      {design.description}
+                    </p>
+                    <Link 
+                      to={design.href}
+                      className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors"
+                    >
+                      <span className="mr-1">View Project</span>
+                      <ArrowRightIcon size={12} />
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -250,30 +279,6 @@ const Index = () => {
                 View Visual Designs
               </Link>
             </Button>
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <div 
-            className="relative rounded-lg overflow-hidden min-h-[500px] bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/lovable-uploads/dfe0bc19-2ac7-47a1-b4b1-aff94502d0b7.png')" }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div className="relative z-10 p-8 h-full flex items-center">
-              <div className="w-1/3 flex justify-start items-center max-[820px]:hidden">
-                <img 
-                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
-                  alt="Daniel Ortiz-Wills" 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-              <div className="w-2/3 min-[820px]:pl-8 w-full max-[820px]:w-full max-[820px]:text-center">
-                <h2 className="font-display text-3xl mb-8 text-white max-[820px]:text-center">What Clients Say</h2>
-                <div className="rounded-lg p-6">
-                  <TestimonialCarousel testimonials={testimonials} />
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 

@@ -84,7 +84,7 @@ const ContactForm = () => {
       </div>
       
       <p className="mb-6 text-gray-600">
-        Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+        Interested in working with me or have a project in mind? I'd love to hear from you.
       </p>
       
       <form onSubmit={handleSubmit} className="space-y-4">
