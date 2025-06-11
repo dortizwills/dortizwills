@@ -73,7 +73,7 @@ const CampingApp = () => {
         </div>
       </div>
       
-      {/* Div Block 5 */}
+      {/* Div Block Common Questions section 5 */}
       <div className="mb-8 grid grid-cols-3 max-sm:grid-cols-1 gap-8">
         <div className="col-span-1 max-sm:hidden">
           {/* Left div block - empty as specified */}
@@ -303,6 +303,11 @@ const CampingApp = () => {
             View Prototype
           </a>
         </Button>
+        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+          <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
+          View Prototype
+          </a>
+        </Button>
       </div>
       
       {/* Div Block 20 */}
@@ -400,7 +405,13 @@ const CampingApp = () => {
             View Prototype
           </a>
         </Button>
+        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+          <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer">
+          View Prototype
+          </a>
+        </Button>
       </div>
+      
       
       {/* Div Block 27 */}
       <div className="mb-8">

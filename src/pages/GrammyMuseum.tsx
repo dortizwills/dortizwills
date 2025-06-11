@@ -25,9 +25,9 @@ const GrammyMuseum = () => {
         backLabel="Back to UXUI Designs"
         headerImage="/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
         projectDetails={{
-          timeline: "4 weeks for sitewide branding and design system, 2 additional weeks for final designs",
+          timeline: "6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs",
           responsibilities: "Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management",
-          results: "ascertaining future client partnerships following project funding"
+          results: "100% client satisfaction, Roadmap in place for development this year"
         }}
         showWipTag={true}
         relatedProjects={relatedProjects}

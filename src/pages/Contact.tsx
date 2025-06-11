@@ -44,8 +44,8 @@ const Contact = () => {
           <div>
             <h2 className="text-2xl font-display font-semibold mb-6">Get in Touch</h2>
             <p className="text-gray-600 mb-8">
-              Got an idea you'd like to bring to life or a growing team that's ready for one more? 
-              You can count on me to bring excitement, resilience, a spirit of collaboration, and logical thinking to the conversation to achieve your goals. 
+              Got an idea you'd like to bring to life or a growing team that's ready for one more? <br></br>
+              You can count on me to bring excitement, resilience, a spirit of collaboration, and logical thinking to the conversation to achieve your goals. <br></br>
               Let's connect!
             </p>
             

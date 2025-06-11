@@ -25,9 +25,9 @@ const MobileApps = () => {
       backLabel="Back to UXUI Designs"
       headerImage="/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png"
       projectDetails={{
-        timeline: "2 weeks each, 2 apps in total",
+        timeline: "4 Weeks Total: 1-3 weeks per app, 2 apps",
         responsibilities: "Branding, User flows, Mobile iOS Design, Prototyping, User Testing",
-        results: "ascertaining future client partnerships following project funding"
+        results: "Securing future client partnerships following project funding"
       }}
       showWipTag={true}
       relatedProjects={relatedProjects}
