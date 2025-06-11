@@ -94,7 +94,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-16 text-center">
           <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-          <h1 className="font-display text-6xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
+          <h1 className="font-display text-6xl max-[820px]:text-[5.2rem] font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Focusing on growth through Collaboration, Innovation, and Iteration</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We don't exist alone so I don't design alone. The best work comes from a collaboration of minds, and I thrive at stoking the fires of innovation
           </p>
@@ -173,7 +173,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Button asChild variant="outline" className="w-full bg-gradient-primary text-white border-none hover:opacity-90">
+              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
                 <Link to="/product-designs">
                   View UXUI Designs
                 </Link>
@@ -184,60 +184,30 @@ const Index = () => {
 
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
-          {/* Desktop layout */}
-          <div className="hidden max-sm:block">
-            <div className="space-y-6">
-              {marketingDesigns.map((design, index) => (
-                <Link 
-                  key={index} 
-                  to={design.href}
-                  className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
-                >
-                  <div className="w-1/3 aspect-[3/2]">
-                    <img 
-                      src={design.imagePath} 
-                      alt={design.title} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4 w-2/3">
-                    <h4 className="font-display text-lg mb-1">{design.title}</h4>
-                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                      {design.description}
-                    </p>
-                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">View Project</span>
-                      <ArrowRightIcon size={14} />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
           
-          {/* Mobile layout */}
-          <div className="max-sm:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
                 to={design.href}
-                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-black"
+                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
               >
-                <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
+                <div className="w-1/3 aspect-[3/2]">
                   <img 
                     src={design.imagePath} 
                     alt={design.title} 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-medium mb-2">{design.title}</h3>
-                  <p className="text-gray-600 mb-4">
+                <div className="p-4 w-2/3">
+                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     {design.description}
                   </p>
-                  <span className="text-blue-600 font-medium hover:underline">
-                    View Project
-                  </span>
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-1">View Project</span>
+                    <ArrowRightIcon size={14} />
+                  </div>
                 </div>
               </Link>
             ))}
@@ -251,14 +221,14 @@ const Index = () => {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
             <div className="relative z-10 p-8 h-full flex items-center">
-              <div className="w-1/3 flex justify-start items-center hidden min-[820px]:flex">
+              <div className="w-1/3 flex justify-start items-center max-[820px]:hidden">
                 <img 
                   src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
                   alt="Daniel Ortiz-Wills" 
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
-              <div className="w-2/3 min-[820px]:pl-8 w-full min-[820px]:w-2/3">
+              <div className="w-2/3 min-[820px]:pl-8 w-full max-[820px]:w-full max-[820px]:text-center">
                 <h2 className="font-display text-3xl mb-8 text-white">What Clients Say</h2>
                 <div className="rounded-lg p-6">
                   <TestimonialCarousel testimonials={testimonials} />
@@ -277,3 +247,4 @@ const Index = () => {
 };
 
 export default Index;
+

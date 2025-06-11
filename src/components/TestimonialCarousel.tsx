@@ -102,7 +102,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             size="icon"
             onClick={handlePrevious}
             aria-label="Previous testimonial"
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
           >
             <ArrowLeft size={16} />
           </Button>
@@ -112,7 +112,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             size="icon"
             onClick={handleNext}
             aria-label="Next testimonial"
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
           >
             <ArrowRight size={16} />
           </Button>
