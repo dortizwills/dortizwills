@@ -92,33 +92,43 @@ const Index = () => {
   return (
     <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* What Clients Say Section - Moved to top */}
-        <section className="mb-16">
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Image - 1/3 */}
-            <div className="lg:col-span-1 flex justify-center lg:justify-start">
-              <img 
-                src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
-                alt="Daniel Ortiz-Wills" 
-                className="max-w-full max-h-[400px] object-contain"
-              />
+        {/* What Clients Say Section with background - Moved to top */}
+        <section 
+          className="mb-16 relative"
+          style={{
+            backgroundImage: `url('/lovable-uploads/9063cf78-dfc2-4756-a290-cd9ceb9a876f.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="relative z-10 bg-gradient-to-r from-[#2037C9]/90 to-[#101B63]/90 rounded-lg p-8">
+            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+              {/* Image - 1/3 */}
+              <div className="lg:col-span-1 flex justify-center lg:justify-start">
+                <img 
+                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
+                  alt="Daniel Ortiz-Wills" 
+                  className="max-w-full max-h-[400px] object-contain"
+                />
+              </div>
+              
+              {/* Header Content - 2/3 */}
+              <div className="lg:col-span-2">
+                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+                <h1 className="font-display text-4xl max-[819px]:text-3xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                  I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
+                </h1>
+                <p className="text-xl text-white/80 max-w-2xl">
+                  Don't just take my word for it though, see what some of my previous managers and peers have said about me.
+                </p>
+              </div>
             </div>
             
-            {/* Header Content - 2/3 */}
-            <div className="lg:col-span-2">
-              <p className="text-lg text-gray-600 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-              <h1 className="font-display text-6xl max-[819px]:text-4xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
-              </h1>
-              <p className="text-xl text-gray-600 max-w-2xl">
-                Don't just take my word for it though, see what some of my previous managers and peers have said about me.
-              </p>
+            {/* Testimonials Carousel */}
+            <div className="border border-white/20 rounded-lg p-6">
+              <TestimonialCarousel testimonials={testimonials} />
             </div>
-          </div>
-          
-          {/* Testimonials Carousel - Full width below */}
-          <div className="mt-12 bg-gradient-to-r from-[#2037C9] to-[#101B63] rounded-lg p-8">
-            <TestimonialCarousel testimonials={testimonials} />
           </div>
         </section>
 
@@ -146,7 +156,7 @@ const Index = () => {
             </div>
             
             {/* Side Featured Projects - Takes 1/3 of the width on large screens, stretches to align with main project */}
-            <div className="space-y-6 flex flex-col">
+            <div className="space-y-6 flex flex-col h-full">
               <Link to="/product-designs/camping-app" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
                 <div className="w-1/3 aspect-[3/2]">
                   <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />

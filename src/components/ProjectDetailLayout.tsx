@@ -98,20 +98,67 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         
         {relatedProjects && relatedProjects.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-2xl font-display font-semibold mb-6">Similar Projects</h2>
-            <div className="grid grid-cols-3 max-[819px]:grid-cols-1 gap-8 max-[819px]:gap-6">
-              {/* First project */}
-              {relatedProjects[0] && (
-                <div className="col-span-1">
+            {/* Layout for 820px and above - box format */}
+            <div className="hidden min-[820px]:block bg-white border border-black rounded-lg p-8">
+              <div className="grid grid-cols-3 gap-8">
+                {/* Left text section */}
+                <div className="col-span-1 flex flex-col justify-center">
+                  <h1 className="font-display text-4xl font-bold mb-4">Similar Projects</h1>
+                  <p className="text-gray-600 text-lg">Like what you see? Check out some of my other projects</p>
+                </div>
+                
+                {/* Right projects section */}
+                <div className="col-span-2 grid grid-cols-2 gap-6">
+                  {relatedProjects.slice(0, 2).map((project, index) => (
+                    <Link 
+                      key={index}
+                      to={project.path}
+                      className="block hover:shadow-md transition-shadow"
+                    >
+                      <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
+                        {project.image ? (
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="h-full flex items-center justify-center">
+                            <span className="text-gray-400">Image coming soon</span>
+                          </div>
+                        )}
+                      </div>
+                      <h3 className="font-display text-xl font-bold mb-2">{project.title}</h3>
+                      <p className="text-gray-600 mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex items-center text-blue-600 font-medium">
+                        <span className="mr-2">View Project</span>
+                        <ArrowRight size={16} />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Layout for 819px and below - current format with new text */}
+            <div className="min-[820px]:hidden">
+              <h1 className="font-display text-4xl font-bold mb-2">Similar Projects</h1>
+              <p className="text-gray-600 text-lg mb-6">Like what you see? Check out some of my other projects</p>
+              
+              <div className="grid grid-cols-1 gap-6">
+                {relatedProjects.slice(0, 2).map((project, index) => (
                   <Link 
-                    to={relatedProjects[0].path}
+                    key={index}
+                    to={project.path}
                     className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
                   >
                     <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                      {relatedProjects[0].image ? (
+                      {project.image ? (
                         <img 
-                          src={relatedProjects[0].image} 
-                          alt={relatedProjects[0].title} 
+                          src={project.image} 
+                          alt={project.title} 
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -121,9 +168,9 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                       )}
                     </div>
                     <div className="p-6">
-                      <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[0].title}</h3>
+                      <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
                       <p className="text-gray-600 mb-4">
-                        {relatedProjects[0].description}
+                        {project.description}
                       </p>
                       <div className="flex items-center text-designer-red font-medium">
                         <span className="mr-2">View Project</span>
@@ -131,45 +178,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                       </div>
                     </div>
                   </Link>
-                </div>
-              )}
-              
-              {/* Empty middle column on desktop only */}
-              <div className="col-span-1 max-[819px]:hidden"></div>
-              
-              {/* Second project */}
-              {relatedProjects[1] && (
-                <div className="col-span-1">
-                  <Link 
-                    to={relatedProjects[1].path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 block h-full"
-                  >
-                    <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                      {relatedProjects[1].image ? (
-                        <img 
-                          src={relatedProjects[1].image} 
-                          alt={relatedProjects[1].title} 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="h-full flex items-center justify-center">
-                          <span className="text-gray-400">Image coming soon</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-display text-xl font-medium mb-2">{relatedProjects[1].title}</h3>
-                      <p className="text-gray-600 mb-4">
-                        {relatedProjects[1].description}
-                      </p>
-                      <div className="flex items-center text-designer-red font-medium">
-                        <span className="mr-2">View Project</span>
-                        <ArrowRight size={16} />
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              )}
+                ))}
+              </div>
             </div>
           </div>
         )}

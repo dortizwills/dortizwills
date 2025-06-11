@@ -68,13 +68,13 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
 
   return (
     <div 
-      className="relative border border-white/20 rounded-lg p-8"
+      className="relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <blockquote className="text-lg md:text-xl mb-6 italic text-white">
+          <blockquote className="text-base md:text-lg mb-6 italic text-white">
             "{testimonials[activeIndex].quote}"
           </blockquote>
           <div className="inline-flex flex-col items-center">
