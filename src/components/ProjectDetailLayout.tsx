@@ -104,7 +104,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 {/* Left text section - top left aligned */}
                 <div className="col-span-1 flex flex-col justify-start">
                   <h1 className="font-display text-4xl font-bold mb-4 text-left">Similar Projects</h1>
-                  <p className="text-gray-600 text-base text-left">Like what you see? Check out some of my other projects</p>
+                  <p className="text-gray-600 text-sm text-left">Like what you see? Check out some of my other projects</p>
                 </div>
                 
                 {/* Right projects section */}
@@ -113,9 +113,9 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     <Link 
                       key={index}
                       to={project.path}
-                      className="block hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:p-4 hover:rounded-lg transition-all duration-300 group"
+                      className="block transition-all duration-300 group/card"
                     >
-                      <div className="bg-white rounded-lg overflow-hidden group-hover:border-0 border border-gray-100">
+                      <div className="bg-white rounded-lg overflow-hidden border border-gray-100 group-hover/card:bg-blue-500 group-hover/card:border-blue-500 transition-all duration-300 p-4">
                         <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
                           {project.image ? (
                             <img 
@@ -129,12 +129,12 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                             </div>
                           )}
                         </div>
-                        <div className="px-4 pb-4">
-                          <h3 className="font-display text-xl font-bold mb-2 group-hover:text-white">{project.title}</h3>
-                          <p className="text-gray-600 mb-4 group-hover:text-white/80">
+                        <div>
+                          <h3 className="font-display text-xl font-bold mb-2 group-hover/card:text-white transition-colors duration-300">{project.title}</h3>
+                          <p className="text-gray-600 mb-4 group-hover/card:text-white/80 transition-colors duration-300">
                             {project.description}
                           </p>
-                          <div className="flex items-center text-blue-600 font-medium group-hover:text-white">
+                          <div className="flex items-center text-blue-600 font-medium group-hover/card:text-white transition-colors duration-300">
                             <span className="mr-2">View Project</span>
                             <ArrowRight size={16} />
                           </div>
@@ -149,16 +149,16 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             {/* Layout for 819px and below - current format with new text */}
             <div className="min-[820px]:hidden">
               <h1 className="font-display text-4xl font-bold mb-2">Similar Projects</h1>
-              <p className="text-gray-600 text-base mb-6">Like what you see? Check out some of my other projects</p>
+              <p className="text-gray-600 text-sm mb-6">Like what you see? Check out some of my other projects</p>
               
               <div className="grid grid-cols-1 gap-6">
                 {relatedProjects.slice(0, 2).map((project, index) => (
                   <Link 
                     key={index}
                     to={project.path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:p-4 transition-all duration-300 border border-gray-100 block h-full group"
+                    className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 border border-gray-100 block h-full group/card"
                   >
-                    <div className="bg-white rounded-lg overflow-hidden">
+                    <div className="bg-white rounded-lg overflow-hidden group-hover/card:bg-blue-500 group-hover/card:border-blue-500 transition-all duration-300 p-4">
                       <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
                         {project.image ? (
                           <img 
@@ -172,12 +172,12 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                           </div>
                         )}
                       </div>
-                      <div className="p-6">
-                        <h3 className="font-display text-xl font-medium mb-2 group-hover:text-white">{project.title}</h3>
-                        <p className="text-gray-600 mb-4 group-hover:text-white/80">
+                      <div className="p-2">
+                        <h3 className="font-display text-xl font-medium mb-2 group-hover/card:text-white transition-colors duration-300">{project.title}</h3>
+                        <p className="text-gray-600 mb-4 group-hover/card:text-white/80 transition-colors duration-300">
                           {project.description}
                         </p>
-                        <div className="flex items-center text-designer-red font-medium group-hover:text-white">
+                        <div className="flex items-center text-designer-red font-medium group-hover/card:text-white transition-colors duration-300">
                           <span className="mr-2">View Project</span>
                           <ArrowRight size={16} />
                         </div>

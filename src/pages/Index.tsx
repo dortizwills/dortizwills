@@ -92,7 +92,7 @@ const Index = () => {
   return (
     <div className="sm:pl-[220px] pl-0">
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* What Clients Say Section with new background */}
+        {/* What Clients Say Section with updated background */}
         <section 
           className="mb-16 relative rounded-lg overflow-hidden"
           style={{
@@ -125,8 +125,11 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Testimonials Carousel */}
-            <div className="border border-white/20 rounded-lg p-6">
+            {/* Testimonials Carousel with transparent background */}
+            <div 
+              className="rounded-lg p-6"
+              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+            >
               <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
