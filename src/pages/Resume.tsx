@@ -1,7 +1,6 @@
-
 import React from 'react';
-// import { Button } from '@/components/ui/button';
-// import { Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
 
 const Resume = () => {
   return (
@@ -13,10 +12,10 @@ const Resume = () => {
         </div>
         
         <div className="mb-8">
-          {/* <Button className="bg-designer-red hover:bg-red-700 text-white">
+          <Button className="bg-designer-red hover:bg-red-700 text-white">
             <Download className="mr-2 h-4 w-4" />
             Download PDF
-          </Button> */}
+          </Button>
         </div>
         
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
