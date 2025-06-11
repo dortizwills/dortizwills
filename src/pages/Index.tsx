@@ -94,7 +94,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* What Clients Say Section with new background */}
         <section 
-          className="mb-16 relative"
+          className="mb-16 relative rounded-lg overflow-hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -102,7 +102,7 @@ const Index = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="relative z-10 bg-gradient-to-r from-[#2037C9]/90 to-[#101B63]/90 rounded-lg p-8">
+          <div className="relative z-10 p-8">
             <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
@@ -249,14 +249,15 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Card layout for 819px and below - matching image 1 style */}
-          <div className="min-[820px]:hidden space-y-4 mb-8">
+          {/* Card layout for 819px and below - matching first reference image */}
+          <div className="max-[819px]:block hidden space-y-4 mb-8">
             {marketingDesigns.map((design, index) => (
-              <div 
+              <Link 
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                to={design.href}
+                className="block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 p-4">
                   <div className="w-20 h-20 flex-shrink-0">
                     <img 
                       src={design.imagePath} 
@@ -269,16 +270,13 @@ const Index = () => {
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">
                       {design.description}
                     </p>
-                    <Link 
-                      to={design.href}
-                      className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors"
-                    >
+                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                       <span className="mr-1">View Project</span>
                       <ArrowRightIcon size={12} />
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

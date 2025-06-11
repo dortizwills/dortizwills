@@ -113,28 +113,32 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                     <Link 
                       key={index}
                       to={project.path}
-                      className="block hover:shadow-lg transition-all duration-300 hover:scale-105"
+                      className="block hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:p-4 hover:rounded-lg transition-all duration-300 group"
                     >
-                      <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
-                        {project.image ? (
-                          <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="h-full flex items-center justify-center">
-                            <span className="text-gray-400">Image coming soon</span>
+                      <div className="bg-white rounded-lg overflow-hidden group-hover:border-0 border border-gray-100">
+                        <div className="bg-designer-gray overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
+                          {project.image ? (
+                            <img 
+                              src={project.image} 
+                              alt={project.title} 
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="h-full flex items-center justify-center">
+                              <span className="text-gray-400">Image coming soon</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="px-4 pb-4">
+                          <h3 className="font-display text-xl font-bold mb-2 group-hover:text-white">{project.title}</h3>
+                          <p className="text-gray-600 mb-4 group-hover:text-white/80">
+                            {project.description}
+                          </p>
+                          <div className="flex items-center text-blue-600 font-medium group-hover:text-white">
+                            <span className="mr-2">View Project</span>
+                            <ArrowRight size={16} />
                           </div>
-                        )}
-                      </div>
-                      <h3 className="font-display text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-gray-600 mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex items-center text-blue-600 font-medium">
-                        <span className="mr-2">View Project</span>
-                        <ArrowRight size={16} />
+                        </div>
                       </div>
                     </Link>
                   ))}
@@ -152,29 +156,31 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   <Link 
                     key={index}
                     to={project.path}
-                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 border border-gray-100 block h-full"
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:p-4 transition-all duration-300 border border-gray-100 block h-full group"
                   >
-                    <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                      {project.image ? (
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="h-full flex items-center justify-center">
-                          <span className="text-gray-400">Image coming soon</span>
+                    <div className="bg-white rounded-lg overflow-hidden">
+                      <div className="bg-designer-gray overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                        {project.image ? (
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="h-full flex items-center justify-center">
+                            <span className="text-gray-400">Image coming soon</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-6">
+                        <h3 className="font-display text-xl font-medium mb-2 group-hover:text-white">{project.title}</h3>
+                        <p className="text-gray-600 mb-4 group-hover:text-white/80">
+                          {project.description}
+                        </p>
+                        <div className="flex items-center text-designer-red font-medium group-hover:text-white">
+                          <span className="mr-2">View Project</span>
+                          <ArrowRight size={16} />
                         </div>
-                      )}
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
-                      <p className="text-gray-600 mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex items-center text-designer-red font-medium">
-                        <span className="mr-2">View Project</span>
-                        <ArrowRight size={16} />
                       </div>
                     </div>
                   </Link>
