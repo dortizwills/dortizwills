@@ -251,14 +251,14 @@ const Index = () => {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
             <div className="relative z-10 p-8 h-full flex items-center">
-              <div className="w-1/3 flex justify-start items-center">
+              <div className="w-1/3 flex justify-start items-center hidden min-[820px]:flex">
                 <img 
                   src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
                   alt="Daniel Ortiz-Wills" 
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
-              <div className="w-2/3 pl-8">
+              <div className="w-2/3 min-[820px]:pl-8 w-full min-[820px]:w-2/3">
                 <h2 className="font-display text-3xl mb-8 text-white">What Clients Say</h2>
                 <div className="rounded-lg p-6">
                   <TestimonialCarousel testimonials={testimonials} />
