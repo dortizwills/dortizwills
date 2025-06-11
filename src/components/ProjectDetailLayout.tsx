@@ -104,7 +104,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 {/* Left text section - top left aligned */}
                 <div className="col-span-1 flex flex-col justify-start">
                   <h1 className="font-display text-4xl font-bold mb-4 text-left">Similar Projects</h1>
-                  <p className="text-gray-600 text-left">Like what you see? Check out some of my other projects</p>
+                  <p className="text-gray-600 text-sm text-left">Like what you see? Check out some of my other projects</p>
                 </div>
                 
                 {/* Right projects section */}
@@ -149,7 +149,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             {/* Layout for 819px and below - current format with new text */}
             <div className="min-[820px]:hidden">
               <h1 className="font-display text-4xl font-bold mb-2">Similar Projects</h1>
-              <p className="text-gray-600 mb-6">Like what you see? Check out some of my other projects</p>
+              <p className="text-gray-600 text-sm mb-6">Like what you see? Check out some of my other projects</p>
               
               <div className="grid grid-cols-1 gap-6">
                 {relatedProjects.slice(0, 2).map((project, index) => (
@@ -172,7 +172,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                           </div>
                         )}
                       </div>
-                      <div>
+                      <div className="p-2">
                         <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
                         <p className="text-gray-600 mb-4">
                           {project.description}
