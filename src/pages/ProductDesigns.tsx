@@ -34,14 +34,14 @@ const ProductDesigns = () => {
       description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
       path: "/product-designs/grammy-museum",
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png",
-      status: "In Progress"
+      status: "WIP"
     },
     {
       title: "Mobile App Portfolio",
       description: "View a collection of my mobile app design work across various industries and platforms.",
       path: "/mobile-apps",
       image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png",
-      status: "In Progress"
+      status: "WIP"
     }
   ];
 

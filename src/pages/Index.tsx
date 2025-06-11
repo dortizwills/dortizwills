@@ -244,7 +244,7 @@ const Index = () => {
 
           {/* View Visual Designs Button */}
           <div className="flex justify-center">
-            <Button asChild variant="outline" className="py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90 px-8">
+              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
               <Link to="/graphic-designs">
                 View Visual Designs
               </Link>
