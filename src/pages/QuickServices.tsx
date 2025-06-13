@@ -189,7 +189,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/public/lovable-uploads/New Directions 2.1.png"
+            src="/lovable-uploads/New Directions 2.1.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
