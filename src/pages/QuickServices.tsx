@@ -133,9 +133,11 @@ const QuickServices = () => {
             My rationale was these options required less coding in Shopmonkey's primary application but they would directly sync tires to a shop's inventory, and enable users to add any inventory items to their shop.
           </p>
           
-          <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center mb-6">
-            <p className="text-gray-600">Express Lane lofi.gif (placeholder)</p>
-          </div>
+          <img 
+            src="public/lovable-uploads/Express Lane lofi.gif"
+            alt="Sketches" 
+            className="w-full rounded-lg mb-6"
+          />
           
           <p className="mb-6">
             My second design was a cobranded tires landing page. Here users could have all their current tire vendors synced into a CoBranded page with Shopmonkey.
@@ -168,9 +170,11 @@ const QuickServices = () => {
             After showcasing these two designs my manager had an idea spark. The quick nature of these concepts could be directly applied to another product undergoing research – Express Lane. My concepts, if utilized correctly, could expand the services from the quick-lube subset of shops to any shop with quick services, especially when servicing tires, battery replacements, filter changes, windows, etc.
           </p>
           
-          <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center mb-6">
-            <p className="text-gray-600">New Directions 1 (placeholder)</p>
-          </div>
+          <img 
+            src="/public/lovable-uploads/New Directions 1.png"
+            alt="ATD Cobrand" 
+            className="w-full rounded-lg mb-6"
+          />  
         </div>
       </div>
       
@@ -184,9 +188,11 @@ const QuickServices = () => {
             I was now responsible for adding tires and other quick services to Express Lane so that any general shop could benefit from this in-house application.
           </p>
           
-          <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center mb-6">
-            <p className="text-gray-600">New Directions 2 (placeholder)</p>
-          </div>
+          <img 
+            src="/lovable-uploads/New Directions 2.1.png"
+            alt="ATD Cobrand" 
+            className="w-full rounded-lg mb-6"
+          />  
         </div>
       </div>
       
@@ -268,14 +274,14 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/635fdf26-b96f-4f61-a9c6-beb6d62fa6b3.png"
+            src="/public/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/0c4e449b-e410-47df-9f56-b26271b79589.png"
+            src="/public/lovable-uploads/Dashboard 2.jpeg"
             alt="Dashboard 2" 
             className="w-full rounded-lg h-auto"
           />
@@ -338,25 +344,25 @@ const QuickServices = () => {
         </div>
       </div>
       
-      {/* Tire Portal Images */}
+      {/* Quick Tires Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/806ec7f5-a348-44c7-88c6-f04c2c0de40f.png"
+            src="/public/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/046d4d6e-cbf4-4412-b209-eb33527d1cfc.png"
+            src="/public/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/2fee7c84-1167-4b25-beaa-640211dba904.png"
+            src="/public/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
             className="w-full rounded-lg h-auto"
           />
@@ -384,6 +390,7 @@ const QuickServices = () => {
             Common services for service writers are automatically populated in their primary navigation with detailed views of each service. Tires are a specific category where I added a co-branded portal so that shops can prioritize selling their inventories and still answer customer preferences.
           </p>
           
+branch-3.10
         <video 
           autoPlay 
           muted 
@@ -392,6 +399,13 @@ const QuickServices = () => {
         >
           <source src="/lovable-uploads/Final-Service-Writers.mp4" type="video/mp4" />
         </video>
+
+          <video
+            src="/public/lovable-uploads/Final–Service-Writer.mp4" 
+            alt="Service Writer Interface" 
+            className="w-full rounded-lg mb-6"
+          />
+main
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design" target="_blank" rel="noopener noreferrer">
@@ -417,6 +431,7 @@ const QuickServices = () => {
           </p>
           
           <video 
+       branch-3.10
             autoPlay 
             muted 
             loop 
@@ -424,6 +439,12 @@ const QuickServices = () => {
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
+
+            src="/public/lovable-uploads/Final–Technicians.mp4" 
+            alt="Technician Interface" 
+            className="w-full rounded-lg mb-6"
+          />
+       main
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design" target="_blank" rel="noopener noreferrer">
