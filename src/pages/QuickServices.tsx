@@ -384,11 +384,14 @@ const QuickServices = () => {
             Common services for service writers are automatically populated in their primary navigation with detailed views of each service. Tires are a specific category where I added a co-branded portal so that shops can prioritize selling their inventories and still answer customer preferences.
           </p>
           
-          <img 
-            src="/lovable-uploads/16b57064-e251-40ea-a661-fcea1c09b3a3.png" 
-            alt="Service Writer Interface" 
-            className="w-full rounded-lg mb-6"
-          />
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          className="w-full rounded-lg"
+        >
+          <source src="/lovable-uploads/Final-Service-Writers.mp4" type="video/mp4" />
+        </video>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design" target="_blank" rel="noopener noreferrer">
@@ -413,11 +416,14 @@ const QuickServices = () => {
             A limited access Express Lane was created so that Technicians could check vehicle specifications, complete work requests, inspect common issues, add simple services, and charge customers for approved services.
           </p>
           
-          <img 
-            src="/lovable-uploads/929e5c5d-c88e-466e-a8be-34520b2caf32.png" 
-            alt="Technician Interface" 
-            className="w-full rounded-lg mb-6"
-          />
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            className="w-full rounded-lg"
+          >
+            <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
+          </video>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design" target="_blank" rel="noopener noreferrer">
