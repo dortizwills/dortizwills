@@ -171,7 +171,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/public/lovable-uploads/New Directions 1 Old.png"
+            src="/public/lovable-uploads/New Directions 1.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
@@ -274,14 +274,14 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/public/lovable-uploads/Dashboard 1.jpeg"
+            src="/public/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/public/lovable-uploads/Dashboard 2.1.jpeg"
+            src="/public/lovable-uploads/Dashboard 2.jpeg"
             alt="Dashboard 2" 
             className="w-full rounded-lg h-auto"
           />
@@ -348,21 +348,21 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="/lovable-uploads/public/lovable-uploads/Quick Tires 1.jpeg"
+            src="/public/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/public/lovable-uploads/Quick Tires 2.jpeg"
+            src="/public/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/public/lovable-uploads/Quick Tires 3.jpeg"
+            src="/public/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
             className="w-full rounded-lg h-auto"
           />
@@ -390,8 +390,8 @@ const QuickServices = () => {
             Common services for service writers are automatically populated in their primary navigation with detailed views of each service. Tires are a specific category where I added a co-branded portal so that shops can prioritize selling their inventories and still answer customer preferences.
           </p>
           
-          <img 
-            src="/lovable-uploads/public/lovable-uploads/Final–Service-Writer.mp4" 
+          <video
+            src="/public/lovable-uploads/Final–Service-Writer.mp4" 
             alt="Service Writer Interface" 
             className="w-full rounded-lg mb-6"
           />
@@ -419,8 +419,8 @@ const QuickServices = () => {
             A limited access Express Lane was created so that Technicians could check vehicle specifications, complete work requests, inspect common issues, add simple services, and charge customers for approved services.
           </p>
           
-          <img 
-            src="/lovable-uploads/public/lovable-uploads/Final–Technicians.mp4" 
+          <video 
+            src="/public/lovable-uploads/Final–Technicians.mp4" 
             alt="Technician Interface" 
             className="w-full rounded-lg mb-6"
           />
