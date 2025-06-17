@@ -148,7 +148,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/a694443d-69ef-43f4-ae38-9a979fb742ef.png"
+            src="/public/lovable-uploads/01-express-lane/update-an-existing-design.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />
@@ -171,7 +171,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/New Directions 1.png"
+            src="/public/lovable-uploads/01-express-lane/original-expr-lane.jpg"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
@@ -189,7 +189,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/New Directions 2.1.png"
+            src="/public/lovable-uploads/01-express-lane/the-new-vision.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
@@ -286,13 +286,14 @@ const QuickServices = () => {
             className="w-full rounded-lg h-auto"
           />
         </div>
+        {/* Commented out div 3 to move this image to section above
         <div>
           <img 
             src="/lovable-uploads/d4b947dd-e463-4481-b7d1-31c6bd247972.png"
             alt="Dashboard 3"
             className="w-full rounded-lg h-auto"
           />
-        </div>
+        </div>*/}
       </div>
       
       {/* Co-branded Tire Portal */}
@@ -307,7 +308,7 @@ const QuickServices = () => {
         </div>
       </div>
       
-      {/* All Tires Images */}
+      {/* Co-Brand Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
@@ -348,21 +349,21 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="/public/lovable-uploads/Quick Tires 1.jpeg"
+            src="public/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/public/lovable-uploads/Quick Tires 2.jpeg"
+            src="public/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="/public/lovable-uploads/Quick Tires 3.jpeg"
+            src="public/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
             className="w-full rounded-lg h-auto"
           />
@@ -398,6 +399,8 @@ const QuickServices = () => {
         >
           <source src="/lovable-uploads/Final-Service-Writers.mp4" type="video/mp4" />
         </video>
+        
+          <br></br>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design" target="_blank" rel="noopener noreferrer">
@@ -430,6 +433,8 @@ const QuickServices = () => {
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
+          
+          <br></br>
                     
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design" target="_blank" rel="noopener noreferrer">
