@@ -272,13 +272,14 @@ const QuickServices = () => {
       
       {/* Dashboard Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div>
+      {/* Commented out div 1 to move this image to section above
+      <div>
           <img 
             src="/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 1" 
             className="w-full rounded-lg h-auto"
           />
-        </div>
+        </div>*/}
         <div>
           <img 
             src="/lovable-uploads/Dashboard 2.jpeg"
@@ -286,14 +287,13 @@ const QuickServices = () => {
             className="w-full rounded-lg h-auto"
           />
         </div>
-        {/* Commented out div 3 to move this image to section above
         <div>
           <img 
-            src="/lovable-uploads/d4b947dd-e463-4481-b7d1-31c6bd247972.png"
+            src="/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 3"
             className="w-full rounded-lg h-auto"
           />
-        </div>*/}
+        </div>
       </div>
       
       {/* Co-branded Tire Portal */}
