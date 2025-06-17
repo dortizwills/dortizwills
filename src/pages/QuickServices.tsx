@@ -171,7 +171,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/public/lovable-uploads/New Directions 1 Old.png"
+            src="/public/lovable-uploads/New Directions 1.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
@@ -280,6 +280,7 @@ const QuickServices = () => {
           />
         </div>
         <div>
+        {/* Testing this image source */}
           <img 
             src="/dortizwills/dortiz-wills/public/lovable-uploads/Dashboard 2.jpeg"
             alt="Dashboard 2" 
@@ -347,8 +348,10 @@ const QuickServices = () => {
       {/* Quick Tires Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
+        {/* Testing this image source */}
           <img 
-            src="/lovable-uploads/Quick Tires 1.jpeg"
+            {/* src="/lovable-uploads/Quick Tires 1.jpeg"*/}
+            src="/public/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
             className="w-full rounded-lg h-auto"
           />
@@ -390,11 +393,18 @@ const QuickServices = () => {
             Common services for service writers are automatically populated in their primary navigation with detailed views of each service. Tires are a specific category where I added a co-branded portal so that shops can prioritize selling their inventories and still answer customer preferences.
           </p>
           
-          <video 
+        {/* Testing this video source */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          alt="Service Writer Interface" 
+          className="w-full rounded-lg mb-6"
+        >
+          <source 
             src="../lovable-uploads/Final-Service-Writer.mp4" 
-            alt="Service Writer Interface" 
-            className="w-full rounded-lg mb-6"
-          />
+            type="video/mp4" />
+        </video>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=343%3A37004&type=design&node-id=343-37008&viewport=648%2C260%2C0.05&t=05bjeqPjzCf1PNbI-1&scaling=scale-down&starting-point-node-id=343%3A37008&mode=design" target="_blank" rel="noopener noreferrer">
@@ -420,10 +430,15 @@ const QuickServices = () => {
           </p>
           
           <video 
-            src="../../lovable-uploads/Final-Technicians.mp4" 
-            alt="Technician Interface" 
+            autoPlay 
+            muted 
+            loop 
             className="w-full rounded-lg mb-6"
-          />
+            alt="Technician Interface" 
+          >
+            <source src="/lovable-uploads/Final-Technicians.mp4" 
+            type="video/mp4"/>
+          </video>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/cB1y1MNNkjddyk4GEpg8FI/Express-Lane---Daniel-OW?page-id=913%3A81840&type=design&node-id=913-83906&viewport=367%2C337%2C0.14&t=h0YyIPtCXbFiJ9ZT-1&scaling=scale-down&starting-point-node-id=913%3A83906&mode=design" target="_blank" rel="noopener noreferrer">
