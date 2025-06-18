@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { Button } from "@/components/ui/button";
@@ -78,7 +77,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/45efcebf-96f5-4741-b608-c56128420745.png"
             alt="User Type 1" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border-2 border-[#323232]"
           />
           
           <p className="mb-6">
@@ -92,7 +91,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/2382a937-53e8-4dd3-9c09-90181afda0e4.png"
             alt="User Type 2" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border-2 border-[#323232]"
           />
         </div>
       </div>
@@ -136,7 +135,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/Express Lane lofi.gif"
             alt="Sketches" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border-2 border-[#323232]"
           />
           
           <p className="mb-6">
@@ -150,7 +149,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/update-an-existing-design.png"
             alt="Update Design" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border-2 border-[#323232]"
           />
         </div>
       </div>
