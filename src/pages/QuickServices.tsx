@@ -18,7 +18,6 @@ const QuickServices = () => {
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
     }
   ];
-  
   return (
     <ProjectDetailLayout 
       title="Redesigning 'Quick Services'" 
@@ -173,7 +172,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/original-expr-lane.jpg"
             alt="Original Express Lane" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />  
         </div>
       </div>
@@ -191,7 +190,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/the-new-vision.png"
             alt="ATD Cobrand" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />  
         </div>
       </div>
@@ -226,7 +225,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/f2510f02-c49c-4623-b1c0-0f7633a0db97.png"
             alt="Graph" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -277,21 +276,21 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/dashboard-3.png"
             alt="Dashboard 1" 
-            className="w-full rounded-lg h-auto"
+            className="h-full w-auto object-cover rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/Dashboard 2.jpeg"
             alt="Dashboard 2" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 3"
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -314,21 +313,21 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/73f2c0ae-6231-4d3d-adb7-ea5e3e0c4026.png"
             alt="All Tires 1" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/f025eb45-fe5a-4b9e-8fdc-cb02e82d8fc6.png"
             alt="All Tires 2" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/e8ef73a6-c610-4411-9e71-83aaaf37d6d8.png"
             alt="All Tires 3"
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -351,21 +350,21 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
