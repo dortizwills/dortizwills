@@ -274,7 +274,7 @@ const QuickServices = () => {
         <div>
       {/* Commented out div 1 to move this image to section above  */}  
           <img 
-            src="/lovable-uploads/01-express-lane/dashboard-4-1.png"
+            src="/lovable-uploads/01-express-lane/dashboard-4-0.png"
             alt="Dashboard 1" 
             className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
