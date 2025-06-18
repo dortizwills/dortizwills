@@ -399,7 +399,18 @@ const QuickServices = () => {
         >
           <source src="dortiz-wills/public/lovable-uploads/01-express-lane/final-service-writer.mp4" type="video/mp4" />
         </video>
-        
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          controls={false}
+          className="w-full h-full object-cover bg-white rounded-lg"
+        >
+          <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
+        </video>
+
+          
           <br></br>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
@@ -429,7 +440,9 @@ const QuickServices = () => {
             autoPlay 
             muted 
             loop 
-            className="w-full rounded-lg"
+            playsInline 
+            controls={false}
+            className="w-full h-full object-cover bg-white rounded-lg"
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
