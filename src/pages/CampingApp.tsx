@@ -181,12 +181,13 @@ const CampingApp = () => {
           <img 
             src="/lovable-uploads/7ee7e5de-82c4-4eef-951d-5fad478f3f12.png" 
             alt="Flow 4" 
-            className="w-full rounded-lg"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
+          <br></br>
           <img 
             src="/lovable-uploads/113eed40-b2fc-4f3c-b070-046f7b0b6f3e.png" 
             alt="Flow 5" 
-            className="w-full rounded-lg"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -209,8 +210,9 @@ const CampingApp = () => {
             alt="Flow 6" 
             className="w-full rounded-lg"
           />
+          <br></br>
           <img 
-            src="/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png" 
+            src="/lovable-uploads/01-camping-buddy/third-round-1.png" 
             alt="Flow 6" 
             className="w-full rounded-lg"
           />
