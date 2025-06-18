@@ -134,7 +134,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="public/lovable-uploads/Express Lane lofi.gif"
+            src="/lovable-uploads/Express Lane lofi.gif"
             alt="Sketches" 
             className="w-full rounded-lg mb-6"
           />
@@ -148,8 +148,8 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/update-an-existing-design.png"
-            alt="ATD Cobrand" 
+            src="/lovable-uploads/01-express-lane/update-an-existing-design.png"
+            alt="Update Design" 
             className="w-full rounded-lg mb-6"
           />
         </div>
@@ -171,8 +171,8 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/original-expr-lane.jpg"
-            alt="ATD Cobrand" 
+            src="/lovable-uploads/01-express-lane/original-expr-lane.jpg"
+            alt="Original Express Lane" 
             className="w-full rounded-lg mb-6"
           />  
         </div>
@@ -189,7 +189,7 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/the-new-vision.png"
+            src="/lovable-uploads/01-express-lane/the-new-vision.png"
             alt="ATD Cobrand" 
             className="w-full rounded-lg mb-6"
           />  
@@ -349,21 +349,21 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 1.jpeg"
+            src="/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 2.jpeg"
+            src="/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
             className="w-full rounded-lg h-auto"
           />
         </div>
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 3.jpeg"
+            src="/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
             className="w-full rounded-lg h-auto"
           />
@@ -429,7 +429,7 @@ const QuickServices = () => {
             autoPlay 
             muted 
             loop 
-            className="w-full object-contain bg-white rounded-lg"
+            className="w-full object-cover bg-white rounded-lg"
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
