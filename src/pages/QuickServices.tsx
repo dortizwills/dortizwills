@@ -395,21 +395,11 @@ const QuickServices = () => {
           autoPlay 
           muted 
           loop 
-          className="w-full rounded-lg"
-        >
-          <source src="dortiz-wills/public/lovable-uploads/01-express-lane/final-service-writer.mp4" type="video/mp4" />
-        </video>
-        <video 
-          autoPlay 
-          muted 
-          loop 
           playsInline 
-          controls={false}
-          className="w-full h-full object-cover bg-white rounded-lg"
+          className="w-full h-auto object-cover bg-white rounded-lg"
         >
-          <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/01-express-lane/final-service-writer.mp4" type="video/mp4" />
         </video>
-
           
           <br></br>
           
@@ -442,7 +432,7 @@ const QuickServices = () => {
             loop 
             playsInline 
             controls={false}
-            className="w-full h-full object-cover bg-white rounded-lg"
+            className="w-full h-auto object-contain bg-white rounded-lg"
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
