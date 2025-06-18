@@ -395,8 +395,7 @@ const QuickServices = () => {
           autoPlay 
           muted 
           loop 
-          playsInline 
-          className="w-full h-auto object-cover bg-white rounded-lg"
+          className="w-full object-cover bg-white rounded-lg"
         >
           <source src="/lovable-uploads/01-express-lane/final-service-writer.mp4" type="video/mp4" />
         </video>
@@ -430,9 +429,7 @@ const QuickServices = () => {
             autoPlay 
             muted 
             loop 
-            playsInline 
-            controls={false}
-            className="w-full h-auto object-contain bg-white rounded-lg"
+            className="w-full object-contain bg-white rounded-lg"
           >
             <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
           </video>
