@@ -18,6 +18,7 @@ const QuickServices = () => {
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
     }
   ];
+  
   return (
     <ProjectDetailLayout 
       title="Redesigning 'Quick Services'" 
@@ -77,7 +78,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/persona-service-writer.png"
             alt="User Type – Service Writer" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
           
           <p className="mb-6">
@@ -91,7 +92,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/persona-technician.png"
             alt="User Type – Technician" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -135,7 +136,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/Express Lane lofi.gif"
             alt="Sketches" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
           
           <p className="mb-6">
@@ -149,7 +150,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/01-express-lane/update-an-existing-design.png"
             alt="Update Design" 
-            className="w-full rounded-lg mb-6 border-1 border-[#F1F1FA]"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
