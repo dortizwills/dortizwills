@@ -271,12 +271,13 @@ const QuickServices = () => {
       
       {/* Dashboard Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-      <div>
+        <div>
       {/* Commented out div 1 to move this image to section above  */}  
-      <img 
+          <img 
             src="/lovable-uploads/01-express-lane/dashboard-3.png"
             alt="Dashboard 1" 
             className="w-full rounded-lg h-auto"
+          />
         </div>
         <div>
           <img 
