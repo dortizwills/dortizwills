@@ -359,7 +359,6 @@ const GourmetRecipes = () => {
           <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
         </div>
         <div className="col-span-2">
-          <div className="mb-6"></div>
           <p className="mb-6">
             I surveyed users at the beginning and conclusion of my project about their willingness to use Blue Apron's services. By adding this feature prior and new users expressed a 30% increase in their likelihood to use the service.
           </p>
