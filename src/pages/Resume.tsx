@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FileText, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,8 +5,13 @@ import { Button } from '@/components/ui/button';
 const Resume = () => {
   // Function to handle the PDF download
   const handleDownloadPDF = () => {
-    // Open resume PDF in a new tab
-    window.open('/resume.pdf', '_blank');
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/Daniel Ortiz-Wills Resume.pdf';
+    link.download = 'Daniel Ortiz-Wills Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
