@@ -291,7 +291,7 @@ const CampingApp = () => {
       
       {/* Div Block 19 */}
       <div className="mb-12 flex justify-center">
-        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+        <Button asChild variant="outline" className="justify-center py-6 text-sm bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
           View Prototype
           </a>
@@ -395,7 +395,7 @@ const CampingApp = () => {
       
       {/* Div Block 19 */}
       <div className="mb-12 flex justify-center">
-        <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+        <Button asChild variant="outline" className="justify-center py-6 text-sm bg-gradient-primary text-white border-none hover:opacity-90">
           <a href="https://www.figma.com/proto/RWOm8RhqptNmVxQ3KsYFMx/Camp-Buddy---Daniel-OW?page-id=81%3A4737&type=design&node-id=348-11276&viewport=217%2C412%2C0.05&t=mNk80I28YTifUCHh-1&scaling=scale-down&starting-point-node-id=348%3A11276&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer">
           View Prototype
           </a>
