@@ -10,13 +10,20 @@ import {
   FileText,
   ChevronRight,
   ChevronDown,
-  Menu,
-  X
+  Menu
 } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Sidebar: FC = () => {
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
   
@@ -24,15 +31,6 @@ const Sidebar: FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   // Modified toggle functions to ensure only one dropdown is open at a time
   const toggleProductDesigns = () => {
@@ -76,9 +74,9 @@ const Sidebar: FC = () => {
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Mobile Header Component
+  // Mobile Header Component with Dropdown Menu
   const MobileHeader = () => (
-    <div className="block sm:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
+    <div className="block custom:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
@@ -87,78 +85,57 @@ const Sidebar: FC = () => {
             className="h-8 w-8 object-contain"
           />
         </Link>
-        <button onClick={toggleMobileMenu} className="p-2">
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-    </div>
-  );
-
-  const MobileMenu = () => (
-    <div className={`block sm:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className="pt-16 px-4 h-full overflow-y-auto">
-        <nav className="space-y-4 pb-8">
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
-            
-            return (
-              <div key={item.name} className="border-b border-gray-100 pb-4">
-                {item.hasDropdown ? (
-                  <div>
-                    <div 
-                      className={`flex items-center justify-between py-3 ${
-                        isParentActive 
-                          ? 'text-designer-darkgray' 
-                          : 'text-gray-500'
-                      }`}
-                      onClick={item.toggle}
-                    >
-                      <Link 
-                        to={item.path}
-                        className="flex items-center gap-3 text-lg font-medium"
-                      >
-                        <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                          {item.icon}
-                        </span>
-                        <span>{item.name}</span>
-                      </Link>
-                      <button onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        item.toggle();
-                      }}>
-                        {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                      </button>
-                    </div>
-                    
-                    {item.isOpen && (
-                      <div className="ml-6 mt-2 space-y-2">
-                        {item.items?.map((subItem) => {
-                          const isSubActive = location.pathname === subItem.path;
-                          return (
-                            <Link 
-                              key={subItem.name}
-                              to={subItem.path}
-                              className={`block py-2 text-base ${
-                                isSubActive 
-                                  ? 'text-designer-red font-medium' 
-                                  : 'text-gray-500'
-                              }`}
-                            >
-                              {subItem.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                ) : (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="p-2">
+              <Menu size={24} />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent 
+            align="end" 
+            className="w-64 bg-white border border-gray-200 shadow-lg z-50"
+          >
+            {menuItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
+              
+              return item.hasDropdown ? (
+                <DropdownMenuSub key={item.name}>
+                  <DropdownMenuSubTrigger className="flex items-center gap-3 w-full">
+                    <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                      {item.icon}
+                    </span>
+                    <span className={isParentActive ? 'text-designer-darkgray font-medium' : 'text-gray-500'}>
+                      {item.name}
+                    </span>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="bg-white border border-gray-200 shadow-lg z-50">
+                    {item.items?.map((subItem) => {
+                      const isSubActive = location.pathname === subItem.path;
+                      return (
+                        <DropdownMenuItem key={subItem.name} asChild>
+                          <Link 
+                            to={subItem.path}
+                            className={`block w-full ${
+                              isSubActive 
+                                ? 'text-designer-red font-medium' 
+                                : 'text-gray-500'
+                            }`}
+                          >
+                            {subItem.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      );
+                    })}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              ) : (
+                <DropdownMenuItem key={item.name} asChild>
                   <Link 
                     to={item.path}
-                    className={`flex items-center gap-3 py-3 text-lg font-medium ${
+                    className={`flex items-center gap-3 w-full ${
                       isActive 
-                        ? 'text-designer-darkgray' 
+                        ? 'text-designer-darkgray font-medium' 
                         : 'text-gray-500'
                     }`}
                   >
@@ -167,23 +144,22 @@ const Sidebar: FC = () => {
                     </span>
                     <span>{item.name}</span>
                   </Link>
-                )}
-              </div>
-            );
-          })}
-        </nav>
+                </DropdownMenuItem>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );
   
   return (
     <>
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation with Dropdown */}
       <MobileHeader />
-      <MobileMenu />
 
       {/* Desktop Sidebar */}
-      <aside className={`hidden sm:block fixed left-0 top-0 h-full w-[220px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
+      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[220px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
         <div className="flex items-center justify-between mb-8">
           <div className="h-10 w-10 flex items-center justify-center">
             <img 
