@@ -229,7 +229,7 @@ const CampingApp = () => {
             In this version of the app the core path required more information than I initially placed for our users. By including the information, I adjusted from my initial map below to the updated version so that users could be well prepared for their trips.
           </p>
             <img 
-              src="/lovable-uploads/9964ce92-2dc6-4f32-af81-8bd549efddff.png" 
+              src="/lovable-uploads/01-camping-buddy/revised-user-flow.gif"
               alt="Revised User Flow" 
               className="w-full rounded-lg mb-6" 
             />
@@ -256,21 +256,21 @@ const CampingApp = () => {
       <div className="mb-8 grid grid-cols-3 max-sm:grid-cols-1 gap-6">
         <div>
           <img 
-            src="/lovable-uploads/e4cb5e04-932a-4cec-a11a-025d4ca49b57.png" 
+            src="/lovable-uploads/01-camping-buddy/primary-happy-path-1.png" 
             alt="Primary Happy Path 1" 
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/a8eec845-50aa-4716-9b80-8f5a8a309e98.png" 
+            src="/lovable-uploads/01-camping-buddy/primary-happy-path-2.png" 
             alt="Primary Happy Path 2" 
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
         <div>
           <img 
-            src="/lovable-uploads/22e5ca9f-afce-4241-95aa-3facf215b670.png" 
+            src="/lovable-uploads/01-camping-buddy/primary-happy-path-3.png" 
             alt="Primary Happy Path 3" 
             className="w-full h-full object-cover rounded-lg"
           />
@@ -369,17 +369,24 @@ const CampingApp = () => {
       <div className="mb-12 grid grid-cols-3 max-sm:grid-cols-1 gap-6">
         <div>
           <img 
-            src="/lovable-uploads/12265694-4a18-410f-89a6-9881d31681e8.png" 
+            src="/lovable-uploads/01-camping-buddy/final-booking-demo-1.png" 
             alt="Final Booking Demo 1" 
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
         <div className="bg-designer-gray rounded-lg flex items-center justify-center">
-          <p className="text-gray-500">Demo video coming soon</p>
+          <video 
+          autoPlay 
+          muted 
+          loop 
+          className="w-full object-cover bg-white rounded-lg"
+          >
+            <source src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4" type="video/mp4" />
+          </video>
         </div>
         <div>
           <img 
-            src="/lovable-uploads/f68824b8-f1be-48ba-893c-6197e79fad50.png" 
+            src="/lovable-uploads/01-camping-buddy/final-booking-demo-2.png" 
             alt="Final Booking Demo 2" 
             className="w-full h-full object-cover rounded-lg"
           />
