@@ -161,8 +161,25 @@ const AdherePlus = () => {
               
               <div>
                 <p className="text-gray-700 mb-2">I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.</p>
-                <div className="aspect-video bg-designer-gray rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Video displaying light functionality placeholder</p>
+                <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                  <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  className="w-full object-cover bg-white rounded-lg"
+                  >
+                    <source src="/lovable-uploads/01-Adhere/Adhere-About-Section.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                  <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  className="w-full object-cover bg-white rounded-lg"
+                  >
+                    <source src="/lovable-uploads/01-Adhere/Adhere-Tabs.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
               
