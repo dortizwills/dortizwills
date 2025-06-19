@@ -163,7 +163,7 @@ const GourmetRecipes = () => {
             My revised path would allow these tertiary features to be skipped so that the primary path was not inhibited by my desires to see a particular path succeed. Instead the users' preferred search method would now inform which method of finding a unique recipe.
           </p>
           <img 
-            src="/lovable-uploads/461e9278-1540-4d5d-ad2c-4506d6bdfebc.png" 
+            src="/lovable-uploads/01-blue-apron/User-Flows.gif" 
             alt="User Flows 1" 
             className="w-full rounded-lg mb-6" 
           />
@@ -194,8 +194,14 @@ const GourmetRecipes = () => {
              In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
           </p>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
-             <span className="text-gray-600">Guided Filters Video Placeholder</span>
-          </div>
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            className="w-full object-cover bg-white rounded-lg"
+          >
+            <source src="/lovable-uploads/01-blue-apron/guided-filters-left.mp4" type="video/mp4" />
+          </video>          </div>
           <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
              <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
                 Guided Filters Prototype
@@ -210,7 +216,15 @@ const GourmetRecipes = () => {
             Or a single search bar where anything can be added. Users could search for anything in the search bar including time, culinary preferences, diets, and more. All they had to do was include it within their search and watch the results update.
           </p>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
-            <span className="text-gray-600">Smart Search Video Placeholder</span>
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            className="w-full object-cover bg-white rounded-lg"
+          >
+            <source src="/lovable-uploads/01-blue-apron/smart-search-right.mp4" type="video/mp4" />
+          </video>
+          
           </div>
           <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
             <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=621-10070&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=621%3A10070&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
@@ -258,13 +272,16 @@ const GourmetRecipes = () => {
             </div>
           </div>  */} 
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="col-span-1">   
-          <p className="mb-6">
-            My users seemed to prefer the smart search feature where they could add any ingredient, recipe title, or cuisine style they wanted. However, it was not intuitive they could also search by prep time, delivery options, or by including/excluding specific ingredients to their recipe; these actions were far easier to complete in the smart filters version.
-          </p>
-          <p className="mb-6">
-            Using the insights from this iteration I decided to combine the best aspects of both user flows into one final path.
-          </p>
+        <div className="col-span-1">
+          <h3 className="text-xl font-display font-medium mb-3"></h3>
+        </div>
+        <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
+         <p className="mb-6">
+           My users seemed to prefer the smart search feature where they could add any ingredient, recipe title, or cuisine style they wanted. However, it was not intuitive they could also search by prep time, delivery options, or by including/excluding specific ingredients to their recipe; these actions were far easier to complete in the smart filters version.
+         </p>
+         <p className="mb-6">
+           Using the insights from this iteration I decided to combine the best aspects of both user flows into one final path.
+         </p>
         </div>
       </div>
     
