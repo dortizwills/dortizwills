@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
@@ -197,7 +198,7 @@ const GourmetRecipes = () => {
               autoPlay 
               muted 
               loop 
-              className="w-full object-cover bg-white rounded-lg max-h-[580px]"
+              className="w-full object-cover bg-white rounded-lg"
             >
               <source src="/lovable-uploads/01-blue-apron/guided-filters-left-final.mp4" type="video/mp4" />
             </video>          
@@ -220,7 +221,7 @@ const GourmetRecipes = () => {
             autoPlay 
             muted 
             loop 
-            className="w-full object-cover bg-white rounded-lg max-h-[580px]"
+            className="w-full object-cover bg-white rounded-lg"
           >
             <source src="/lovable-uploads/01-blue-apron/smart-search-right-final.mp4" type="video/mp4" />
           </video>
