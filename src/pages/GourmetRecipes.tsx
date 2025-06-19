@@ -194,14 +194,15 @@ const GourmetRecipes = () => {
              In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
           </p>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            className="w-full object-cover bg-white rounded-lg"
-          >
-            <source src="/lovable-uploads/01-blue-apron/guided-filters-left-final.mp4" type="video/mp4" />
-          </video>          </div>
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              className="w-full object-cover bg-white rounded-lg"
+            >
+              <source src="/lovable-uploads/01-blue-apron/guided-filters-left-final.mp4" type="video/mp4" />
+            </video>          
+          </div>
           <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
              <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
                 Guided Filters Prototype
@@ -222,7 +223,7 @@ const GourmetRecipes = () => {
             loop 
             className="w-full object-cover bg-white rounded-lg"
           >
-            <source src="/lovable-uploads/01-blue-apron/smart-search-right.mp4" type="video/mp4" />
+            <source src="/lovable-uploads/01-blue-apron/smart-search-right-final.mp4" type="video/mp4" />
           </video>
           
           </div>
