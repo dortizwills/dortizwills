@@ -16,9 +16,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -99,53 +96,62 @@ const Sidebar: FC = () => {
               const isActive = location.pathname === item.path;
               const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
               
-              return item.hasDropdown ? (
-                <DropdownMenuSub key={item.name}>
-                  <DropdownMenuSubTrigger className="flex items-center gap-3 w-full">
-                    <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                      {item.icon}
-                    </span>
-                    <span className={isParentActive ? 'text-designer-darkgray font-medium' : 'text-gray-500'}>
-                      {item.name}
-                    </span>
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent className="bg-white border border-gray-200 shadow-lg z-50">
-                    {item.items?.map((subItem) => {
-                      const isSubActive = location.pathname === subItem.path;
-                      return (
-                        <DropdownMenuItem key={subItem.name} asChild>
-                          <Link 
-                            to={subItem.path}
-                            className={`block w-full ${
-                              isSubActive 
-                                ? 'text-designer-red font-medium' 
-                                : 'text-gray-500'
-                            }`}
-                          >
-                            {subItem.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      );
-                    })}
-                  </DropdownMenuSubContent>
-                </DropdownMenuSub>
-              ) : (
-                <DropdownMenuItem key={item.name} asChild>
-                  <Link 
-                    to={item.path}
-                    className={`flex items-center gap-3 w-full ${
-                      isActive 
-                        ? 'text-designer-darkgray font-medium' 
-                        : 'text-gray-500'
-                    }`}
-                  >
-                    <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                      {item.icon}
-                    </span>
-                    <span>{item.name}</span>
-                  </Link>
-                </DropdownMenuItem>
-              );
+              if (item.hasDropdown) {
+                // For dropdown items, show the parent link first
+                return [
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link 
+                      to={item.path}
+                      className={`flex items-center gap-3 w-full ${
+                        isParentActive 
+                          ? 'text-designer-darkgray font-medium' 
+                          : 'text-gray-500'
+                      }`}
+                    >
+                      <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                        {item.icon}
+                      </span>
+                      <span>{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>,
+                  // Then show all the sub-items
+                  ...item.items!.map((subItem) => {
+                    const isSubActive = location.pathname === subItem.path;
+                    return (
+                      <DropdownMenuItem key={subItem.name} asChild>
+                        <Link 
+                          to={subItem.path}
+                          className={`block w-full pl-12 ${
+                            isSubActive 
+                              ? 'text-designer-red font-medium' 
+                              : 'text-gray-500'
+                          }`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    );
+                  })
+                ];
+              } else {
+                return (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link 
+                      to={item.path}
+                      className={`flex items-center gap-3 w-full ${
+                        isActive 
+                          ? 'text-designer-darkgray font-medium' 
+                          : 'text-gray-500'
+                      }`}
+                    >
+                      <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                        {item.icon}
+                      </span>
+                      <span>{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                );
+              }
             })}
           </DropdownMenuContent>
         </DropdownMenu>
