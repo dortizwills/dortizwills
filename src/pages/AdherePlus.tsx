@@ -226,7 +226,7 @@ const AdherePlus = () => {
           </div>    
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
             <div className="col-span-1">
-              <h3 className="text-2xl font-display font-semibold">Inner Page Restrictions</h2>
+              <h3 className="text-2xl font-display font-semibold">Inner Page Restrictions</h3>
             </div>
             <div className="col-span-2 max-sm:col-span-1">
               <div className="space-y-6">
@@ -281,6 +281,5 @@ const AdherePlus = () => {
       </div>
     </ProjectDetailLayout>
   );
-};
 
 export default AdherePlus;
