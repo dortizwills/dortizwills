@@ -254,7 +254,7 @@ const AdherePlus = () => {
             </div>
           </div>
         </div>
-
+      </div> 
         {/* Results Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
