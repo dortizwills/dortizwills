@@ -168,9 +168,10 @@ const AdherePlus = () => {
                   loop 
                   className="w-full object-cover bg-white rounded-lg"
                   >
-                    <source src="/lovable-uploads/01-Adhere/Adhere-About-Section.mp4" type="video/mp4" />
+                    <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
                   </video>
                 </div>
+                <br></br>
                 <div className="bg-designer-gray rounded-lg flex items-center justify-center">
                   <video 
                   autoPlay 
@@ -178,7 +179,7 @@ const AdherePlus = () => {
                   loop 
                   className="w-full object-cover bg-white rounded-lg"
                   >
-                    <source src="/lovable-uploads/01-Adhere/Adhere-Tabs.mp4" type="video/mp4" />
+                    <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>
