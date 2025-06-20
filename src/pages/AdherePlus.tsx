@@ -225,7 +225,31 @@ const AdherePlus = () => {
             </div>
           </div>
         </div>
-
+        
+        {/* Final Designs Section */}
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-display font-semibold">Final Designs</h2>
+          </div>
+          <div className="col-span-2 max-sm:col-span-1">
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                The final homepage designs represent a balance between my design vision and practical development constraints...
+              </p>
+              <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  className="w-full object-cover bg-white rounded-lg"
+                >
+                  <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* Inner Page Restrictions Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
@@ -234,7 +258,10 @@ const AdherePlus = () => {
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <p className="text-gray-700 leading-relaxed">
-                The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conducting some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+. We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages
+                The About Us and How It Works page designs were impacted...
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We made the decision to cut the Whitepages and Evidence pages...
               </p>
               <div className="bg-designer-gray rounded-lg flex items-center justify-center">
                 <video 
