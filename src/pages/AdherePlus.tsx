@@ -35,11 +35,11 @@ const AdherePlus = () => {
     >
       <div className="space-y-8">
         {/* Background Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Background</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             <p className="text-gray-700 leading-relaxed">
               Adhere+, the client of Raborn Media and a healthcare SaaS platform, focused on helping patients follow recovery plans and stay on track with their medications.
             </p>
@@ -50,11 +50,11 @@ const AdherePlus = () => {
         </div>
 
         {/* Early Stages Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Early Stages</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             {/* Research subsection */}
             <div className="mb-8">
               <h3 className="text-xl font-display font-medium mb-4">Research</h3>
@@ -91,11 +91,11 @@ const AdherePlus = () => {
         </div>
 
         {/* Goals & Strategy Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Goals & Strategy</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             <p className="text-gray-700 leading-relaxed mb-6">
               After conducting some follow up conversations I uncovered Adhere Plus' core goals:
             </p>
@@ -111,7 +111,7 @@ const AdherePlus = () => {
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-lg font-semibold">2</span>
                 </div>
-                <p className="text-gray-700">Modernize their website to reflect their growth.</p>
+                <p className="text-gray-700">Patients require assistance to stay consistent with medication schedules and treatment plans.</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
@@ -138,11 +138,11 @@ const AdherePlus = () => {
         </div>
 
         {/* Design Process Section - Removed circles and numbers */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Design Process</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             <p className="text-gray-700 leading-relaxed mb-8">
               This project had a shorter timeline and lower budget. This led to a few compromises from the ideal design process of this project and we broke it into a few phases:
             </p>
@@ -207,11 +207,11 @@ const AdherePlus = () => {
         </div>
 
         {/* Final Designs Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Final Designs</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <p className="text-gray-700 leading-relaxed">
                 The final designs represent a balance between our design vision and practical development constraints. Here's a walkthrough of the key design decisions that made this website possible:
@@ -229,11 +229,11 @@ const AdherePlus = () => {
         </div>
 
         {/* Results Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Results</h2>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-display font-medium mb-3">Booking Increases:</h3>
