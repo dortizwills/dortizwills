@@ -137,7 +137,7 @@ const AdherePlus = () => {
           </div>
         </div>
 
-        {/* Design Process Section - Removed circles and numbers */}
+        {/* Design Process Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Design Process</h2>
@@ -172,30 +172,30 @@ const AdherePlus = () => {
               
               <div>
                 <div className="mb-8">
-                  <p className="text-gray-700">After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. <br></br>In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
+                  <p className="text-gray-700">After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. I adjusted the final designs based on the specifications from our client and made a handoff to our developers. <br /><br />In this process we made some additional compromises to aid a junior developer who had a difficult time with one of the elements.</p>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-designer-gray rounded-lg flex items-center justify-center">
-                  <video 
-                  autoPlay 
-                  muted 
-                  loop 
-                  className="w-full object-cover bg-white rounded-lg"
-                  >
-                    <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <br></br>
-                <div className="bg-designer-gray rounded-lg flex items-center justify-center">
-                  <video 
-                  autoPlay 
-                  muted 
-                  loop 
-                  className="w-full object-cover bg-white rounded-lg"
-                  >
-                    <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
-                  </video>
-                </div>
+                    <video 
+                      autoPlay 
+                      muted 
+                      loop 
+                      className="w-full object-cover bg-white rounded-lg"
+                    >
+                      <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
+                    </video>
+                  </div>
+                  <br />
+                  <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                    <video 
+                      autoPlay 
+                      muted 
+                      loop 
+                      className="w-full object-cover bg-white rounded-lg"
+                    >
+                      <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
+                    </video>
+                  </div>
                 </div>
               </div>
             </div>
@@ -209,52 +209,52 @@ const AdherePlus = () => {
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
-                <p className="text-gray-700 leading-relaxed">
-                  The final homepage designs represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parralax elements, and image interactions.
-                </p>
+              <p className="text-gray-700 leading-relaxed">
+                The final homepage designs represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parralax elements, and image interactions.
+              </p>
               <div className="bg-designer-gray rounded-lg flex items-center justify-center">
                 <video 
-                autoPlay 
-                muted 
-                loop 
-                className="w-full object-cover bg-white rounded-lg"
-                >
-                  <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
-                </video>
-               </div>
-             </div>
-          </div>    
-          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
-            <div className="col-span-1">
-              <h3 className="text-2xl font-display font-semibold">Inner Page Restrictions</h3>
-            </div>
-            <div className="col-span-2 max-sm:col-span-1">
-              <div className="space-y-6">
-                <p className="text-gray-700 leading-relaxed">
-                   represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parralax elements, and image interactions.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conducting some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+. We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages
-                </p>
-                <div className="bg-designer-gray rounded-lg flex items-center justify-center">
-                  <video 
                   autoPlay 
                   muted 
                   loop 
                   className="w-full object-cover bg-white rounded-lg"
-                  >
-                    <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
-                 </video>
-               </div>
+                >
+                  <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Inner Page Restrictions Section */}
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
+          <div className="col-span-1">
+            <h3 className="text-2xl font-display font-semibold">Inner Page Restrictions</h3>
+          </div>
+          <div className="col-span-2 max-sm:col-span-1">
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conducting some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+. We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages
+              </p>
+              <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  className="w-full object-cover bg-white rounded-lg"
+                >
+                  <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
+                </video>
+              </div>
               <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-               <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer" >
+                <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
                   View Live Site
                 </a>
               </Button>
             </div>
           </div>
         </div>
-      </div> 
+
         {/* Results Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
@@ -281,5 +281,6 @@ const AdherePlus = () => {
       </div>
     </ProjectDetailLayout>
   );
+};
 
 export default AdherePlus;
