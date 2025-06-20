@@ -71,7 +71,7 @@ const Sidebar: FC = () => {
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Mobile Header Component with Dropdown Menu
+  // Mobile Header Component with Dropdown Menu - Flattened structure
   const MobileHeader = () => (
     <div className="block custom:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
       <div className="flex items-center justify-between">
@@ -92,67 +92,131 @@ const Sidebar: FC = () => {
             align="end" 
             className="w-64 bg-white border border-gray-200 shadow-lg z-50"
           >
-            {menuItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
-              
-              if (item.hasDropdown) {
-                // For dropdown items, show the parent link first
-                return [
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link 
-                      to={item.path}
-                      className={`flex items-center gap-3 w-full ${
-                        isParentActive 
-                          ? 'text-designer-darkgray font-medium' 
-                          : 'text-gray-500'
-                      }`}
-                    >
-                      <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                        {item.icon}
-                      </span>
-                      <span>{item.name}</span>
-                    </Link>
-                  </DropdownMenuItem>,
-                  // Then show all the sub-items
-                  ...item.items!.map((subItem) => {
-                    const isSubActive = location.pathname === subItem.path;
-                    return (
-                      <DropdownMenuItem key={subItem.name} asChild>
-                        <Link 
-                          to={subItem.path}
-                          className={`block w-full pl-12 ${
-                            isSubActive 
-                              ? 'text-designer-red font-medium' 
-                              : 'text-gray-500'
-                          }`}
-                        >
-                          {subItem.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    );
-                  })
-                ];
-              } else {
-                return (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link 
-                      to={item.path}
-                      className={`flex items-center gap-3 w-full ${
-                        isActive 
-                          ? 'text-designer-darkgray font-medium' 
-                          : 'text-gray-500'
-                      }`}
-                    >
-                      <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                        {item.icon}
-                      </span>
-                      <span>{item.name}</span>
-                    </Link>
-                  </DropdownMenuItem>
-                );
-              }
-            })}
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/' 
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <Home size={20} />
+                </span>
+                <span>Home</span>
+              </Link>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/product-designs"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/product-designs' || productDesigns.some(item => location.pathname === item.path)
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/product-designs' || productDesigns.some(item => location.pathname === item.path) ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <LayoutDashboard size={20} />
+                </span>
+                <span>UXUI Designs</span>
+              </Link>
+            </DropdownMenuItem>
+
+            {productDesigns.map((item) => (
+              <DropdownMenuItem key={item.name} asChild>
+                <Link 
+                  to={item.path}
+                  className={`block w-full pl-12 ${
+                    location.pathname === item.path
+                      ? 'text-designer-red font-medium' 
+                      : 'text-gray-500'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/graphic-designs"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/graphic-designs' || marketingDesigns.some(item => location.pathname === item.path)
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/graphic-designs' || marketingDesigns.some(item => location.pathname === item.path) ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <Image size={20} />
+                </span>
+                <span>Visual Designs</span>
+              </Link>
+            </DropdownMenuItem>
+
+            {marketingDesigns.map((item) => (
+              <DropdownMenuItem key={item.name} asChild>
+                <Link 
+                  to={item.path}
+                  className={`block w-full pl-12 ${
+                    location.pathname === item.path
+                      ? 'text-designer-red font-medium' 
+                      : 'text-gray-500'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/about"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/about'
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/about' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <HelpCircle size={20} />
+                </span>
+                <span>About</span>
+              </Link>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/contact"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/contact'
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/contact' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <MessageSquare size={20} />
+                </span>
+                <span>Contact me</span>
+              </Link>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem asChild>
+              <Link 
+                to="/resume"
+                className={`flex items-center gap-3 w-full ${
+                  location.pathname === '/resume'
+                    ? 'text-designer-darkgray font-medium' 
+                    : 'text-gray-500'
+                }`}
+              >
+                <span className={`${location.pathname === '/resume' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                  <FileText size={20} />
+                </span>
+                <span>Resume</span>
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
