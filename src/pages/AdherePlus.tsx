@@ -56,7 +56,7 @@ const AdherePlus = () => {
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             {/* Research subsection */}
-            <div className="mb-8">
+            <div className="mb-6">
               <h3 className="text-xl font-display font-medium mb-4">Research</h3>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Before jumping into design, I took time to understand the core users. I utilized the client's information as well as gathering research from chatbots and forums; this found a few key pieces for our end user's needs:
@@ -142,10 +142,9 @@ const AdherePlus = () => {
             <h2 className="text-2xl font-display font-semibold">Design Process</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
-            <p className="text-gray-700 leading-relaxed mb-8">
+            <p className="text-gray-700 leading-relaxed mb-6">
               This project had a shorter timeline and lower budget. This led to a few compromises from the ideal design process of this project and we broke it into a few phases:
             </p>
-            
             <div className="space-y-8">
               <div>
                 <p className="text-gray-700 mb-2">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
@@ -170,7 +169,7 @@ const AdherePlus = () => {
               </div>
               
               <div>
-                <div className="mb-8">
+                <div className="mb-6">
                   <p className="text-gray-700">After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. <br></br> The main adjustment we had was on the About Us page. I adjusted the final designs based on their comments and made a handoff to our developers, where some additional compromises were made to aid a junior developer deliver the product on time.</p>
                   <p className="text-gray-700">Below you'll see the solution that we were able to implement.</p>
                 </div>
@@ -223,14 +222,14 @@ const AdherePlus = () => {
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-4">
                 The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conducting some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+.
               </p>
-              <br></br>
               <p className="text-gray-700 leading-relaxed mb-4">
                 We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages.
               </p>
             </div>
+            <br></br>
             <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
               <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
                 View Live Site
@@ -246,11 +245,6 @@ const AdherePlus = () => {
           className="w-full rounded-lg" 
         />
       </div>
-      <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-        <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
-          View Live Site
-        </a>
-      </Button>
         
         {/* Results Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
