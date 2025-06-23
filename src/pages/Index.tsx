@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
@@ -223,8 +222,8 @@ const Index = () => {
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
           
-          {/* Grid layout for 820px and above */}
-          <div className="hidden min-[820px]:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Grid layout for 680px and above */}
+          <div className="hidden custom:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
@@ -252,31 +251,29 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Card layout for 819px and below - matching first reference image */}
-          <div className="max-[819px]:block hidden space-y-4 mb-8">
+          {/* Horizontal card layout for 680px and below */}
+          <div className="custom:hidden space-y-4 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index}
                 to={design.href}
-                className="block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
               >
-                <div className="flex items-start gap-4 p-4">
-                  <div className="w-20 h-20 flex-shrink-0">
-                    <img 
-                      src={design.imagePath} 
-                      alt={design.title} 
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-display text-lg font-medium mb-1 text-gray-900">{design.title}</h4>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                      {design.description}
-                    </p>
-                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">View Project</span>
-                      <ArrowRightIcon size={12} />
-                    </div>
+                <div className="w-1/3 aspect-[3/2]">
+                  <img 
+                    src={design.imagePath} 
+                    alt={design.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 w-2/3">
+                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                    {design.description}
+                  </p>
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-1">View Project</span>
+                    <ArrowRightIcon size={14} />
                   </div>
                 </div>
               </Link>
