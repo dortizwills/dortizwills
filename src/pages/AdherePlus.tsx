@@ -159,11 +159,11 @@ const AdherePlus = () => {
               <p className="text-gray-700 leading-relaxed">
                 I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.
               </p>
-              <div className="aspect-video rounded-lg overflow-hidden">
+              <div className="mb-6">
                 <img 
                   src="/lovable-uploads/6f592365-a8f0-400f-995c-53ae03cb42c6.png" 
                   alt="Design vs Final Comparisons" 
-                  className="w-full h-full object-contain"
+                  className="w-full rounded-lg"
                 />
               </div>
             </div>  
