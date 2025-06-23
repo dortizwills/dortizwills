@@ -1,3 +1,4 @@
+
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -71,8 +72,8 @@ const Sidebar: FC = () => {
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Close mobile menu when navigation occurs
-  const handleLinkClick = () => {
+  // Close mobile menu when navigation occurs to sub-items only
+  const handleSubItemClick = () => {
     setMobileMenuOpen(false);
   };
 
@@ -124,7 +125,7 @@ const Sidebar: FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to={item.path}
-                                onClick={handleLinkClick}
+                                onClick={handleSubItemClick}
                                 className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 ${
                                   isParentActive 
                                     ? 'text-designer-darkgray font-medium' 
@@ -152,7 +153,7 @@ const Sidebar: FC = () => {
                                     <Link 
                                       key={subItem.name}
                                       to={subItem.path}
-                                      onClick={handleLinkClick}
+                                      onClick={handleSubItemClick}
                                       className={`block py-2 px-3 rounded text-base ${
                                         isSubActive 
                                           ? 'text-designer-red font-medium bg-designer-red bg-opacity-10' 
@@ -169,7 +170,7 @@ const Sidebar: FC = () => {
                         ) : (
                           <Link 
                             to={item.path}
-                            onClick={handleLinkClick}
+                            onClick={handleSubItemClick}
                             className={`flex items-center gap-3 py-3 px-2 rounded-lg ${
                               isActive 
                                 ? 'text-designer-darkgray font-medium' 
