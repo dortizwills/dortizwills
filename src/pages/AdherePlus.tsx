@@ -149,15 +149,13 @@ const AdherePlus = () => {
               <p className="text-gray-700 leading-relaxed">
                 I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.
               </p>
-              <br />
-              <div className="mb-6">
+              <div className="aspect-video rounded-lg overflow-hidden">
                 <img 
                   src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
                   alt="Design Iterations" 
-                  className="w-full rounded-lg"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <br />
               <p className="text-gray-700 leading-relaxed">
                 I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.
               </p>
@@ -172,10 +170,7 @@ const AdherePlus = () => {
             <div>
               <div className="space-y-6">
                 <p className="text-gray-700 leading-relaxed">
-                  After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. 
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  The main adjustment we had was on the About Us page. I adjusted the final designs based on their comments and made a handoff to our developers, where some additional compromises were made to aid a junior developer deliver the product on time.
+                  After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. <br></br> The main adjustment we had was on the About Us page. I adjusted the final designs based on their comments and made a handoff to our developers, where some additional compromises were made to aid a junior developer deliver the product on time.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Below you'll see the solution that we were able to implement.
@@ -191,8 +186,6 @@ const AdherePlus = () => {
                   >
                     <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
                   </video>
-                  <br />
-                  <br />
                 </div>
               </div>
             </div>
@@ -209,8 +202,6 @@ const AdherePlus = () => {
               <p className="text-gray-700 leading-relaxed">
                 The final homepage designs represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parallax elements, and image interactions.
               </p>
-              <br />
-              <br />
               <div className="bg-designer-gray rounded-lg flex items-center justify-center">
                 <video 
                   autoPlay 
@@ -227,7 +218,6 @@ const AdherePlus = () => {
                   View Live Site
                 </a>
               </Button>
-              <br />
             </div>
           </div>
         </div>
@@ -251,7 +241,6 @@ const AdherePlus = () => {
                   alt="Evidence + Whitepages" 
                   className="w-full rounded-lg" 
                 />
-                <br />
               </div>
             </div>
           </div>

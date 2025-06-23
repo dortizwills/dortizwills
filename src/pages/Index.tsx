@@ -210,10 +210,7 @@ const Index = () => {
               
               {/* Button stretches to fill remaining space */}
               <div className="flex-1 flex items-end">
-                <Button asChild 
-                  variant="outline"
-                  className="bg-gradient-primary text-white border-none hover:opacity-90 flex items-center gap-2"
-                >
+                <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
                   <Link to="/product-designs">
                     View UXUI Designs
                   </Link>
@@ -288,8 +285,7 @@ const Index = () => {
 
           {/* View Visual Designs Button */}
           <div className="flex justify-center">
-              <Button asChild variant="outline" 
-                className="bg-gradient-primary text-white border-none hover:opacity-90 flex items-center gap-2" >
+              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
               <Link to="/graphic-designs">
                 View Visual Designs
               </Link>
