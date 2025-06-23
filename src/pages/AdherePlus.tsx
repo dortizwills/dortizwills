@@ -141,52 +141,54 @@ const AdherePlus = () => {
           <div className="col-span-1">
             <h2 className="text-2xl font-display font-semibold">Design Process</h2>
           </div>
-          <div className="col-span-2 max-sm:col-span-1">
-            <p className="text-gray-700 leading-relaxed mb-6">
-              This project had a shorter timeline and lower budget. This led to a few compromises from the ideal design process of this project and we broke it into a few phases:
-            </p>
-            <div className="space-y-8">
-              <div>
-                <p className="text-gray-700 mb-2">I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.</p>
-                <div className="aspect-video rounded-lg overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
-                    alt="Design Iterations" 
-                    className="w-full h-full object-contain"
-                  />
+          <div className="col-span-2 max-sm:col-span-1">            
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                This project had a shorter timeline and lower budget. This led to a few compromises from the ideal design process of this project and we broke it into a few phases:
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                I did some quick iterations and presented them internally to my managers. After 2 rounds of internal presentations the designs were refined and aligned to match our client's goals, this took just under 2 weeks to produce.
+              </p>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/0c42c0ee-d4e4-49dc-85cc-f8d221c18b28.png" 
+                  alt="Design Iterations" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.
+              </p>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/6f592365-a8f0-400f-995c-53ae03cb42c6.png" 
+                  alt="Design vs Final Comparisons" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>  
+            <div>
+              <div className="space-y-6">
+                <p className="text-gray-700 leading-relaxed">
+                  After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. <br></br> The main adjustment we had was on the About Us page. I adjusted the final designs based on their comments and made a handoff to our developers, where some additional compromises were made to aid a junior developer deliver the product on time.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Below you'll see the solution that we were able to implement.
+                </p>
+              </div>
+              <div className="space-y-6">
+                <div className="bg-designer-gray rounded-lg flex items-center justify-center">
+                  <video 
+                    autoPlay 
+                    muted 
+                    loop 
+                    className="w-full object-cover bg-white rounded-lg"
+                  >
+                    <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
-              
-              <div>
-                <p className="text-gray-700 mb-2">I presented our first round of designs to the client Adhere+, where we received notes on how to course correct and finalize our visual designs and I added some functional prototypes to explain some unique features. This took roughly another week.</p>
-                <div className="aspect-video rounded-lg overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/6f592365-a8f0-400f-995c-53ae03cb42c6.png" 
-                    alt="Design vs Final Comparisons" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <div className="mb-6">
-                  <p className="text-gray-700">After rushing these designs over, the Adhere+ team consulted their C-Suite and deliberated for 4 weeks to ensure all their comments were up to date before our final design corrections and development could begin. <br></br> The main adjustment we had was on the About Us page. I adjusted the final designs based on their comments and made a handoff to our developers, where some additional compromises were made to aid a junior developer deliver the product on time.</p>
-                  <p className="text-gray-700">Below you'll see the solution that we were able to implement.</p>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-designer-gray rounded-lg flex items-center justify-center">
-                    <video 
-                      autoPlay 
-                      muted 
-                      loop 
-                      className="w-full object-cover bg-white rounded-lg"
-                    >
-                      <source src="/lovable-uploads/01-Adhere/adhere-about-demo.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <br />
-                </div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -242,22 +244,8 @@ const AdherePlus = () => {
                 />
               </div>
             </div>
-            {/*<br></br>
-            <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-              <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
-                View Live Site
-              </a>
-            </Button>*/}
           </div>
         </div>
-      {/* Full width image */}
-      <div className="mb-10">
-        <img 
-          src="/lovable-uploads/01-Adhere/evidence-whitepages.png" 
-          alt="Evidence + Whitepages" 
-          className="w-full rounded-lg" 
-        />
-      </div>
         
         {/* Results Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
