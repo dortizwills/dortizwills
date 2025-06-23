@@ -289,7 +289,7 @@ const Index = () => {
           {/* View Visual Designs Button */}
           <div className="flex justify-center">
               <Button asChild variant="outline" 
-                className="bg-gradient-primary text-white border-none hover:opacity-90 flex items-center gap-2" 
+                className="bg-gradient-primary text-white border-none hover:opacity-90 flex items-center gap-2" >
               <Link to="/graphic-designs">
                 View Visual Designs
               </Link>
