@@ -189,7 +189,6 @@ const AdherePlus = () => {
                 </div>
               </div>
             </div>
-            </div>
           </div>
         </div>
 
@@ -201,7 +200,7 @@ const AdherePlus = () => {
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <p className="text-gray-700 leading-relaxed">
-                The final homepage designs represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parralax elements, and image interactions.
+                The final homepage designs represent a balance between my design vision and practical development constraints. The responsive designs and interactive elements were primarly implemented in the final design, such as tab navigation, parallax elements, and image interactions.
               </p>
               <div className="bg-designer-gray rounded-lg flex items-center justify-center">
                 <video 
@@ -213,7 +212,7 @@ const AdherePlus = () => {
                   <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
                 </video>
               </div>
-              <br></br>
+              <br />
               <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
                 <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
                   View Live Site
@@ -231,7 +230,7 @@ const AdherePlus = () => {
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <p className="text-gray-700 leading-relaxed mb-4">
-                The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conducting some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+.
+                The About Us and How It Works page designs were impacted more during development and QA. I was instructed to conduct some scope reduction and compromises to help Raborn adhere to our agreed schedule with Adhere+.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages.
@@ -269,8 +268,8 @@ const AdherePlus = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> {/* Results Section Content */}
+      </div> {/* Grid Wrapper */}
     </ProjectDetailLayout>
   );
 };
