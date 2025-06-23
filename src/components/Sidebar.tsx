@@ -1,4 +1,3 @@
-
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -10,19 +9,20 @@ import {
   FileText,
   ChevronRight,
   ChevronDown,
-  Menu
+  Menu,
+  X
 } from 'lucide-react';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Sidebar: FC = () => {
   const location = useLocation();
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Ensure the page scrolls to top when route changes
   useEffect(() => {
@@ -71,7 +71,12 @@ const Sidebar: FC = () => {
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Mobile Header Component with Dropdown Menu - Flattened structure
+  // Close mobile menu when navigation occurs
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
+  // Mobile Header Component with Full-Screen Drawer
   const MobileHeader = () => (
     <div className="block custom:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
       <div className="flex items-center justify-between">
@@ -82,150 +87,116 @@ const Sidebar: FC = () => {
             className="h-8 w-8 object-contain"
           />
         </Link>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <DrawerTrigger asChild>
             <button className="p-2">
               <Menu size={24} />
             </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent 
-            align="end" 
-            className="w-64 bg-white border border-gray-200 shadow-lg z-50"
-          >
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/' 
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <Home size={20} />
-                </span>
-                <span>Home</span>
-              </Link>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/product-designs"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/product-designs' || productDesigns.some(item => location.pathname === item.path)
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/product-designs' || productDesigns.some(item => location.pathname === item.path) ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <LayoutDashboard size={20} />
-                </span>
-                <span>UXUI Designs</span>
-              </Link>
-            </DropdownMenuItem>
-
-            {productDesigns.map((item) => (
-              <DropdownMenuItem key={item.name} asChild>
-                <Link 
-                  to={item.path}
-                  className={`block w-full pl-12 ${
-                    location.pathname === item.path
-                      ? 'text-designer-red font-medium' 
-                      : 'text-gray-500'
-                  }`}
+          </DrawerTrigger>
+          <DrawerContent className="h-full max-h-[100vh] bg-white">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <img 
+                  src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+                  alt="Logo" 
+                  className="h-8 w-8 object-contain"
+                />
+                <button 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2"
                 >
-                  {item.name}
-                </Link>
-              </DropdownMenuItem>
-            ))}
+                  <X size={24} />
+                </button>
+              </div>
 
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/graphic-designs"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/graphic-designs' || marketingDesigns.some(item => location.pathname === item.path)
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/graphic-designs' || marketingDesigns.some(item => location.pathname === item.path) ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <Image size={20} />
-                </span>
-                <span>Visual Designs</span>
-              </Link>
-            </DropdownMenuItem>
-
-            {marketingDesigns.map((item) => (
-              <DropdownMenuItem key={item.name} asChild>
-                <Link 
-                  to={item.path}
-                  className={`block w-full pl-12 ${
-                    location.pathname === item.path
-                      ? 'text-designer-red font-medium' 
-                      : 'text-gray-500'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              </DropdownMenuItem>
-            ))}
-
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/about"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/about'
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/about' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <HelpCircle size={20} />
-                </span>
-                <span>About</span>
-              </Link>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/contact"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/contact'
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/contact' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <MessageSquare size={20} />
-                </span>
-                <span>Contact me</span>
-              </Link>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem asChild>
-              <Link 
-                to="/resume"
-                className={`flex items-center gap-3 w-full ${
-                  location.pathname === '/resume'
-                    ? 'text-designer-darkgray font-medium' 
-                    : 'text-gray-500'
-                }`}
-              >
-                <span className={`${location.pathname === '/resume' ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                  <FileText size={20} />
-                </span>
-                <span>Resume</span>
-              </Link>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+              {/* Menu Items */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <nav className="space-y-2">
+                  {menuItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
+                    
+                    return (
+                      <div key={item.name}>
+                        {item.hasDropdown ? (
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to={item.path}
+                                onClick={handleLinkClick}
+                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 ${
+                                  isParentActive 
+                                    ? 'text-designer-darkgray font-medium' 
+                                    : 'text-gray-500'
+                                }`}
+                              >
+                                <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                                  {item.icon}
+                                </span>
+                                <span className="text-lg">{item.name}</span>
+                              </Link>
+                              <button 
+                                onClick={item.toggle}
+                                className="p-2"
+                              >
+                                {item.isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                              </button>
+                            </div>
+                            
+                            {item.isOpen && (
+                              <div className="ml-6 mt-2 space-y-1">
+                                {item.items?.map((subItem) => {
+                                  const isSubActive = location.pathname === subItem.path;
+                                  return (
+                                    <Link 
+                                      key={subItem.name}
+                                      to={subItem.path}
+                                      onClick={handleLinkClick}
+                                      className={`block py-2 px-3 rounded text-base ${
+                                        isSubActive 
+                                          ? 'text-designer-red font-medium bg-designer-red bg-opacity-10' 
+                                          : 'text-gray-600'
+                                      }`}
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link 
+                            to={item.path}
+                            onClick={handleLinkClick}
+                            className={`flex items-center gap-3 py-3 px-2 rounded-lg ${
+                              isActive 
+                                ? 'text-designer-darkgray font-medium' 
+                                : 'text-gray-500'
+                            }`}
+                          >
+                            <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
+                              {item.icon}
+                            </span>
+                            <span className="text-lg">{item.name}</span>
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </div>
   );
   
   return (
     <>
-      {/* Mobile Navigation with Dropdown */}
+      {/* Mobile Navigation with Full-Screen Drawer */}
       <MobileHeader />
 
       {/* Desktop Sidebar */}
