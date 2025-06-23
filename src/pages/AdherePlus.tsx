@@ -211,6 +211,12 @@ const AdherePlus = () => {
                   <source src="/lovable-uploads/01-Adhere/adhere-homepage-demo.mp4" type="video/mp4" />
                 </video>
               </div>
+              <br></br>
+              <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+                <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
+                  View Live Site
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -228,13 +234,20 @@ const AdherePlus = () => {
               <p className="text-gray-700 leading-relaxed mb-4">
                 We made the decision to cut the Whitepages and Evidence pages and include their designs in a future collaboration with Adhere+. Below are some unique elements for those two pages.
               </p>
+              <div className="mb-10">
+                <img 
+                  src="/lovable-uploads/01-Adhere/evidence-whitepages.png" 
+                  alt="Evidence + Whitepages" 
+                  className="w-full rounded-lg" 
+                />
+              </div>
             </div>
-            <br></br>
+            {/*<br></br>
             <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
               <a href="https://adhereplus.com" target="_blank" rel="noopener noreferrer">
                 View Live Site
               </a>
-            </Button>
+            </Button>*/}
           </div>
         </div>
       {/* Full width image */}
