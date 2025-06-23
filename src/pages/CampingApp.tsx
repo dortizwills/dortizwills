@@ -183,7 +183,7 @@ const CampingApp = () => {
             alt="Flow 4" 
             className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
-          <br></br>
+          <br />
           <img 
             src="/lovable-uploads/113eed40-b2fc-4f3c-b070-046f7b0b6f3e.png" 
             alt="Flow 5" 
