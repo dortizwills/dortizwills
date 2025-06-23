@@ -77,13 +77,6 @@ const Sidebar: FC = () => {
     setMobileMenuOpen(false);
   };
 
-  // Handle main item clicks - only close menu for non-dropdown items
-  const handleMainItemClick = (item: any) => {
-    if (!item.hasDropdown) {
-      setMobileMenuOpen(false);
-    }
-  };
-
   // Mobile Header Component with Full-Screen Drawer
   const MobileHeader = () => (
     <div className="block custom:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
@@ -118,7 +111,7 @@ const Sidebar: FC = () => {
                 </button>
               </div>
 
-              {/* Menu Items - Now scrollable */}
+              {/* Menu Items */}
               <div className="flex-1 overflow-y-auto p-4">
                 <nav className="space-y-2">
                   {menuItems.map((item) => {
@@ -130,27 +123,22 @@ const Sidebar: FC = () => {
                         {item.hasDropdown ? (
                           <div>
                             <div className="flex items-center justify-between">
-                              <div 
-                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 cursor-pointer ${
+                              <Link 
+                                to={item.path}
+                                onClick={handleSubItemClick}
+                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 ${
                                   isParentActive 
                                     ? 'text-designer-darkgray font-medium' 
                                     : 'text-gray-500'
                                 }`}
-                                onClick={() => {
-                                  item.toggle();
-                                  handleMainItemClick(item);
-                                }}
                               >
                                 <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                                   {item.icon}
                                 </span>
                                 <span className="text-lg">{item.name}</span>
-                              </div>
+                              </Link>
                               <button 
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  item.toggle();
-                                }}
+                                onClick={item.toggle}
                                 className="p-2"
                               >
                                 {item.isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
@@ -182,7 +170,7 @@ const Sidebar: FC = () => {
                         ) : (
                           <Link 
                             to={item.path}
-                            onClick={() => handleMainItemClick(item)}
+                            onClick={handleSubItemClick}
                             className={`flex items-center gap-3 py-3 px-2 rounded-lg ${
                               isActive 
                                 ? 'text-designer-darkgray font-medium' 
