@@ -1,4 +1,3 @@
-
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -72,16 +71,9 @@ const Sidebar: FC = () => {
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Close mobile menu when navigation occurs to sub-items only
-  const handleSubItemClick = () => {
+  // Close mobile menu when navigation occurs
+  const handleLinkClick = () => {
     setMobileMenuOpen(false);
-  };
-
-  // Handle main item clicks - only close menu for non-dropdown items
-  const handleMainItemClick = (item: any) => {
-    if (!item.hasDropdown) {
-      setMobileMenuOpen(false);
-    }
   };
 
   // Mobile Header Component with Full-Screen Drawer
@@ -118,7 +110,7 @@ const Sidebar: FC = () => {
                 </button>
               </div>
 
-              {/* Menu Items - Now scrollable */}
+              {/* Menu Items */}
               <div className="flex-1 overflow-y-auto p-4">
                 <nav className="space-y-2">
                   {menuItems.map((item) => {
@@ -130,27 +122,22 @@ const Sidebar: FC = () => {
                         {item.hasDropdown ? (
                           <div>
                             <div className="flex items-center justify-between">
-                              <div 
-                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 cursor-pointer ${
+                              <Link 
+                                to={item.path}
+                                onClick={handleLinkClick}
+                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 ${
                                   isParentActive 
                                     ? 'text-designer-darkgray font-medium' 
                                     : 'text-gray-500'
                                 }`}
-                                onClick={() => {
-                                  item.toggle();
-                                  handleMainItemClick(item);
-                                }}
                               >
                                 <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
                                   {item.icon}
                                 </span>
                                 <span className="text-lg">{item.name}</span>
-                              </div>
+                              </Link>
                               <button 
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  item.toggle();
-                                }}
+                                onClick={item.toggle}
                                 className="p-2"
                               >
                                 {item.isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
@@ -165,7 +152,7 @@ const Sidebar: FC = () => {
                                     <Link 
                                       key={subItem.name}
                                       to={subItem.path}
-                                      onClick={handleSubItemClick}
+                                      onClick={handleLinkClick}
                                       className={`block py-2 px-3 rounded text-base ${
                                         isSubActive 
                                           ? 'text-designer-red font-medium bg-designer-red bg-opacity-10' 
@@ -182,7 +169,7 @@ const Sidebar: FC = () => {
                         ) : (
                           <Link 
                             to={item.path}
-                            onClick={() => handleMainItemClick(item)}
+                            onClick={handleLinkClick}
                             className={`flex items-center gap-3 py-3 px-2 rounded-lg ${
                               isActive 
                                 ? 'text-designer-darkgray font-medium' 
