@@ -10,7 +10,12 @@
           "value": "http"
         }
       ],
-      "destination": "https://www.dortizwills.com/$1",
+      "destination": "https://dortizwills.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "https://dortizwills.com",
       "permanent": true
     }
   ],
