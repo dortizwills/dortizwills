@@ -1,6 +1,7 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { Resend } from "https://esm.sh/resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -66,7 +67,48 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Contact form submission saved:", data);
 
-    // For now, we'll just return success. Email integration can be added later.
+    // Initialize Resend for email notifications
+    const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+
+    try {
+      // Send notification email to you
+      await resend.emails.send({
+        from: "Contact Form <onboarding@resend.dev>",
+        to: ["dortizwills@gmail.com"],
+        subject: `New Contact Form Submission: ${subject || "No Subject"}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject || "No subject provided"}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
+        `,
+      });
+
+      // Send confirmation email to the sender
+      await resend.emails.send({
+        from: "Daniel Ortiz-Wills <onboarding@resend.dev>",
+        to: [email],
+        subject: "Thanks for reaching out!",
+        html: `
+          <h2>Hi ${name},</h2>
+          <p>Thank you for reaching out! I've received your message and will get back to you within 24 hours.</p>
+          <p><strong>Your message:</strong></p>
+          <p><em>"${message}"</em></p>
+          <p>Looking forward to exploring your project vision!</p>
+          <p>Best regards,<br>Daniel Ortiz-Wills</p>
+        `,
+      });
+
+      console.log("Emails sent successfully");
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+      // Don't fail the entire request if email fails
+    }
+
     return new Response(
       JSON.stringify({ 
         success: true, 
