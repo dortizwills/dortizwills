@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { Mail, User, MessageSquare } from 'lucide-react';
@@ -44,13 +43,30 @@ const ContactForm = () => {
         throw error;
       }
 
+      // Handle successful submission
       console.log('Form submitted successfully');
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      toast.success('Message sent successfully! I\'ll get back to you within 24 hours.');
+      
+      // Show appropriate success message based on response
+      if (data?.warning) {
+        toast.success(data.message || 'Message sent successfully!', {
+          description: data.warning
+        });
+      } else {
+        toast.success(data?.message || 'Message sent successfully! I\'ll get back to you within 24 hours.');
+      }
+
     } catch (error) {
       console.error('Error sending message:', error);
-      toast.error('Failed to send message. Please try again.');
+      
+      // Show more specific error messages
+      let errorMessage = 'Failed to send message. Please try again.';
+      if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

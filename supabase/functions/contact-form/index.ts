@@ -23,10 +23,13 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    console.log('Contact form function called');
     const { name, email, subject, message }: ContactFormData = await req.json();
+    console.log('Received form data:', { name, email, subject: subject || "No subject", messageLength: message?.length });
 
     // Validate required fields
     if (!name || !email || !message) {
+      console.error('Missing required fields:', { name: !!name, email: !!email, message: !!message });
       return new Response(
         JSON.stringify({ error: "Name, email, and message are required" }),
         {
@@ -42,6 +45,7 @@ const handler = async (req: Request): Promise<Response> => {
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     );
 
+    console.log('Attempting to save to database...');
     // Insert the contact form submission into the database
     const { data, error } = await supabase
       .from("contact_submissions")
@@ -57,7 +61,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (error) {
       console.error("Database error:", error);
       return new Response(
-        JSON.stringify({ error: "Failed to save submission" }),
+        JSON.stringify({ error: "Failed to save submission", details: error.message }),
         {
           status: 500,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -65,14 +69,33 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    console.log("Contact form submission saved:", data);
+    console.log("Contact form submission saved successfully:", data.id);
+
+    // Check if Resend API key is available
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY not found in environment variables");
+      return new Response(
+        JSON.stringify({ 
+          success: true, 
+          message: "Your message has been received and saved. Email notifications are currently being configured.",
+          warning: "Email sending is not yet configured"
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     // Initialize Resend for email notifications
-    const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+    console.log('Attempting to send emails...');
+    const resend = new Resend(resendApiKey);
 
     try {
       // Send notification email to you
-      await resend.emails.send({
+      console.log('Sending notification email...');
+      const notificationResult = await resend.emails.send({
         from: "Contact Form <onboarding@resend.dev>",
         to: ["dortizwills@gmail.com"],
         subject: `New Contact Form Submission: ${subject || "No Subject"}`,
@@ -88,8 +111,11 @@ const handler = async (req: Request): Promise<Response> => {
         `,
       });
 
+      console.log('Notification email result:', notificationResult);
+
       // Send confirmation email to the sender
-      await resend.emails.send({
+      console.log('Sending confirmation email...');
+      const confirmationResult = await resend.emails.send({
         from: "Daniel Ortiz-Wills <onboarding@resend.dev>",
         to: [email],
         subject: "Thanks for reaching out!",
@@ -103,27 +129,52 @@ const handler = async (req: Request): Promise<Response> => {
         `,
       });
 
-      console.log("Emails sent successfully");
+      console.log('Confirmation email result:', confirmationResult);
+      console.log("Both emails sent successfully");
+
+      return new Response(
+        JSON.stringify({ 
+          success: true, 
+          message: "Your message has been received and confirmation emails have been sent!" 
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
-      // Don't fail the entire request if email fails
-    }
-
-    return new Response(
-      JSON.stringify({ 
-        success: true, 
-        message: "Your message has been received. I'll get back to you within 24 hours!" 
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
+      
+      // Check if it's a DNS/domain verification issue
+      const errorMessage = emailError.message || emailError.toString();
+      let userMessage = "Your message has been saved, but there was an issue sending confirmation emails.";
+      
+      if (errorMessage.includes('DNS') || errorMessage.includes('domain') || errorMessage.includes('verify')) {
+        userMessage += " This appears to be a domain verification issue with the email service.";
       }
-    );
+
+      return new Response(
+        JSON.stringify({ 
+          success: true, 
+          message: userMessage,
+          warning: "Email delivery issue detected",
+          technicalDetails: errorMessage
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
   } catch (error) {
     console.error("Error in contact form function:", error);
     return new Response(
-      JSON.stringify({ error: "Internal server error" }),
+      JSON.stringify({ 
+        error: "Internal server error", 
+        details: error.message || error.toString() 
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

@@ -40,10 +40,26 @@ const Contact = () => {
       console.log('Contact form submitted successfully');
       setIsSubmitted(true);
       form.reset();
-      toast.success('Message sent successfully! I\'ll get back to you within 24 hours.');
+      
+      // Show appropriate success message based on response
+      if (data?.warning) {
+        toast.success(data.message || 'Message sent successfully!', {
+          description: data.warning
+        });
+      } else {
+        toast.success(data?.message || 'Message sent successfully! I\'ll get back to you within 24 hours.');
+      }
+
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error('Failed to send message. Please try again.');
+      
+      // Show more specific error messages
+      let errorMessage = 'Failed to send message. Please try again.';
+      if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
