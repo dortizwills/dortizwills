@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,21 +16,28 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Set default subject if empty
-    if (!formData.get('subject') || formData.get('subject') === '') {
-      formData.set('subject', 'Reaching Out');
-    }
+    const contactData = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      subject: (formData.get('subject') as string) || 'Reaching Out',
+      message: formData.get('message') as string
+    };
 
     try {
-      await fetch('https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c', {
-        method: 'POST',
-        body: formData,
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: contactData
       });
-      
+
+      if (error) {
+        throw error;
+      }
+
       setIsSubmitted(true);
       form.reset();
+      toast.success('Message sent successfully!');
     } catch (error) {
       console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -84,16 +93,13 @@ const Contact = () => {
             </div>
           </div>
           
-          {/* Contact Form with FormSubmit */}
+          {/* Contact Form */}
           <div className="bg-white border border-black p-8 rounded-lg">
             {!isSubmitted ? (
               <>
                 <h2 className="text-2xl font-display font-semibold mb-6">Send a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <input type="hidden" name="_next" value={window.location.href} />
-                  <input type="hidden" name="_captcha" value="false" />
-                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block font-medium mb-1">Name</label>
