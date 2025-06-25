@@ -23,18 +23,24 @@ const Contact = () => {
       message: formData.get('message') as string
     };
 
+    console.log('Contact form submission started with data:', contactData);
+
     try {
       const { data, error } = await supabase.functions.invoke('contact-form', {
         body: contactData
       });
 
+      console.log('Supabase function response:', { data, error });
+
       if (error) {
+        console.error('Supabase function error:', error);
         throw error;
       }
 
+      console.log('Contact form submitted successfully');
       setIsSubmitted(true);
       form.reset();
-      toast.success('Message sent successfully!');
+      toast.success('Message sent successfully! I\'ll get back to you within 24 hours.');
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error('Failed to send message. Please try again.');
@@ -160,7 +166,7 @@ const Contact = () => {
               </>
             ) : (
               <div className="text-center">
-                <h2 className="text-2xl font-display font-semibold mb-6">Message Sent</h2>
+                <h2 className="text-2xl font-display font-semibold mb-6">Message Sent!</h2>
                 <div className="space-y-4">
                   <p className="text-gray-600">Thank you for reaching out!</p>
                   <p className="text-gray-600">
