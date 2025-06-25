@@ -24,14 +24,31 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     console.log('Contact form function called');
-    const { name, email, subject, message }: ContactFormData = await req.json();
-    console.log('Received form data:', { name, email, subject: subject || "No subject", messageLength: message?.length });
+    const requestBody = await req.json();
+    console.log('Raw request body:', requestBody);
+    
+    // Extract form data with better error handling
+    const { name, email, subject, message }: ContactFormData = requestBody;
+    console.log('Parsed form data:', { 
+      name: name || "Missing", 
+      email: email || "Missing", 
+      subject: subject || "No subject", 
+      messageLength: message?.length || 0 
+    });
 
-    // Validate required fields
+    // Validate required fields with better error messages
     if (!name || !email || !message) {
-      console.error('Missing required fields:', { name: !!name, email: !!email, message: !!message });
+      const missingFields = [];
+      if (!name) missingFields.push('name');
+      if (!email) missingFields.push('email');
+      if (!message) missingFields.push('message');
+      
+      console.error('Missing required fields:', missingFields);
       return new Response(
-        JSON.stringify({ error: "Name, email, and message are required" }),
+        JSON.stringify({ 
+          error: `Missing required fields: ${missingFields.join(', ')}`,
+          received: { name: !!name, email: !!email, message: !!message }
+        }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -89,7 +106,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Initialize Resend for email notifications
-    console.log('Attempting to send emails...');
+    console.log('Attempting to send emails with Resend...');
     const resend = new Resend(resendApiKey);
 
     try {
