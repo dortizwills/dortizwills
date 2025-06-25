@@ -38,8 +38,9 @@ const Contact = () => {
       }
 
       console.log('Contact form submitted successfully');
+      form.reset(); // Clear the form immediately after successful submission
       setIsSubmitted(true);
-      form.reset();
+      setIsSubmitting(false);
       
       // Show appropriate success message based on response
       if (data?.warning) {
@@ -60,8 +61,7 @@ const Contact = () => {
       }
       
       toast.error(errorMessage);
-    } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Only reset submitting state on error, keep form data
     }
   };
 

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { Mail, User, MessageSquare } from 'lucide-react';
@@ -18,6 +19,11 @@ const ContactForm = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const resetForm = () => {
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -45,8 +51,8 @@ const ContactForm = () => {
 
       // Handle successful submission
       console.log('Form submitted successfully');
+      resetForm(); // Clear the form immediately
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
       
       // Show appropriate success message based on response
       if (data?.warning) {
@@ -67,8 +73,7 @@ const ContactForm = () => {
       }
       
       toast.error(errorMessage);
-    } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Only reset submitting state on error, keep form data
     }
   };
 
@@ -84,7 +89,10 @@ const ContactForm = () => {
           </p>
           <p className="text-gray-600 font-medium">Talk soon!</p>
           <button 
-            onClick={() => setIsSubmitted(false)}
+            onClick={() => {
+              setIsSubmitted(false);
+              resetForm(); // Ensure form is cleared when returning to form
+            }}
             className="bg-gradient-primary text-white font-medium py-3 px-6 rounded-md transition-opacity hover:opacity-90 mt-6"
           >
             Send Another Message
