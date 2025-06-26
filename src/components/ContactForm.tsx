@@ -52,7 +52,7 @@ const ContactForm = () => {
       // Handle successful submission
       console.log('Form submitted successfully');
       resetForm(); // Clear the form immediately
-      setIsSubmitted(true);
+      setIsSubmitted(true); // Show thank you message
       
       // Show appropriate success message based on response
       if (data?.warning) {
