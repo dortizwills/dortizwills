@@ -107,7 +107,7 @@ const Index = () => {
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
                 <img 
-                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
+                  src="/lovable-uploads/self-photo.png" 
                   alt="Daniel Ortiz-Wills" 
                   className="max-w-full max-h-[400px] object-contain"
                 />
