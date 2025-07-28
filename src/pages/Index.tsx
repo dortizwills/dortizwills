@@ -117,7 +117,7 @@ const Index = () => {
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                  I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
+                  I build scalable systems to unify teams (scaling from 3 to 15 designers), craft UX that boosts satisfaction by 80%, and create brands that help land $125M+ in funding — design that looks sharp and delivers real ROI.
                 </h1>
                 <p className="text-xl text-white/80 max-w-2xl">
                   Don't just take my word for it though, see what some of my previous managers and peers have said about me.
@@ -136,7 +136,7 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Featured Projects</h2>
+          <h2 className="font-display text-3xl mb-6">UXUI Featured Projects</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
@@ -212,7 +212,7 @@ const Index = () => {
               <div className="flex-1 flex items-end">
                 <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
                   <Link to="/product-designs">
-                    View UXUI Designs
+                    More UXUI Designs
                   </Link>
                 </Button>
               </div>
@@ -285,7 +285,7 @@ const Index = () => {
           <div className="flex justify-center">
               <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
               <Link to="/graphic-designs">
-                View Visual Designs
+                More Visual Designs
               </Link>
             </Button>
           </div>
