@@ -129,9 +129,6 @@ const Index = () => {
               className="rounded-lg p-6"
               style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
             >
-              <p className="text-xl text-white/80 max-w-2xl">
-                Don't just take my word for it though, see what some of my previous managers and peers have said about me.
-              </p>
               <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
