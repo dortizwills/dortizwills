@@ -126,7 +126,7 @@ const Index = () => {
               className="rounded-lg p-6"
               style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
             >
-              <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#D4AF37' }}>See what prior managers and peers have said about me.</h2>
+              <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
               <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
