@@ -118,9 +118,6 @@ const Index = () => {
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
                   5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.                </h1>
-                <p className="text-xl text-white/80 max-w-2xl">
-                  Check out some of my recent design work and proven results.
-                </p>
               </div>
             </div>
             
