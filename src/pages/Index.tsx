@@ -119,7 +119,7 @@ const Index = () => {
                 <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
                   5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.                </h1>
                 <p className="text-xl text-white/80 max-w-2xl">
-                  Don't just take my word for it though, see what some of my previous managers and peers have said about me.
+                  Check out some of my recent design work and proven results.
                 </p>
               </div>
             </div>
@@ -129,6 +129,7 @@ const Index = () => {
               className="rounded-lg p-6"
               style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
             >
+              <h2 className="text-2xl font-display font-bold text-white mb-6">See what prior managers and peers have said about me.</h2>
               <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
@@ -220,7 +221,7 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
+          <h2 className="font-display text-3xl mb-6">Graphic Designs</h2>
           
           {/* Grid layout for 680px and above */}
           <div className="hidden custom:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -280,11 +281,11 @@ const Index = () => {
             ))}
           </div>
 
-          {/* View Visual Designs Button */}
+          {/* View Graphic Designs Button */}
           <div className="flex justify-center">
               <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
               <Link to="/graphic-designs">
-                More Visual Designs
+                More Graphic Designs
               </Link>
             </Button>
           </div>
