@@ -18,7 +18,7 @@ const Resume = () => {
 
   return (
     <div>
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-6 py-12 custom:pl-[268px]">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
           <h1 className="font-display text-5xl font-bold mb-4 sm:mb-0">Resume</h1>
           <Button 

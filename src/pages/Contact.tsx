@@ -67,7 +67,7 @@ const Contact = () => {
 
   return (
     <div>
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-6 py-12 custom:pl-[268px]">
         <h1 className="font-display text-5xl font-bold mb-8">Contact me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
