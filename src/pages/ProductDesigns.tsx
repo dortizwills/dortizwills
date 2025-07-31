@@ -47,7 +47,7 @@ const ProductDesigns = () => {
 
   return (
     <div>
-      <main className="max-w-7xl mx-auto pl-12 pr-6 py-12">
+      <main className="max-w-7xl mx-auto max-[679px]:pl-6 pl-12 pr-6 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">UXUI Designs</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
