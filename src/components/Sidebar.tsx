@@ -199,7 +199,7 @@ const Sidebar: FC = () => {
       <MobileHeader />
 
       {/* Desktop Sidebar */}
-      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[232px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
+      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[244px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
         <div className="flex items-center justify-between mb-8">
           <div className="h-10 w-10 flex items-center justify-center">
             <img 

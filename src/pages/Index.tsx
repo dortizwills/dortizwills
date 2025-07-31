@@ -288,9 +288,9 @@ const Index = () => {
           </div>
         </section>
 
-        <section>
+        {/* <section>
           <ContactForm />
-        </section>
+        </section> */}
       </main>
     </div>
   );

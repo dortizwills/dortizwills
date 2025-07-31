@@ -12,7 +12,7 @@ const About = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-display text-3xl mb-6">Hello there!</h2>
+            {/* <h2 className="font-display text-3xl mb-6">Hello there!</h2> */}
             
             <div className="space-y-4 text-gray-700 mb-8">
               <p>
