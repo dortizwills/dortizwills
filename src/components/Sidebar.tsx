@@ -67,7 +67,6 @@ const Sidebar: FC = () => {
     { name: 'UXUI Designs', path: '/product-designs', icon: <LayoutDashboard size={20} />, hasDropdown: true, isOpen: productDesignsOpen, toggle: toggleProductDesigns, items: productDesigns },
     { name: 'Graphic Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: toggleMarketingDesigns, items: marketingDesigns },
     { name: 'About', path: '/about', icon: <HelpCircle size={20} /> },
-    { name: 'Contact me', path: '/contact', icon: <MessageSquare size={20} /> },
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
@@ -131,9 +130,9 @@ const Sidebar: FC = () => {
                                     : 'text-gray-500'
                                 }`}
                               >
-                                <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                                  {item.icon}
-                                </span>
+                           <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
                                 <span className="text-lg">{item.name}</span>
                               </Link>
                               <button 
@@ -176,9 +175,9 @@ const Sidebar: FC = () => {
                                 : 'text-gray-500'
                             }`}
                           >
-                            <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                              {item.icon}
-                            </span>
+                           <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
                             <span className="text-lg">{item.name}</span>
                           </Link>
                         )}
@@ -200,7 +199,7 @@ const Sidebar: FC = () => {
       <MobileHeader />
 
       {/* Desktop Sidebar */}
-      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[220px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
+      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[232px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
         <div className="flex items-center justify-between mb-8">
           <div className="h-10 w-10 flex items-center justify-center">
             <img 
@@ -234,9 +233,9 @@ const Sidebar: FC = () => {
                           to={item.path}
                           className="flex items-center gap-3 font-medium text-lg"
                         >
-                          <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                            {item.icon}
-                          </span>
+                           <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
                           <span>{item.name}</span>
                         </Link>
                         <button onClick={(e) => {
@@ -278,9 +277,9 @@ const Sidebar: FC = () => {
                           : 'text-gray-500 hover:text-designer-darkgray transition-colors'
                       }`}
                     >
-                      <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                        {item.icon}
-                      </span>
+                       <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                         {item.icon}
+                       </span>
                       <span>{item.name}</span>
                     </Link>
                   )}
