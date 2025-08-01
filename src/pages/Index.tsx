@@ -135,7 +135,7 @@ const Index = () => {
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">UXUI Featured Projects</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
               <Link to="/product-designs/quick-services" className="block">
