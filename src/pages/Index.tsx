@@ -140,7 +140,7 @@ const Index = () => {
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
               <Link to="/product-designs/quick-services" className="block">
                 <div className="aspect-[16/9] relative">
-                  <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Featured Project" className="w-full h-full object-cover" />
                 </div>
               </Link>
               <div className="p-6">

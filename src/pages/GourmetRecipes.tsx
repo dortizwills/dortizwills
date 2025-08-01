@@ -17,7 +17,7 @@ const GourmetRecipes = () => {
       title: "Quick Services",
       description: "Reduce checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes.",
       path: "/product-designs/quick-services",
-      image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+      image: "/lovable-uploads/01-express-lane/display-express-lane.png"
     }
   ];
   
