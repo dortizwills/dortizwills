@@ -91,10 +91,10 @@ const Index = () => {
 
   return (
     <div>
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        {/* What Clients Say Section with updated background */}
         <section 
-          className="mb-16 relative rounded-lg overflow-hidden min-[680px]:h-screen min-[680px]:flex min-[680px]:items-center"
+          className="mb-16 relative rounded-lg overflow-hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -102,8 +102,8 @@ const Index = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="relative z-10 p-8 w-full">
-            <div className="grid lg:grid-cols-3 gap-8 items-center">
+          <div className="relative z-10 p-8">
+            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
                 <img 
@@ -117,21 +117,18 @@ const Index = () => {
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <h1 className="font-display text-4xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                  5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.
-                </h1>
+                  5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.                </h1>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* What Clients Say Section */}
-        <section className="mb-16">
-          <div 
-            className="rounded-lg p-6"
-            style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-          >
-            <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
-            <TestimonialCarousel testimonials={testimonials} />
+            
+            {/* Testimonials Carousel with transparent background */}
+            <div 
+              className="rounded-lg p-6"
+              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+            >
+              <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
+              <TestimonialCarousel testimonials={testimonials} />
+            </div>
           </div>
         </section>
 
