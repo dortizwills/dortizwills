@@ -36,7 +36,7 @@ const App: FC = () => {
   return (
     <>
       <Sidebar />
-      <div className="pt-16 custom:pt-0 custom:ml-[220px]">
+      <div className="pt-16 custom:pt-0 custom:ml-[244px]">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
