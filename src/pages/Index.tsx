@@ -91,19 +91,19 @@ const Index = () => {
 
   return (
     <div>
-      {/* Hero Section - 100vh on screens 680px and above */}
-      <section 
-        className="custom:h-screen relative rounded-lg overflow-hidden flex items-center"
-        style={{
-          backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 w-full">
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        {/* What Clients Say Section with updated background */}
+        <section 
+          className="mb-16 relative rounded-lg overflow-hidden"
+          style={{
+            backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
                 <img 
@@ -120,19 +120,15 @@ const Index = () => {
                   5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.                </h1>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        {/* Testimonials Section */}
-        <section className="mb-16">
-          <div 
-            className="rounded-lg p-6"
-            style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-          >
-            <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
-            <TestimonialCarousel testimonials={testimonials} />
+            
+            {/* Testimonials Carousel with transparent background */}
+            <div 
+              className="rounded-lg p-6"
+              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+            >
+              <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
+              <TestimonialCarousel testimonials={testimonials} />
+            </div>
           </div>
         </section>
 
