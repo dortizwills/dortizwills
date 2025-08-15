@@ -93,7 +93,7 @@ const MobileApps = () => {
       {/* Div Block 9 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-2xl font-display font-semibold mb-6">Quick & <span className="line-through">Dirty</span> Clean</h3>
+          <h3 className="text-xl font-display font-medium mb-3">Quick & <span className="line-through">Dirty</span> Clean</h3>
         </div>  
         <div className="col-span-2">
           {/* paragraph Content */}  
