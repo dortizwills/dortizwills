@@ -193,18 +193,20 @@ const MobileApps = () => {
             <h2 className="text-2xl font-display font-semibold mb-6">The Process</h2>
           </div>
           
-          {/* Div Block 9 */}
+          {/* Coming Soon */}
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">Quick & <span className="line-through">Dirty</span> Clean</h3>
+              <h3 className="text-xl font-display font-medium mb-3">Visuals Coming Soon</h3>
             </div>  
             <div className="col-span-2">
               <p className="text-gray-700 leading-relaxed mb-4">
-                <strong>App 2 content coming soon!</strong> We’ll share the process, key decisions, and outcomes just like App 1.
+                <strong>App 2 content coming soon!</strong> I’ll be able share the process, key decisions, and outcomes just like App 1.
               </p>
             </div>
           </div>
 
+          {/* Section 2 */} 
+          {/* 
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div className="col-span-1">
               <h3 className="text-xl font-display font-medium mb-3">App 2 Preview</h3>
@@ -214,7 +216,8 @@ const MobileApps = () => {
                 <span className="text-gray-500">App 2 content coming soon</span>
               </div>
             </div>
-          </div>
+          </div> 
+          */}
         </div>
       )}
     </ProjectDetailLayout>
