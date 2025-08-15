@@ -117,7 +117,8 @@ const Index = () => {
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <h1 className="font-display text-4xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                  5× design system adoption, 80% happier users, $100M+ raised — scalable systems and visual design built for real ROI.                </h1>
+                  Collaboration is my middle name, prior managers and peers agree.
+                </h1>
               </div>
             </div>
             
@@ -126,7 +127,6 @@ const Index = () => {
               className="rounded-lg p-6"
               style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
             >
-              <h2 className="text-2xl font-display font-bold mb-6 text-center" style={{ color: '#849DFF' }}>See what prior managers and peers have said about me.</h2>
               <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
