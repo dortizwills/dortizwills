@@ -94,7 +94,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* What Clients Say Section with updated background */}
         <section 
-          className="mb-16 relative rounded-lg overflow-hidden min-h-[500px]"
+          className="mb-16 relative rounded-lg overflow-hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -102,46 +102,18 @@ const Index = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          {/* Background Image - positioned behind everything */}
-          <div className="absolute inset-0 z-0 p-8">
-            <div className="h-full flex items-center justify-start">
-              <img 
-                src="/lovable-uploads/self-photo@2x.png" 
-                alt="Daniel Ortiz-Wills" 
-                className="h-full w-auto object-contain object-center transform-gpu"
-                style={{ objectPosition: 'center center' }}
-              />
-            </div>
-          </div>
-          
-          {/* Mobile layout - image on top, then testimonials */}
-          <div className="lg:hidden relative z-10 p-8">
-            <div className="space-y-8">
-              {/* Image space for mobile - empty since image is background */}
-              <div className="h-64"></div>
-              
-              {/* Testimonials content */}
-              <div>
-                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-                <div 
-                  className="rounded-lg p-6"
-                  style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-                >
-                  <TestimonialCarousel testimonials={testimonials} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop layout - testimonials overlay on image */}
-          <div className="hidden lg:block relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-center h-full min-h-[400px]">
-              {/* Empty space for image - 1/3 */}
-              <div className="lg:col-span-1">
-                {/* Image is positioned as background */}
+          <div className="relative z-10 p-8">
+            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+              {/* Image - 1/3 */}
+              <div className="lg:col-span-1 flex justify-center lg:justify-start">
+                <img 
+                  src="/lovable-uploads/self-photo@2x.png" 
+                  alt="Daniel Ortiz-Wills" 
+                  className="max-w-full max-h-[400px] object-contain"
+                />
               </div>
               
-              {/* Testimonials overlay - 2/3 */}
+              {/* Header Content - 2/3 */}
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <div 
@@ -152,6 +124,14 @@ const Index = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Testimonials Carousel with transparent background */}
+{/*             <div 
+              className="rounded-lg p-6"
+              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+            >
+              <TestimonialCarousel testimonials={testimonials} />
+            </div> */}
           </div>
         </section>
 
