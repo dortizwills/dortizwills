@@ -114,64 +114,71 @@ const MobileApps = () => {
       </div>
 
       {selectedApp === "app1" && (
-        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+        <div>
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+            {/* School Safety: The Presentation */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-display font-medium mb-3">The Presentation</h3>
+            </div>
+            <div className="col-span-2 max-sm:col-span-1">    
+              <p className="text-gray-700 leading-relaxed mb-6">
+                After 2 iterations, we had a few key changes from their original app
+              </p>
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    <strong>1.</strong> Our version in set in dark mode to reduce attention from others, which is especially important when an active shooter is searching for staff/students.
+                  </p>
+                  <img 
+                    src="/lovable-uploads/Mobile 1.1.png" 
+                    alt="School Safety App - Mobile Interface 1.1"
+                    className="w-full rounded-lg max-h-96 object-contain"
+                  />
+                </div>
 
-          {/* School Safety: The Presentation */}
-          <div className="col-span-1">
-            <h3 className="text-xl font-display font-medium mb-3">The Presentation</h3>
-          </div>
-          <div className="col-span-2 max-sm:col-span-1">    
-            <p className="text-gray-700 leading-relaxed mb-6">
-              After 2 iterations, we had a few key changes from their original app
-            </p>
-            
-            <div className="space-y-6">
-              <div>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong>1.</strong> Our version in set in dark mode to reduce attention from others, which is especially important when an active shooter is searching for staff/students.
-                </p>
-                <img 
-                  src="/lovable-uploads/Mobile 1.1.png" 
-                  alt="School Safety App - Mobile Interface 1.1"
-                  className="w-full rounded-lg max-h-96 object-contain"
-                />
-              </div>
+                <div>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    <strong>2.</strong> Create consistent actions on each page. Previously users had 3-4 options for where to request help, give status updates, and react to emergencies.
+                  </p>
+                  <img 
+                    src="/lovable-uploads/Mobile 1.2.png" 
+                    alt="School Safety App - Mobile Interface 1.2"
+                    className="w-full rounded-lg max-h-96 object-contain"
+                  />
+                </div>
 
-              <div>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong>2.</strong> Create consistent actions on each page. Previously users had 3-4 options for where to request help, give status updates, and react to emergencies.
-                </p>
-                <img 
-                  src="/lovable-uploads/Mobile 1.2.png" 
-                  alt="School Safety App - Mobile Interface 1.2"
-                  className="w-full rounded-lg max-h-96 object-contain"
-                />
-              </div>
-
-              <div>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong>3.</strong> Modernize chats, navigation, statuses, and homepage – Before this redesign the navigation was difficult to locate and distinguish from other actions in app.
-                </p>
-                <img 
-                  src="/lovable-uploads/Mobile 1.3.png" 
-                  alt="School Safety App - Mobile Interface 1.3"
-                  className="w-full rounded-lg max-h-96 object-contain"
-                />
+                <div>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    <strong>3.</strong> Modernize chats, navigation, statuses, and homepage – Before this redesign the navigation was difficult to locate and distinguish from other actions in app.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* The Results */}
-          <div className="col-span-1">
-            <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+          {/* Full Width Mobile 1.3 Image */}
+          <div className="w-full mb-10">
+            <img 
+              src="/lovable-uploads/Mobile 1.3.png" 
+              alt="School Safety App - Mobile Interface 1.3"
+              className="w-full rounded-lg object-contain"
+            />
           </div>
-          <div className="col-span-2 max-sm:col-span-1">    
-            <p className="text-gray-700 leading-relaxed mb-4">
-              We delivered these designs and explained the benefits of each alteration to our prospect and quickly discovered his funding was not adequate to back our vision.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              We instead entered into a verbal agreement that when his non-profit secured funding that we would be able to develop these changes into their app
-            </p>
+
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+            {/* The Results */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+            </div>
+            <div className="col-span-2 max-sm:col-span-1">    
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We delivered these designs and explained the benefits of each alteration to our prospect and quickly discovered his funding was not adequate to back our vision.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                We instead entered into a verbal agreement that when his non-profit secured funding that we would be able to develop these changes into their app
+              </p>
+            </div>
           </div>
         </div>
       )}
