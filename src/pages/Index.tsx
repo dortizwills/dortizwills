@@ -94,7 +94,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* What Clients Say Section with updated background */}
         <section 
-          className="mb-16 relative rounded-lg overflow-hidden"
+          className="mb-16 relative rounded-lg overflow-hidden min-h-[500px]"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -102,15 +102,22 @@ const Index = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
+          {/* Background Image - positioned behind everything */}
+          <div className="absolute inset-0 z-0 p-8">
+            <div className="h-full flex items-center">
+              <img 
+                src="/lovable-uploads/self-photo@2x.png" 
+                alt="Daniel Ortiz-Wills" 
+                className="h-full w-auto object-contain"
+              />
+            </div>
+          </div>
+          
           <div className="relative z-10 p-8">
             <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
-              {/* Image - 1/3 */}
-              <div className="lg:col-span-1 flex justify-center lg:justify-start">
-                <img 
-                  src="/lovable-uploads/self-photo@2x.png" 
-                  alt="Daniel Ortiz-Wills" 
-                  className="max-w-full max-h-[400px] object-contain"
-                />
+              {/* Empty space for image - 1/3 */}
+              <div className="lg:col-span-1">
+                {/* Image is now positioned as background */}
               </div>
               
               {/* Header Content - 2/3 */}
@@ -124,14 +131,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Testimonials Carousel with transparent background */}
-{/*             <div 
-              className="rounded-lg p-6"
-              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-            >
-              <TestimonialCarousel testimonials={testimonials} />
-            </div> */}
           </div>
         </section>
 
