@@ -104,23 +104,44 @@ const Index = () => {
         >
           {/* Background Image - positioned behind everything */}
           <div className="absolute inset-0 z-0 p-8">
-            <div className="h-full flex items-center">
+            <div className="h-full flex items-center justify-start">
               <img 
                 src="/lovable-uploads/self-photo@2x.png" 
                 alt="Daniel Ortiz-Wills" 
-                className="h-full w-auto object-contain"
+                className="h-full w-auto object-contain object-center transform-gpu"
+                style={{ objectPosition: 'center center' }}
               />
             </div>
           </div>
           
-          <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+          {/* Mobile layout - image on top, then testimonials */}
+          <div className="lg:hidden relative z-10 p-8">
+            <div className="space-y-8">
+              {/* Image space for mobile - empty since image is background */}
+              <div className="h-64"></div>
+              
+              {/* Testimonials content */}
+              <div>
+                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+                <div 
+                  className="rounded-lg p-6"
+                  style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+                >
+                  <TestimonialCarousel testimonials={testimonials} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop layout - testimonials overlay on image */}
+          <div className="hidden lg:block relative z-10 p-8">
+            <div className="grid lg:grid-cols-3 gap-8 items-center h-full min-h-[400px]">
               {/* Empty space for image - 1/3 */}
               <div className="lg:col-span-1">
-                {/* Image is now positioned as background */}
+                {/* Image is positioned as background */}
               </div>
               
-              {/* Header Content - 2/3 */}
+              {/* Testimonials overlay - 2/3 */}
               <div className="lg:col-span-2">
                 <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <div 
