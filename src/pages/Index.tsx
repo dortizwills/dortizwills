@@ -115,7 +115,7 @@ const Index = () => {
               
               {/* Header Content - 2/3 */}
               <div className="lg:col-span-2">
-                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+                <p className="text-lg text-white/80 mb-2 text-center">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <div 
                   className="rounded-lg p-6"
                   style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
