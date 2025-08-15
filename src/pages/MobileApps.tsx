@@ -35,24 +35,23 @@ const MobileApps = () => {
       showWipTag={true}
       relatedProjects={relatedProjects}
     >
-      <div className="space-y-12">
         {/* Overview Section */}
-        <div className="grid grid-cols-3 gap-8">
-          <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Overview</h2>
-          </div>
-          <div className="col-span-2">
-            <p className="text-gray-700 leading-relaxed mb-6">
-              These apps are a selection of mobile app designs created as promotional apps for 2 potential investing companies. The focus of each app was to provide a vision and brief demonstration of our agency's services.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Each mobile app was delivered to our CEO who would propose these apps to our prospect to secure additional funding for our agency. Following each project we would debrief on the successes and failures the presentation.
-            </p>
-          </div>
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+        <div className="col-span-1">
+          <h2 className="text-2xl font-display font-semibold">Overview</h2>
         </div>
+        <div className="col-span-2">
+          <p className="text-gray-700 leading-relaxed mb-6">
+            These apps are a selection of mobile app designs created as promotional apps for 2 potential investing companies. The focus of each app was to provide a vision and brief demonstration of our agency's services.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Each mobile app was delivered to our CEO who would propose these apps to our prospect to secure additional funding for our agency. Following each project we would debrief on the successes and failures the presentation.
+          </p>
+        </div>
+      </div>
 
         {/* App Toggle Section */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
           <div className="col-span-1">
             {/* Empty left column */}
           </div>
@@ -101,11 +100,13 @@ const MobileApps = () => {
         </div>
 
             {selectedApp === "app1" && (
-              <div className="space-y-8">
+              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
 
                 {/* School Safety: The Presentation */}
-                <div>
-                  <h3 className="text-xl font-display font-medium mb-3">School Safety: The Presentation</h3>
+                <div className="col-span-1">
+                  <h3 className="text-xl font-display font-medium mb-3>School Safety: The Presentation</h3>
+                </div>
+                <div className="col-span-2 max-sm:col-span-1">    
                   <p className="text-gray-700 leading-relaxed mb-6">
                     After 2 iterations, we had a few key changes from their original app
                   </p>
