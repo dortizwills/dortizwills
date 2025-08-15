@@ -247,7 +247,7 @@ const Sidebar: FC = () => {
                       </div>
                       
                       {item.isOpen && (
-                        <ul className="mt-2 ml-8 space-y-2">
+                        <ul className="mt-2 space-y-2" style={{ marginLeft: '-56px' }}>
                           {item.items?.map((subItem) => {
                             const isSubActive = location.pathname === subItem.path;
                             return (
