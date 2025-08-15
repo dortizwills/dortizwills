@@ -58,11 +58,16 @@ const MobileApps = () => {
             <h2 className="text-2xl font-display font-semibold">Apps</h2>
           </div>
           <div className="col-span-2">
-            <ToggleGroup type="single" value={selectedApp} onValueChange={setSelectedApp} className="justify-start mb-8">
-              <ToggleGroupItem value="app1" className="px-6 py-2">
+            <ToggleGroup 
+              type="single" 
+              value={selectedApp} 
+              onValueChange={(value) => value && setSelectedApp(value)} 
+              className="justify-start mb-8"
+            >
+              <ToggleGroupItem value="app1" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white">
                 App 1: School Safety
               </ToggleGroupItem>
-              <ToggleGroupItem value="app2" className="px-6 py-2">
+              <ToggleGroupItem value="app2" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white">
                 App 2: Coming Soon
               </ToggleGroupItem>
             </ToggleGroup>
