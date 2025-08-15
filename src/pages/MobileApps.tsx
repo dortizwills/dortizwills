@@ -97,10 +97,10 @@ const MobileApps = () => {
             This project was a proposal, consequently every hour spent was technically unfunded so time was of the essence. Of course there's a lot of pieces working behind the scenes, but here's the gist of the requirements:
           </p>
           <p className="text-gray-700 leading-relaxed mb-2">
-            <strong>The End Goal</strong> – Secure funding from a non-profit during an unprompted meeting.
+            <strong>End Goal</strong> – Secure funding from a non-profit during an unprompted meeting.
           </p>
           <p className="text-gray-700 leading-relaxed mb-2">
-            <strong>The Challenge</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
+            <strong>Challenges</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
           </p>
           <p className="text-gray-700 leading-relaxed">
             <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions.
@@ -113,7 +113,7 @@ const MobileApps = () => {
 
           {/* School Safety: The Presentation */}
           <div className="col-span-1">
-            <h3 className="text-xl font-display font-medium mb-3">School Safety: The Presentation</h3>
+            <h3 className="text-xl font-display font-medium mb-3">The Presentation</h3>
           </div>
           <div className="col-span-2 max-sm:col-span-1">    
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -164,8 +164,10 @@ const MobileApps = () => {
           </div>
 
           {/* The Results */}
-          <div>
+          <div className="col-span-1">
             <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+          </div>
+          <div className="col-span-2 max-sm:col-span-1">    
             <p className="text-gray-700 leading-relaxed mb-4">
               We delivered these designs and explained the benefits of each alteration to our prospect and quickly discovered his funding was not adequate to back our vision.
             </p>
