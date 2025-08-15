@@ -55,14 +55,24 @@ const MobileApps = () => {
         {/* App Toggle Section */}
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Apps</h2>
+            {/* Empty left column */}
           </div>
           <div className="col-span-2">
+            {/* Video Placeholders */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500">Video Placeholder 1</span>
+              </div>
+              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500">Video Placeholder 2</span>
+              </div>
+            </div>
+
             <ToggleGroup 
               type="single" 
               value={selectedApp} 
               onValueChange={(value) => value && setSelectedApp(value)} 
-              className="justify-start mb-8"
+              className="grid grid-cols-2 gap-2 mb-8 w-full"
             >
               <ToggleGroupItem value="app1" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white">
                 App 1: School Safety
