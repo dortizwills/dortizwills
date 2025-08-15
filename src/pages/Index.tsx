@@ -120,6 +120,9 @@ const Index = () => {
                   className="rounded-lg p-6"
                   style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
                 >
+                  <h2 className="text-2xl font-display font-bold mb-6 text-center bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                    Collaboration is my middle name, prior managers and peers agree.
+                  </h2>
                   <TestimonialCarousel testimonials={testimonials} />
                 </div>
               </div>
