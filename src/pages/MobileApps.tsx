@@ -67,25 +67,31 @@ const MobileApps = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 mb-8 w-full">
-            <ToggleGroup 
-              type="single" 
-              value={selectedApp} 
-              onValueChange={(value) => value && setSelectedApp(value)} 
-              className="contents"
+          <ToggleGroup 
+            type="single" 
+            value={selectedApp} 
+            onValueChange={(value) => {
+              if (value) setSelectedApp(value);
+            }}
+            className="grid grid-cols-2 gap-2 mb-8 w-full"
+          >
+            <ToggleGroupItem 
+              value="app1" 
+              className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full"
             >
-              <ToggleGroupItem value="app1" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
-                App 1: School Safety
-              </ToggleGroupItem>
-              <ToggleGroupItem value="app2" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
-                App 2: Coming Soon
-              </ToggleGroupItem>
-            </ToggleGroup>
-          </div>
+              App 1: School Safety
+            </ToggleGroupItem>
+            <ToggleGroupItem 
+              value="app2" 
+              className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full"
+            >
+              App 2: Coming Soon
+            </ToggleGroupItem>
+          </ToggleGroup>
         </div>
       </div>
 
-        {/* The Process Section */}
+      {/* The Process Section */}
       <div className="mb-8">
         <h2 className="text-2xl font-display font-semibold mb-6">The Process</h2>
       </div>
@@ -184,10 +190,20 @@ const MobileApps = () => {
       )}
 
       {selectedApp === "app2" && (
-        <div className="space-y-8">
-          <p className="text-gray-700 leading-relaxed">
-            <strong>App 2 content coming soon!</strong> Check back for details on the second mobile app project.
-          </p>
+        <div className="w-full">
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+            <div className="col-span-1">
+              <h3 className="text-xl font-display font-medium mb-3">App 2: Coming Soon</h3>
+            </div>
+            <div className="col-span-2 max-sm:col-span-1">
+              <p className="text-gray-700 leading-relaxed mb-4">
+                <strong>App 2 content coming soon!</strong> Check back for details on the second mobile app project.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                This section will feature another mobile app design project with similar detailed breakdowns of the process, presentation, and results.
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </ProjectDetailLayout>
