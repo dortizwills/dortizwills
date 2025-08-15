@@ -45,7 +45,7 @@ const MobileApps = () => {
             These apps are a selection of mobile app designs created as promotional apps for 2 potential investing companies. The focus of each app was to provide a vision and brief demonstration of our agency's services.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Each mobile app was delivered to our CEO who would propose these apps to our prospect to secure additional funding for our agency. Following each project we would debrief on the successes and failures the presentation.
+            Each mobile app was delivered to our CEO who would propose these apps to our prospect to secure additional funding for our agency. Following each project we would debrief on the successes and failures of the presentation.
           </p>
         </div>
       </div>
@@ -95,7 +95,7 @@ const MobileApps = () => {
             <strong>The Challenge</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions
+            <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ const MobileApps = () => {
 
                 {/* School Safety: The Presentation */}
                 <div className="col-span-1">
-                  <h3 className="text-xl font-display font-medium mb-3>School Safety: The Presentation</h3>
+                  <h3 className="text-xl font-display font-medium mb-3">School Safety: The Presentation</h3>
                 </div>
                 <div className="col-span-2 max-sm:col-span-1">    
                   <p className="text-gray-700 leading-relaxed mb-6">
