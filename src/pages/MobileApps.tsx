@@ -133,7 +133,7 @@ const MobileApps = () => {
                   <img 
                     src="/lovable-uploads/Mobile 1.1.png" 
                     alt="School Safety App - Mobile Interface 1.1"
-                    className="w-full rounded-lg max-h-96 object-contain"
+                    className="w-full rounded-lg object-contain"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ const MobileApps = () => {
                   <img 
                     src="/lovable-uploads/Mobile 1.2.png" 
                     alt="School Safety App - Mobile Interface 1.2"
-                    className="w-full rounded-lg max-h-96 object-contain"
+                    className="w-full rounded-lg object-contain"
                   />
                 </div>
 
