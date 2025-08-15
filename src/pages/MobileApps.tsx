@@ -1,8 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import ImageModal from '../components/ImageModal';
 
 const MobileApps = () => {
+  const [selectedApp, setSelectedApp] = useState("app1");
+  
   const relatedProjects = [
     {
       title: "Adhere Plus",
@@ -23,7 +27,7 @@ const MobileApps = () => {
       title="Mobile App Explorations" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
-      headerImage="/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png"
+      headerImage="/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png"
       projectDetails={{
         timeline: "4 Weeks Total: 1-3 weeks per app, 2 apps",
         responsibilities: "Branding, User flows, Mobile iOS Design, Prototyping, User Testing",
@@ -40,57 +44,120 @@ const MobileApps = () => {
           </div>
           <div className="col-span-2">
             <p className="text-gray-700 leading-relaxed mb-6">
-              Collection of mobile application designs created for startup companies. These projects focused on delivering apps that effectively communicate the client's vision while exploring innovative brand directions.
+              These apps are a selection of mobile app designs created as promotional apps for 2 potential investing companies. The focus of each app was to provide a vision and brief demonstration of our agency's services.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Each mobile app project begins with extensive user research and competitive analysis to understand the target market and identify opportunities for innovation.
+              Each mobile app was delivered to our CEO who would propose these apps to our prospect to secure additional funding for our agency. Following each project we would debrief on the successes and failures the presentation.
             </p>
           </div>
         </div>
 
-        {/* Process Section */}
+        {/* App Toggle Section */}
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">My Process</h2>
+            <h2 className="text-2xl font-display font-semibold">Apps</h2>
           </div>
           <div className="col-span-2">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-display font-medium mb-3">Research & Discovery</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  I start by understanding the target audience, their pain points, and the competitive landscape. This research phase helps identify unique opportunities and ensures the app will solve real user problems.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-display font-medium mb-3">Wireframing & Prototyping</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Multiple wireframing iterations are created and tested with representative users to ensure optimal flow and functionality. Interactive prototypes help refine the user journey before moving into final visual design.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-display font-medium mb-3">Visual Design</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  The final designs incorporate custom iconography, typography, and color schemes that reflect each brand's unique personality while maintaining usability best practices across different device sizes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+            <ToggleGroup type="single" value={selectedApp} onValueChange={setSelectedApp} className="justify-start mb-8">
+              <ToggleGroupItem value="app1" className="px-6 py-2">
+                App 1: School Safety
+              </ToggleGroupItem>
+              <ToggleGroupItem value="app2" className="px-6 py-2">
+                App 2: Coming Soon
+              </ToggleGroupItem>
+            </ToggleGroup>
 
-        {/* Current Status */}
-        <div className="grid grid-cols-3 gap-8">
-          <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Status</h2>
-          </div>
-          <div className="col-span-2">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              This portfolio section is currently being expanded with detailed case studies from my mobile app design work.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              <strong>More content coming soon!</strong> Check back for in-depth looks at specific mobile app projects, including user research findings, design iterations, and final outcomes.
-            </p>
+            {selectedApp === "app1" && (
+              <div className="space-y-8">
+                {/* The Process */}
+                <div>
+                  <h3 className="text-xl font-display font-medium mb-3">
+                    The Process: Quick & <span className="line-through">Dirty</span> Clean
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    This project was a proposal, consequently every hour spent was technically unfunded so time was of the essence. Of course there's a lot of pieces working behind the scenes, but here's the gist of the requirements:
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-2">
+                    <strong>The End Goal</strong> – Secure funding from a non-profit during an unprompted meeting.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-2">
+                    <strong>The Challenge</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions
+                  </p>
+                </div>
+
+                {/* School Safety: The Presentation */}
+                <div>
+                  <h3 className="text-xl font-display font-medium mb-3">School Safety: The Presentation</h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    After 2 iterations, we had a few key changes from their original app
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        <strong>1.</strong> Our version in set in dark mode to reduce attention from others, which is especially important when an active shooter is searching for staff/students.
+                      </p>
+                      <ImageModal 
+                        src="/lovable-uploads/ceca1e9c-3557-46c6-a57d-ef03fc4e1eae.png" 
+                        alt="School Safety App - Dark Mode Interface"
+                        className="rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        <strong>2.</strong> Create consistent actions on each page. Previously users had 3-4 options for where to request help, give status updates, and react to emergencies.
+                      </p>
+                      <ImageModal 
+                        src="/lovable-uploads/b180fea0-d98d-4083-b9c6-a697467ca196.png" 
+                        alt="School Safety App - Map View with Consistent Actions"
+                        className="rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        <strong>3.</strong> Modernize chats, navigation, statuses, and homepage – Before this redesign the navigation was difficult to locate and distinguish from other actions in app.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ImageModal 
+                          src="/lovable-uploads/4b299b51-b0a6-444d-806c-70ad04977516.png" 
+                          alt="School Safety App - Modernized Chat Interface"
+                          className="rounded-lg"
+                        />
+                        <ImageModal 
+                          src="/lovable-uploads/7ed31d0d-9541-4942-bfcc-f435c331dee2.png" 
+                          alt="School Safety App - Alert Creation Interface"
+                          className="rounded-lg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* The Results */}
+                <div>
+                  <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    We delivered these designs and explained the benefits of each alteration to our prospect and quickly discovered his funding was not adequate to back our vision.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    We instead entered into a verbal agreement that when his non-profit secured funding that we would be able to develop these changes into their app
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {selectedApp === "app2" && (
+              <div className="space-y-8">
+                <p className="text-gray-700 leading-relaxed">
+                  <strong>App 2 content coming soon!</strong> Check back for details on the second mobile app project.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
