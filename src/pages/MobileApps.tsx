@@ -49,42 +49,50 @@ const MobileApps = () => {
           </p>
         </div>
       </div>
+      
 
         {/* App Toggle Section */}
-        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-          <div className="col-span-1">
-            {/* Empty left column */}
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+        <div className="col-span-1">
+          {/* Empty left column */}
+        </div>
+        <div className="col-span-2">
+          {/* Video Placeholders */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Video Placeholder 1</span>
+            </div>
+            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Video Placeholder 2</span>
+            </div>
           </div>
-          <div className="col-span-2">
-            {/* Video Placeholders */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Video Placeholder 1</span>
-              </div>
-              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Video Placeholder 2</span>
-              </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2 mb-8 w-full">
-              <ToggleGroup 
-                type="single" 
-                value={selectedApp} 
-                onValueChange={(value) => value && setSelectedApp(value)} 
-                className="contents"
-              >
-                <ToggleGroupItem value="app1" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
-                  App 1: School Safety
-                </ToggleGroupItem>
-                <ToggleGroupItem value="app2" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
-                  App 2: Coming Soon
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
+          <div className="grid grid-cols-2 gap-2 mb-8 w-full">
+            <ToggleGroup 
+              type="single" 
+              value={selectedApp} 
+              onValueChange={(value) => value && setSelectedApp(value)} 
+              className="contents"
+            >
+              <ToggleGroupItem value="app1" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
+                App 1: School Safety
+              </ToggleGroupItem>
+              <ToggleGroupItem value="app2" className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full">
+                App 2: Coming Soon
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+        </div>
+      </div>
 
         {/* The Process Section */}
-        <div className="mb-10">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+        <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-6">The Process: Quick & <span className="line-through">Dirty</span> Clean</h2>
+        </div>  
+        <div className="col-span-2">
+          {/* paragraph Content */}  
+        
           <p className="text-gray-700 leading-relaxed mb-4">
             This project was a proposal, consequently every hour spent was technically unfunded so time was of the essence. Of course there's a lot of pieces working behind the scenes, but here's the gist of the requirements:
           </p>
@@ -98,6 +106,7 @@ const MobileApps = () => {
             <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions.
           </p>
         </div>
+      </div>
 
             {selectedApp === "app1" && (
               <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
