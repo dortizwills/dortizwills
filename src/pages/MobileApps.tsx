@@ -84,24 +84,20 @@ const MobileApps = () => {
             </div>
 
         {/* The Process Section */}
-        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-          <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">The Process: Quick & <span className="line-through">Dirty</span> Clean</h2>
-          </div>
-          <div className="col-span-2">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              This project was a proposal, consequently every hour spent was technically unfunded so time was of the essence. Of course there's a lot of pieces working behind the scenes, but here's the gist of the requirements:
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-2">
-              <strong>The End Goal</strong> – Secure funding from a non-profit during an unprompted meeting.
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-2">
-              <strong>The Challenge</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions
-            </p>
-          </div>
+        <div className="mb-10">
+          <h2 className="text-2xl font-display font-semibold mb-6">The Process: Quick & <span className="line-through">Dirty</span> Clean</h2>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            This project was a proposal, consequently every hour spent was technically unfunded so time was of the essence. Of course there's a lot of pieces working behind the scenes, but here's the gist of the requirements:
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-2">
+            <strong>The End Goal</strong> – Secure funding from a non-profit during an unprompted meeting.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-2">
+            <strong>The Challenge</strong> – Skip user flow diagrams, personas, modernize branding, and rely design intuition.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            <strong>My Choices</strong> – Create a rough map of how to simplify the interactions from their existing app, update the UI, and rough prototype to visualize new interactions
+          </p>
         </div>
 
             {selectedApp === "app1" && (
