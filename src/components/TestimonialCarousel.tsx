@@ -77,46 +77,31 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
           <blockquote className="text-base md:text-lg mb-6 italic text-white">
             "{testimonials[activeIndex].quote}"
           </blockquote>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="font-medium text-lg text-white">{testimonials[activeIndex].author}</div>
-              <div className="text-gray-300">{testimonials[activeIndex].title}</div>
-            </div>
+          <div className="flex items-center space-x-2 mb-4">
+            <div className="font-medium text-lg text-white">{testimonials[activeIndex].author}</div>
+            <div className="text-gray-300">{testimonials[activeIndex].title}</div>
+          </div>
+          
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handlePrevious}
+              aria-label="Previous testimonial"
+              className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+            >
+              <ArrowLeft size={16} />
+            </Button>
             
-            <div className="flex items-center space-x-4">
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={handlePrevious}
-                aria-label="Previous testimonial"
-                className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
-              >
-                <ArrowLeft size={16} />
-              </Button>
-              
-              <div className="flex items-center space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === activeIndex ? 'bg-white w-4' : 'bg-white/50'
-                    }`}
-                    onClick={() => handleDotClick(index)}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-              
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={handleNext}
-                aria-label="Next testimonial"
-                className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
-              >
-                <ArrowRight size={16} />
-              </Button>
-            </div>
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+              className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+            >
+              <ArrowRight size={16} />
+            </Button>
           </div>
         </div>
       </div>
