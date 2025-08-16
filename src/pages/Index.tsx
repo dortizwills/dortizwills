@@ -103,7 +103,7 @@ const Index = () => {
           }}
         >
           <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+            <div className="grid lg:grid-cols-3 gap-8 items-start" style={{ marginBottom: '0px' }}>
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
                 <img 
