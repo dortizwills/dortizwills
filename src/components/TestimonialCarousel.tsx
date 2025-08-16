@@ -74,12 +74,12 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-left mb-8">
-          <blockquote className="text-base md:text-lg mb-6 italic text-white">
+          <blockquote className="text-base mb-6 italic text-white">
             "{testimonials[activeIndex].quote}"
           </blockquote>
           <div className="flex items-center space-x-2 mb-4">
-            <div className="font-medium text-lg text-white">{testimonials[activeIndex].author}</div>
-            <div className="text-gray-300">{testimonials[activeIndex].title}</div>
+            <div className="font-medium text-sm text-white">{testimonials[activeIndex].author}</div>
+            <div className="text-gray-300 text-sm">{testimonials[activeIndex].title}</div>
           </div>
           
           <div className="flex items-center space-x-4">

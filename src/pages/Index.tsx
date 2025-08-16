@@ -94,7 +94,7 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* What Clients Say Section with updated background */}
         <section 
-          className="mb-16 relative rounded-lg overflow-hidden"
+          className="mb-8 relative rounded-lg overflow-hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -115,12 +115,12 @@ const Index = () => {
               
               {/* Header Content - 2/3 */}
               <div className="lg:col-span-2">
-                <p className="text-lg text-white/80 mb-2 text-center">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+                <p className="text-lg text-white/80 mb-2 text-left">Welcome to Daniel Ortiz-Wills' Portfolio</p>
                 <div 
-                  className="rounded-lg p-6"
+                  className="rounded-lg p-6 pb-8"
                   style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
                 >
-                  <h2 className="text-2xl font-display font-bold mb-6 text-center bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                  <h2 className="text-2xl font-display font-bold mb-6 text-left bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
                     Collaboration is my middle name, prior managers and peers agree.
                   </h2>
                   <TestimonialCarousel testimonials={testimonials} />
