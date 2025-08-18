@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 const About = () => {
   return (
     <div>
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">About Me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">

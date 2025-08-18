@@ -32,7 +32,7 @@ const EventDesigns = () => {
       relatedProjects={relatedProjects}
     >      
       {/* Tradeshow Booth Designs */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Tradeshow Booth Designs</h2>
           <p className="mb-3">
@@ -47,7 +47,7 @@ const EventDesigns = () => {
       </div>
       
       {/* Banner Designs */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Banner Designs</h2>
           <p className="mb-3">
@@ -62,7 +62,7 @@ const EventDesigns = () => {
       </div>
       
       {/* Demo Station Designs */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Demo Station Designs</h2>
           <p className="mb-3">
@@ -77,7 +77,7 @@ const EventDesigns = () => {
       </div>
       
       {/* Stationary Deliverables */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Stationary Deliverables</h2>
           <p className="mb-3">
@@ -96,7 +96,7 @@ const EventDesigns = () => {
       </div>
       
       {/* Collateral in Context */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Collateral in Context</h2>
           <p className="mb-3">
@@ -112,7 +112,7 @@ const EventDesigns = () => {
       </div>
       
       {/* Key Results */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Key Results</h2>
         </div>
