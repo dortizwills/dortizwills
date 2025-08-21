@@ -57,13 +57,27 @@ const MobileApps = () => {
           {/* Empty left column */}
         </div>
         <div className="col-span-2">
-          {/* Video Placeholders */}
+          {/* Videos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Video Placeholder 1</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                className="w-full h-full object-cover"
+              >
+                <source src="/lovable-uploads/School-Defense.mp4" type="video/mp4" />
+              </video>
             </div>
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Video Placeholder 2</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                className="w-full h-full object-cover"
+              >
+                <source src="/lovable-uploads/Pickle Ball.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
 

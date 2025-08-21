@@ -396,7 +396,7 @@ const QuickServices = () => {
           loop 
           className="w-full object-cover bg-white rounded-lg"
         >
-          <source src="/lovable-uploads/01-express-lane/final-service-writer.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4" type="video/mp4" />
         </video>
           
           <br></br>
@@ -430,7 +430,7 @@ const QuickServices = () => {
             loop 
             className="w-full object-cover bg-white rounded-lg"
           >
-            <source src="/lovable-uploads/01-express-lane/final-technician.mp4" type="video/mp4" />
+            <source src="/lovable-uploads/01-express-lane/Express-Lane-Technician-Flow.mp4" type="video/mp4" />
           </video>
           
           <br></br>
