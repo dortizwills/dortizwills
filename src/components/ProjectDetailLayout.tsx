@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -39,8 +38,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   }, []);
 
   return (
-    <div className="sm:pl-[220px] pl-0 group" data-sidebar-collapsed="false">
-      <main className="max-w-7xl mx-auto px-6 py-12 max-sm:px-4 max-sm:max-w-full transition-all duration-300 group-[data-sidebar-collapsed=true]:sm:pl-[70px] group-[data-sidebar-collapsed=true]:sm:max-w-none">
+    <div className="group" data-sidebar-collapsed="false">
+      <main className="max-w-7xl mx-auto px-4 py-12 max-sm:px-4 max-sm:max-w-full transition-all duration-300 group-[data-sidebar-collapsed=true]:sm:pl-[70px] group-[data-sidebar-collapsed=true]:sm:max-w-none">
         <Link to={backTo} className="flex items-center text-designer-red mb-8 hover:underline">
           <ArrowLeft size={20} className="mr-2" />
           <span>{backLabel}</span>
@@ -54,7 +53,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             <img 
               src={headerImage} 
               alt={title} 
-              className="w-full rounded-lg object-cover object-top" 
+              className="w-full rounded-lg object-cover object-center" 
               style={{ aspectRatio: '2.25/1' }}
             />
           ) : (

@@ -6,13 +6,13 @@ import ContactForm from "@/components/ContactForm";
 
 const About = () => {
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">About Me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-display text-3xl mb-6">Hello there!</h2>
+            {/* <h2 className="font-display text-3xl mb-6">Hello there!</h2> */}
             
             <div className="space-y-4 text-gray-700 mb-8">
               <p>

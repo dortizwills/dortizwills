@@ -9,7 +9,7 @@ const ProductDesigns = () => {
       title: "Quick Services",
       description: "Reduce checkout times to 2-3 minutes for automotive shops.",
       path: "/product-designs/quick-services",
-      image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+      image: "/lovable-uploads/01-express-lane/display-express-lane.png"
     },
     {
       title: "Camping Made Easy",
@@ -46,8 +46,8 @@ const ProductDesigns = () => {
   ];
 
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">UXUI Designs</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">

@@ -2,17 +2,23 @@
 import React from 'react';
 import { FileText, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ContactForm from '@/components/ContactForm';
 
 const Resume = () => {
   // Function to handle the PDF download
   const handleDownloadPDF = () => {
-    // Open resume PDF in a new tab
-    window.open('/resume.pdf', '_blank');
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/Daniel Ortiz-Wills Resume.pdf';
+    link.download = 'Daniel Ortiz-Wills Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
           <h1 className="font-display text-5xl font-bold mb-4 sm:mb-0">Resume</h1>
           <Button 
@@ -144,6 +150,18 @@ const Resume = () => {
               </div>
             </div>
           </section>
+        </div>
+
+        {/* Contact Form Section */}
+        <div className="mt-16 pt-12 border-t border-gray-200">
+          <div className="max-w-2xl custom:max-w-none">
+            <h2 className="font-display text-3xl font-bold mb-6">Interested in working together?</h2>
+            <p className="text-gray-600 mb-8">
+              If you'd like to discuss opportunities or have any questions about my experience, 
+              I'd love to hear from you. Let's connect!
+            </p>
+            <ContactForm />
+          </div>
         </div>
       </main>
     </div>

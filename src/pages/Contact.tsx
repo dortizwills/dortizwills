@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,29 +16,58 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Set default subject if empty
-    if (!formData.get('subject') || formData.get('subject') === '') {
-      formData.set('subject', 'Reaching Out');
-    }
+    const contactData = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      subject: (formData.get('subject') as string) || 'Reaching Out',
+      message: formData.get('message') as string
+    };
+
+    console.log('Contact form submission started with data:', contactData);
 
     try {
-      await fetch('https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c', {
-        method: 'POST',
-        body: formData,
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: contactData
       });
-      
+
+      console.log('Supabase function response:', { data, error });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      console.log('Contact form submitted successfully');
+      form.reset(); // Clear the form immediately after successful submission
       setIsSubmitted(true);
-      form.reset();
+      setIsSubmitting(false);
+      
+      // Show appropriate success message based on response
+      if (data?.warning) {
+        toast.success(data.message || 'Message sent successfully!', {
+          description: data.warning
+        });
+      } else {
+        toast.success(data?.message || 'Message sent successfully! I\'ll get back to you within 24 hours.');
+      }
+
     } catch (error) {
       console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
+      
+      // Show more specific error messages
+      let errorMessage = 'Failed to send message. Please try again.';
+      if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      toast.error(errorMessage);
+      setIsSubmitting(false); // Only reset submitting state on error, keep form data
     }
   };
 
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">Contact me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -84,16 +115,13 @@ const Contact = () => {
             </div>
           </div>
           
-          {/* Contact Form with FormSubmit */}
+          {/* Contact Form */}
           <div className="bg-white border border-black p-8 rounded-lg">
             {!isSubmitted ? (
               <>
                 <h2 className="text-2xl font-display font-semibold mb-6">Send a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <input type="hidden" name="_next" value={window.location.href} />
-                  <input type="hidden" name="_captcha" value="false" />
-                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block font-medium mb-1">Name</label>
@@ -154,7 +182,7 @@ const Contact = () => {
               </>
             ) : (
               <div className="text-center">
-                <h2 className="text-2xl font-display font-semibold mb-6">Message Sent</h2>
+                <h2 className="text-2xl font-display font-semibold mb-6">Message Sent!</h2>
                 <div className="space-y-4">
                   <p className="text-gray-600">Thank you for reaching out!</p>
                   <p className="text-gray-600">

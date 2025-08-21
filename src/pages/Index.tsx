@@ -90,11 +90,11 @@ const Index = () => {
   ];
 
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
         {/* What Clients Say Section with updated background */}
         <section 
-          className="mb-16 relative rounded-lg overflow-hidden"
+          className="mb-8 relative rounded-lg overflow-hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
             backgroundSize: 'cover',
@@ -103,11 +103,11 @@ const Index = () => {
           }}
         >
           <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+            <div className="grid lg:grid-cols-3 gap-8 items-start" style={{ marginBottom: '0px' }}>
               {/* Image - 1/3 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-start">
                 <img 
-                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
+                  src="/lovable-uploads/self-photo@2x.png" 
                   alt="Daniel Ortiz-Wills" 
                   className="max-w-full max-h-[400px] object-contain"
                 />
@@ -115,35 +115,38 @@ const Index = () => {
               
               {/* Header Content - 2/3 */}
               <div className="lg:col-span-2">
-                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-                <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                  I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
-                </h1>
-                <p className="text-xl text-white/80 max-w-2xl">
-                  Don't just take my word for it though, see what some of my previous managers and peers have said about me.
-                </p>
+                <p className="text-lg text-white/80 mb-2 text-left">Welcome to Daniel Ortiz-Wills' Portfolio</p>
+                <div 
+                  className="rounded-lg p-6 pb-8"
+                  style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+                >
+                  <h2 className="text-2xl font-display font-bold mb-6 text-left bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                    Collaboration is my middle name, prior managers and peers agree.
+                  </h2>
+                  <TestimonialCarousel testimonials={testimonials} />
+                </div>
               </div>
             </div>
             
             {/* Testimonials Carousel with transparent background */}
-            <div 
+{/*             <div 
               className="rounded-lg p-6"
               style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
             >
               <TestimonialCarousel testimonials={testimonials} />
-            </div>
+            </div> */}
           </div>
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Featured Projects</h2>
+          <h2 className="font-display text-3xl mb-6">UXUI Featured Projects</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
               <Link to="/product-designs/quick-services" className="block">
                 <div className="aspect-[16/9] relative">
-                  <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Featured Project" className="w-full h-full object-cover" />
                 </div>
               </Link>
               <div className="p-6">
@@ -210,9 +213,9 @@ const Index = () => {
               
               {/* Button stretches to fill remaining space */}
               <div className="flex-1 flex items-end">
-                <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+                <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
                   <Link to="/product-designs">
-                    View UXUI Designs
+                    More UXUI Designs
                   </Link>
                 </Button>
               </div>
@@ -221,10 +224,10 @@ const Index = () => {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
+          <h2 className="font-display text-3xl mb-6">Graphic Designs</h2>
           
-          {/* Grid layout for 820px and above */}
-          <div className="hidden min-[820px]:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Grid layout for 680px and above */}
+          <div className="hidden custom:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
@@ -252,50 +255,48 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Card layout for 819px and below - matching first reference image */}
-          <div className="max-[819px]:block hidden space-y-4 mb-8">
+          {/* Horizontal card layout for 680px and below */}
+          <div className="custom:hidden space-y-4 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index}
                 to={design.href}
-                className="block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
               >
-                <div className="flex items-start gap-4 p-4">
-                  <div className="w-20 h-20 flex-shrink-0">
-                    <img 
-                      src={design.imagePath} 
-                      alt={design.title} 
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-display text-lg font-medium mb-1 text-gray-900">{design.title}</h4>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                      {design.description}
-                    </p>
-                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">View Project</span>
-                      <ArrowRightIcon size={12} />
-                    </div>
+                <div className="w-1/3 aspect-[3/2]">
+                  <img 
+                    src={design.imagePath} 
+                    alt={design.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 w-2/3">
+                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                    {design.description}
+                  </p>
+                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="mr-1">View Project</span>
+                    <ArrowRightIcon size={14} />
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* View Visual Designs Button */}
+          {/* View Graphic Designs Button */}
           <div className="flex justify-center">
-              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
+              <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
               <Link to="/graphic-designs">
-                View Visual Designs
+                More Graphic Designs
               </Link>
             </Button>
           </div>
         </section>
 
-        <section>
+        {/* <section>
           <ContactForm />
-        </section>
+        </section> */}
       </main>
     </div>
   );

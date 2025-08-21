@@ -1,4 +1,3 @@
-
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -13,26 +12,22 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Sidebar: FC = () => {
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDesignsOpen, setProductDesignsOpen] = useState(false);
   const [marketingDesignsOpen, setMarketingDesignsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Ensure the page scrolls to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   // Modified toggle functions to ensure only one dropdown is open at a time
   const toggleProductDesigns = () => {
@@ -70,15 +65,19 @@ const Sidebar: FC = () => {
   const menuItems = [
     { name: 'Home', path: '/', icon: <Home size={20} /> },
     { name: 'UXUI Designs', path: '/product-designs', icon: <LayoutDashboard size={20} />, hasDropdown: true, isOpen: productDesignsOpen, toggle: toggleProductDesigns, items: productDesigns },
-    { name: 'Visual Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: toggleMarketingDesigns, items: marketingDesigns },
+    { name: 'Graphic Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: toggleMarketingDesigns, items: marketingDesigns },
     { name: 'About', path: '/about', icon: <HelpCircle size={20} /> },
-    { name: 'Contact me', path: '/contact', icon: <MessageSquare size={20} /> },
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
   ];
 
-  // Mobile Header Component
+  // Close mobile menu when navigation occurs
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
+  // Mobile Header Component with Full-Screen Drawer
   const MobileHeader = () => (
-    <div className="block sm:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
+    <div className="block custom:hidden fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 py-3">
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
@@ -87,103 +86,120 @@ const Sidebar: FC = () => {
             className="h-8 w-8 object-contain"
           />
         </Link>
-        <button onClick={toggleMobileMenu} className="p-2">
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-    </div>
-  );
-
-  const MobileMenu = () => (
-    <div className={`block sm:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className="pt-16 px-4 h-full overflow-y-auto">
-        <nav className="space-y-4 pb-8">
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
-            
-            return (
-              <div key={item.name} className="border-b border-gray-100 pb-4">
-                {item.hasDropdown ? (
-                  <div>
-                    <div 
-                      className={`flex items-center justify-between py-3 ${
-                        isParentActive 
-                          ? 'text-designer-darkgray' 
-                          : 'text-gray-500'
-                      }`}
-                      onClick={item.toggle}
-                    >
-                      <Link 
-                        to={item.path}
-                        className="flex items-center gap-3 text-lg font-medium"
-                      >
-                        <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                          {item.icon}
-                        </span>
-                        <span>{item.name}</span>
-                      </Link>
-                      <button onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        item.toggle();
-                      }}>
-                        {item.isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                      </button>
-                    </div>
-                    
-                    {item.isOpen && (
-                      <div className="ml-6 mt-2 space-y-2">
-                        {item.items?.map((subItem) => {
-                          const isSubActive = location.pathname === subItem.path;
-                          return (
-                            <Link 
-                              key={subItem.name}
-                              to={subItem.path}
-                              className={`block py-2 text-base ${
-                                isSubActive 
-                                  ? 'text-designer-red font-medium' 
-                                  : 'text-gray-500'
-                              }`}
-                            >
-                              {subItem.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link 
-                    to={item.path}
-                    className={`flex items-center gap-3 py-3 text-lg font-medium ${
-                      isActive 
-                        ? 'text-designer-darkgray' 
-                        : 'text-gray-500'
-                    }`}
-                  >
-                    <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                      {item.icon}
-                    </span>
-                    <span>{item.name}</span>
-                  </Link>
-                )}
+        <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <DrawerTrigger asChild>
+            <button className="p-2">
+              <Menu size={24} />
+            </button>
+          </DrawerTrigger>
+          <DrawerContent className="h-full max-h-[100vh] bg-white">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <img 
+                  src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+                  alt="Logo" 
+                  className="h-8 w-8 object-contain"
+                />
+                <button 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2"
+                >
+                  <X size={24} />
+                </button>
               </div>
-            );
-          })}
-        </nav>
+
+              {/* Menu Items */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <nav className="space-y-2">
+                  {menuItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    const isParentActive = item.hasDropdown && (item.items?.some(subItem => location.pathname === subItem.path) || location.pathname === item.path);
+                    
+                    return (
+                      <div key={item.name}>
+                        {item.hasDropdown ? (
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to={item.path}
+                                onClick={handleLinkClick}
+                                className={`flex items-center gap-3 py-3 px-2 rounded-lg flex-1 ${
+                                  isParentActive 
+                                    ? 'text-designer-darkgray font-medium' 
+                                    : 'text-gray-500'
+                                }`}
+                              >
+                           <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
+                                <span className="text-lg">{item.name}</span>
+                              </Link>
+                              <button 
+                                onClick={item.toggle}
+                                className="p-2"
+                              >
+                                {item.isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                              </button>
+                            </div>
+                            
+                            {item.isOpen && (
+                              <div className="ml-6 mt-2 space-y-1">
+                                {item.items?.map((subItem) => {
+                                  const isSubActive = location.pathname === subItem.path;
+                                  return (
+                                    <Link 
+                                      key={subItem.name}
+                                      to={subItem.path}
+                                      onClick={handleLinkClick}
+                                      className={`block py-2 px-3 rounded text-base ${
+                                        isSubActive 
+                                          ? 'text-designer-red font-medium bg-designer-red bg-opacity-10' 
+                                          : 'text-gray-600'
+                                      }`}
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link 
+                            to={item.path}
+                            onClick={handleLinkClick}
+                            className={`flex items-center gap-3 py-3 px-2 rounded-lg ${
+                              isActive 
+                                ? 'text-designer-darkgray font-medium' 
+                                : 'text-gray-500'
+                            }`}
+                          >
+                           <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
+                            <span className="text-lg">{item.name}</span>
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </div>
   );
   
   return (
     <>
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation with Full-Screen Drawer */}
       <MobileHeader />
-      <MobileMenu />
 
       {/* Desktop Sidebar */}
-      <aside className={`hidden sm:block fixed left-0 top-0 h-full w-[220px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
+      <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[244px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
         <div className="flex items-center justify-between mb-8">
           <div className="h-10 w-10 flex items-center justify-center">
             <img 
@@ -217,9 +233,9 @@ const Sidebar: FC = () => {
                           to={item.path}
                           className="flex items-center gap-3 font-medium text-lg"
                         >
-                          <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                            {item.icon}
-                          </span>
+                           <span className={`${isParentActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                             {item.icon}
+                           </span>
                           <span>{item.name}</span>
                         </Link>
                         <button onClick={(e) => {
@@ -231,7 +247,7 @@ const Sidebar: FC = () => {
                       </div>
                       
                       {item.isOpen && (
-                        <ul className="mt-2 ml-8 space-y-2">
+                        <ul className="mt-2 space-y-2" style={{ marginLeft: '48px' }}>
                           {item.items?.map((subItem) => {
                             const isSubActive = location.pathname === subItem.path;
                             return (
@@ -261,9 +277,9 @@ const Sidebar: FC = () => {
                           : 'text-gray-500 hover:text-designer-darkgray transition-colors'
                       }`}
                     >
-                      <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : ""}`}>
-                        {item.icon}
-                      </span>
+                       <span className={`${isActive ? "bg-designer-red bg-opacity-15 p-2 rounded-lg text-designer-red" : "bg-opacity-15 p-2 rounded-lg"}`}>
+                         {item.icon}
+                       </span>
                       <span>{item.name}</span>
                     </Link>
                   )}

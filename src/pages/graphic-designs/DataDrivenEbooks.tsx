@@ -31,7 +31,7 @@ const DataDrivenEbooks = () => {
       }}
       relatedProjects={relatedProjects}
     >
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
         </div>
@@ -49,7 +49,7 @@ const DataDrivenEbooks = () => {
         <h2 className="text-2xl font-display font-semibold mt-10 mb-4">Approach</h2>
       </div>
       
-      <div className="grid grid-cols-3 gap-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div>
           <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Driven%20by%20Results/Drive-results-for-your-auto-shop_ebook_web.pdf">
             <img src="/lovable-uploads/28a671dc-6276-4bb0-9e68-4e916518c0b3.png" alt="Drive Results for Your Auto Shop" className="w-full rounded-lg" />
@@ -73,7 +73,7 @@ const DataDrivenEbooks = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-3 gap-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div>
           <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/5%20Automotive%20Service%20Industry%20Trends/5-automotive-trends-ebook.pdf">
             <img src="/lovable-uploads/a3392651-86b2-47b2-a91e-4b6dffa28164.png" alt="5 Automotive Service Industry Trends" className="w-full rounded-lg" />
@@ -98,7 +98,7 @@ const DataDrivenEbooks = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-3 gap-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div>
           <a href="https://go.shopmonkey.io/hubfs/Resources/ebooks/Ebook%205%20Steps%20to%20Grow%20Your%20Auto%20Shops%20Revenue.pdf">
             <img src="/lovable-uploads/8b8388ab-075c-4476-8564-528aa72b045f.png" alt="5 Steps to Grow Your Auto Shop's Revenue" className="w-full rounded-lg" />
@@ -126,7 +126,7 @@ const DataDrivenEbooks = () => {
         <h2 className="text-2xl font-display font-semibold mb-4">Key Results</h2>
       </div>        
        
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Increased Traffic</h3>
         </div>
@@ -137,7 +137,7 @@ const DataDrivenEbooks = () => {
         </div>
       </div>
        
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Ahead of the Pack</h3>
         </div>
