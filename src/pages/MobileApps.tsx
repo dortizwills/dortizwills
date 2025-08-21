@@ -64,6 +64,7 @@ const MobileApps = () => {
                 autoPlay 
                 muted 
                 loop 
+                playsInline
                 className="w-full object-cover bg-white rounded-lg"
               >
                 <source src="/lovable-uploads/School-Defense.mp4" type="video/mp4" />
@@ -74,6 +75,7 @@ const MobileApps = () => {
                 autoPlay 
                 muted 
                 loop 
+                playsInline
                 className="w-full object-cover bg-white rounded-lg"
               >
                 <source src="/lovable-uploads/Pickle Ball.mp4" type="video/mp4" />
@@ -97,7 +99,7 @@ const MobileApps = () => {
               value="app2" 
               className="px-6 py-2 bg-white border border-gray-200 hover:bg-gray-50 data-[state=on]:bg-designer-red data-[state=on]:text-white w-full"
             >
-              App 2: Coming Soon
+              App 2: Pickle Planner
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
