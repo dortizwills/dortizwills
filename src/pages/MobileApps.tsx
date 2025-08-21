@@ -64,7 +64,7 @@ const MobileApps = () => {
                 autoPlay 
                 muted 
                 loop 
-                className="w-full h-full object-cover"
+                className="w-full object-cover bg-white rounded-lg"
               >
                 <source src="/lovable-uploads/School-Defense.mp4" type="video/mp4" />
               </video>
@@ -74,7 +74,7 @@ const MobileApps = () => {
                 autoPlay 
                 muted 
                 loop 
-                className="w-full h-full object-cover"
+                className="w-full object-cover bg-white rounded-lg"
               >
                 <source src="/lovable-uploads/Pickle Ball.mp4" type="video/mp4" />
               </video>
