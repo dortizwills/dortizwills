@@ -59,7 +59,7 @@ const MobileApps = () => {
         <div className="col-span-2">
           {/* Videos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="aspect-video rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden">
               <video 
                 autoPlay 
                 muted 
@@ -69,7 +69,7 @@ const MobileApps = () => {
                 <source src="/lovable-uploads/School-Defense.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden">
               <video 
                 autoPlay 
                 muted 
