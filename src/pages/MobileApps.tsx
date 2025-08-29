@@ -284,20 +284,6 @@ const MobileApps = () => {
             </div>
           </div>
         </div>
-
-          {/* Section 2 */} 
-          {/* 
-          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-            <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">App 2 Preview</h3>
-            </div>
-            <div className="col-span-2 max-sm:col-span-1">
-              <div className="w-full rounded-lg bg-gray-100 aspect-[3/2] flex items-center justify-center">
-                <span className="text-gray-500">App 2 content coming soon</span>
-              </div>
-            </div>
-          </div> 
-          */}
       )}
     </ProjectDetailLayout>
   );
