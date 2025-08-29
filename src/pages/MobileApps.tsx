@@ -298,7 +298,6 @@ const MobileApps = () => {
             </div>
           </div> 
           */}
-        </div>
       )}
     </ProjectDetailLayout>
   );
