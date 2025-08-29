@@ -203,23 +203,87 @@ const MobileApps = () => {
       )}
 
       {selectedApp === "app2" && (
-        <div className="w-full">
+        <div>
           {/* The Process Section */}
           <div className="mb-8">
             <h2 className="text-2xl font-display font-semibold mb-6">The Process</h2>
           </div>
           
-          {/* Coming Soon */}
+          {/* Div Block 9 */}
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">Visuals Coming Soon</h3>
+              <h3 className="text-xl font-display font-medium mb-3">Meet Short Timelines</h3>
             </div>  
             <div className="col-span-2">
+              {/* paragraph Content */}  
               <p className="text-gray-700 leading-relaxed mb-4">
-                <strong>App 2 content coming soon!</strong> I’ll be able share the process, key decisions, and outcomes just like App 1.
+                This project was an unprompted proposal, consequently every hour spent was technically unfunded so time was of the essence. I was handed branding by our graphic design team and given the following responsibilities:
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-2">
+                <strong>End Goal</strong> – Design and demonstrate a pickleball scheduling app from  0→1 for a potential client.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-2">
+                <strong>Overcome Challenges</strong> – Our team was presenting our proposal at an impromptu meeting with no expressed interest from the target client.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                <strong>Deliver A Brand</strong> – Create a visually stunning interface based on other booking apps, modern branding, and rely on design intuition in 2 days. I delivered 2 primary screens and following this I illustrated how they’d be interacted in a short video.
               </p>
             </div>
           </div>
+
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+            {/* School Safety: The Presentation */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-display font-medium mb-3">The Changes</h3>
+            </div>
+            <div className="col-span-2 max-sm:col-span-1">    
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Below are some of the apps I pulled inspiration from alongside the proposed app for our target client
+              </p>
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    <strong>1.</strong> I offered 2 versions of the homepage to my director and we decided that version 1 would be more appropriate for this client. Distinct, visible, and concise sections that would help users focus on booking courts and view upcoming events quickly.
+
+                  </p>
+                  <img 
+                    src="/lovable-uploads/Pickle 1.1.png" 
+                    alt="School Safety App - Mobile Interface 1.1"
+                    className="w-full rounded-lg object-contain"
+                  />
+                </div>
+
+                <div>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    <strong>2.</strong> I increased visibility and flexibility to the booking section. The user’s primary goal is to find a time that fits their needs, by allowing them to interact with the booking section they can see live changes based on the times they choose. The options we chose were based on flexible lengths, reactive start times, and mapped out court locations – because players prefer some courts to others.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Full Width Mobile 1.2 Image */}
+          <div className="w-full mb-10">
+            <img 
+              src="/lovable-uploads/Pickle 1.2.png" 
+              alt="Pickleball App - Mobile Interface 1.2"
+              className="w-full rounded-lg object-contain"
+            />
+          </div>
+
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
+            {/* The Results */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+            </div>
+            <div className="col-span-2 max-sm:col-span-1">    
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our CEO pitched these designs alongside our branding and explained the benefits of a personalized booking experience for their members. The target buyer agreed to have further conversations after this initial conversation – no contract was made, but we did secure future meetings to discuss our agency’s potential.
+              </p>
+            </div>
+          </div>
+        </div>
 
           {/* Section 2 */} 
           {/* 
