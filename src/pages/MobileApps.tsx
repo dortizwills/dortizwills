@@ -33,6 +33,7 @@ const MobileApps = () => {
         results: "Securing future client partnerships following project funding"
       }}
       showWipTag={true}
+      tagType="NEW"
       relatedProjects={relatedProjects}
     >
         {/* Overview Section */}

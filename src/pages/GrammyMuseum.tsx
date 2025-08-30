@@ -30,6 +30,7 @@ const GrammyMuseum = () => {
           results: "100% client satisfaction, Roadmap in place for development this year"
         }}
         showWipTag={true}
+        tagType="WIP"
         relatedProjects={relatedProjects}
       >
         <div>

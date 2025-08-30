@@ -20,6 +20,7 @@ interface ProjectDetailLayoutProps {
     image?: string;
   }>;
   showWipTag?: boolean;
+  tagType?: 'NEW' | 'WIP';
 }
 
 const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({ 
@@ -30,7 +31,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   headerImage,
   projectDetails,
   relatedProjects,
-  showWipTag = false
+  showWipTag = false,
+  tagType = 'WIP'
 }) => {
   // Ensure the page scrolls to top when mounted
   React.useEffect(() => {
@@ -70,11 +72,18 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {projectDetails && (
           <div className="bg-gray-50 rounded-lg mb-10">
             <div className="p-6">
-              <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-6">
                 <h2 className="text-2xl font-display font-semibold">Project Details</h2>
                 {showWipTag && (
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    WIP
+                  <span 
+                    className={`px-3 py-1 rounded text-sm font-medium ${
+                      tagType === 'NEW' 
+                        ? 'bg-green-500 text-white' 
+                        : 'text-gray-600'
+                    }`}
+                    style={tagType === 'WIP' ? { backgroundColor: '#DAE4E9' } : {}}
+                  >
+                    {tagType}
                   </span>
                 )}
               </div>

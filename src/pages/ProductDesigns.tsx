@@ -71,8 +71,8 @@ const ProductDesigns = () => {
                     <span className={`inline-block text-xs px-2 py-1 rounded ${
                       project.status === 'NEW' 
                         ? 'bg-green-500 text-white' 
-                        : 'bg-purple-500 text-gray-600'
-                    }`}>
+                        : 'text-gray-600'
+                    }`} style={project.status === 'WIP' ? { backgroundColor: '#DAE4E9' } : {}}>
                       {project.status}
                     </span>
                   )}
