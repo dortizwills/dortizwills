@@ -26,45 +26,31 @@ import PasswordProtection from '@/components/PasswordProtection';
 interface AnalyticsData {
   totalVisitors: number;
   totalPageViews: number;
-  averageSessionDuration: number;
-  topPages: Array<{ page: string; views: number }>;
-  topPagesByTime: Array<{ page: string; totalTime: number; averageTime: number; views: number }>;
-  browserStats: Array<{ browser: string; count: number }>;
-  deviceStats: Array<{ device: string; count: number }>;
-  recentVisitors: Array<{
+  activeUsers: number;
+  averageSessionDuration: number;  
+  contactLeads: number;
+  topPages: { page: string; views: number }[];
+  topPagesByTime: { page: string; totalTime: number; averageTime: number; views: number }[];
+  browserStats: { browser: string; count: number }[];
+  deviceStats: { device: string; count: number }[];
+  dailyStats: { date: string; visitors: number; pageViews: number }[];
+  recentVisitors: any[];
+  activeUsersSessions: any[];
+  recentActivity: {
     id: string;
-    browser: string;
-    device: string;
-    country: string;
-    first_visit: string;
-    page_views: number;
-    duration_seconds: number;
-    session_id: string;
-  }>;
-  activeUsers: Array<{
-    session_id: string;
-    browser: string;
-    device: string;
-    current_page: string;
-    last_activity: string;
-  }>;
-  recentActivity: Array<{
-    id: string;
-    session_id: string;
-    page_url: string;
-    page_title: string;
+    type: 'page_entry' | 'link_click' | 'page_exit' | 'page_hidden';
     timestamp: string;
-    browser: string;
-    device: string;
-  }>;
-  contactLeads: Array<{
-    id: string;
-    name: string;
-    email: string;
-    source: string;
-    created_at: string;
-  }>;
-  dailyStats: Array<{ date: string; visitors: number; pageViews: number }>;
+    data: {
+      page_url?: string;
+      page_title?: string;
+      destination?: string;
+      link_text?: string;
+      time_spent?: number;
+      browser?: string;
+      device?: string;
+    };
+  }[];
+  contactLeadsList: any[];
 }
 
 const Analytics: React.FC = () => {
@@ -114,8 +100,23 @@ const Analytics: React.FC = () => {
         !view.page_url.includes('/analytics')
       ) || [];
 
-      // Get recent activity with session info
-      const { data: recentPageViews, error: recentError } = await supabase
+      // Get recent activity with session info - only meaningful events
+      const { data: recentEvents, error: eventsError } = await supabase
+        .from('analytics_events')
+        .select(`
+          *,
+          visitor_sessions!inner(browser, device, session_id)
+        `)
+        .gte('timestamp', startDate.toISOString())
+        .in('session_id', sessionIds)
+        .in('event_type', ['link_click', 'page_exit', 'page_hidden'])
+        .order('timestamp', { ascending: false })
+        .limit(20);
+
+      if (eventsError) throw eventsError;
+
+      // Get page entry events (first page view per session)
+      const { data: pageEntries, error: entriesError } = await supabase
         .from('page_views')
         .select(`
           *,
@@ -125,9 +126,9 @@ const Analytics: React.FC = () => {
         .in('session_id', sessionIds)
         .not('page_url', 'ilike', '%analytics%')
         .order('timestamp', { ascending: false })
-        .limit(50);
+        .limit(10);
 
-      if (recentError) throw recentError;
+      if (entriesError) throw entriesError;
 
       // Get currently active users (last activity within 5 minutes)
       const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
@@ -240,30 +241,44 @@ const Analytics: React.FC = () => {
         last_activity: session.last_activity
       })) || [];
 
-      // Process recent activity
-      const recentActivity = recentPageViews?.map(view => ({
-        id: view.id,
-        session_id: view.session_id,
-        page_url: view.page_url,
-        page_title: view.page_title || view.page_url,
-        timestamp: view.timestamp,
-        browser: view.visitor_sessions?.browser || 'Unknown',
-        device: view.visitor_sessions?.device || 'Unknown'
-      })) || [];
-
       setData({
         totalVisitors,
         totalPageViews,
+        activeUsers: activeSessions?.length || 0,
         averageSessionDuration,
+        contactLeads: leads?.length || 0,
         topPages,
         topPagesByTime,
         browserStats,
         deviceStats,
-        recentVisitors: sessions?.slice(0, 20).map(s => ({ ...s, session_id: s.session_id })) || [],
-        activeUsers,
-        recentActivity,
-        contactLeads: leads || [],
-        dailyStats
+        dailyStats,
+        recentVisitors: sessions?.slice(0, 20) || [],
+        activeUsersSessions: activeSessions || [],
+        recentActivity: [
+          ...pageEntries?.map(entry => ({
+            id: entry.id,
+            type: 'page_entry' as const,
+            timestamp: entry.timestamp,
+            data: {
+              page_url: entry.page_url,
+              page_title: entry.page_title,
+              browser: entry.visitor_sessions?.browser,
+              device: entry.visitor_sessions?.device
+            }
+          })) || [],
+           ...recentEvents?.map(event => ({
+             id: event.id,
+             type: event.event_type as 'link_click' | 'page_exit' | 'page_hidden',
+             timestamp: event.timestamp,
+             data: {
+               ...(typeof event.event_data === 'object' && event.event_data !== null ? event.event_data : {}),
+               page_url: event.page_url,
+               browser: event.visitor_sessions?.browser,
+               device: event.visitor_sessions?.device
+             }
+           })) || []
+        ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 30),
+        contactLeadsList: leads || []
       });
     } catch (error) {
       console.error('Failed to fetch analytics data:', error);
@@ -405,7 +420,7 @@ const Analytics: React.FC = () => {
             <Activity className="h-5 w-5 text-green-500" />
             <h3 className="font-semibold">Active Now</h3>
           </div>
-          <p className="text-3xl font-bold text-green-500">{data?.activeUsers?.length || 0}</p>
+          <p className="text-3xl font-bold text-green-500">{data?.activeUsers || 0}</p>
         </Card>
         
         <Card className="p-6">
@@ -421,7 +436,7 @@ const Analytics: React.FC = () => {
             <Mail className="h-5 w-5 text-primary" />
             <h3 className="font-semibold">Contact Leads</h3>
           </div>
-          <p className="text-3xl font-bold">{data?.contactLeads?.length || 0}</p>
+          <p className="text-3xl font-bold">{data?.contactLeads || 0}</p>
         </Card>
       </div>
 
@@ -486,11 +501,11 @@ const Analytics: React.FC = () => {
                   {liveUpdates ? "Live" : "Static"}
                 </Badge>
               </div>
-              <div className="space-y-3">
-                {data?.activeUsers?.length === 0 ? (
+               <div className="space-y-3">
+                {data?.activeUsersSessions?.length === 0 ? (
                   <p className="text-muted-foreground text-center py-4">No active users</p>
                 ) : (
-                  data?.activeUsers?.map((user) => (
+                  data?.activeUsersSessions?.map((user) => (
                     <div key={user.session_id} className="flex items-center justify-between p-3 border rounded-lg">
                       <div className="flex items-center gap-3">
                         {getDeviceIcon(user.device)}
@@ -520,24 +535,41 @@ const Analytics: React.FC = () => {
                 Recent Activity
               </h3>
               <div className="space-y-2 max-h-96 overflow-y-auto">
-                {data?.recentActivity?.map((activity) => (
-                  <div key={activity.id} className="flex items-center justify-between p-2 border-l-2 border-primary/20 pl-3">
-                    <div className="flex items-center gap-2">
-                      {getDeviceIcon(activity.device)}
-                      <div className="min-w-0">
-                        <p className="font-medium text-sm truncate">
-                          {activity.page_title}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {activity.browser} • {activity.page_url === '/' ? 'Home' : activity.page_url}
-                        </p>
+                {data?.recentActivity.length > 0 ? (
+                  data?.recentActivity?.map((activity) => (
+                    <div key={activity.id} className="flex items-center justify-between p-2 border-l-2 border-primary/20 pl-3">
+                      <div className="flex items-center gap-2">
+                        <div className="flex-shrink-0">
+                          {activity.type === 'page_entry' && (
+                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                          )}
+                          {activity.type === 'link_click' && (
+                            <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                          )}
+                          {(activity.type === 'page_exit' || activity.type === 'page_hidden') && (
+                            <div className="w-2 h-2 bg-orange-500 rounded-full" />
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-medium text-sm truncate">
+                            {activity.type === 'page_entry' && 'Page Visit'}
+                            {activity.type === 'link_click' && 'Link Click'}
+                            {activity.type === 'page_exit' && 'Page Exit'}
+                            {activity.type === 'page_hidden' && 'Tab Hidden'}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {activity.data.browser} • {activity.data.page_url === '/' ? 'Home' : activity.data.page_url}
+                          </p>
+                        </div>
                       </div>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
+                        {formatDate(activity.timestamp)}
+                      </span>
                     </div>
-                    <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
-                      {formatDate(activity.timestamp)}
-                    </span>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <p className="text-center text-muted-foreground py-8">No recent activity</p>
+                )}
               </div>
             </Card>
           </div>
@@ -554,15 +586,13 @@ const Analytics: React.FC = () => {
                     <div>
                       <p className="font-medium">{visitor.browser} on {visitor.device}</p>
                       <p className="text-sm text-muted-foreground">
-                        {formatDate(visitor.first_visit)} • {visitor.page_views} pages
+                        {visitor.page_views} page{visitor.page_views !== 1 ? 's' : ''} • {formatDuration(visitor.duration_seconds)} • from {visitor.referrer || 'Direct'}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="font-medium">{formatDuration(visitor.duration_seconds)}</p>
-                    {visitor.country && (
-                      <p className="text-sm text-muted-foreground">{visitor.country}</p>
-                    )}
+                    <p className="text-sm text-muted-foreground">{formatDate(visitor.first_visit)}</p>
                   </div>
                 </div>
               ))}
@@ -606,22 +636,22 @@ const Analytics: React.FC = () => {
         <TabsContent value="leads" className="space-y-6">
           <Card className="p-6">
             <h3 className="font-semibold mb-4">Contact Leads</h3>
-            <div className="space-y-3">
-              {data?.contactLeads.map((lead) => (
-                <div key={lead.id} className="flex items-center justify-between p-3 border rounded-lg">
-                  <div>
-                    <p className="font-medium">{lead.name}</p>
-                    <p className="text-sm text-muted-foreground">{lead.email}</p>
+              <div className="space-y-3">
+                {data?.contactLeadsList.map((lead) => (
+                  <div key={lead.id} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div>
+                      <p className="font-medium">{lead.name}</p>
+                      <p className="text-sm text-muted-foreground">{lead.email}</p>
+                    </div>
+                    <div className="text-right">
+                      <Badge variant="outline">{lead.source}</Badge>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {formatDate(lead.created_at)}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <Badge variant="outline">{lead.source}</Badge>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {formatDate(lead.created_at)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
           </Card>
         </TabsContent>
       </Tabs>
