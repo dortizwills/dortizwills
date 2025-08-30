@@ -31,6 +31,11 @@ export const useAnalytics = () => {
 
   // Get visitor information
   const getVisitorInfo = (): VisitorInfo => {
+    // Don't track analytics on the analytics page itself
+    if (window.location.pathname === '/analytics') {
+      return null;
+    }
+    
     const userAgent = navigator.userAgent;
     
     // Simple browser detection
@@ -66,10 +71,12 @@ export const useAnalytics = () => {
 
   // Initialize session
   const initializeSession = async () => {
-    if (!hasConsent) return;
+    if (!hasConsent || window.location.pathname === '/analytics') return;
 
     const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const visitorInfo = getVisitorInfo();
+    
+    if (!visitorInfo) return;
     
     try {
       const { error } = await supabase
@@ -112,7 +119,7 @@ export const useAnalytics = () => {
 
   // Track page view with time tracking
   const trackPageView = async (url: string, title: string, sessionId?: string) => {
-    if (!hasConsent || (!session && !sessionId)) return;
+    if (!hasConsent || (!session && !sessionId) || url === '/analytics') return;
 
     const currentSessionId = sessionId || session?.sessionId;
     if (!currentSessionId) return;
@@ -179,7 +186,7 @@ export const useAnalytics = () => {
 
   // Track event
   const trackEvent = async (eventType: string, eventData?: any, pageUrl?: string) => {
-    if (!hasConsent || !session) return;
+    if (!hasConsent || !session || window.location.pathname === '/analytics') return;
 
     try {
       const { error } = await supabase
