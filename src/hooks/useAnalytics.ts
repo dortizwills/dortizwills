@@ -22,6 +22,8 @@ export const useAnalytics = () => {
   const [hasConsent, setHasConsent] = useState<boolean>(false);
   const startTimeRef = useRef<number>(Date.now());
   const lastActivityRef = useRef<number>(Date.now());
+  const isActiveRef = useRef<boolean>(false);
+  const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Check for existing consent
   useEffect(() => {
@@ -117,7 +119,7 @@ export const useAnalytics = () => {
   const [currentPageStartTime, setCurrentPageStartTime] = useState<number>(Date.now());
   const [currentPageUrl, setCurrentPageUrl] = useState<string>(window.location.pathname);
 
-  // Track page view with time tracking
+  // Track page view with time tracking - only on actual navigation
   const trackPageView = async (url: string, title: string, sessionId?: string) => {
     if (!hasConsent || (!session && !sessionId) || url === '/analytics') return;
 
@@ -125,9 +127,9 @@ export const useAnalytics = () => {
     if (!currentSessionId) return;
 
     // Update time spent on previous page if this isn't the first page
-    if (currentPageUrl !== url && session) {
+    if (currentPageUrl !== url && session && currentPageUrl) {
       const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
-      if (timeSpent > 0) {
+      if (timeSpent > 2) { // Only track if spent more than 2 seconds
         try {
           await supabase
             .from('page_views')
@@ -141,6 +143,9 @@ export const useAnalytics = () => {
         }
       }
     }
+
+    // Only track if this is actually a new page view
+    if (currentPageUrl === url) return;
 
     // Set new page tracking
     setCurrentPageUrl(url);
@@ -159,7 +164,7 @@ export const useAnalytics = () => {
 
       if (error) throw error;
 
-      // Update session page views
+      // Update session page views (only increment if actually new)
       if (session) {
         const updatedSession = {
           ...session,
@@ -182,6 +187,17 @@ export const useAnalytics = () => {
     } catch (error) {
       console.error('Failed to track page view:', error);
     }
+  };
+
+  // Track link clicks
+  const trackLinkClick = async (href: string, linkText: string) => {
+    if (!hasConsent || !session || window.location.pathname === '/analytics') return;
+
+    await trackEvent('link_click', {
+      destination: href,
+      link_text: linkText,
+      source_page: window.location.pathname
+    });
   };
 
   // Track event
@@ -224,52 +240,39 @@ export const useAnalytics = () => {
     }
   }, [hasConsent]);
 
-  // Update last activity on user interaction and handle page unload
+  // Track actual user activity and handle page exit
   useEffect(() => {
     if (!hasConsent || !session) return;
 
     const updateActivity = () => {
       lastActivityRef.current = Date.now();
+      isActiveRef.current = true;
+      
+      // Reset inactivity timeout
+      if (inactivityTimeoutRef.current) {
+        clearTimeout(inactivityTimeoutRef.current);
+      }
+      
+      // Set user as inactive after 2 minutes of no activity
+      inactivityTimeoutRef.current = setTimeout(() => {
+        isActiveRef.current = false;
+      }, 2 * 60 * 1000);
+    };
+
+    // Track link clicks
+    const handleLinkClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const link = target.closest('a');
+      if (link && link.href) {
+        trackLinkClick(link.href, link.textContent || link.href);
+      }
     };
 
     // Update time spent on current page when leaving
     const handleBeforeUnload = async () => {
       if (session && currentPageUrl) {
         const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
-        if (timeSpent > 0) {
-          // Use sendBeacon for reliable tracking on page unload
-          const data = {
-            session_id: session.sessionId,
-            page_url: currentPageUrl,
-            time_spent: timeSpent
-          };
-          navigator.sendBeacon('/api/track-time', JSON.stringify(data));
-        }
-      }
-    };
-
-    const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
-    events.forEach(event => {
-      document.addEventListener(event, updateActivity, true);
-    });
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Update session duration every 30 seconds
-    const intervalId = setInterval(async () => {
-      if (session) {
-        const duration = Math.floor((Date.now() - startTimeRef.current) / 1000);
-        await supabase
-          .from('visitor_sessions')
-          .update({
-            duration_seconds: duration,
-            last_activity: new Date(lastActivityRef.current).toISOString()
-          })
-          .eq('session_id', session.sessionId);
-
-        // Also update current page time periodically
-        const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
-        if (timeSpent > 0 && currentPageUrl) {
+        if (timeSpent > 2) { // Only track meaningful time
           try {
             await supabase
               .from('page_views')
@@ -278,18 +281,73 @@ export const useAnalytics = () => {
               .eq('page_url', currentPageUrl)
               .order('timestamp', { ascending: false })
               .limit(1);
+            
+            // Track page exit event
+            await trackEvent('page_exit', {
+              page_url: currentPageUrl,
+              time_spent: timeSpent
+            });
           } catch (error) {
-            console.error('Failed to update page time:', error);
+            console.error('Failed to update time on page:', error);
           }
         }
       }
-    }, 30000);
+    };
+
+    // Track visibility changes
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Page is hidden - track as potential exit
+        if (session && currentPageUrl) {
+          const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
+          if (timeSpent > 2) {
+            trackEvent('page_hidden', {
+              page_url: currentPageUrl,
+              time_spent: timeSpent
+            });
+          }
+        }
+      } else {
+        // Page is visible again
+        updateActivity();
+      }
+    };
+
+    const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    events.forEach(event => {
+      document.addEventListener(event, updateActivity, true);
+    });
+
+    // Listen for link clicks specifically
+    document.addEventListener('click', handleLinkClick, true);
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Update session only when user is active (every 60 seconds instead of 30)
+    const intervalId = setInterval(async () => {
+      if (session && isActiveRef.current) {
+        const duration = Math.floor((Date.now() - startTimeRef.current) / 1000);
+        await supabase
+          .from('visitor_sessions')
+          .update({
+            duration_seconds: duration,
+            last_activity: new Date(lastActivityRef.current).toISOString()
+          })
+          .eq('session_id', session.sessionId);
+      }
+    }, 60000); // Reduced frequency
 
     return () => {
       events.forEach(event => {
         document.removeEventListener(event, updateActivity, true);
       });
+      document.removeEventListener('click', handleLinkClick, true);
       window.removeEventListener('beforeunload', handleBeforeUnload);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (inactivityTimeoutRef.current) {
+        clearTimeout(inactivityTimeoutRef.current);
+      }
       clearInterval(intervalId);
     };
   }, [hasConsent, session, currentPageUrl, currentPageStartTime]);
@@ -299,6 +357,7 @@ export const useAnalytics = () => {
     hasConsent,
     setConsent,
     trackPageView,
-    trackEvent
+    trackEvent,
+    trackLinkClick
   };
 };
