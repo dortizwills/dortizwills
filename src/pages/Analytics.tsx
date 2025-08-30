@@ -26,6 +26,7 @@ interface AnalyticsData {
   totalPageViews: number;
   averageSessionDuration: number;
   topPages: Array<{ page: string; views: number }>;
+  topPagesByTime: Array<{ page: string; totalTime: number; averageTime: number; views: number }>;
   browserStats: Array<{ browser: string; count: number }>;
   deviceStats: Array<{ device: string; count: number }>;
   recentVisitors: Array<{
@@ -60,20 +61,24 @@ const Analytics: React.FC = () => {
       const startDate = new Date();
       startDate.setDate(startDate.getDate() - days);
 
-      // Fetch visitor sessions
+      // Fetch visitor sessions (excluding admin sessions based on user agent pattern)
       const { data: sessions, error: sessionsError } = await supabase
         .from('visitor_sessions')
         .select('*')
         .gte('first_visit', startDate.toISOString())
+        .not('user_agent', 'ilike', '%Daniel%')
+        .not('user_agent', 'ilike', '%ortiz%')
         .order('first_visit', { ascending: false });
 
       if (sessionsError) throw sessionsError;
 
-      // Fetch page views
+      // Fetch page views (only from non-admin sessions)
+      const sessionIds = sessions?.map(s => s.session_id) || [];
       const { data: pageViews, error: pageViewsError } = await supabase
         .from('page_views')
         .select('*')
-        .gte('timestamp', startDate.toISOString());
+        .gte('timestamp', startDate.toISOString())
+        .in('session_id', sessionIds.length > 0 ? sessionIds : ['']);
 
       if (pageViewsError) throw pageViewsError;
 
@@ -100,6 +105,27 @@ const Analytics: React.FC = () => {
       const topPages = Object.entries(pageViewCounts)
         .map(([page, views]) => ({ page, views }))
         .sort((a, b) => b.views - a.views)
+        .slice(0, 10);
+
+      // Top pages by time spent
+      const pageTimeStats = pageViews?.reduce((acc: Record<string, { totalTime: number; views: number }>, view) => {
+        const page = view.page_url;
+        if (!acc[page]) {
+          acc[page] = { totalTime: 0, views: 0 };
+        }
+        acc[page].totalTime += view.time_on_page || 0;
+        acc[page].views += 1;
+        return acc;
+      }, {}) || {};
+
+      const topPagesByTime = Object.entries(pageTimeStats)
+        .map(([page, stats]) => ({
+          page,
+          totalTime: stats.totalTime,
+          averageTime: Math.round(stats.totalTime / stats.views),
+          views: stats.views
+        }))
+        .sort((a, b) => b.totalTime - a.totalTime)
         .slice(0, 10);
 
       // Browser stats
@@ -152,6 +178,7 @@ const Analytics: React.FC = () => {
         totalPageViews,
         averageSessionDuration,
         topPages,
+        topPagesByTime,
         browserStats,
         deviceStats,
         recentVisitors: sessions?.slice(0, 20) || [],
@@ -342,17 +369,36 @@ const Analytics: React.FC = () => {
         </TabsContent>
 
         <TabsContent value="pages" className="space-y-6">
-          <Card className="p-6">
-            <h3 className="font-semibold mb-4">Top Pages</h3>
-            <div className="space-y-3">
-              {data?.topPages.map(({ page, views }) => (
-                <div key={page} className="flex items-center justify-between p-3 border rounded-lg">
-                  <span className="font-medium">{page === '/' ? 'Home' : page}</span>
-                  <Badge variant="secondary">{views} views</Badge>
-                </div>
-              ))}
-            </div>
-          </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <h3 className="font-semibold mb-4">Top Pages by Views</h3>
+              <div className="space-y-3">
+                {data?.topPages.map(({ page, views }) => (
+                  <div key={page} className="flex items-center justify-between p-3 border rounded-lg">
+                    <span className="font-medium">{page === '/' ? 'Home' : page}</span>
+                    <Badge variant="secondary">{views} views</Badge>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <h3 className="font-semibold mb-4">Top Pages by Time Spent</h3>
+              <div className="space-y-3">
+                {data?.topPagesByTime.map(({ page, totalTime, averageTime, views }) => (
+                  <div key={page} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div>
+                      <span className="font-medium block">{page === '/' ? 'Home' : page}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {views} views • avg {formatDuration(averageTime)}
+                      </span>
+                    </div>
+                    <Badge variant="outline">{formatDuration(totalTime)}</Badge>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="leads" className="space-y-6">

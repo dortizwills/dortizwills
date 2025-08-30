@@ -107,12 +107,37 @@ export const useAnalytics = () => {
     }
   };
 
-  // Track page view
+  const [currentPageStartTime, setCurrentPageStartTime] = useState<number>(Date.now());
+  const [currentPageUrl, setCurrentPageUrl] = useState<string>(window.location.pathname);
+
+  // Track page view with time tracking
   const trackPageView = async (url: string, title: string, sessionId?: string) => {
     if (!hasConsent || (!session && !sessionId)) return;
 
     const currentSessionId = sessionId || session?.sessionId;
     if (!currentSessionId) return;
+
+    // Update time spent on previous page if this isn't the first page
+    if (currentPageUrl !== url && session) {
+      const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
+      if (timeSpent > 0) {
+        try {
+          await supabase
+            .from('page_views')
+            .update({ time_on_page: timeSpent })
+            .eq('session_id', currentSessionId)
+            .eq('page_url', currentPageUrl)
+            .order('timestamp', { ascending: false })
+            .limit(1);
+        } catch (error) {
+          console.error('Failed to update time on page:', error);
+        }
+      }
+    }
+
+    // Set new page tracking
+    setCurrentPageUrl(url);
+    setCurrentPageStartTime(Date.now());
 
     try {
       const { error } = await supabase
@@ -121,7 +146,8 @@ export const useAnalytics = () => {
           session_id: currentSessionId,
           page_url: url,
           page_title: title,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          time_on_page: 0
         }]);
 
       if (error) throw error;
@@ -191,7 +217,7 @@ export const useAnalytics = () => {
     }
   }, [hasConsent]);
 
-  // Update last activity on user interaction
+  // Update last activity on user interaction and handle page unload
   useEffect(() => {
     if (!hasConsent || !session) return;
 
@@ -199,10 +225,28 @@ export const useAnalytics = () => {
       lastActivityRef.current = Date.now();
     };
 
+    // Update time spent on current page when leaving
+    const handleBeforeUnload = async () => {
+      if (session && currentPageUrl) {
+        const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
+        if (timeSpent > 0) {
+          // Use sendBeacon for reliable tracking on page unload
+          const data = {
+            session_id: session.sessionId,
+            page_url: currentPageUrl,
+            time_spent: timeSpent
+          };
+          navigator.sendBeacon('/api/track-time', JSON.stringify(data));
+        }
+      }
+    };
+
     const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
     events.forEach(event => {
       document.addEventListener(event, updateActivity, true);
     });
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     // Update session duration every 30 seconds
     const intervalId = setInterval(async () => {
@@ -215,6 +259,22 @@ export const useAnalytics = () => {
             last_activity: new Date(lastActivityRef.current).toISOString()
           })
           .eq('session_id', session.sessionId);
+
+        // Also update current page time periodically
+        const timeSpent = Math.floor((Date.now() - currentPageStartTime) / 1000);
+        if (timeSpent > 0 && currentPageUrl) {
+          try {
+            await supabase
+              .from('page_views')
+              .update({ time_on_page: timeSpent })
+              .eq('session_id', session.sessionId)
+              .eq('page_url', currentPageUrl)
+              .order('timestamp', { ascending: false })
+              .limit(1);
+          } catch (error) {
+            console.error('Failed to update page time:', error);
+          }
+        }
       }
     }, 30000);
 
@@ -222,9 +282,10 @@ export const useAnalytics = () => {
       events.forEach(event => {
         document.removeEventListener(event, updateActivity, true);
       });
+      window.removeEventListener('beforeunload', handleBeforeUnload);
       clearInterval(intervalId);
     };
-  }, [hasConsent, session]);
+  }, [hasConsent, session, currentPageUrl, currentPageStartTime]);
 
   return {
     session,
