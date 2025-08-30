@@ -17,7 +17,9 @@ import {
   MousePointer,
   Calendar,
   BarChart3,
-  RefreshCw
+  RefreshCw,
+  Activity,
+  Wifi
 } from 'lucide-react';
 import PasswordProtection from '@/components/PasswordProtection';
 
@@ -37,6 +39,23 @@ interface AnalyticsData {
     first_visit: string;
     page_views: number;
     duration_seconds: number;
+    session_id: string;
+  }>;
+  activeUsers: Array<{
+    session_id: string;
+    browser: string;
+    device: string;
+    current_page: string;
+    last_activity: string;
+  }>;
+  recentActivity: Array<{
+    id: string;
+    session_id: string;
+    page_url: string;
+    page_title: string;
+    timestamp: string;
+    browser: string;
+    device: string;
   }>;
   contactLeads: Array<{
     id: string;
@@ -53,6 +72,7 @@ const Analytics: React.FC = () => {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
+  const [liveUpdates, setLiveUpdates] = useState(true);
 
   const fetchAnalyticsData = async () => {
     setLoading(true);
@@ -61,26 +81,64 @@ const Analytics: React.FC = () => {
       const startDate = new Date();
       startDate.setDate(startDate.getDate() - days);
 
-      // Fetch visitor sessions (excluding admin sessions based on user agent pattern)
-      const { data: sessions, error: sessionsError } = await supabase
+      // Fetch visitor sessions (excluding admin sessions - filter more broadly)
+      const { data: allSessions, error: sessionsError } = await supabase
         .from('visitor_sessions')
         .select('*')
         .gte('first_visit', startDate.toISOString())
-        .not('user_agent', 'ilike', '%Daniel%')
-        .not('user_agent', 'ilike', '%ortiz%')
         .order('first_visit', { ascending: false });
 
       if (sessionsError) throw sessionsError;
 
+      // Filter out admin sessions more thoroughly
+      const sessions = allSessions?.filter(session => {
+        const ua = session.user_agent?.toLowerCase() || '';
+        return !ua.includes('daniel') && 
+               !ua.includes('ortiz') && 
+               !session.referrer?.includes('localhost') &&
+               session.session_id !== 'admin';
+      }) || [];
+
       // Fetch page views (only from non-admin sessions)
       const sessionIds = sessions?.map(s => s.session_id) || [];
-      const { data: pageViews, error: pageViewsError } = await supabase
+      const { data: allPageViews, error: pageViewsError } = await supabase
         .from('page_views')
         .select('*')
         .gte('timestamp', startDate.toISOString())
         .in('session_id', sessionIds.length > 0 ? sessionIds : ['']);
 
       if (pageViewsError) throw pageViewsError;
+
+      // Filter out analytics page views completely
+      const pageViews = allPageViews?.filter(view => 
+        !view.page_url.includes('/analytics')
+      ) || [];
+
+      // Get recent activity with session info
+      const { data: recentPageViews, error: recentError } = await supabase
+        .from('page_views')
+        .select(`
+          *,
+          visitor_sessions!inner(browser, device, session_id)
+        `)
+        .gte('timestamp', startDate.toISOString())
+        .in('session_id', sessionIds)
+        .not('page_url', 'ilike', '%analytics%')
+        .order('timestamp', { ascending: false })
+        .limit(50);
+
+      if (recentError) throw recentError;
+
+      // Get currently active users (last activity within 5 minutes)
+      const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+      const { data: activeSessions, error: activeError } = await supabase
+        .from('visitor_sessions')
+        .select('*')
+        .gte('last_activity', fiveMinutesAgo)
+        .in('session_id', sessionIds)
+        .order('last_activity', { ascending: false });
+
+      if (activeError) throw activeError;
 
       // Fetch contact leads
       const { data: leads, error: leadsError } = await supabase
@@ -173,6 +231,26 @@ const Analytics: React.FC = () => {
         .map(([date, stats]) => ({ date, ...stats }))
         .sort((a, b) => a.date.localeCompare(b.date));
 
+      // Process active users
+      const activeUsers = activeSessions?.map(session => ({
+        session_id: session.session_id,
+        browser: session.browser || 'Unknown',
+        device: session.device || 'Unknown',
+        current_page: session.landing_page || '/',
+        last_activity: session.last_activity
+      })) || [];
+
+      // Process recent activity
+      const recentActivity = recentPageViews?.map(view => ({
+        id: view.id,
+        session_id: view.session_id,
+        page_url: view.page_url,
+        page_title: view.page_title || view.page_url,
+        timestamp: view.timestamp,
+        browser: view.visitor_sessions?.browser || 'Unknown',
+        device: view.visitor_sessions?.device || 'Unknown'
+      })) || [];
+
       setData({
         totalVisitors,
         totalPageViews,
@@ -181,7 +259,9 @@ const Analytics: React.FC = () => {
         topPagesByTime,
         browserStats,
         deviceStats,
-        recentVisitors: sessions?.slice(0, 20) || [],
+        recentVisitors: sessions?.slice(0, 20).map(s => ({ ...s, session_id: s.session_id })) || [],
+        activeUsers,
+        recentActivity,
         contactLeads: leads || [],
         dailyStats
       });
@@ -197,6 +277,41 @@ const Analytics: React.FC = () => {
       fetchAnalyticsData();
     }
   }, [timeRange, isAuthenticated]);
+
+  // Set up real-time updates
+  useEffect(() => {
+    if (!isAuthenticated || !liveUpdates) return;
+
+    const channel = supabase
+      .channel('analytics-updates')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'page_views'
+        },
+        () => {
+          fetchAnalyticsData();
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public', 
+          table: 'visitor_sessions'
+        },
+        () => {
+          fetchAnalyticsData();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [isAuthenticated, liveUpdates]);
 
   const getDeviceIcon = (device: string) => {
     switch (device.toLowerCase()) {
@@ -252,6 +367,14 @@ const Analytics: React.FC = () => {
             <option value="30d">Last 30 days</option>
             <option value="90d">Last 90 days</option>
           </select>
+          <Button 
+            onClick={() => setLiveUpdates(!liveUpdates)} 
+            variant={liveUpdates ? "default" : "outline"} 
+            size="sm"
+          >
+            <Wifi className="h-4 w-4 mr-2" />
+            Live
+          </Button>
           <Button onClick={fetchAnalyticsData} variant="outline" size="sm">
             <RefreshCw className="h-4 w-4 mr-2" />
             Refresh
@@ -260,7 +383,7 @@ const Analytics: React.FC = () => {
       </div>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
         <Card className="p-6">
           <div className="flex items-center gap-2 mb-2">
             <Users className="h-5 w-5 text-primary" />
@@ -275,6 +398,14 @@ const Analytics: React.FC = () => {
             <h3 className="font-semibold">Page Views</h3>
           </div>
           <p className="text-3xl font-bold">{data?.totalPageViews || 0}</p>
+        </Card>
+        
+        <Card className="p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <Activity className="h-5 w-5 text-green-500" />
+            <h3 className="font-semibold">Active Now</h3>
+          </div>
+          <p className="text-3xl font-bold text-green-500">{data?.activeUsers?.length || 0}</p>
         </Card>
         
         <Card className="p-6">
@@ -297,6 +428,7 @@ const Analytics: React.FC = () => {
       <Tabs defaultValue="overview" className="space-y-6">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="live">Live Activity</TabsTrigger>
           <TabsTrigger value="visitors">Visitors</TabsTrigger>
           <TabsTrigger value="pages">Pages</TabsTrigger>
           <TabsTrigger value="leads">Leads</TabsTrigger>
@@ -334,6 +466,76 @@ const Analytics: React.FC = () => {
                   <div key={browser} className="flex items-center justify-between">
                     <span className="font-medium">{browser}</span>
                     <Badge variant="secondary">{count}</Badge>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="live" className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Currently Active Users */}
+            <Card className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold flex items-center gap-2">
+                  <Activity className="h-5 w-5 text-green-500" />
+                  Active Users
+                </h3>
+                <Badge variant={liveUpdates ? "default" : "secondary"}>
+                  {liveUpdates ? "Live" : "Static"}
+                </Badge>
+              </div>
+              <div className="space-y-3">
+                {data?.activeUsers?.length === 0 ? (
+                  <p className="text-muted-foreground text-center py-4">No active users</p>
+                ) : (
+                  data?.activeUsers?.map((user) => (
+                    <div key={user.session_id} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div className="flex items-center gap-3">
+                        {getDeviceIcon(user.device)}
+                        <div>
+                          <p className="font-medium">{user.browser} on {user.device}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {user.current_page === '/' ? 'Home' : user.current_page}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm text-muted-foreground">
+                          {formatDate(user.last_activity)}
+                        </span>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </Card>
+
+            {/* Recent Activity */}
+            <Card className="p-6">
+              <h3 className="font-semibold mb-4 flex items-center gap-2">
+                <Clock className="h-5 w-5" />
+                Recent Activity
+              </h3>
+              <div className="space-y-2 max-h-96 overflow-y-auto">
+                {data?.recentActivity?.map((activity) => (
+                  <div key={activity.id} className="flex items-center justify-between p-2 border-l-2 border-primary/20 pl-3">
+                    <div className="flex items-center gap-2">
+                      {getDeviceIcon(activity.device)}
+                      <div className="min-w-0">
+                        <p className="font-medium text-sm truncate">
+                          {activity.page_title}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {activity.browser} • {activity.page_url === '/' ? 'Home' : activity.page_url}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
+                      {formatDate(activity.timestamp)}
+                    </span>
                   </div>
                 ))}
               </div>
