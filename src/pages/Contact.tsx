@@ -4,10 +4,12 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { trackEvent, session } = useAnalytics();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +37,23 @@ const Contact = () => {
       if (error) {
         console.error('Supabase function error:', error);
         throw error;
+      }
+
+      // Track contact form submission
+      trackEvent('contact_form_submission', {
+        subject: contactData.subject,
+        hasPhone: false
+      });
+
+      // Store contact lead in database
+      if (session) {
+        await supabase.from('contact_leads').insert([{
+          session_id: session.sessionId,
+          email: contactData.email,
+          name: contactData.name,
+          source: 'contact_form',
+          lead_score: 10
+        }]);
       }
 
       console.log('Contact form submitted successfully');
