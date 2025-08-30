@@ -19,6 +19,7 @@ import {
   BarChart3,
   RefreshCw
 } from 'lucide-react';
+import PasswordProtection from '@/components/PasswordProtection';
 
 interface AnalyticsData {
   totalVisitors: number;
@@ -47,6 +48,7 @@ interface AnalyticsData {
 }
 
 const Analytics: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
@@ -164,8 +166,10 @@ const Analytics: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchAnalyticsData();
-  }, [timeRange]);
+    if (isAuthenticated) {
+      fetchAnalyticsData();
+    }
+  }, [timeRange, isAuthenticated]);
 
   const getDeviceIcon = (device: string) => {
     switch (device.toLowerCase()) {
@@ -189,6 +193,10 @@ const Analytics: React.FC = () => {
       minute: '2-digit'
     });
   };
+
+  if (!isAuthenticated) {
+    return <PasswordProtection onAuthenticated={() => setIsAuthenticated(true)} />;
+  }
 
   if (loading) {
     return (

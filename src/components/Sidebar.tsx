@@ -10,8 +10,7 @@ import {
   ChevronRight,
   ChevronDown,
   Menu,
-  X,
-  BarChart3
+  X
 } from 'lucide-react';
 import {
   Drawer,
@@ -69,7 +68,6 @@ const Sidebar: FC = () => {
     { name: 'Graphic Designs', path: '/graphic-designs', icon: <Image size={20} />, hasDropdown: true, isOpen: marketingDesignsOpen, toggle: toggleMarketingDesigns, items: marketingDesigns },
     { name: 'About', path: '/about', icon: <HelpCircle size={20} /> },
     { name: 'Resume', path: '/resume', icon: <FileText size={20} /> },
-    { name: 'Analytics', path: '/analytics', icon: <BarChart3 size={20} /> },
   ];
 
   // Close mobile menu when navigation occurs
