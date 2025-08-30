@@ -20,10 +20,11 @@ interface AnalyticsData {
   contactLeads: number;
   topPages: { page: string; views: number }[];
   topPagesByTime: { page: string; totalTime: number; averageTime: number; views: number }[];
+  allPages: { page: string; views: number; totalTime: number; averageTime: number }[];
   browserStats: { browser: string; count: number }[];
   deviceStats: { device: string; count: number }[];
   dailyStats: { date: string; visitors: number; pageViews: number }[];
-  recentVisitors: any[];
+  allVisitors: any[];
   activeUsersSessions: any[];
   recentActivity: {
     id: string;
@@ -47,6 +48,7 @@ const Analytics: React.FC = () => {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'custom'>('30d');
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [customDateRange, setCustomDateRange] = useState<{
     startDate: Date | null;
     endDate: Date | null;
@@ -245,9 +247,36 @@ const Analytics: React.FC = () => {
         dailyStatsMap.get(date)!.pageViews += 1;
       });
 
+      // All pages including unvisited ones
+      const allKnownPages = [
+        '/', '/about', '/contact', '/resume', '/analytics',
+        '/product-designs', '/product-designs/quick-services', '/product-designs/camping-app',
+        '/product-designs/gourmet-recipes', '/product-designs/adhere-plus', '/mobile-apps',
+        '/product-designs/mobile-apps', '/product-designs/grammy-museum', '/graphic-designs',
+        '/graphic-designs/data-driven-ebooks', '/graphic-designs/email-marketing',
+        '/graphic-designs/product-illustrations', '/graphic-designs/social-media',
+        '/graphic-designs/case-studies', '/graphic-designs/event-designs'
+      ];
+      
+      const allPages = allKnownPages.map(page => {
+        const pageStats = pageViewCounts[page];
+        const timeStats = pageTimeStats[page] || { totalTime: 0, views: 0 };
+        return {
+          page,
+          views: pageStats || 0,
+          totalTime: timeStats.totalTime,
+          averageTime: timeStats.views > 0 ? Math.round(timeStats.totalTime / timeStats.views) : 0
+        };
+      }).sort((a, b) => b.views - a.views);
+
       const dailyStats = Array.from(dailyStatsMap.entries())
         .map(([date, stats]) => ({ date, ...stats }))
         .sort((a, b) => a.date.localeCompare(b.date));
+
+      // Get all visitors (not just recent 20)
+      const allVisitors = sessions?.sort((a, b) => 
+        new Date(b.first_visit).getTime() - new Date(a.first_visit).getTime()
+      ) || [];
 
       setData({
         totalVisitors,
@@ -257,10 +286,11 @@ const Analytics: React.FC = () => {
         contactLeads: leads?.length || 0,
         topPages,
         topPagesByTime,
+        allPages,
         browserStats,
         deviceStats,
         dailyStats,
-        recentVisitors: sessions?.slice(0, 20) || [],
+        allVisitors,
         activeUsersSessions: activeSessions || [],
         recentActivity: [
           ...pageEntries?.map(entry => ({
@@ -631,25 +661,81 @@ const Analytics: React.FC = () => {
 
           <TabsContent value="visitors" className="space-y-6">
             <Card className="p-6">
-              <h3 className="font-semibold mb-4">Recent Visitors</h3>
-              <div className="space-y-3">
-                {data?.recentVisitors.map((visitor) => (
-                  <div key={visitor.id} className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      {getDeviceIcon(visitor.device)}
-                      <div>
-                        <p className="font-medium">{visitor.browser} on {visitor.device}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {visitor.page_views} page{visitor.page_views !== 1 ? 's' : ''} • {formatDuration(visitor.duration_seconds)} • from {visitor.referrer || 'Direct'}
-                        </p>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold">Daily Visitors</h3>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button variant="outline" size="sm">
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {selectedDate ? format(selectedDate, "MMM dd, yyyy") : "Select date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="end">
+                    <Calendar
+                      mode="single"
+                      selected={selectedDate}
+                      onSelect={setSelectedDate}
+                      className="pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              
+              {/* Daily Visitors Chart */}
+              <div className="mb-6">
+                <div className="h-64 flex items-end justify-center space-x-2">
+                  {data?.dailyStats.slice(-7).map((day, index) => (
+                    <div key={day.date} className="flex flex-col items-center">
+                      <div 
+                        className="bg-primary/80 hover:bg-primary transition-colors rounded-t"
+                        style={{
+                          height: `${Math.max((day.visitors / Math.max(...data.dailyStats.map(d => d.visitors))) * 200, 4)}px`,
+                          width: '32px'
+                        }}
+                      ></div>
+                      <div className="text-xs text-muted-foreground mt-1 rotate-45 origin-bottom-left">
+                        {format(new Date(day.date), "MMM dd")}
+                      </div>
+                      <div className="text-xs font-medium">{day.visitors}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <h4 className="font-medium mb-3">All Visitors</h4>
+              <div className="space-y-3 max-h-96 overflow-y-auto">
+                {data?.allVisitors
+                  .filter(visitor => {
+                    if (!selectedDate) return true;
+                    const visitorDate = new Date(visitor.first_visit).toDateString();
+                    return visitorDate === selectedDate.toDateString();
+                  })
+                  .map((visitor) => (
+                    <div key={visitor.id} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div className="flex items-center gap-3">
+                        {getDeviceIcon(visitor.device)}
+                        <div>
+                          <p className="font-medium">{visitor.browser} on {visitor.device}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {visitor.page_views} page{visitor.page_views !== 1 ? 's' : ''} • {formatDuration(visitor.duration_seconds)} • from {visitor.referrer || 'Direct'}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-medium">{formatDuration(visitor.duration_seconds)}</p>
+                        <p className="text-sm text-muted-foreground">{formatDate(visitor.first_visit)}</p>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="font-medium">{formatDuration(visitor.duration_seconds)}</p>
-                      <p className="text-sm text-muted-foreground">{formatDate(visitor.first_visit)}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                {data?.allVisitors.filter(visitor => {
+                  if (!selectedDate) return true;
+                  const visitorDate = new Date(visitor.first_visit).toDateString();
+                  return visitorDate === selectedDate.toDateString();
+                }).length === 0 && (
+                  <p className="text-center text-muted-foreground py-8">
+                    No visitors found for {selectedDate ? format(selectedDate, "MMM dd, yyyy") : "selected date"}
+                  </p>
+                )}
               </div>
             </Card>
           </TabsContent>
@@ -691,6 +777,34 @@ const Analytics: React.FC = () => {
                 </div>
               </Card>
             </div>
+            
+            {/* All Pages including unvisited */}
+            <Card className="p-6">
+              <h3 className="font-semibold mb-4">All Pages</h3>
+              <div className="space-y-2 max-h-96 overflow-y-auto">
+                {data?.allPages.map((page) => (
+                  <div key={page.page} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div>
+                      <span className="font-medium">
+                        {page.page === '/' ? 'Home' : page.page}
+                      </span>
+                      {page.views === 0 && (
+                        <Badge variant="outline" className="ml-2 text-xs">Unvisited</Badge>
+                      )}
+                    </div>
+                    <div className="text-right">
+                      <div className="font-medium">{page.views} views</div>
+                      <div className="text-sm text-muted-foreground">
+                        {page.totalTime > 0 ? 
+                          `${Math.floor(page.averageTime / 60)}m ${page.averageTime % 60}s avg` : 
+                          'No time data'
+                        }
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
           </TabsContent>
 
           <TabsContent value="leads" className="space-y-6">
