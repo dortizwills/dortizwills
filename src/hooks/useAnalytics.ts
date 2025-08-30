@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
+// Debug React hooks availability
+console.log('useAnalytics - React hooks available:', { useEffect, useRef, useState });
+
 interface AnalyticsSession {
   sessionId: string;
   startTime: number;
