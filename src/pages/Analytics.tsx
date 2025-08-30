@@ -57,15 +57,34 @@ const Analytics: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
+  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'custom'>('30d');
+  const [customDateRange, setCustomDateRange] = useState<{
+    startDate: Date | null;
+    endDate: Date | null;
+  }>({
+    startDate: null,
+    endDate: null
+  });
   const [liveUpdates, setLiveUpdates] = useState(true);
 
   const fetchAnalyticsData = async () => {
     setLoading(true);
     try {
-      const days = timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : 90;
-      const startDate = new Date();
-      startDate.setDate(startDate.getDate() - days);
+      let startDate: Date;
+      let endDate = new Date();
+
+      if (timeRange === 'custom') {
+        if (!customDateRange.startDate || !customDateRange.endDate) {
+          setLoading(false);
+          return;
+        }
+        startDate = customDateRange.startDate;
+        endDate = customDateRange.endDate;
+      } else {
+        const days = timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : 90;
+        startDate = new Date();
+        startDate.setDate(startDate.getDate() - days);
+      }
 
       // Fetch visitor sessions (excluding admin sessions - filter more broadly)
       const { data: allSessions, error: sessionsError } = await supabase
@@ -123,6 +142,9 @@ const Analytics: React.FC = () => {
           visitor_sessions!inner(browser, device, session_id)
         `)
         .gte('timestamp', startDate.toISOString())
+        .lte('timestamp', endDate.toISOString())
+        .lte('timestamp', endDate.toISOString())
+      .lte('timestamp', endDate.toISOString())
         .in('session_id', sessionIds)
         .not('page_url', 'ilike', '%analytics%')
         .order('timestamp', { ascending: false })
@@ -146,6 +168,7 @@ const Analytics: React.FC = () => {
         .from('contact_leads')
         .select('*')
         .gte('created_at', startDate.toISOString())
+        .lte('created_at', endDate.toISOString())
         .order('created_at', { ascending: false });
 
       if (leadsError) throw leadsError;
@@ -172,12 +195,16 @@ const Analytics: React.FC = () => {
         if (!acc[page]) {
           acc[page] = { totalTime: 0, views: 0 };
         }
-        acc[page].totalTime += view.time_on_page || 0;
-        acc[page].views += 1;
+        const timeOnPage = view.time_on_page || 0;
+        if (timeOnPage > 0) { // Only count meaningful time
+          acc[page].totalTime += timeOnPage;
+          acc[page].views += 1;
+        }
         return acc;
       }, {}) || {};
 
       const topPagesByTime = Object.entries(pageTimeStats)
+        .filter(([_, stats]) => stats.totalTime > 0) // Only include pages with recorded time
         .map(([page, stats]) => ({
           page,
           totalTime: stats.totalTime,
@@ -291,7 +318,7 @@ const Analytics: React.FC = () => {
     if (isAuthenticated) {
       fetchAnalyticsData();
     }
-  }, [timeRange, isAuthenticated]);
+  }, [timeRange, isAuthenticated, customDateRange]);
 
   // Set up real-time updates
   useEffect(() => {
