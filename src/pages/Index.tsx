@@ -195,14 +195,14 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/product-designs/adhere-plus" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
+              <Link to="/mobile-apps" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
                 <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Adhere+" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Adhere+</h4>
+                  <h4 className="font-display text-lg mb-1">Mobile Apps</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    0 to 1 web and branding design for a Adhere Plus's flagship app
+                    0 to 1 mobile and brand design for various agency clients
                   </p>
                   <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>

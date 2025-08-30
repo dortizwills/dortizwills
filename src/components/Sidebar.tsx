@@ -48,8 +48,8 @@ const Sidebar: FC = () => {
     { name: 'Quick Services', path: '/product-designs/quick-services' },
     { name: 'Camping App', path: '/product-designs/camping-app' },
     { name: 'Gourmet Recipes', path: '/product-designs/gourmet-recipes' },
-    { name: 'Adhere Plus', path: '/product-designs/adhere-plus' },
     { name: 'Mobile Apps', path: '/mobile-apps' },
+    { name: 'Adhere Plus', path: '/product-designs/adhere-plus' },
     { name: 'Non-Profit Redesign', path: '/product-designs/grammy-museum' }
   ];
   

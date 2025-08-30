@@ -30,17 +30,17 @@ const ProductDesigns = () => {
       image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
     },
     {
+      title: "Mobile App Portfolio",
+      description: "View a collection of my mobile app design work across various industries and platforms.",
+      path: "/mobile-apps",
+      image: "/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png",
+      status: "NEW"
+    },
+    {
       title: "Non-Profit Redesign",
       description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
       path: "/product-designs/grammy-museum",
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png",
-      status: "WIP"
-    },
-    {
-      title: "Mobile App Portfolio",
-      description: "View a collection of my mobile app design work across various industries and platforms.",
-      path: "/mobile-apps",
-      image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png",
       status: "WIP"
     }
   ];
@@ -68,7 +68,11 @@ const ProductDesigns = () => {
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-display text-xl font-medium">{project.title}</h3>
                   {project.status && (
-                    <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">
+                    <span className={`inline-block text-xs px-2 py-1 rounded ${
+                      project.status === 'NEW' 
+                        ? 'bg-green-500 text-white' 
+                        : 'bg-purple-500 text-gray-600'
+                    }`}>
                       {project.status}
                     </span>
                   )}
