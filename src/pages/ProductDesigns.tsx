@@ -58,20 +58,11 @@ const ProductDesigns = () => {
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               <div className="aspect-video bg-designer-gray flex items-center justify-center overflow-hidden relative">
-                {project.title === "Non-Profit Redesign" ? (
-                  <iframe 
-                    src="https://grammymuseumms.org/" 
-                    title="Grammy Museum MS Live Preview"
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                  />
-                ) : (
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
