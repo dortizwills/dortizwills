@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
 import { ArrowRightIcon, Award, TrendingUp, Image, Users, Layout, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 
 const Index = () => {
@@ -12,19 +13,22 @@ const Index = () => {
       title: 'Data-Driven eBooks',
       description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
       href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png'
+      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png',
+      tags: ['Shopmonkey', 'Graphics', '2 months']
     },
     {
       title: 'Email Marketing Campaigns',
       description: 'Email marketing campaigns for an audience that is not reading inclined',
       href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png'
+      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png',
+      tags: ['Shopmonkey', 'Marketing', '2 months']
     },
     {
       title: 'Social Media Campaigns',
       description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
       href: '/graphic-designs/social-media',
-      imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png'
+      imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
+      tags: ['Shopmonkey', 'Graphics', '2-3 days']
     }
   ];
 
@@ -151,6 +155,11 @@ const Index = () => {
               </Link>
               <div className="p-6">
                 <h3 className="font-display text-2xl mb-2">Express Lane — Completing 15 minute services in 3 minutes</h3>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="secondary">Shopmonkey</Badge>
+                  <Badge variant="secondary">Web App</Badge>
+                  <Badge variant="secondary">3 months</Badge>
+                </div>
                 <p className="text-gray-600 mb-4">
                   Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                 </p>
@@ -169,6 +178,11 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Camping Made Easy</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    <Badge variant="secondary" className="text-xs">Freelance</Badge>
+                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
+                    <Badge variant="secondary" className="text-xs">3 months</Badge>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
                   </p>
@@ -185,6 +199,11 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    <Badge variant="secondary" className="text-xs">Case Study</Badge>
+                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
+                    <Badge variant="secondary" className="text-xs">2 months</Badge>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
@@ -201,6 +220,11 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">Mobile Apps</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    <Badge variant="secondary" className="text-xs">Raborn Media</Badge>
+                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
+                    <Badge variant="secondary" className="text-xs">1 month</Badge>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     0 to 1 mobile and brand design for various agency clients
                   </p>
@@ -243,6 +267,11 @@ const Index = () => {
                 </div>
                 <div className="p-6">
                   <h4 className="font-display text-xl mb-2">{design.title}</h4>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {design.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary">{tag}</Badge>
+                    ))}
+                  </div>
                   <p className="text-gray-600 mb-4">
                     {design.description}
                   </p>
@@ -272,6 +301,11 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3">
                   <h4 className="font-display text-lg mb-1">{design.title}</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {design.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary" className="text-xs">{tag}</Badge>
+                    ))}
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     {design.description}
                   </p>
