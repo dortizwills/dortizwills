@@ -186,7 +186,7 @@ const Index = () => {
                   <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Shopmonkey's Express Lane</h4>
+                  <h4 className="font-display text-lg mb-1">Express Lane - Mobile</h4>
                   <div className="flex flex-wrap gap-1 mb-2">
                     <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
                     <Badge variant="secondary" className="text-xs">Web App</Badge>
