@@ -57,11 +57,6 @@ const GrammyMuseum = () => {
             </div>
             
             <img 
-              src="/lovable-uploads/Grammy Museum/Slide 1.png" 
-              alt="Grammy Museum MS Redesign - Slide 1" 
-              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-            />
-            <img 
               src="/lovable-uploads/Grammy Museum/Slide 2.png" 
               alt="Grammy Museum MS Redesign - Slide 2" 
               className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
