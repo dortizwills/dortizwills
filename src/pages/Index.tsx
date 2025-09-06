@@ -237,6 +237,7 @@ const Index = () => {
                     <Badge variant="secondary" className="text-xs">Raborn Media</Badge>
                     <Badge variant="secondary" className="text-xs">Mobile App</Badge>
                     <Badge variant="secondary" className="text-xs">1 month</Badge>
+                    <Badge className="bg-green-500 text-white hover:bg-green-500/80 text-xs">NEW</Badge>
                   </div>
                 </div>
               </Link>
