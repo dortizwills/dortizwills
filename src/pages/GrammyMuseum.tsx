@@ -1,7 +1,6 @@
 
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
-import ImageModal from '../components/ImageModal';
 
 const GrammyMuseum = () => {
   const relatedProjects = [
@@ -34,46 +33,53 @@ const GrammyMuseum = () => {
         tagType="WIP"
         relatedProjects={relatedProjects}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-1">
             <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
             
             <p className="mb-6">
               This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
             </p>
-            
+          </div>
+          
+          <div className="lg:col-span-2 space-y-6">
             <div className="mb-6">
               <video 
                 src="/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4" 
-                controls 
-                className="w-full rounded-lg"
-                poster="/lovable-uploads/Grammy Museum/Slide 1.png"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
               >
                 Your browser does not support the video tag.
               </video>
             </div>
-          </div>
-          
-          <div className="space-y-6">
-            <ImageModal 
+            
+            <img 
               src="/lovable-uploads/Grammy Museum/Slide 1.png" 
               alt="Grammy Museum MS Redesign - Slide 1" 
+              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
             />
-            <ImageModal 
+            <img 
               src="/lovable-uploads/Grammy Museum/Slide 2.png" 
               alt="Grammy Museum MS Redesign - Slide 2" 
+              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
             />
-            <ImageModal 
+            <img 
               src="/lovable-uploads/Grammy Museum/Slide 3.png" 
               alt="Grammy Museum MS Redesign - Slide 3" 
+              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
             />
-            <ImageModal 
+            <img 
               src="/lovable-uploads/Grammy Museum/Slide 4.png" 
               alt="Grammy Museum MS Redesign - Slide 4" 
+              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
             />
-            <ImageModal 
+            <img 
               src="/lovable-uploads/Grammy Museum/Slide 5.png" 
               alt="Grammy Museum MS Redesign - Slide 5" 
+              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
             />
           </div>
         </div>
