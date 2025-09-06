@@ -8,7 +8,7 @@ const GrammyMuseum = () => {
       title: "Mobile Apps",
       description: "Collection of mobile app designs for various clients across different industries.",
       path: "/mobile-apps",
-      image: "/lovable-uploads/Mobile 1.1.png"
+      image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png"
     },
     {
       title: "Adhere Plus",

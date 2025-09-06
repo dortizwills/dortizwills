@@ -187,7 +187,7 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-45" />
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                   <h4 className="font-display text-lg mb-1 pr-8">Express Lane - Mobile</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
@@ -207,7 +207,7 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-45" />
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                   <h4 className="font-display text-lg mb-1 pr-8">Gourmet Recipes Anytime</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
@@ -223,11 +223,11 @@ const Index = () => {
 
               <Link to="/mobile-apps" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group relative">
                 <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/Mobile 1.1.png" alt="Mobile Apps" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-45" />
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                   <h4 className="font-display text-lg mb-1 pr-8">Mobile Apps</h4>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
