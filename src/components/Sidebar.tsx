@@ -50,7 +50,7 @@ const Sidebar: FC = () => {
     { name: 'Gourmet Recipes', path: '/product-designs/gourmet-recipes' },
     { name: 'Mobile Apps', path: '/mobile-apps' },
     { name: 'Adhere Plus', path: '/product-designs/adhere-plus' },
-    { name: 'Non-Profit Redesign', path: '/product-designs/grammy-museum' }
+    { name: 'Grammy Museum MS Redesign', path: '/product-designs/grammy-museum' }
   ];
   
   const marketingDesigns = [

@@ -12,7 +12,7 @@ const QuickServices = () => {
       image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
     },
     {
-      title: "Non-Profit Redesign",
+      title: "Grammy Museum MS Redesign",
       description: "Redesigning the a Non-Profit Museum's digital experience to showcase music history and education.",
       path: "/product-designs/grammy-museum",
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
