@@ -149,14 +149,14 @@ const Index = () => {
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
                 <Link to="/grammy-museum" className="block">
-                <div className="aspect-[16/9] relative overflow-hidden">
+                <div className="relative overflow-hidden">
                   <video 
                     src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto"
                     style={{ pointerEvents: 'none' }}
                   />
                 </div>
