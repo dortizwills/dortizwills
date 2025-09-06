@@ -148,7 +148,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-                <Link to="/grammy-museum" className="block">
+              <Link to="/product-designs/grammy-museum" className="block">
                 <div className="relative overflow-hidden">
                   <video 
                     src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
@@ -172,7 +172,7 @@ const Index = () => {
                 <p className="text-gray-600 mb-4">
                   Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
                 </p>
-                <Link to="/grammy-museum" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                <Link to="/product-designs/grammy-museum" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
                   <span className="mr-2">View Project</span>
                   <ArrowRightIcon size={16} />
                 </Link>
