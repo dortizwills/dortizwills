@@ -148,22 +148,23 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-              <Link to="/product-designs/quick-services" className="block">
+              <Link to="/grammy-museum" className="block">
                 <div className="aspect-[16/9] relative">
-                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Featured Project" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png" alt="Featured Project" className="w-full h-full object-cover" />
                 </div>
               </Link>
               <div className="p-6">
-                <h3 className="font-display text-2xl mb-2">Express Lane — Completing 15 minute services in 3 minutes</h3>
+                <h3 className="font-display text-2xl mb-2">Grammy Museum MS Redesign</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <Badge variant="secondary">Shopmonkey</Badge>
+                  <Badge variant="secondary">Raborn Media</Badge>
                   <Badge variant="secondary">Web App</Badge>
-                  <Badge variant="secondary">3 months</Badge>
+                  <Badge variant="secondary">2 months</Badge>
+                  <Badge className="bg-green-500 text-white hover:bg-green-500/80">NEW</Badge>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
+                  Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
                 </p>
-                <Link to="/product-designs/quick-services" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                <Link to="/grammy-museum" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
                   <span className="mr-2">View Project</span>
                   <ArrowRightIcon size={16} />
                 </Link>
@@ -172,19 +173,19 @@ const Index = () => {
             
             {/* Side Featured Projects - Takes 1/3 of the width on large screens, stretches to align with main project */}
             <div className="space-y-6 flex flex-col h-full">
-              <Link to="/product-designs/camping-app" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
+              <Link to="/product-designs/quick-services" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
                 <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Camping Made Easy</h4>
+                  <h4 className="font-display text-lg mb-1">Express Lane — Completing 15 minute services in 3 minutes</h4>
                   <div className="flex flex-wrap gap-1 mb-2">
-                    <Badge variant="secondary" className="text-xs">Freelance</Badge>
-                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
+                    <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
+                    <Badge variant="secondary" className="text-xs">Web App</Badge>
                     <Badge variant="secondary" className="text-xs">3 months</Badge>
                   </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
+                    Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                   </p>
                   <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
                     <span className="mr-1">View Project</span>
