@@ -148,9 +148,17 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Featured Project - Takes 2/3 of the width on large screens */}
             <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-              <Link to="/grammy-museum" className="block">
-                <div className="aspect-[16/9] relative">
-                  <img src="/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png" alt="Featured Project" className="w-full h-full object-cover" />
+                <Link to="/grammy-museum" className="block">
+                <div className="aspect-[16/9] relative overflow-hidden">
+                  <video 
+                    src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                    style={{ pointerEvents: 'none' }}
+                  />
                 </div>
               </Link>
               <div className="p-6">
@@ -178,7 +186,7 @@ const Index = () => {
                   <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Express Lane — Completing 15 minute services in 3 minutes</h4>
+                  <h4 className="font-display text-lg mb-1">Shopmonkey's Express Lane</h4>
                   <div className="flex flex-wrap gap-1 mb-2">
                     <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
                     <Badge variant="secondary" className="text-xs">Web App</Badge>
