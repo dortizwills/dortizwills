@@ -98,6 +98,6 @@
   }
   
   .clip-path-diagonal {
-    clip-path: polygon(50% 0%, 100% 0, 100% 50%);
+    clip-path: polygon(40% 0%, 100% 0, 100% 60%);
   }
 }

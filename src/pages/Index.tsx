@@ -184,8 +184,8 @@ const Index = () => {
               <Link to="/product-designs/quick-services" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group">
                 <div className="w-1/3 aspect-[3/2] relative">
                   <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
-                  <div className="absolute top-0 right-0 w-8 h-8 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-start justify-end p-1">
-                    <ArrowRightIcon size={12} className="text-white rotate-[-45deg] mt-0.5 mr-0.5" />
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center">
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                 </div>
                 <div className="p-4 w-2/3">
@@ -204,8 +204,8 @@ const Index = () => {
               <Link to="/product-designs/gourmet-recipes" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group">
                 <div className="w-1/3 aspect-[3/2] relative">
                   <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
-                  <div className="absolute top-0 right-0 w-8 h-8 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-start justify-end p-1">
-                    <ArrowRightIcon size={12} className="text-white rotate-[-45deg] mt-0.5 mr-0.5" />
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center">
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                 </div>
                 <div className="p-4 w-2/3">
@@ -224,8 +224,8 @@ const Index = () => {
               <Link to="/mobile-apps" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group">
                 <div className="w-1/3 aspect-[3/2] relative">
                   <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
-                  <div className="absolute top-0 right-0 w-8 h-8 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-start justify-end p-1">
-                    <ArrowRightIcon size={12} className="text-white rotate-[-45deg] mt-0.5 mr-0.5" />
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center">
+                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
                   </div>
                 </div>
                 <div className="p-4 w-2/3">
