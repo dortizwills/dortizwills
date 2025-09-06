@@ -24,48 +24,80 @@ const GrammyMuseum = () => {
         backTo="/product-designs"
         backLabel="Back to UXUI Designs"
         headerImage="/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
-        projectDetails={{
-          timeline: "6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs",
-          responsibilities: "Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management",
-          overview: "This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.",
-          results: "100% client satisfaction, Roadmap in place for development this year"
-        }}
-        showWipTag={true}
-        tagType="NEW"
+        showWipTag={false}
         relatedProjects={relatedProjects}
       >
-        <div className="space-y-6">
-          <video 
-            src="/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4" 
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full rounded-lg border border-[#F1F1FA]"
-          >
-            Your browser does not support the video tag.
-          </video>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-1">
+            <div className="sticky top-8">
+              <div className="bg-gray-50 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <h2 className="text-2xl font-display font-semibold">Project Details</h2>
+                  <span className="px-3 py-1 rounded text-sm font-medium bg-green-500 text-white">
+                    NEW
+                  </span>
+                </div>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-display font-semibold mb-3">Timeline</h3>
+                    <p className="text-sm text-muted-foreground">6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-display font-semibold mb-3">Responsibilities</h3>
+                    <p className="text-sm text-muted-foreground">Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-display font-semibold mb-3">Project Overview</h3>
+                    <p className="text-sm text-muted-foreground">
+                      This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-display font-semibold mb-3">Results</h3>
+                    <p className="text-sm text-muted-foreground">100% client satisfaction, Roadmap in place for development this year</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
-          <img 
-            src="/lovable-uploads/Grammy Museum/Slide 2.png" 
-            alt="Grammy Museum MS Redesign - Slide 2" 
-            className="w-full rounded-lg border border-[#F1F1FA]"
-          />
-          <img 
-            src="/lovable-uploads/Grammy Museum/Slide 3.png" 
-            alt="Grammy Museum MS Redesign - Slide 3" 
-            className="w-full rounded-lg border border-[#F1F1FA]"
-          />
-          <img 
-            src="/lovable-uploads/Grammy Museum/Slide 4.png" 
-            alt="Grammy Museum MS Redesign - Slide 4" 
-            className="w-full rounded-lg border border-[#F1F1FA]"
-          />
-          <img 
-            src="/lovable-uploads/Grammy Museum/Slide 5.png" 
-            alt="Grammy Museum MS Redesign - Slide 5" 
-            className="w-full rounded-lg border border-[#F1F1FA]"
-          />
+          <div className="lg:col-span-2 space-y-6">
+            <video 
+              src="/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4" 
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-lg border border-[#F1F1FA]"
+            >
+              Your browser does not support the video tag.
+            </video>
+            
+            <img 
+              src="/lovable-uploads/Grammy Museum/Slide 2.png" 
+              alt="Grammy Museum MS Redesign - Slide 2" 
+              className="w-full rounded-lg border border-[#F1F1FA]"
+            />
+            <img 
+              src="/lovable-uploads/Grammy Museum/Slide 3.png" 
+              alt="Grammy Museum MS Redesign - Slide 3" 
+              className="w-full rounded-lg border border-[#F1F1FA]"
+            />
+            <img 
+              src="/lovable-uploads/Grammy Museum/Slide 4.png" 
+              alt="Grammy Museum MS Redesign - Slide 4" 
+              className="w-full rounded-lg border border-[#F1F1FA]"
+            />
+            <img 
+              src="/lovable-uploads/Grammy Museum/Slide 5.png" 
+              alt="Grammy Museum MS Redesign - Slide 5" 
+              className="w-full rounded-lg border border-[#F1F1FA]"
+            />
+          </div>
         </div>
       </ProjectDetailLayout>
   );
