@@ -96,4 +96,8 @@
   .active-nav-item::after {
     @apply content-[''] absolute -bottom-1 left-0 h-1 w-16 bg-gradient-primary;
   }
+  
+  .clip-path-diagonal {
+    clip-path: polygon(50% 0%, 100% 0, 100% 50%);
+  }
 }
