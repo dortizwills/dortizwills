@@ -27,68 +27,45 @@ const GrammyMuseum = () => {
         projectDetails={{
           timeline: "6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs",
           responsibilities: "Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management",
+          overview: "This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.",
           results: "100% client satisfaction, Roadmap in place for development this year"
         }}
         showWipTag={true}
-        tagType="WIP"
+        tagType="NEW"
         relatedProjects={relatedProjects}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <div className="text-left">
-                <h3 className="text-lg font-display font-semibold mb-3">Timeline</h3>
-                <p className="text-sm text-muted-foreground mb-4">6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs</p>
-                
-                <h3 className="text-lg font-display font-semibold mb-3">Responsibilities</h3>
-                <p className="text-sm text-muted-foreground mb-4">Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management</p>
-                
-                <h3 className="text-lg font-display font-semibold mb-3">Project Overview</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
-                </p>
-                
-                <h3 className="text-lg font-display font-semibold mb-3">Results</h3>
-                <p className="text-sm text-muted-foreground">100% client satisfaction, Roadmap in place for development this year</p>
-              </div>
-            </div>
-          </div>
+        <div className="space-y-6">
+          <video 
+            src="/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4" 
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full rounded-lg border border-[#F1F1FA]"
+          >
+            Your browser does not support the video tag.
+          </video>
           
-          <div className="lg:col-span-2 space-y-6">
-            <div className="mb-6">
-              <video 
-                src="/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4" 
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            
-            <img 
-              src="/lovable-uploads/Grammy Museum/Slide 2.png" 
-              alt="Grammy Museum MS Redesign - Slide 2" 
-              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-            />
-            <img 
-              src="/lovable-uploads/Grammy Museum/Slide 3.png" 
-              alt="Grammy Museum MS Redesign - Slide 3" 
-              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-            />
-            <img 
-              src="/lovable-uploads/Grammy Museum/Slide 4.png" 
-              alt="Grammy Museum MS Redesign - Slide 4" 
-              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-            />
-            <img 
-              src="/lovable-uploads/Grammy Museum/Slide 5.png" 
-              alt="Grammy Museum MS Redesign - Slide 5" 
-              className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
-            />
-          </div>
+          <img 
+            src="/lovable-uploads/Grammy Museum/Slide 2.png" 
+            alt="Grammy Museum MS Redesign - Slide 2" 
+            className="w-full rounded-lg border border-[#F1F1FA]"
+          />
+          <img 
+            src="/lovable-uploads/Grammy Museum/Slide 3.png" 
+            alt="Grammy Museum MS Redesign - Slide 3" 
+            className="w-full rounded-lg border border-[#F1F1FA]"
+          />
+          <img 
+            src="/lovable-uploads/Grammy Museum/Slide 4.png" 
+            alt="Grammy Museum MS Redesign - Slide 4" 
+            className="w-full rounded-lg border border-[#F1F1FA]"
+          />
+          <img 
+            src="/lovable-uploads/Grammy Museum/Slide 5.png" 
+            alt="Grammy Museum MS Redesign - Slide 5" 
+            className="w-full rounded-lg border border-[#F1F1FA]"
+          />
         </div>
       </ProjectDetailLayout>
   );

@@ -12,6 +12,7 @@ interface ProjectDetailLayoutProps {
     timeline?: string;
     responsibilities?: string;
     results?: string;
+    overview?: string;
   };
   relatedProjects?: Array<{
     title: string;
@@ -99,6 +100,13 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   <div className="border-b border-gray-200 pb-4">
                     <div className="font-medium text-gray-900 text-lg">Responsibilities</div>
                     <div className="text-gray-600 mt-1">{projectDetails.responsibilities}</div>
+                  </div>
+                )}
+                
+                {projectDetails.overview && (
+                  <div className="border-b border-gray-200 pb-4">
+                    <div className="font-medium text-gray-900 text-lg">Project Overview</div>
+                    <div className="text-gray-600 mt-1">{projectDetails.overview}</div>
                   </div>
                 )}
                 
