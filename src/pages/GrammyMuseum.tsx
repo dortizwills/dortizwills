@@ -35,11 +35,23 @@ const GrammyMuseum = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <h2 className="text-2xl font-display font-semibold mb-4">Project Overview</h2>
-            
-            <p className="mb-6">
-              This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
-            </p>
+            <div className="sticky top-8">
+              <div className="text-left">
+                <h3 className="text-lg font-display font-semibold mb-3">Timeline</h3>
+                <p className="text-sm text-muted-foreground mb-4">6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs</p>
+                
+                <h3 className="text-lg font-display font-semibold mb-3">Responsibilities</h3>
+                <p className="text-sm text-muted-foreground mb-4">Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management</p>
+                
+                <h3 className="text-lg font-display font-semibold mb-3">Project Overview</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
+                </p>
+                
+                <h3 className="text-lg font-display font-semibold mb-3">Results</h3>
+                <p className="text-sm text-muted-foreground">100% client satisfaction, Roadmap in place for development this year</p>
+              </div>
+            </div>
           </div>
           
           <div className="lg:col-span-2 space-y-6">
