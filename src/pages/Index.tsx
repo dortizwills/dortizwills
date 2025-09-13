@@ -242,8 +242,8 @@ const Index = () => {
         <section className="mb-16">
           <h2 className="font-display text-3xl mb-6">Graphic Designs</h2>
           
-          {/* Grid layout for 680px and above */}
-          <div className="hidden custom:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Grid layout for 1023px and above */}
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index} 
@@ -272,8 +272,8 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Horizontal card layout for 680px and below */}
-          <div className="custom:hidden space-y-4 mb-8">
+          {/* Horizontal card layout for 1023px and below */}
+          <div className="lg:hidden space-y-4 mb-8">
             {marketingDesigns.map((design, index) => (
               <Link 
                 key={index}
