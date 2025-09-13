@@ -186,17 +186,12 @@ const Index = () => {
                   <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3 relative">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
-                  </div>
-                  <h4 className="font-display text-lg mb-1 pr-8">Express Lane - Mobile</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
+                  <h4 className="font-display text-lg mb-1">Express Lane - Mobile</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                   </p>
                   <div className="flex flex-wrap gap-1">
                     <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
-                    <Badge variant="secondary" className="text-xs">Web App</Badge>
-                    <Badge variant="secondary" className="text-xs">3 months</Badge>
                   </div>
                 </div>
               </Link>
@@ -206,17 +201,12 @@ const Index = () => {
                   <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3 relative">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
-                  </div>
-                  <h4 className="font-display text-lg mb-1 pr-8">Gourmet Recipes Anytime</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
+                  <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
                   <div className="flex flex-wrap gap-1">
                     <Badge variant="secondary" className="text-xs">Case Study</Badge>
-                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
-                    <Badge variant="secondary" className="text-xs">2 months</Badge>
                   </div>
                 </div>
               </Link>
@@ -226,17 +216,12 @@ const Index = () => {
                   <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 w-2/3 relative">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gray-300 group-hover:bg-black transition-colors duration-300 clip-path-diagonal flex items-center justify-center z-10">
-                    <ArrowRightIcon size={16} className="text-white rotate-[-45deg] translate-x-2 -translate-y-2" />
-                  </div>
-                  <h4 className="font-display text-lg mb-1 pr-8">Mobile Apps</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2 pr-8">
+                  <h4 className="font-display text-lg mb-1">Mobile Apps</h4>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     0 to 1 mobile and brand design for various agency clients
                   </p>
                   <div className="flex flex-wrap gap-1">
                     <Badge variant="secondary" className="text-xs">Raborn Media</Badge>
-                    <Badge variant="secondary" className="text-xs">Mobile App</Badge>
-                    <Badge variant="secondary" className="text-xs">1 month</Badge>
                     <Badge className="bg-green-500 text-white hover:bg-green-500/80 text-xs">NEW</Badge>
                   </div>
                 </div>
