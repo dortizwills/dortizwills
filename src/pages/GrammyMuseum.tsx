@@ -8,7 +8,7 @@ const GrammyMuseum = () => {
       title: "Mobile Apps",
       description: "Collection of mobile app designs for various clients across different industries.",
       path: "/mobile-apps",
-      image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png"
+      image: "/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png"
     },
     {
       title: "Adhere Plus",
@@ -58,7 +58,7 @@ const GrammyMuseum = () => {
                   
                   <div>
                     <h3 className="text-lg font-display font-semibold mb-3">Results</h3>
-                    <p className="text-sm text-muted-foreground">100% client satisfaction, Roadmap in place for development this year</p>
+                    <p className="text-sm text-muted-foreground">100% client satisfaction, ~15% boost in ticket sales since July, ~30% increase on Demo Page views</p>
                   </div>
                 </div>
               </div>
