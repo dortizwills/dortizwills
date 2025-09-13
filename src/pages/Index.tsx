@@ -14,21 +14,21 @@ const Index = () => {
       description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
       href: '/graphic-designs/data-driven-ebooks',
       imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png',
-      tags: ['Shopmonkey', 'Graphics', '2 months']
+      tags: ['Shopmonkey']
     },
     {
-      title: 'Email Marketing Campaigns',
+      title: 'Email Marketing',
       description: 'Email marketing campaigns for an audience that is not reading inclined',
       href: '/graphic-designs/email-marketing',
       imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png',
-      tags: ['Shopmonkey', 'Marketing', '2 months']
+      tags: ['Shopmonkey']
     },
     {
-      title: 'Social Media Campaigns',
+      title: 'Social Media',
       description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
       href: '/graphic-designs/social-media',
       imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
-      tags: ['Shopmonkey', 'Graphics', '2-3 days']
+      tags: ['Shopmonkey']
     }
   ];
 
@@ -187,12 +187,12 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <h4 className="font-display text-lg mb-1">Express Lane - Mobile</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
                   </p>
-                  <div className="flex flex-wrap gap-1">
-                    <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
-                  </div>
                 </div>
               </Link>
               
@@ -202,12 +202,12 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    <Badge variant="secondary" className="text-xs">Case Study</Badge>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
                   </p>
-                  <div className="flex flex-wrap gap-1">
-                    <Badge variant="secondary" className="text-xs">Case Study</Badge>
-                  </div>
                 </div>
               </Link>
 
@@ -217,13 +217,13 @@ const Index = () => {
                 </div>
                 <div className="p-4 w-2/3 relative">
                   <h4 className="font-display text-lg mb-1">Mobile Apps</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    0 to 1 mobile and brand design for various agency clients
-                  </p>
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1 mb-2">
                     <Badge variant="secondary" className="text-xs">Raborn Media</Badge>
                     <Badge className="bg-green-500 text-white hover:bg-green-500/80 text-xs">NEW</Badge>
                   </div>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                    0 to 1 mobile and brand design for various agency clients
+                  </p>
                 </div>
               </Link>
               
@@ -264,13 +264,9 @@ const Index = () => {
                       <Badge key={tagIndex} variant="secondary">{tag}</Badge>
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600">
                     {design.description}
                   </p>
-                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-2">View Project</span>
-                    <ArrowRightIcon size={16} />
-                  </div>
                 </div>
               </Link>
             ))}
@@ -298,13 +294,9 @@ const Index = () => {
                       <Badge key={tagIndex} variant="secondary" className="text-xs">{tag}</Badge>
                     ))}
                   </div>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                  <p className="text-gray-600 text-sm line-clamp-2">
                     {design.description}
                   </p>
-                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-1">View Project</span>
-                    <ArrowRightIcon size={14} />
-                  </div>
                 </div>
               </Link>
             ))}
