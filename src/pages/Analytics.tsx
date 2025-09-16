@@ -667,7 +667,7 @@ const Analytics: React.FC = () => {
                   <PopoverTrigger asChild>
                     <Button variant="outline" size="sm">
                       <CalendarIcon className="mr-2 h-4 w-4" />
-                      {selectedDate ? format(selectedDate, "MMM dd, yyyy") : "Select date"}
+                      Daily Traffic Calendar
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="end">
@@ -676,6 +676,20 @@ const Analytics: React.FC = () => {
                       selected={selectedDate}
                       onSelect={setSelectedDate}
                       className="pointer-events-auto"
+                      modifiers={{
+                        hasTraffic: data?.dailyStats.map(stat => new Date(stat.date)).filter(date => {
+                          const statForDate = data?.dailyStats.find(s => new Date(s.date).toDateString() === date.toDateString());
+                          return statForDate && statForDate.visitors > 0;
+                        }) || []
+                      }}
+                      modifiersStyles={{
+                        hasTraffic: { 
+                          backgroundColor: 'hsl(var(--primary))',
+                          color: 'hsl(var(--primary-foreground))',
+                          borderRadius: '50%',
+                          fontWeight: 'bold'
+                        }
+                      }}
                     />
                   </PopoverContent>
                 </Popover>
@@ -684,57 +698,94 @@ const Analytics: React.FC = () => {
               {/* Daily Visitors Chart */}
               <div className="mb-6">
                 <div className="h-64 flex items-end justify-center space-x-2">
-                  {data?.dailyStats.slice(-7).map((day, index) => (
-                    <div key={day.date} className="flex flex-col items-center">
-                      <div 
-                        className="bg-primary/80 hover:bg-primary transition-colors rounded-t"
-                        style={{
-                          height: `${Math.max((day.visitors / Math.max(...data.dailyStats.map(d => d.visitors))) * 200, 4)}px`,
-                          width: '32px'
-                        }}
-                      ></div>
-                      <div className="text-xs text-muted-foreground mt-1 rotate-45 origin-bottom-left">
-                        {format(new Date(day.date), "MMM dd")}
+                  {data?.dailyStats.slice(-7).map((day, index) => {
+                    const maxVisitors = Math.max(...data.dailyStats.map(d => d.visitors));
+                    const normalizedHeight = maxVisitors > 0 ? (day.visitors / maxVisitors) * 120 : 0;
+                    const barHeight = Math.max(normalizedHeight, day.visitors > 0 ? 8 : 2);
+                    
+                    return (
+                      <div key={day.date} className="flex flex-col items-center">
+                        <div 
+                          className="bg-primary/80 hover:bg-primary transition-colors rounded-t"
+                          style={{
+                            height: `${barHeight}px`,
+                            width: '32px'
+                          }}
+                        ></div>
+                        <div className="text-xs text-muted-foreground mt-1 rotate-45 origin-bottom-left">
+                          {format(new Date(day.date), "MMM dd")}
+                        </div>
+                        <div className="text-xs font-medium">{day.visitors}</div>
                       </div>
-                      <div className="text-xs font-medium">{day.visitors}</div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
               
-              <h4 className="font-medium mb-3">All Visitors</h4>
+              <h4 className="font-medium mb-3">Weekly Visitor Summary</h4>
               <div className="space-y-3 max-h-96 overflow-y-auto">
-                {data?.allVisitors
-                  .filter(visitor => {
-                    if (!selectedDate) return true;
-                    const visitorDate = new Date(visitor.first_visit).toDateString();
-                    return visitorDate === selectedDate.toDateString();
-                  })
-                  .map((visitor) => (
-                    <div key={visitor.id} className="flex items-center justify-between p-3 border rounded-lg">
-                      <div className="flex items-center gap-3">
-                        {getDeviceIcon(visitor.device)}
-                        <div>
-                          <p className="font-medium">{visitor.browser} on {visitor.device}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {visitor.page_views} page{visitor.page_views !== 1 ? 's' : ''} • {formatDuration(visitor.duration_seconds)} • from {visitor.referrer || 'Direct'}
-                          </p>
+                {(() => {
+                  // Group visitors by week
+                  const weekGroups = new Map<string, any[]>();
+                  data?.allVisitors.forEach(visitor => {
+                    const visitDate = new Date(visitor.first_visit);
+                    const startOfWeek = new Date(visitDate);
+                    startOfWeek.setDate(visitDate.getDate() - visitDate.getDay());
+                    const weekKey = startOfWeek.toISOString().split('T')[0];
+                    
+                    if (!weekGroups.has(weekKey)) {
+                      weekGroups.set(weekKey, []);
+                    }
+                    weekGroups.get(weekKey)!.push(visitor);
+                  });
+
+                  return Array.from(weekGroups.entries())
+                    .sort(([a], [b]) => b.localeCompare(a))
+                    .map(([weekStart, visitors]) => {
+                      const startDate = new Date(weekStart);
+                      const endDate = new Date(startDate);
+                      endDate.setDate(startDate.getDate() + 6);
+                      
+                      const totalDuration = visitors.reduce((sum, v) => sum + (v.duration_seconds || 0), 0);
+                      const totalPageViews = visitors.reduce((sum, v) => sum + (v.page_views || 0), 0);
+                      
+                      return (
+                        <div key={weekStart} className="border rounded-lg p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <h5 className="font-medium">
+                              {format(startDate, "MMM dd")} - {format(endDate, "MMM dd, yyyy")}
+                            </h5>
+                            <Badge variant="secondary">{visitors.length} visitor{visitors.length !== 1 ? 's' : ''}</Badge>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4 text-sm text-muted-foreground mb-3">
+                            <div>Pages: {totalPageViews}</div>
+                            <div>Total Time: {formatDuration(totalDuration)}</div>
+                            <div>Avg: {formatDuration(Math.floor(totalDuration / visitors.length))}</div>
+                          </div>
+                          <div className="space-y-2">
+                            {visitors.slice(0, 3).map((visitor) => (
+                              <div key={visitor.id} className="flex items-center justify-between text-sm bg-secondary/20 rounded p-2">
+                                <div className="flex items-center gap-2">
+                                  {getDeviceIcon(visitor.device)}
+                                  <span>{visitor.browser}</span>
+                                </div>
+                                <span className="text-muted-foreground">
+                                  {formatDate(visitor.first_visit)}
+                                </span>
+                              </div>
+                            ))}
+                            {visitors.length > 3 && (
+                              <div className="text-xs text-muted-foreground text-center">
+                                +{visitors.length - 3} more visitor{visitors.length - 3 !== 1 ? 's' : ''}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-medium">{formatDuration(visitor.duration_seconds)}</p>
-                        <p className="text-sm text-muted-foreground">{formatDate(visitor.first_visit)}</p>
-                      </div>
-                    </div>
-                  ))}
-                {data?.allVisitors.filter(visitor => {
-                  if (!selectedDate) return true;
-                  const visitorDate = new Date(visitor.first_visit).toDateString();
-                  return visitorDate === selectedDate.toDateString();
-                }).length === 0 && (
-                  <p className="text-center text-muted-foreground py-8">
-                    No visitors found for {selectedDate ? format(selectedDate, "MMM dd, yyyy") : "selected date"}
-                  </p>
+                      );
+                    });
+                })()}
+                {(!data?.allVisitors || data.allVisitors.length === 0) && (
+                  <p className="text-center text-muted-foreground py-8">No visitors found</p>
                 )}
               </div>
             </Card>
