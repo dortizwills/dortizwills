@@ -7,6 +7,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 import Analytics from './pages/Analytics';
+import Auth from './pages/Auth';
 import ProductDesigns from './pages/ProductDesigns';
 import MarketingDesigns from './pages/GraphicDesigns';
 import NotFound from './pages/NotFound';
@@ -64,6 +65,7 @@ const AppContent: FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/product-designs" element={<ProductDesigns />} />
           <Route path="/product-designs/quick-services" element={<QuickServices />} />
           <Route path="/product-designs/camping-app" element={<CampingApp />} />

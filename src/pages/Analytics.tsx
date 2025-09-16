@@ -8,9 +8,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { CalendarIcon, RefreshCw, Clock, Users, Eye, Activity, Mail, Smartphone, Monitor, Tablet } from "lucide-react";
+import { CalendarIcon, RefreshCw, Clock, Users, Eye, Activity, Mail, Smartphone, Monitor, Tablet, LogOut, User } from "lucide-react";
 import { format } from "date-fns";
-import PasswordProtection from '@/components/PasswordProtection';
+import { useNavigate } from 'react-router-dom';
+import type { User as SupabaseUser, Session } from '@supabase/supabase-js';
 
 interface AnalyticsData {
   totalVisitors: number;
@@ -44,9 +45,11 @@ interface AnalyticsData {
 }
 
 const Analytics: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [authLoading, setAuthLoading] = useState(true);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'custom'>('30d');
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [customDateRange, setCustomDateRange] = useState<{
@@ -57,6 +60,7 @@ const Analytics: React.FC = () => {
     endDate: null
   });
   const [liveUpdates, setLiveUpdates] = useState(true);
+  const navigate = useNavigate();
 
   const fetchAnalyticsData = async () => {
     setLoading(true);
@@ -325,15 +329,45 @@ const Analytics: React.FC = () => {
     }
   };
 
+  // Authentication effect
   useEffect(() => {
-    if (isAuthenticated) {
+    // Set up auth state listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        setAuthLoading(false);
+        
+        // Redirect unauthenticated users to auth page
+        if (!session?.user) {
+          navigate('/auth');
+        }
+      }
+    );
+
+    // THEN check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setAuthLoading(false);
+      
+      if (!session?.user) {
+        navigate('/auth');
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  useEffect(() => {
+    if (user && session) {
       fetchAnalyticsData();
     }
-  }, [timeRange, isAuthenticated, customDateRange]);
+  }, [timeRange, user, session, customDateRange]);
 
   // Set up real-time updates
   useEffect(() => {
-    if (!isAuthenticated || !liveUpdates) return;
+    if (!user || !session || !liveUpdates) return;
 
     const channel = supabase
       .channel('analytics-updates')
@@ -364,7 +398,7 @@ const Analytics: React.FC = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [isAuthenticated, liveUpdates]);
+  }, [user, session, liveUpdates]);
 
   const getDeviceIcon = (device: string) => {
     switch (device.toLowerCase()) {
@@ -389,8 +423,30 @@ const Analytics: React.FC = () => {
     });
   };
 
-  if (!isAuthenticated) {
-    return <PasswordProtection onAuthenticated={() => setIsAuthenticated(true)} />;
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate('/auth');
+  };
+
+  if (authLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex items-center justify-center h-64">
+          <RefreshCw className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!user || !session) {
+    // This should not happen due to redirect in useEffect, but just in case
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex items-center justify-center h-64">
+          <p className="text-muted-foreground">Redirecting to authentication...</p>
+        </div>
+      </div>
+    );
   }
 
   if (loading) {
@@ -464,6 +520,25 @@ const Analytics: React.FC = () => {
                 </Popover>
               </div>
             )}
+
+            <div className="flex items-center gap-4">
+              {/* User Info */}
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <User className="h-4 w-4" />
+                <span>{user.email}</span>
+              </div>
+
+              {/* Sign Out Button */}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleSignOut}
+                className="flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </Button>
+            </div>
 
             <div className="flex items-center space-x-2">
               <Switch 
