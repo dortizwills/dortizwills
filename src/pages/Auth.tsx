@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
-import { Mail, Lock, User as UserIcon, AlertCircle, Chrome } from 'lucide-react';
+import { Mail, Lock, User as UserIcon, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import type { User, Session } from '@supabase/supabase-js';
 
@@ -51,30 +51,6 @@ const Auth: React.FC = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
-  const handleGoogleSignIn = async () => {
-    setLoading(true);
-    setError('');
-    
-    try {
-      const redirectUrl = `${window.location.origin}/analytics`;
-      
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: redirectUrl
-        }
-      });
-
-      if (error) {
-        throw error;
-      }
-    } catch (error: any) {
-      console.error('Google sign in error:', error);
-      setError(error.message || 'Failed to sign in with Google');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleEmailSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -185,28 +161,6 @@ const Auth: React.FC = () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Google Sign In Button */}
-            <Button
-              onClick={handleGoogleSignIn}
-              disabled={loading}
-              variant="outline"
-              className="w-full h-12 text-base font-medium"
-            >
-              <Chrome className="mr-3 h-5 w-5" />
-              {loading ? 'Signing in...' : 'Continue with Google'}
-            </Button>
-
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <Separator className="w-full" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Or continue with email
-                </span>
-              </div>
-            </div>
-
             {/* Error Alert */}
             {error && (
               <Alert variant="destructive">
