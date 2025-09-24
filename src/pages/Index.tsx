@@ -1,321 +1,178 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ContactForm from '../components/ContactForm';
-import { ArrowRightIcon, Award, TrendingUp, Image, Users, Layout, Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import TestimonialCarousel from '../components/TestimonialCarousel';
+import heroBackground from '@/assets/hero-background.png';
 
 const Index = () => {
-  const marketingDesigns = [
+  const portfolioProjects = [
     {
-      title: 'Data-Driven eBooks',
-      description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
-      href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png',
-      tags: ['Shopmonkey']
+      title: 'Grammy Museum MS Redesign',
+      company: 'Raborn Media',
+      tags: ['Web App'],
+      href: '/product-designs/grammy-museum',
+      imagePath: '/lovable-uploads/01-Adhere/Evidence-1.png',
+      buttonText: 'View Project'
     },
     {
-      title: 'Email Marketing',
-      description: 'Email marketing campaigns for an audience that is not reading inclined',
-      href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png',
-      tags: ['Shopmonkey']
+      title: 'Express Lane — Lightning Quick Services',
+      company: 'Shopmonkey',
+      tags: ['Mobile App'],
+      href: '/product-designs/quick-services',
+      imagePath: '/lovable-uploads/01-express-lane/display-express-lane.png',
+      buttonText: 'View Project'
     },
     {
-      title: 'Social Media',
-      description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
-      href: '/graphic-designs/social-media',
-      imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
-      tags: ['Shopmonkey']
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and his versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines.",
-      author: "Kyle Marks",
-      title: "Creative Director, Shopmonkey"
+      title: 'Gourmet Recipes',
+      company: 'Freelance Case Study',
+      tags: ['Mobile App'],
+      href: '/product-designs/gourmet-recipes',
+      imagePath: '/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png',
+      buttonText: 'View Project'
     },
     {
-      quote: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
-      author: "Steven Chic",
-      title: "VP, Alvys"
-    },
-    {
-      quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well.",
-      author: "Kelsey McAuley",
-      title: "Director of Web, Raborn Media"
-    },
-    {
-      quote: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
-      author: "Samantha Lane",
-      title: "Head of UX Design, Raborn Media"
-    },
-    {
-      quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
-      author: "Matt Stratton",
-      title: "COO, Raborn Media"
-    }
-  ];
-
-  const skillPoints = [
-    {
-      title: "UX Design",
-      description: "I focus on creating user-centered designs that prioritize empathy and clarity, especially in complex or high-stakes environments.",
-      icon: <Layout size={24} className="text-blue-600" />
-    },
-    {
-      title: "UI Design",
-      description: "I design clean, responsive interfaces with attention to visual detail, accessibility, and consistency across mobile and web.",
-      icon: <Image size={24} className="text-blue-600" />
-    },
-    {
-      title: "Prototyping",
-      description: "I rapidly explore and iterate on multiple design projects, delivering practical prototypes that support agile development.",
-      icon: <Layout size={24} className="text-blue-600" />
-    },
-    {
-      title: "Results Focused",
-      description: "I produce high-quality work, consistently meet project goals, and iterate until the best cost efficient solution is found.",
-      icon: <Award size={24} className="text-blue-600" />
-    },
-    {
-      title: "Collaboration",
-      description: "I drive collaborative environments, encourage open feedback and communication, and build positive team cultures.",
-      icon: <Users size={24} className="text-blue-600" />
-    },
-    {
-      title: "Growth-Minded Solutions",
-      description: "I approach projects with curiosity and a desire to learn, always looking for ways to increase my skills and the company's bottom line.",
-      icon: <TrendingUp size={24} className="text-blue-600" />
+      title: 'Mobile App Portfolio',
+      company: 'Raborn Media',
+      tags: ['Mobile Apps'],
+      href: '/mobile-apps',
+      imagePath: '/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png',
+      buttonText: 'View Project'
     }
   ];
 
   return (
-    <div>
-      <main className="max-w-7xl mx-auto px-4 py-12">
-        {/* What Clients Say Section with updated background */}
-        <section 
-          className="mb-8 relative rounded-lg overflow-hidden"
-          style={{
-            backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start" style={{ marginBottom: '0px' }}>
-              {/* Image - 1/3 */}
-              <div className="lg:col-span-1 flex justify-center lg:justify-start">
+    <div 
+      className="min-h-screen"
+      style={{
+        backgroundImage: `url(${heroBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Hero Section */}
+      <section className="relative z-10 pt-12 pb-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div 
+            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 mb-8"
+            style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-white mb-2">
+                  Danny Ortiz-Wills' Portfolio | 2019-2025
+                </h1>
+                <p className="text-xl text-white/80">
+                  Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast
+                </p>
+              </div>
+              <Button 
+                asChild
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+              >
+                <Link to="/product-designs">
+                  View Work
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="relative z-10 pb-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div 
+            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6"
+            style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+          >
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              {/* Illustration */}
+              <div className="flex justify-center lg:justify-start">
                 <img 
                   src="/lovable-uploads/self-photo@2x.png" 
-                  alt="Daniel Ortiz-Wills" 
-                  className="max-w-full max-h-[400px] object-contain"
+                  alt="Daniel Ortiz-Wills Illustration" 
+                  className="max-w-full max-h-[300px] object-contain"
                 />
               </div>
               
-              {/* Header Content - 2/3 */}
-              <div className="lg:col-span-2">
-                <p className="text-lg text-white/80 mb-2 text-left">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-                <div 
-                  className="rounded-lg p-6 pb-8"
-                  style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-                >
-                  <h2 className="text-2xl font-display font-bold mb-6 text-left bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                    Collaboration is my middle name, prior managers and peers agree.
-                  </h2>
-                  <TestimonialCarousel testimonials={testimonials} />
-                </div>
+              {/* Quote Content */}
+              <div>
+                <h2 className="text-2xl font-bold mb-6 text-left bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
+                  Collaboration is my middle name, prior managers and peers agree.
+                </h2>
+                <blockquote className="text-white/90 mb-4 text-lg">
+                  "One highlight from our time together was a safety-focused web concept 
+                  he helped design — his ideas showed real empathy and a strong 
+                  understanding of user needs in high-stakes contexts. It was a great 
+                  example of how he combines creative thinking with purpose-driven design."
+                </blockquote>
+                <footer className="text-white/80">
+                  <strong>Samantha Lane</strong> Head of UX Design, Raborn Media
+                </footer>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Highlights Section */}
+      <section className="relative z-10 py-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div 
+            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6"
+            style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-white">
+                Portfolio Highlights | 2019-2021
+              </h2>
+              <Button variant="ghost" size="sm" className="text-white hover:text-white/80">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Button>
             </div>
             
-            {/* Testimonials Carousel with transparent background */}
-{/*             <div 
-              className="rounded-lg p-6"
-              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-            >
-              <TestimonialCarousel testimonials={testimonials} />
-            </div> */}
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">UXUI Featured Projects</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Main Featured Project - Takes 2/3 of the width on large screens */}
-            <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-              <Link to="/product-designs/grammy-museum" className="block">
-                <div className="relative overflow-hidden">
-                  <video 
-                    src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto"
-                    style={{ pointerEvents: 'none' }}
-                  />
-                </div>
-              </Link>
-              <div className="p-6">
-                <h3 className="font-display text-2xl mb-2">Grammy Museum MS Redesign</h3>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  <Badge variant="secondary">Raborn Media</Badge>
-                  <Badge variant="secondary">Web App</Badge>
-                  <Badge variant="secondary">2 months</Badge>
-                  <Badge className="bg-green-500 text-white hover:bg-green-500/80">NEW</Badge>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
-                </p>
-                <Link to="/product-designs/grammy-museum" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                  <span className="mr-2">View Project</span>
-                  <ArrowRightIcon size={16} />
-                </Link>
-              </div>
-            </div>
-            
-            {/* Side Featured Projects - Takes 1/3 of the width on large screens, stretches to align with main project */}
-            <div className="space-y-6 flex flex-col h-full">
-              <Link to="/product-designs/quick-services" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group relative">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3 relative">
-                  <h4 className="font-display text-lg mb-1">Express Lane - Mobile</h4>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    <Badge variant="secondary" className="text-xs">Shopmonkey</Badge>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {portfolioProjects.map((project, index) => (
+                <div key={index} className="bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 transition-all">
+                  <div className="aspect-video bg-gray-800 relative overflow-hidden">
+                    <img 
+                      src={project.imagePath} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
-                  </p>
-                </div>
-              </Link>
-              
-              <Link to="/product-designs/gourmet-recipes" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group relative">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3 relative">
-                  <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    <Badge variant="secondary" className="text-xs">Case Study</Badge>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/70 text-sm mb-3">
+                      {project.company}
+                    </p>
+                    <Button 
+                      asChild
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      <Link to={project.href}>
+                        {project.buttonText}
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
                   </div>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
-                  </p>
                 </div>
-              </Link>
-
-              <Link to="/mobile-apps" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow group relative">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3 relative">
-                  <h4 className="font-display text-lg mb-1">Mobile Apps</h4>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    <Badge variant="secondary" className="text-xs">Raborn Media</Badge>
-                    <Badge className="bg-green-500 text-white hover:bg-green-500/80 text-xs">NEW</Badge>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    0 to 1 mobile and brand design for various agency clients
-                  </p>
-                </div>
-              </Link>
-              
-              {/* Button stretches to fill remaining space */}
-              <div className="flex-1 flex items-end">
-                <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
-                  <Link to="/product-designs">
-                    More UXUI Designs
-                  </Link>
-                </Button>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Graphic Designs</h2>
-          
-          {/* Grid layout for 1023px and above */}
-          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {marketingDesigns.map((design, index) => (
-              <Link 
-                key={index} 
-                to={design.href}
-                className="bg-white border border-black rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-              >
-                <div className="aspect-video relative">
-                  <img 
-                    src={design.imagePath} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display text-xl mb-2">{design.title}</h4>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {design.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                  <p className="text-gray-600">
-                    {design.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Horizontal card layout for 1023px and below */}
-          <div className="lg:hidden space-y-4 mb-8">
-            {marketingDesigns.map((design, index) => (
-              <Link 
-                key={index}
-                to={design.href}
-                className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow"
-              >
-                <div className="w-1/3 aspect-[3/2]">
-                  <img 
-                    src={design.imagePath} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">{design.title}</h4>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {design.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary" className="text-xs">{tag}</Badge>
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm line-clamp-2">
-                    {design.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* View Graphic Designs Button */}
-          <div className="flex justify-center">
-              <Button asChild variant="outline" className="w-full py-6 text-base bg-gradient-primary text-white border-none hover:opacity-90">
-              <Link to="/graphic-designs">
-                More Graphic Designs
-              </Link>
-            </Button>
-          </div>
-        </section>
-
-        {/* <section>
-          <ContactForm />
-        </section> */}
-      </main>
+      {/* Additional sections can be added here as separate sections with the same styling pattern */}
     </div>
   );
 };
