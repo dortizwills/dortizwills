@@ -15,7 +15,7 @@ import QuickServices from './pages/QuickServices';
 import CampingApp from './pages/CampingApp';
 import GourmetRecipes from './pages/GourmetRecipes';
 import MobileApps from './pages/MobileApps';
-import TopNavigation from './components/TopNavigation';
+import Sidebar from './components/Sidebar';
 
 // Marketing Designs inner pages
 import DataDrivenEbooks from './pages/graphic-designs/DataDrivenEbooks';
@@ -57,8 +57,8 @@ const AppContent: FC = () => {
 
   return (
     <AnalyticsWrapper>
-      <TopNavigation />
-      <div className="pt-16">
+      <Sidebar />
+      <div className="pt-16 custom:pt-0 custom:ml-[244px]">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
