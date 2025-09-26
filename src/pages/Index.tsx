@@ -114,17 +114,21 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div 
         ref={scrollContainerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-screen"
+        style={{ 
+          scrollbarWidth: 'none', 
+          msOverflowStyle: 'none',
+          overscrollBehavior: 'none'
+        }}
       >
         {/* Section 1: Homepage */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12">
-          <div className="max-w-7xl mx-auto space-y-8">
+        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
+          <div className="max-w-7xl mx-auto space-y-6">
             {/* Header Section */}
-            <div className="rounded-lg p-8 bg-slate-900/80 backdrop-blur-sm">
+            <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
@@ -143,7 +147,7 @@ const Index = () => {
             </div>
             
             {/* Testimonial Section */}
-            <div className="rounded-lg p-8 bg-slate-900/80 backdrop-blur-sm">
+            <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="flex items-start gap-8">
                 <div className="w-1/3 flex-shrink-0">
                   <img 
@@ -162,7 +166,7 @@ const Index = () => {
             </div>
             
             {/* Portfolio Highlights Section */}
-            <div className="rounded-lg bg-slate-900/80 backdrop-blur-sm">
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
               <button 
                 onClick={() => setIsPortfolioHighlightsExpanded(!isPortfolioHighlightsExpanded)}
                 className="w-full flex items-center justify-between p-8 text-left"
@@ -178,7 +182,7 @@ const Index = () => {
                 <div className="px-8 pb-8">
                   <div className="grid grid-cols-2 gap-4">
                     {/* Grammy Museum */}
-                    <div className="bg-slate-800/50 rounded-lg p-4">
+                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                       <div className="aspect-video mb-3">
                         <video 
                           src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
@@ -191,43 +195,43 @@ const Index = () => {
                       </div>
                       <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
                       <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
                       </Button>
                     </div>
                     
                     {/* Express Lane */}
-                    <div className="bg-slate-800/50 rounded-lg p-4">
+                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                       <div className="aspect-video mb-3">
                         <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded" />
                       </div>
                       <h4 className="text-white font-semibold mb-2">Express Lane - Lightning Quick Services</h4>
                       <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
                       </Button>
                     </div>
                     
                     {/* Gourmet Recipes */}
-                    <div className="bg-slate-800/50 rounded-lg p-4">
+                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                       <div className="aspect-video mb-3">
                         <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded" />
                       </div>
                       <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
                       <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
                       </Button>
                     </div>
                     
                     {/* Mobile Apps */}
-                    <div className="bg-slate-800/50 rounded-lg p-4">
+                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                       <div className="aspect-video mb-3">
                         <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded" />
                       </div>
                       <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
                       <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
                       </Button>
                     </div>
@@ -239,11 +243,11 @@ const Index = () => {
         </div>
 
         {/* Section 2: Raborn Media */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-8">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
+        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
+          <div className="max-w-7xl mx-auto space-y-6">
+            {/* Header */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={rabornLogo} alt="Raborn Media Logo" className="w-12 h-12" />
                   <div>
@@ -266,62 +270,59 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
+            </div>
 
-              {/* Projects */}
-              <div className="space-y-6">
-                {/* Grammy Museum */}
-                <div className="bg-slate-800/50 rounded-lg p-6">
-                  <div className="flex gap-6">
-                    <div className="w-1/3">
-                      <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
-                      <div className="flex gap-2 mb-3">
-                        <Badge variant="secondary">Web App</Badge>
-                        <Badge variant="secondary">2 months</Badge>
-                        <Badge className="bg-green-500 text-white">NEW</Badge>
-                      </div>
-                      <p className="text-gray-400 mb-4">
-                        Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
-                      </p>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="w-2/3">
-                      <video 
-                        src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-auto rounded"
-                      />
-                    </div>
+            {/* Grammy Museum */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3">
+                  <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
+                  <div className="flex gap-2 mb-3">
+                    <Badge variant="secondary">Web App</Badge>
+                    <Badge variant="secondary">2 months</Badge>
+                    <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
+                  <p className="text-gray-400 mb-4">
+                    Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
+                  </p>
+                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </Button>
                 </div>
+                <div className="w-2/3">
+                  <video 
+                    src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto rounded"
+                  />
+                </div>
+              </div>
+            </div>
 
-                {/* Mobile App Portfolio */}
-                <div className="bg-slate-800/50 rounded-lg p-6">
-                  <div className="flex gap-6">
-                    <div className="w-1/3">
-                      <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
-                      <div className="flex gap-2 mb-3">
-                        <Badge variant="secondary">Web App</Badge>
-                        <Badge variant="secondary">2 months</Badge>
-                        <Badge className="bg-green-500 text-white">NEW</Badge>
-                      </div>
-                      <p className="text-gray-400 mb-4">
-                        View a collection of my mobile app design work across various industries and platforms.
-                      </p>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="w-2/3">
-                      <div className="flex gap-2">
-                        <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 1" className="w-1/2 rounded" />
-                        <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 2" className="w-1/2 rounded" />
-                      </div>
-                    </div>
+            {/* Mobile App Portfolio */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3">
+                  <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
+                  <div className="flex gap-2 mb-3">
+                    <Badge variant="secondary">Web App</Badge>
+                    <Badge variant="secondary">2 months</Badge>
+                    <Badge className="bg-green-500 text-white">NEW</Badge>
+                  </div>
+                  <p className="text-gray-400 mb-4">
+                    View a collection of my mobile app design work across various industries and platforms.
+                  </p>
+                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="w-2/3">
+                  <div className="flex gap-2">
+                    <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 1" className="w-1/2 rounded" />
+                    <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 2" className="w-1/2 rounded" />
                   </div>
                 </div>
               </div>
@@ -330,11 +331,11 @@ const Index = () => {
         </div>
 
         {/* Section 3: DOW Freelance Designer */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-8">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
+        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
+          <div className="max-w-7xl mx-auto space-y-6">
+            {/* Header */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
                   <div>
@@ -357,53 +358,50 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
+            </div>
 
-              {/* Projects */}
-              <div className="space-y-6">
-                {/* Camping Made Easy */}
-                <div className="bg-slate-800/50 rounded-lg p-6">
-                  <div className="flex gap-6">
-                    <div className="w-1/3">
-                      <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
-                      <div className="flex gap-2 mb-3">
-                        <Badge variant="secondary">Web App</Badge>
-                        <Badge variant="secondary">2 months</Badge>
-                        <Badge className="bg-green-500 text-white">NEW</Badge>
-                      </div>
-                      <p className="text-gray-400 mb-4">
-                        Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level.
-                      </p>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="w-2/3">
-                      <img src="/lovable-uploads/01-camping-buddy/primary-happy-path-1.png" alt="Camping App" className="w-full rounded" />
-                    </div>
+            {/* Camping Made Easy */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3">
+                  <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
+                  <div className="flex gap-2 mb-3">
+                    <Badge variant="secondary">Web App</Badge>
+                    <Badge variant="secondary">2 months</Badge>
+                    <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
+                  <p className="text-gray-400 mb-4">
+                    Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level.
+                  </p>
+                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </Button>
                 </div>
+                <div className="w-2/3">
+                  <img src="/lovable-uploads/01-camping-buddy/primary-happy-path-1.png" alt="Camping App" className="w-full rounded" />
+                </div>
+              </div>
+            </div>
 
-                {/* Gourmet Recipes */}
-                <div className="bg-slate-800/50 rounded-lg p-6">
-                  <div className="flex gap-6">
-                    <div className="w-1/3">
-                      <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
-                      <div className="flex gap-2 mb-3">
-                        <Badge variant="secondary">Web App</Badge>
-                        <Badge variant="secondary">2 months</Badge>
-                        <Badge className="bg-green-500 text-white">NEW</Badge>
-                      </div>
-                      <p className="text-gray-400 mb-4">
-                        Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.
-                      </p>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="w-2/3">
-                      <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full rounded" />
-                    </div>
+            {/* Gourmet Recipes */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3">
+                  <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                  <div className="flex gap-2 mb-3">
+                    <Badge variant="secondary">Web App</Badge>
+                    <Badge variant="secondary">2 months</Badge>
+                    <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
+                  <p className="text-gray-400 mb-4">
+                    Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.
+                  </p>
+                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="w-2/3">
+                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full rounded" />
                 </div>
               </div>
             </div>
@@ -411,11 +409,11 @@ const Index = () => {
         </div>
 
         {/* Section 4: Shopmonkey */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-8">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
+        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
+          <div className="max-w-7xl mx-auto space-y-6">
+            {/* Header */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={shopmonkeyLogo} alt="Shopmonkey Logo" className="w-12 h-12" />
                   <div>
@@ -432,74 +430,72 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
+            </div>
 
-              {/* Express Lane Project */}
-              <div className="mb-6">
-                <div className="bg-slate-800/50 rounded-lg p-6">
-                  <div className="flex gap-6">
-                    <div className="w-1/3">
-                      <h3 className="text-xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
-                      <div className="flex gap-2 mb-3">
-                        <Badge variant="secondary">Web App</Badge>
-                        <Badge variant="secondary">3 Months</Badge>
-                      </div>
-                      <p className="text-gray-400 mb-4">
-                        Reduce checkout times to 2-3 minutes for automotive shops.
-                      </p>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="w-2/3">
-                      <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full rounded" />
-                    </div>
+            {/* Express Lane Project */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3">
+                  <h3 className="text-xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
+                  <div className="flex gap-2 mb-3">
+                    <Badge variant="secondary">Web App</Badge>
+                    <Badge variant="secondary">3 Months</Badge>
                   </div>
+                  <p className="text-gray-400 mb-4">
+                    Reduce checkout times to 2-3 minutes for automotive shops.
+                  </p>
+                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="w-2/3">
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full rounded" />
                 </div>
               </div>
+            </div>
 
-              {/* Graphic Designer Section */}
-              <div className="bg-slate-800/50 rounded-lg">
-                <button 
-                  onClick={() => setIsGraphicDesignerExpanded(!isGraphicDesignerExpanded)}
-                  className="w-full flex items-center justify-between p-6 text-left"
-                >
-                  <h3 className="text-xl font-bold text-white">Graphic Designer | 2019-2021</h3>
-                  {isGraphicDesignerExpanded ? 
-                    <ChevronUp className="h-6 w-6 text-white" /> : 
-                    <ChevronDown className="h-6 w-6 text-white" />
-                  }
-                </button>
-                
-                {isGraphicDesignerExpanded && (
-                  <div className="px-6 pb-6 space-y-4">
-                    {graphicDesignProjects.map((project) => (
-                      <div key={project.title} className="bg-slate-700/50 rounded-lg p-4">
-                        <div className="flex gap-4">
-                          <div className="w-1/3">
-                            <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
-                            <div className="flex gap-2 mb-2">
-                              {project.tags.map((tag) => (
-                                <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-                              ))}
-                            </div>
-                            <p className="text-gray-400 text-sm mb-3">
-                              {project.description}
-                            </p>
-                            <Link to={project.href}>
-                              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                                View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                              </Button>
-                            </Link>
+            {/* Graphic Designer Section */}
+            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+              <button 
+                onClick={() => setIsGraphicDesignerExpanded(!isGraphicDesignerExpanded)}
+                className="w-full flex items-center justify-between p-6 text-left"
+              >
+                <h3 className="text-xl font-bold text-white">Graphic Designer | 2019-2021</h3>
+                {isGraphicDesignerExpanded ? 
+                  <ChevronUp className="h-6 w-6 text-white" /> : 
+                  <ChevronDown className="h-6 w-6 text-white" />
+                }
+              </button>
+              
+              {isGraphicDesignerExpanded && (
+                <div className="px-6 pb-6 space-y-4">
+                  {graphicDesignProjects.map((project) => (
+                    <div key={project.title} className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-4">
+                      <div className="flex gap-4">
+                        <div className="w-1/3">
+                          <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
+                          <div className="flex gap-2 mb-2">
+                            {project.tags.map((tag) => (
+                              <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+                            ))}
                           </div>
-                          <div className="w-2/3">
-                            <img src={project.imagePath} alt={project.title} className="w-full rounded" />
-                          </div>
+                          <p className="text-gray-400 text-sm mb-3">
+                            {project.description}
+                          </p>
+                          <Link to={project.href}>
+                            <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
+                              View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                            </Button>
+                          </Link>
+                        </div>
+                        <div className="w-2/3">
+                          <img src={project.imagePath} alt={project.title} className="w-full rounded" />
                         </div>
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
