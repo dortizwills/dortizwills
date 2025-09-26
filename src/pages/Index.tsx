@@ -165,80 +165,81 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Portfolio Highlights Section */}
+            {/* Portfolio Highlights Header */}
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
               <button 
                 onClick={() => setIsPortfolioHighlightsExpanded(!isPortfolioHighlightsExpanded)}
                 className="w-full flex items-center justify-between p-8 text-left"
               >
-                <h3 className="font-medium text-sm text-white">Portfolio Highlights | 2019-2025</h3>
+                <h3 className="text-[1.5rem] font-bold text-white">Portfolio Highlights | 2019-2025</h3>
                 {isPortfolioHighlightsExpanded ? 
                   <ChevronUp className="text-white h-5 w-5" /> : 
                   <ChevronDown className="text-white h-5 w-5" />
                 }
               </button>
-              
-              {isPortfolioHighlightsExpanded && (
-                <div className="px-8 pb-8">
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* Grammy Museum */}
-                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <video 
-                          src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="w-full h-full object-cover rounded"
-                        />
-                      </div>
-                      <h2 className="text-[1.75rem] leading-[2.25rem] text-white font-semibold mb-2">Grammy Museum MS Redesign</h2>
-                      <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                      </Button>
+            </div>
+
+            {/* Portfolio Highlights Content */}
+            {isPortfolioHighlightsExpanded && (
+              <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Grammy Museum */}
+                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                    <div className="aspect-video mb-6 border border-white/20">
+                      <video 
+                        src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover rounded border border-white/20"
+                      />
                     </div>
-                    
-                    {/* Express Lane */}
-                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded" />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Express Lane - Lightning Quick Services</h4>
-                      <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
-                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                      </Button>
+                    <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
+                    <p className="text-gray-400 text-sm mb-6">Raborn Media</p>
+                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
+                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    </Button>
+                  </div>
+                  
+                  {/* Express Lane */}
+                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                    <div className="aspect-video mb-6">
+                      <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded border border-white/20" />
                     </div>
-                    
-                    {/* Gourmet Recipes */}
-                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded" />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
-                      <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                      </Button>
+                    <h3 className="text-xl font-bold text-white mb-2">Express Lane - Lightning Quick Services</h3>
+                    <p className="text-gray-400 text-sm mb-6">Shopmonkey</p>
+                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
+                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    </Button>
+                  </div>
+                  
+                  {/* Gourmet Recipes */}
+                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                    <div className="aspect-video mb-6">
+                      <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded border border-white/20" />
                     </div>
-                    
-                    {/* Mobile Apps */}
-                    <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded" />
-                      </div>
-                      <h2 className="text-[1.75rem] leading-[2.25rem] text-white font-semibold mb-2">Mobile App Portfolio</h2>
-                      <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                      <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                      </Button>
+                    <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                    <p className="text-gray-400 text-sm mb-6">Freelance Case Study</p>
+                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
+                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    </Button>
+                  </div>
+                  
+                  {/* Mobile Apps */}
+                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                    <div className="aspect-video mb-6">
+                      <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded border border-white/20" />
                     </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
+                    <p className="text-gray-400 text-sm mb-6">Raborn Media</p>
+                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
+                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    </Button>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -499,6 +500,7 @@ const Index = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
