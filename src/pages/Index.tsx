@@ -117,7 +117,7 @@ const Index = () => {
     <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div 
         ref={scrollContainerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-screen"
+        className="flex gap-[54px] overflow-x-auto snap-x snap-mandatory scrollbar-hide h-screen"
         style={{ 
           scrollbarWidth: 'none', 
           msOverflowStyle: 'none',
@@ -134,7 +134,7 @@ const Index = () => {
                   <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
                   <div>
                     <h1 className="text-2xl font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
-                    <p className="text-gray-300">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
+                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
                   </div>
                 </div>
                 <Button 
@@ -157,7 +157,7 @@ const Index = () => {
                   />
                 </div>
                 <div className="w-2/3">
-                  <h2 className="text-xl font-bold text-pink-400 mb-4">
+                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-pink-400 mb-4">
                     Collaboration is my middle name, prior managers and peers agree.
                   </h2>
                   <TestimonialCarousel testimonials={testimonials} />
@@ -171,7 +171,7 @@ const Index = () => {
                 onClick={() => setIsPortfolioHighlightsExpanded(!isPortfolioHighlightsExpanded)}
                 className="w-full flex items-center justify-between p-8 text-left"
               >
-                <h3 className="text-lg font-semibold text-white">Portfolio Highlights | 2019-2025</h3>
+                <h3 className="font-medium text-sm text-white">Portfolio Highlights | 2019-2025</h3>
                 {isPortfolioHighlightsExpanded ? 
                   <ChevronUp className="text-white h-5 w-5" /> : 
                   <ChevronDown className="text-white h-5 w-5" />
@@ -193,7 +193,7 @@ const Index = () => {
                           className="w-full h-full object-cover rounded"
                         />
                       </div>
-                      <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
+                      <h2 className="text-[1.75rem] leading-[2.25rem] text-white font-semibold mb-2">Grammy Museum MS Redesign</h2>
                       <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
                       <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
@@ -229,7 +229,7 @@ const Index = () => {
                       <div className="aspect-video mb-3">
                         <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded" />
                       </div>
-                      <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
+                      <h2 className="text-[1.75rem] leading-[2.25rem] text-white font-semibold mb-2">Mobile App Portfolio</h2>
                       <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
                       <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
                         View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
@@ -252,7 +252,7 @@ const Index = () => {
                   <img src={rabornLogo} alt="Raborn Media Logo" className="w-12 h-12" />
                   <div>
                     <h2 className="text-2xl font-bold text-white">Raborn Media | 2024-2025</h2>
-                    <p className="text-gray-300">UXUI Designer, Project Manager</p>
+                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">UXUI Designer, Project Manager</p>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -282,7 +282,7 @@ const Index = () => {
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
                     Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
                   </p>
                   <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
@@ -312,7 +312,7 @@ const Index = () => {
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
                     View a collection of my mobile app design work across various industries and platforms.
                   </p>
                   <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
@@ -340,7 +340,7 @@ const Index = () => {
                   <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
                   <div>
                     <h2 className="text-2xl font-bold text-white">DOW Freelance Designer | 2023-2025</h2>
-                    <p className="text-gray-300">Product Designer, Mobile Designer, UXUI Designer</p>
+                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, Mobile Designer, UXUI Designer</p>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -364,13 +364,13 @@ const Index = () => {
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
+                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Camping Made Easy</h2>
                   <div className="flex gap-2 mb-3">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
                     Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level.
                   </p>
                   <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
@@ -387,13 +387,13 @@ const Index = () => {
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Gourmet Recipes</h2>
                   <div className="flex gap-2 mb-3">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
                     Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.
                   </p>
                   <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
@@ -418,7 +418,7 @@ const Index = () => {
                   <img src={shopmonkeyLogo} alt="Shopmonkey Logo" className="w-12 h-12" />
                   <div>
                     <h2 className="text-2xl font-bold text-white">Shopmonkey | 2021-2023</h2>
-                    <p className="text-gray-300">Product Designer, Jr. Product Designer</p>
+                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, Jr. Product Designer</p>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -436,12 +436,12 @@ const Index = () => {
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
+                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Express Lane – Lightning Quick Services</h2>
                   <div className="flex gap-2 mb-3">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">3 Months</Badge>
                   </div>
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
                     Reduce checkout times to 2-3 minutes for automotive shops.
                   </p>
                   <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
@@ -460,7 +460,7 @@ const Index = () => {
                 onClick={() => setIsGraphicDesignerExpanded(!isGraphicDesignerExpanded)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <h3 className="text-xl font-bold text-white">Graphic Designer | 2019-2021</h3>
+                <h3 className="font-medium text-sm text-white">Graphic Designer | 2019-2021</h3>
                 {isGraphicDesignerExpanded ? 
                   <ChevronUp className="h-6 w-6 text-white" /> : 
                   <ChevronDown className="h-6 w-6 text-white" />
@@ -473,13 +473,13 @@ const Index = () => {
                     <div key={project.title} className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-4">
                       <div className="flex gap-4">
                         <div className="w-1/3">
-                          <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
+                          <h2 className="text-[1.75rem] leading-[2.25rem] font-semibold text-white mb-2">{project.title}</h2>
                           <div className="flex gap-2 mb-2">
                             {project.tags.map((tag) => (
                               <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
                             ))}
                           </div>
-                          <p className="text-gray-400 text-sm mb-3">
+                          <p className="text-gray-400 text-[1.2rem] leading-[2rem] text-sm mb-3">
                             {project.description}
                           </p>
                           <Link to={project.href}>
