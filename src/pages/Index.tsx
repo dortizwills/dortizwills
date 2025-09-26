@@ -11,6 +11,7 @@ import dowLogo from '@/assets/dow-logo.png';
 const Index = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState(0);
+  const [isPortfolioHighlightsExpanded, setIsPortfolioHighlightsExpanded] = useState(true);
   const [isGraphicDesignerExpanded, setIsGraphicDesignerExpanded] = useState(false);
   
   const testimonials = [
@@ -65,7 +66,7 @@ const Index = () => {
     }
   };
 
-  const marketingDesigns = [
+  const graphicDesignProjects = [
     {
       title: 'Data-Driven eBooks',
       description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
@@ -74,17 +75,38 @@ const Index = () => {
       tags: ['2 Months', '2.5 Wks Each']
     },
     {
-      title: 'Email Marketing',
+      title: 'Email Marketing Campaigns',
       description: 'Email marketing campaigns for an audience that is not reading inclined',
       href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png',
+      imagePath: '/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png',
       tags: ['Shopmonkey']
     },
     {
-      title: 'Social Media',
+      title: 'Social Media Campaigns',
       description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
       href: '/graphic-designs/social-media',
       imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
+      tags: ['Shopmonkey']
+    },
+    {
+      title: 'Refining Product Illustrations',
+      description: 'Rebranding assets for Series C funding that refined Shopmonkey\'s brand',
+      href: '/graphic-designs/product-illustrations',
+      imagePath: '/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png',
+      tags: ['Shopmonkey']
+    },
+    {
+      title: 'Case Studies',
+      description: 'Story telling case studies that encapsulate success stories from different automotive shops',
+      href: '/graphic-designs/case-studies',
+      imagePath: '/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png',
+      tags: ['Shopmonkey']
+    },
+    {
+      title: 'Event Designs',
+      description: 'Booth and event designs displaying Shopmonkey\'s friendly brand towards a skeptical crowd at SEMA',
+      href: '/graphic-designs/event-designs',
+      imagePath: '/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png',
       tags: ['Shopmonkey']
     }
   ];
@@ -96,12 +118,12 @@ const Index = () => {
         className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {/* Section 1: Portfolio Highlights */}
+        {/* Section 1: Homepage */}
         <div className="min-w-full snap-start flex-shrink-0 px-4 py-12">
-          <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="mb-8 rounded-lg p-8 bg-slate-900/80 backdrop-blur-sm">
-              <div className="flex items-center justify-between mb-6">
+          <div className="max-w-7xl mx-auto space-y-8">
+            {/* Header Section */}
+            <div className="rounded-lg p-8 bg-slate-900/80 backdrop-blur-sm">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
                   <div>
@@ -111,84 +133,105 @@ const Index = () => {
                 </div>
                 <Button 
                   onClick={() => scrollToSection(1)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3"
                 >
                   View Work <ArrowRightIcon className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-              
-              {/* Testimonial Section */}
-              <div className="mb-8">
-                <h2 className="text-xl font-bold text-pink-400 mb-4">
-                  Collaboration is my middle name, prior managers and peers agree.
-                </h2>
-                <TestimonialCarousel testimonials={testimonials} />
+            </div>
+            
+            {/* Testimonial Section */}
+            <div className="rounded-lg p-8 bg-slate-900/80 backdrop-blur-sm">
+              <div className="flex items-start gap-8">
+                <div className="w-1/3 flex-shrink-0">
+                  <img 
+                    src="/lovable-uploads/43abf79a-b668-4802-8153-498a7ad0047a.png" 
+                    alt="Danny Ortiz-Wills" 
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-xl font-bold text-pink-400 mb-4">
+                    Collaboration is my middle name, prior managers and peers agree.
+                  </h2>
+                  <TestimonialCarousel testimonials={testimonials} />
+                </div>
               </div>
-              
-              {/* Portfolio Highlights */}
-              <div className="mb-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-white">Portfolio Highlights | 2019-2025</h3>
+            </div>
+            
+            {/* Portfolio Highlights Section */}
+            <div className="rounded-lg bg-slate-900/80 backdrop-blur-sm">
+              <button 
+                onClick={() => setIsPortfolioHighlightsExpanded(!isPortfolioHighlightsExpanded)}
+                className="w-full flex items-center justify-between p-8 text-left"
+              >
+                <h3 className="text-lg font-semibold text-white">Portfolio Highlights | 2019-2025</h3>
+                {isPortfolioHighlightsExpanded ? 
+                  <ChevronUp className="text-white h-5 w-5" /> : 
                   <ChevronDown className="text-white h-5 w-5" />
+                }
+              </button>
+              
+              {isPortfolioHighlightsExpanded && (
+                <div className="px-8 pb-8">
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Grammy Museum */}
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="aspect-video mb-3">
+                        <video 
+                          src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover rounded"
+                        />
+                      </div>
+                      <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
+                      <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                      </Button>
+                    </div>
+                    
+                    {/* Express Lane */}
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="aspect-video mb-3">
+                        <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded" />
+                      </div>
+                      <h4 className="text-white font-semibold mb-2">Express Lane - Lightning Quick Services</h4>
+                      <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                      </Button>
+                    </div>
+                    
+                    {/* Gourmet Recipes */}
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="aspect-video mb-3">
+                        <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded" />
+                      </div>
+                      <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
+                      <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                      </Button>
+                    </div>
+                    
+                    {/* Mobile Apps */}
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="aspect-video mb-3">
+                        <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded" />
+                      </div>
+                      <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
+                      <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {/* Grammy Museum */}
-                  <div className="bg-slate-800/50 rounded-lg p-4">
-                    <div className="aspect-video mb-3">
-                      <video 
-                        src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover rounded"
-                      />
-                    </div>
-                    <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
-                    <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Express Lane */}
-                  <div className="bg-slate-800/50 rounded-lg p-4">
-                    <div className="aspect-video mb-3">
-                      <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded" />
-                    </div>
-                    <h4 className="text-white font-semibold mb-2">Express Lane - Lightning Quick Services</h4>
-                    <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Gourmet Recipes */}
-                  <div className="bg-slate-800/50 rounded-lg p-4">
-                    <div className="aspect-video mb-3">
-                      <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded" />
-                    </div>
-                    <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
-                    <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Mobile Apps */}
-                  <div className="bg-slate-800/50 rounded-lg p-4">
-                    <div className="aspect-video mb-3">
-                      <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded" />
-                    </div>
-                    <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
-                    <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -209,15 +252,13 @@ const Index = () => {
                 <div className="flex gap-2">
                   <Button 
                     onClick={navigateLeft}
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <Button 
                     onClick={navigateRight}
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -302,15 +343,13 @@ const Index = () => {
                 <div className="flex gap-2">
                   <Button 
                     onClick={navigateLeft}
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <Button 
                     onClick={navigateRight}
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -385,8 +424,7 @@ const Index = () => {
                 <div className="flex gap-2">
                   <Button 
                     onClick={navigateLeft}
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
@@ -431,51 +469,32 @@ const Index = () => {
                 </button>
                 
                 {isGraphicDesignerExpanded && (
-                  <div className="px-6 pb-6 space-y-6">
-                    {/* Data-Driven eBooks */}
-                    <div className="bg-slate-700/50 rounded-lg p-4">
-                      <div className="flex gap-4">
-                        <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-white mb-2">Data-Driven eBooks</h4>
-                          <div className="flex gap-2 mb-2">
-                            <Badge variant="secondary" className="text-xs">2 Months</Badge>
-                            <Badge variant="secondary" className="text-xs">2.5 Wks Each</Badge>
+                  <div className="px-6 pb-6 space-y-4">
+                    {graphicDesignProjects.map((project) => (
+                      <div key={project.title} className="bg-slate-700/50 rounded-lg p-4">
+                        <div className="flex gap-4">
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
+                            <div className="flex gap-2 mb-2">
+                              {project.tags.map((tag) => (
+                                <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+                              ))}
+                            </div>
+                            <p className="text-gray-400 text-sm mb-3">
+                              {project.description}
+                            </p>
+                            <Link to={project.href}>
+                              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                                View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                              </Button>
+                            </Link>
                           </div>
-                          <p className="text-gray-400 text-sm mb-3">
-                            Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less
-                          </p>
-                          <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                            View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                          </Button>
-                        </div>
-                        <div className="w-32">
-                          <img src="/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png" alt="Data-Driven eBooks" className="w-full rounded" />
+                          <div className="w-32">
+                            <img src={project.imagePath} alt={project.title} className="w-full rounded" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Adhere+ */}
-                    <div className="bg-slate-700/50 rounded-lg p-4">
-                      <div className="flex gap-4">
-                        <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-white mb-2">Adhere+</h4>
-                          <div className="flex gap-2 mb-2">
-                            <Badge variant="secondary" className="text-xs">Web App</Badge>
-                            <Badge variant="secondary" className="text-xs">2 months</Badge>
-                            <Badge className="bg-green-500 text-white text-xs">NEW</Badge>
-                          </div>
-                          <p className="text-gray-400 text-sm mb-3">
-                            0 to 1 web and branding design for a Adhere Plus's flagship app.
-                          </p>
-                          <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                            View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                          </Button>
-                        </div>
-                        <div className="w-32">
-                          <img src="/lovable-uploads/01-Adhere/evidence-full.png" alt="Adhere+" className="w-full rounded" />
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 )}
               </div>
