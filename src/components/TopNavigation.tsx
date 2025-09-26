@@ -46,14 +46,10 @@ const TopNavigation: FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+              src="/src/assets/new-logo.png" 
               alt="DOW Logo" 
-              className="h-8 w-8"
+              className="h-7"
             />
-            <div>
-              <div className="text-lg font-bold text-blue-600">DANIEL ORTIZ-WILLS</div>
-              <div className="text-sm text-gray-600">FREELANCE DESIGNS</div>
-            </div>
           </Link>
 
           {/* Navigation Links */}
@@ -63,7 +59,7 @@ const TopNavigation: FC = () => {
               <button
                 onMouseEnter={() => setUxuiDropdownOpen(true)}
                 onMouseLeave={() => setUxuiDropdownOpen(false)}
-                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
               >
                 UXUI Designs
                 <ChevronDown className="h-4 w-4" />
@@ -101,7 +97,7 @@ const TopNavigation: FC = () => {
               <button
                 onMouseEnter={() => setGraphicDropdownOpen(true)}
                 onMouseLeave={() => setGraphicDropdownOpen(false)}
-                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
               >
                 Graphic Designs
                 <ChevronDown className="h-4 w-4" />
@@ -178,14 +174,10 @@ const TopNavigation: FC = () => {
                 <div className="flex items-center justify-between mb-6">
                   <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
                     <img 
-                      src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+                      src="/src/assets/new-logo.png" 
                       alt="DOW Logo" 
-                      className="h-8 w-8"
+                      className="h-7"
                     />
-                    <div>
-                      <div className="text-lg font-bold text-blue-600">DOW</div>
-                      <div className="text-xs text-gray-600">FREELANCE DESIGNS</div>
-                    </div>
                   </Link>
                   <Button 
                     variant="ghost" 

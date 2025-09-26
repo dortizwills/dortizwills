@@ -7,6 +7,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel';
 import shopmonkeyLogo from '@/assets/shopmonkey-logo.png';
 import rabornLogo from '@/assets/raborn-logo.png';
 import dowLogo from '@/assets/dow-logo.png';
+import avatarIllustration from '@/assets/avatar-illustration.png';
+import backgroundImage from '@/assets/homepage-background.png';
 
 const Index = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -112,7 +114,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')` }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div 
         ref={scrollContainerRef}
         className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
@@ -145,12 +147,12 @@ const Index = () => {
               <div className="flex items-start gap-8">
                 <div className="w-1/3 flex-shrink-0">
                   <img 
-                    src="/lovable-uploads/43abf79a-b668-4802-8153-498a7ad0047a.png" 
+                    src={avatarIllustration} 
                     alt="Danny Ortiz-Wills" 
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
-                <div className="flex-1">
+                <div className="w-2/3">
                   <h2 className="text-xl font-bold text-pink-400 mb-4">
                     Collaboration is my middle name, prior managers and peers agree.
                   </h2>
@@ -270,7 +272,7 @@ const Index = () => {
                 {/* Grammy Museum */}
                 <div className="bg-slate-800/50 rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="flex-1">
+                    <div className="w-1/3">
                       <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
                       <div className="flex gap-2 mb-3">
                         <Badge variant="secondary">Web App</Badge>
@@ -284,7 +286,7 @@ const Index = () => {
                         View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="w-96">
+                    <div className="w-2/3">
                       <video 
                         src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                         autoPlay
@@ -300,7 +302,7 @@ const Index = () => {
                 {/* Mobile App Portfolio */}
                 <div className="bg-slate-800/50 rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="flex-1">
+                    <div className="w-1/3">
                       <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
                       <div className="flex gap-2 mb-3">
                         <Badge variant="secondary">Web App</Badge>
@@ -314,7 +316,7 @@ const Index = () => {
                         View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="w-96">
+                    <div className="w-2/3">
                       <div className="flex gap-2">
                         <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 1" className="w-1/2 rounded" />
                         <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 2" className="w-1/2 rounded" />
@@ -361,7 +363,7 @@ const Index = () => {
                 {/* Camping Made Easy */}
                 <div className="bg-slate-800/50 rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="flex-1">
+                    <div className="w-1/3">
                       <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
                       <div className="flex gap-2 mb-3">
                         <Badge variant="secondary">Web App</Badge>
@@ -375,7 +377,7 @@ const Index = () => {
                         View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="w-96">
+                    <div className="w-2/3">
                       <img src="/lovable-uploads/01-camping-buddy/primary-happy-path-1.png" alt="Camping App" className="w-full rounded" />
                     </div>
                   </div>
@@ -384,7 +386,7 @@ const Index = () => {
                 {/* Gourmet Recipes */}
                 <div className="bg-slate-800/50 rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="flex-1">
+                    <div className="w-1/3">
                       <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
                       <div className="flex gap-2 mb-3">
                         <Badge variant="secondary">Web App</Badge>
@@ -398,7 +400,7 @@ const Index = () => {
                         View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="w-96">
+                    <div className="w-2/3">
                       <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full rounded" />
                     </div>
                   </div>
@@ -435,7 +437,7 @@ const Index = () => {
               <div className="mb-6">
                 <div className="bg-slate-800/50 rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="flex-1">
+                    <div className="w-1/3">
                       <h3 className="text-xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
                       <div className="flex gap-2 mb-3">
                         <Badge variant="secondary">Web App</Badge>
@@ -448,7 +450,7 @@ const Index = () => {
                         View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="w-96">
+                    <div className="w-2/3">
                       <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full rounded" />
                     </div>
                   </div>
@@ -473,7 +475,7 @@ const Index = () => {
                     {graphicDesignProjects.map((project) => (
                       <div key={project.title} className="bg-slate-700/50 rounded-lg p-4">
                         <div className="flex gap-4">
-                          <div className="flex-1">
+                          <div className="w-1/3">
                             <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
                             <div className="flex gap-2 mb-2">
                               {project.tags.map((tag) => (
@@ -489,7 +491,7 @@ const Index = () => {
                               </Button>
                             </Link>
                           </div>
-                          <div className="w-32">
+                          <div className="w-2/3">
                             <img src={project.imagePath} alt={project.title} className="w-full rounded" />
                           </div>
                         </div>
