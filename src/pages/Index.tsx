@@ -8,7 +8,10 @@ import shopmonkeyLogo from '@/assets/shopmonkey-logo.png';
 import rabornLogo from '@/assets/raborn-logo.png';
 import dowLogo from '@/assets/dow-logo.png';
 import avatarIllustration from '@/assets/avatar-illustration.png';
-import backgroundImage from '@/assets/homepage-background.png';
+import backgroundImage from '@/assets/homepage-grid-background.png';
+import rabornTabLogo from '@/assets/raborn-tab-logo.png';
+import dowTabLogo from '@/assets/dow-tab-logo.png';
+import shopmonkeyTabLogo from '@/assets/shopmonkey-tab-logo.png';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('portfolio');
@@ -77,54 +80,74 @@ const Index = () => {
         </div>
         
         {/* Tab Navigation */}
-        <div className="flex gap-4">
-          <button
-            onClick={() => setActiveTab('portfolio')}
-            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
-              activeTab === 'portfolio' 
-                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
-                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
-            }`}
-          >
-            <span className="text-sm font-medium">Portfolio Highlights</span>
-            <span className="text-xs text-gray-400">2019-2021</span>
-          </button>
-          
-          <button
-            onClick={() => setActiveTab('raborn')}
-            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
-              activeTab === 'raborn' 
-                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
-                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
-            }`}
-          >
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <img src={rabornLogo} alt="Raborn" className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <div className="text-sm font-medium">Raborn Media</div>
-              <div className="text-xs text-gray-400">2024-2025</div>
-            </div>
-            <span className="text-xs text-gray-400">UXUI Designer, Project Manager</span>
-          </button>
-          
-          <button
-            onClick={() => setActiveTab('dow')}
-            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
-              activeTab === 'dow' 
-                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
-                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
-            }`}
-          >
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <img src={dowLogo} alt="DOW" className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <div className="text-sm font-medium">DOW Freelance Designer</div>
-              <div className="text-xs text-gray-400">2023-2025</div>
-            </div>
-            <span className="text-xs text-gray-400">Product Designer, Mobile Designer, UXUI Designer</span>
-          </button>
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-4 min-w-max pb-2">
+            <button
+              onClick={() => setActiveTab('portfolio')}
+              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+                activeTab === 'portfolio' 
+                  ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                  : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+              }`}
+            >
+              <span className="text-sm font-medium">Portfolio Highlights</span>
+              <span className="text-xs text-gray-400">2019-2025</span>
+            </button>
+            
+            <button
+              onClick={() => setActiveTab('raborn')}
+              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+                activeTab === 'raborn' 
+                  ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                  : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+              }`}
+            >
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                <img src={rabornTabLogo} alt="Raborn" className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-medium">Raborn Media</div>
+                <div className="text-xs text-gray-400">2024-2025</div>
+              </div>
+              <span className="text-xs text-gray-400">UXUI Designer, Project Manager</span>
+            </button>
+            
+            <button
+              onClick={() => setActiveTab('dow')}
+              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+                activeTab === 'dow' 
+                  ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                  : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+              }`}
+            >
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                <img src={dowTabLogo} alt="DOW" className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-medium">DOW Freelance Designer</div>
+                <div className="text-xs text-gray-400">2023-2025</div>
+              </div>
+              <span className="text-xs text-gray-400">Product Designer, Mobile Designer, UXUI Designer</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('shopmonkey')}
+              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+                activeTab === 'shopmonkey' 
+                  ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                  : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+              }`}
+            >
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                <img src={shopmonkeyTabLogo} alt="Shopmonkey" className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-medium">Shopmonkey</div>
+                <div className="text-xs text-gray-400">2021-2023</div>
+              </div>
+              <span className="text-xs text-gray-400">Product Designer, Jr. Product Designer</span>
+            </button>
+          </div>
         </div>
 
         {/* Tab Content */}
@@ -379,6 +402,48 @@ const Index = () => {
                   asChild
                 >
                   <Link to="/analytics">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'shopmonkey' && (
+          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+            <div className="grid grid-cols-2 gap-6">
+              {/* Express Lane */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Express Lane - Lightning Quick Services</h3>
+                <p className="text-gray-400 text-sm mb-4">Shopmonkey</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/quick-services">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Product Designs */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png" alt="Product Designs" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Product Designs</h3>
+                <p className="text-gray-400 text-sm mb-4">Shopmonkey</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/product-designs">
                     View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
                   </Link>
                 </Button>
