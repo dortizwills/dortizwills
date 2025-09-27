@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRightIcon, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import TestimonialCarousel from '../components/TestimonialCarousel';
@@ -11,10 +11,7 @@ import avatarIllustration from '@/assets/avatar-illustration.png';
 import backgroundImage from '@/assets/homepage-background.png';
 
 const Index = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentSection, setCurrentSection] = useState(0);
-  const [isPortfolioHighlightsExpanded, setIsPortfolioHighlightsExpanded] = useState(true);
-  const [isGraphicDesignerExpanded, setIsGraphicDesignerExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('portfolio');
   
   const testimonials = [
     {
@@ -44,250 +41,200 @@ const Index = () => {
     }
   ];
 
-  const scrollToSection = (sectionIndex: number) => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const sectionWidth = container.clientWidth;
-      container.scrollTo({
-        left: sectionIndex * sectionWidth,
-        behavior: 'smooth'
-      });
-      setCurrentSection(sectionIndex);
-    }
-  };
-
-  const navigateLeft = () => {
-    if (currentSection > 0) {
-      scrollToSection(currentSection - 1);
-    }
-  };
-
-  const navigateRight = () => {
-    if (currentSection < 3) {
-      scrollToSection(currentSection + 1);
-    }
-  };
-
-  const graphicDesignProjects = [
-    {
-      title: 'Data-Driven eBooks',
-      description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
-      href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png',
-      tags: ['2 Months', '2.5 Wks Each']
-    },
-    {
-      title: 'Email Marketing Campaigns',
-      description: 'Email marketing campaigns for an audience that is not reading inclined',
-      href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png',
-      tags: ['Shopmonkey']
-    },
-    {
-      title: 'Social Media Campaigns',
-      description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
-      href: '/graphic-designs/social-media',
-      imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
-      tags: ['Shopmonkey']
-    },
-    {
-      title: 'Refining Product Illustrations',
-      description: 'Rebranding assets for Series C funding that refined Shopmonkey\'s brand',
-      href: '/graphic-designs/product-illustrations',
-      imagePath: '/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png',
-      tags: ['Shopmonkey']
-    },
-    {
-      title: 'Case Studies',
-      description: 'Story telling case studies that encapsulate success stories from different automotive shops',
-      href: '/graphic-designs/case-studies',
-      imagePath: '/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png',
-      tags: ['Shopmonkey']
-    },
-    {
-      title: 'Event Designs',
-      description: 'Booth and event designs displaying Shopmonkey\'s friendly brand towards a skeptical crowd at SEMA',
-      href: '/graphic-designs/event-designs',
-      imagePath: '/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png',
-      tags: ['Shopmonkey']
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div 
-        ref={scrollContainerRef}
-        className="flex gap-[54px] overflow-x-auto snap-x snap-mandatory scrollbar-hide h-screen"
-        style={{ 
-          scrollbarWidth: 'none', 
-          msOverflowStyle: 'none',
-          overscrollBehavior: 'none'
-        }}
-      >
-        {/* Section 1: Homepage */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
-          <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header Section */}
-            <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
-                  <div>
-                    <h1 className="text-2xl font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
-                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
-                  </div>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
+        {/* Header Section */}
+        <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
+              <div>
+                <h1 className="text-2xl font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
+                <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Testimonial Section */}
+        <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+          <div className="flex items-start gap-8">
+            <div className="w-1/3 flex-shrink-0">
+              <img 
+                src={avatarIllustration} 
+                alt="Danny Ortiz-Wills" 
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div className="w-2/3">
+              <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-pink-400 mb-4">
+                Collaboration is my middle name, prior managers and peers agree.
+              </h2>
+              <TestimonialCarousel testimonials={testimonials} />
+            </div>
+          </div>
+        </div>
+        
+        {/* Tab Navigation */}
+        <div className="flex gap-4">
+          <button
+            onClick={() => setActiveTab('portfolio')}
+            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
+              activeTab === 'portfolio' 
+                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+            }`}
+          >
+            <span className="text-sm font-medium">Portfolio Highlights</span>
+            <span className="text-xs text-gray-400">2019-2021</span>
+          </button>
+          
+          <button
+            onClick={() => setActiveTab('raborn')}
+            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
+              activeTab === 'raborn' 
+                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+            }`}
+          >
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+              <img src={rabornLogo} alt="Raborn" className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <div className="text-sm font-medium">Raborn Media</div>
+              <div className="text-xs text-gray-400">2024-2025</div>
+            </div>
+            <span className="text-xs text-gray-400">UXUI Designer, Project Manager</span>
+          </button>
+          
+          <button
+            onClick={() => setActiveTab('dow')}
+            className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors ${
+              activeTab === 'dow' 
+                ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
+                : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
+            }`}
+          >
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+              <img src={dowLogo} alt="DOW" className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <div className="text-sm font-medium">DOW Freelance Designer</div>
+              <div className="text-xs text-gray-400">2023-2025</div>
+            </div>
+            <span className="text-xs text-gray-400">Product Designer, Mobile Designer, UXUI Designer</span>
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        {activeTab === 'portfolio' && (
+          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+            <div className="grid grid-cols-2 gap-6">
+              {/* Grammy Museum */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <video 
+                    src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover rounded border border-white/20"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
+                <p className="text-gray-400 text-sm mb-4">Raborn Media</p>
                 <Button 
-                  onClick={() => scrollToSection(1)}
-                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3"
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
                 >
-                  View Work <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  <Link to="/grammy-museum">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Gourmet Recipes */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                <p className="text-gray-400 text-sm mb-4">Freelance Case Study</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/gourmet-recipes">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Express Lane */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Express Lane - Lightning Quick Services</h3>
+                <p className="text-gray-400 text-sm mb-4">Shopmonkey</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/quick-services">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Mobile Apps */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
+                <p className="text-gray-400 text-sm mb-4">Raborn Media</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/mobile-apps">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
                 </Button>
               </div>
             </div>
-            
-            {/* Testimonial Section */}
-            <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="flex items-start gap-8">
-                <div className="w-1/3 flex-shrink-0">
-                  <img 
-                    src={avatarIllustration} 
-                    alt="Danny Ortiz-Wills" 
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-                <div className="w-2/3">
-                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-pink-400 mb-4">
-                    Collaboration is my middle name, prior managers and peers agree.
-                  </h2>
-                  <TestimonialCarousel testimonials={testimonials} />
-                </div>
-              </div>
-            </div>
-            
-            {/* Portfolio Highlights Header */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-              <button 
-                onClick={() => setIsPortfolioHighlightsExpanded(!isPortfolioHighlightsExpanded)}
-                className="w-full flex items-center justify-between p-8 text-left"
-              >
-                <h3 className="text-[1.5rem] font-bold text-white">Portfolio Highlights | 2019-2025</h3>
-                {isPortfolioHighlightsExpanded ? 
-                  <ChevronUp className="text-white h-5 w-5" /> : 
-                  <ChevronDown className="text-white h-5 w-5" />
-                }
-              </button>
-            </div>
-
-            {/* Portfolio Highlights Content */}
-            {isPortfolioHighlightsExpanded && (
-              <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-                <div className="grid grid-cols-2 gap-4">
-                  {/* Grammy Museum */}
-                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                    <div className="aspect-video mb-6 border border-white/20">
-                      <video 
-                        src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover rounded border border-white/20"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
-                    <p className="text-gray-400 text-sm mb-6">Raborn Media</p>
-                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Express Lane */}
-                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                    <div className="aspect-video mb-6">
-                      <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded border border-white/20" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Express Lane - Lightning Quick Services</h3>
-                    <p className="text-gray-400 text-sm mb-6">Shopmonkey</p>
-                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Gourmet Recipes */}
-                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                    <div className="aspect-video mb-6">
-                      <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded border border-white/20" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
-                    <p className="text-gray-400 text-sm mb-6">Freelance Case Study</p>
-                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                  
-                  {/* Mobile Apps */}
-                  <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                    <div className="aspect-video mb-6">
-                      <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded border border-white/20" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
-                    <p className="text-gray-400 text-sm mb-6">Raborn Media</p>
-                    <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
-        </div>
+        )}
 
-        {/* Section 2: Raborn Media */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
-          <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <img src={rabornLogo} alt="Raborn Media Logo" className="w-12 h-12" />
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">Raborn Media | 2024-2025</h2>
-                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">UXUI Designer, Project Manager</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={navigateLeft}
-                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                  </Button>
-                  <Button 
-                    onClick={navigateRight}
-                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Grammy Museum */}
+        {activeTab === 'raborn' && (
+          <div className="space-y-6">
+            {/* Grammy Museum Expanded */}
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
-                  <div className="flex gap-2 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">Grammy Museum MS Redesign</h3>
+                  <div className="flex gap-2 mb-4">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-6">
                     Redesigning interactions to engage visitors of all ages and encourage donations and event bookings.
                   </p>
-                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  <Button 
+                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                    asChild
+                  >
+                    <Link to="/grammy-museum">
+                      View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
                 <div className="w-2/3">
@@ -297,210 +244,148 @@ const Index = () => {
                     muted
                     loop
                     playsInline
-                    className="w-full h-auto rounded"
+                    className="w-full h-auto rounded border border-white/20"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Mobile App Portfolio */}
+            {/* Mobile App Portfolio Expanded */}
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
-                  <div className="flex gap-2 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">Mobile App Portfolio</h3>
+                  <div className="flex gap-2 mb-4">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-6">
                     View a collection of my mobile app design work across various industries and platforms.
                   </p>
-                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="w-2/3">
-                  <div className="flex gap-2">
-                    <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 1" className="w-1/2 rounded" />
-                    <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 2" className="w-1/2 rounded" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 3: DOW Freelance Designer */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
-          <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">DOW Freelance Designer | 2023-2025</h2>
-                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, Mobile Designer, UXUI Designer</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
                   <Button 
-                    onClick={navigateLeft}
-                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
+                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                    asChild
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <Link to="/mobile-apps">
+                      View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
-                  <Button 
-                    onClick={navigateRight}
-                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                  </Button>
+                </div>
+                <div className="w-2/3 flex gap-2">
+                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 1" className="w-1/2 rounded border border-white/20" />
+                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile App 2" className="w-1/2 rounded border border-white/20" />
                 </div>
               </div>
             </div>
 
-            {/* Camping Made Easy */}
+            {/* Adhere+ */}
             <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
               <div className="flex gap-6">
                 <div className="w-1/3">
-                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Camping Made Easy</h2>
-                  <div className="flex gap-2 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">Adhere+</h3>
+                  <div className="flex gap-2 mb-4">
                     <Badge variant="secondary">Web App</Badge>
                     <Badge variant="secondary">2 months</Badge>
                     <Badge className="bg-green-500 text-white">NEW</Badge>
                   </div>
-                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
-                    Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level.
+                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-6">
+                    Designing a comprehensive healthcare platform focused on patient adherence and medication management.
                   </p>
-                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="w-2/3">
-                  <img src="/lovable-uploads/01-camping-buddy/primary-happy-path-1.png" alt="Camping App" className="w-full rounded" />
-                </div>
-              </div>
-            </div>
-
-            {/* Gourmet Recipes */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
-              <div className="flex gap-6">
-                <div className="w-1/3">
-                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Gourmet Recipes</h2>
-                  <div className="flex gap-2 mb-3">
-                    <Badge variant="secondary">Web App</Badge>
-                    <Badge variant="secondary">2 months</Badge>
-                    <Badge className="bg-green-500 text-white">NEW</Badge>
-                  </div>
-                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
-                    Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are.
-                  </p>
-                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="w-2/3">
-                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full rounded" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 4: Shopmonkey */}
-        <div className="min-w-full snap-start flex-shrink-0 px-4 py-12 pb-16">
-          <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <img src={shopmonkeyLogo} alt="Shopmonkey Logo" className="w-12 h-12" />
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">Shopmonkey | 2021-2023</h2>
-                    <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, Jr. Product Designer</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
                   <Button 
-                    onClick={navigateLeft}
-                    className="bg-[#23293D] hover:bg-[#23293D]/80 text-white"
+                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                    asChild
                   >
-                    <ChevronLeft className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Express Lane Project */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-6">
-              <div className="flex gap-6">
-                <div className="w-1/3">
-                  <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-white mb-2">Express Lane – Lightning Quick Services</h2>
-                  <div className="flex gap-2 mb-3">
-                    <Badge variant="secondary">Web App</Badge>
-                    <Badge variant="secondary">3 Months</Badge>
-                  </div>
-                  <p className="text-gray-400 text-[1.2rem] leading-[2rem] mb-4">
-                    Reduce checkout times to 2-3 minutes for automotive shops.
-                  </p>
-                  <Button className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                    <Link to="/adhere-plus">
+                      View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
                 <div className="w-2/3">
-                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full rounded" />
+                  <img src="/lovable-uploads/01-Adhere/evidence-full.png" alt="Adhere+" className="w-full h-auto rounded border border-white/20" />
                 </div>
               </div>
             </div>
+          </div>
+        )}
 
-            {/* Graphic Designer Section */}
-            <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-              <button 
-                onClick={() => setIsGraphicDesignerExpanded(!isGraphicDesignerExpanded)}
-                className="w-full flex items-center justify-between p-6 text-left"
-              >
-                <h3 className="font-medium text-sm text-white">Graphic Designer | 2019-2021</h3>
-                {isGraphicDesignerExpanded ? 
-                  <ChevronUp className="h-6 w-6 text-white" /> : 
-                  <ChevronDown className="h-6 w-6 text-white" />
-                }
-              </button>
-              
-              {isGraphicDesignerExpanded && (
-                <div className="px-6 pb-6 space-y-4">
-                  {graphicDesignProjects.map((project) => (
-                    <div key={project.title} className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-4">
-                      <div className="flex gap-4">
-                        <div className="w-1/3">
-                          <h2 className="text-[1.75rem] leading-[2.25rem] font-semibold text-white mb-2">{project.title}</h2>
-                          <div className="flex gap-2 mb-2">
-                            {project.tags.map((tag) => (
-                              <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-                            ))}
-                          </div>
-                          <p className="text-gray-400 text-[1.2rem] leading-[2rem] text-sm mb-3">
-                            {project.description}
-                          </p>
-                          <Link to={project.href}>
-                            <Button size="sm" className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300">
-                              View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                            </Button>
-                          </Link>
-                        </div>
-                        <div className="w-2/3">
-                          <img src={project.imagePath} alt={project.title} className="w-full rounded" />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+        {activeTab === 'dow' && (
+          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
+            <div className="grid grid-cols-2 gap-6">
+              {/* Camping Made Easy */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/01-camping-buddy/final-booking-demo-1.png" alt="Camping Made Easy" className="w-full h-full object-cover rounded border border-white/20" />
                 </div>
-              )}
+                <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
+                <p className="text-gray-400 text-sm mb-4">Freelance Case Study</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/camping-app">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Product Designs */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png" alt="Product Designs" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Product Designs</h3>
+                <p className="text-gray-400 text-sm mb-4">Shopmonkey</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/product-designs">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Graphic Designs */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" alt="Graphic Designs" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Graphic Designs</h3>
+                <p className="text-gray-400 text-sm mb-4">Various Projects</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/graphic-designs">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Analytics */}
+              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-4">
+                  <img src="/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png" alt="Analytics" className="w-full h-full object-cover rounded border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Analytics Dashboard</h3>
+                <p className="text-gray-400 text-sm mb-4">Data Visualization</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-[800ms]"
+                  asChild
+                >
+                  <Link to="/analytics">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-
+        )}
       </div>
     </div>
   );
