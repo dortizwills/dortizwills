@@ -146,93 +146,91 @@ const Index = () => {
 
         {/* Tab Content */}
         {activeTab === 'portfolio' && (
-          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-            <div className="grid grid-cols-2 gap-6">
-              {/* Grammy Museum */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <video 
-                    src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover rounded border border-white/20"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
-                <p className="text-gray-400 text-sm mb-4">Raborn Media</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/grammy-museum">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+          <div className="grid grid-cols-2 gap-6">
+            {/* Grammy Museum */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <video 
+                  src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
-              
-              {/* Gourmet Recipes */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
-                <p className="text-gray-400 text-sm mb-4">Freelance Case Study</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/gourmet-recipes">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Grammy Museum MS Redesign</h3>
+                <p className="text-gray-300 text-sm mb-4">Raborn Media</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/grammy-museum">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
-              
-              {/* Express Lane */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Express Lane - Lightning Quick Services</h3>
-                <p className="text-gray-400 text-sm mb-4">Shopmonkey</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/quick-services">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+            </div>
+            
+            {/* Gourmet Recipes */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover" />
               </div>
-              
-              {/* Mobile Apps */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Mobile App Portfolio</h3>
-                <p className="text-gray-400 text-sm mb-4">Raborn Media</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/mobile-apps">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Gourmet Recipes</h3>
+                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/gourmet-recipes">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Express Lane */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Express Lane – Lightning Quick Services</h3>
+                <p className="text-gray-300 text-sm mb-4">Shopmonkey</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/quick-services">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Mobile Apps */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Mobile App Portfolio</h3>
+                <p className="text-gray-300 text-sm mb-4">Raborn Media</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/mobile-apps">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -335,172 +333,169 @@ const Index = () => {
         )}
 
         {activeTab === 'dow' && (
-          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-            <div className="grid grid-cols-2 gap-6">
-              {/* Camping Made Easy */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/01-camping-buddy/final-booking-demo-1.png" alt="Camping App" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Camping Made Easy</h3>
-                <p className="text-gray-400 text-sm mb-4">Freelance Case Study</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/camping-app">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+          <div className="grid grid-cols-2 gap-6">
+            {/* Camping Made Easy */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <video 
+                  src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
-              
-              {/* Gourmet Recipes */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Gourmet Recipes</h3>
-                <p className="text-gray-400 text-sm mb-4">Freelance Case Study</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/gourmet-recipes">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Camping Made Easy</h3>
+                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/camping-app">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Gourmet Recipes */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-1">Gourmet Recipes</h3>
+                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  asChild
+                >
+                  <Link to="/gourmet-recipes">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
         )}
 
         {activeTab === 'shopmonkey' && (
-          <div className="rounded-lg bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors p-8">
-            <div className="grid grid-cols-2 gap-6">
-              {/* Data-Driven eBooks */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/759bf6e8-7359-4690-b129-57988eb2d3b9.png" alt="Data-Driven eBooks" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Data-Driven eBooks</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/data-driven-ebooks">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+          <div className="grid grid-cols-3 gap-6">
+            {/* Data-Driven eBooks */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Data-Driven eBooks" className="w-full h-full object-cover" />
               </div>
-
-              {/* Email Marketing Campaigns */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/5c1c5920-bce7-4dcd-9059-5f636b24fc68.png" alt="Email Marketing" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Email Marketing Campaigns</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/email-marketing">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Data-Driven eBooks</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/data-driven-ebooks">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
-
-              {/* Social Media Campaigns */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/94eaf5c4-1470-42ff-852e-42b278ea631d.png" alt="Social Media" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Social Media Campaigns</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/social-media">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+            </div>
+            
+            {/* Email Marketing Campaigns */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Email Marketing" className="w-full h-full object-cover" />
               </div>
-
-              {/* Product Illustrations */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Product Illustrations" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Refining Product Illustrations</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/product-illustrations">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Email Marketing Campaigns</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/email-marketing">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
-
-              {/* Case Studies */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/37ca84b7-d63f-4f3a-8dbb-9c2db3ff21dd.png" alt="Case Studies" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Case Studies</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/case-studies">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+            </div>
+            
+            {/* Social Media Campaigns */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" alt="Social Media" className="w-full h-full object-cover" />
               </div>
-
-              {/* Event Designs */}
-              <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-6 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-4">
-                  <img src="/lovable-uploads/6261277f-8561-450f-a540-9cdd59870118.png" alt="Event Designs" className="w-full h-full object-cover rounded border border-white/20" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Event Designs</h3>
-                <p className="text-gray-400 text-sm mb-4">Graphic Design</p>
-                <div className="group">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-[#003CBC] to-[#001B56] group-hover:w-full transition-all duration-[800ms] ease-in-out"
-                    asChild
-                  >
-                    <Link to="/graphic-designs/event-designs">
-                      View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Social Media Campaigns</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/social-media">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Product Illustrations */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/f68824b8-f1be-48ba-893c-6197e79fad50.png" alt="Product Illustrations" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Refining Product Illustrations</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/product-illustrations">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Case Studies */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/759bf6e8-7359-4690-b129-57988eb2d3b9.png" alt="Case Studies" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Case Studies</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/case-studies">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Event Designs */}
+            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+              <div className="aspect-[4/3]">
+                <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Event Designs" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Event Designs</h3>
+                <Button 
+                  size="sm" 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/event-designs">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
