@@ -148,87 +148,91 @@ const Index = () => {
         {activeTab === 'portfolio' && (
           <div className="grid grid-cols-2 gap-6">
             {/* Grammy Museum */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <video 
-                  src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Grammy Museum MS Redesign</h3>
-                <p className="text-gray-300 text-sm mb-4">Raborn Media</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <video 
+                src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
+                <p className="text-blue-300 text-sm mb-4">Raborn Media</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/grammy-museum">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Gourmet Recipes */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Gourmet Recipes</h3>
-                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
+                alt="Gourmet Recipes" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                <p className="text-blue-300 text-sm mb-4">Freelance Case Study</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/gourmet-recipes">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Express Lane */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/01-express-lane/display-express-lane.png" alt="Express Lane" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Express Lane – Lightning Quick Services</h3>
-                <p className="text-gray-300 text-sm mb-4">Shopmonkey</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/01-express-lane/display-express-lane.png" 
+                alt="Express Lane" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
+                <p className="text-blue-300 text-sm mb-4">Shopmonkey</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/quick-services">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Mobile Apps */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" alt="Mobile Apps" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Mobile App Portfolio</h3>
-                <p className="text-gray-300 text-sm mb-4">Raborn Media</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
+                alt="Mobile Apps" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Mobile App Portfolio</h3>
+                <p className="text-blue-300 text-sm mb-4">Raborn Media</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/mobile-apps">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -335,47 +339,47 @@ const Index = () => {
         {activeTab === 'dow' && (
           <div className="grid grid-cols-2 gap-6">
             {/* Camping Made Easy */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <video 
-                  src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Camping Made Easy</h3>
-                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <video 
+                src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Camping Made Easy</h3>
+                <p className="text-blue-300 text-sm mb-4">Freelance Case Study</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/camping-app">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Gourmet Recipes */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-xl font-bold text-white mb-1">Gourmet Recipes</h3>
-                <p className="text-gray-300 text-sm mb-4">Freelance Case Study</p>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
+                alt="Gourmet Recipes" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Gourmet Recipes</h3>
+                <p className="text-blue-300 text-sm mb-4">Freelance Case Study</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
                   asChild
                 >
                   <Link to="/gourmet-recipes">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -386,114 +390,132 @@ const Index = () => {
         {activeTab === 'shopmonkey' && (
           <div className="grid grid-cols-3 gap-6">
             {/* Data-Driven eBooks */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Data-Driven eBooks" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Data-Driven eBooks</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" 
+                alt="Data-Driven eBooks" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Data-Driven eBooks</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/data-driven-ebooks">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Email Marketing Campaigns */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Email Marketing" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Email Marketing Campaigns</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
+                alt="Email Marketing" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Email Marketing Campaigns</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/email-marketing">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Social Media Campaigns */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" alt="Social Media" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Social Media Campaigns</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/c2d4d5fa-21da-4ef3-b169-810ea84e3986.png" 
+                alt="Social Media" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Social Media Campaigns</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/social-media">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Product Illustrations */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/f68824b8-f1be-48ba-893c-6197e79fad50.png" alt="Product Illustrations" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Refining Product Illustrations</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/f68824b8-f1be-48ba-893c-6197e79fad50.png" 
+                alt="Product Illustrations" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Refining Product Illustrations</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/product-illustrations">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Case Studies */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/759bf6e8-7359-4690-b129-57988eb2d3b9.png" alt="Case Studies" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Case Studies</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/759bf6e8-7359-4690-b129-57988eb2d3b9.png" 
+                alt="Case Studies" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Case Studies</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/case-studies">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
             
             {/* Event Designs */}
-            <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-              <div className="aspect-[4/3]">
-                <img src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" alt="Event Designs" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Event Designs</h3>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-700">
+              <img 
+                src="/lovable-uploads/9c0fc049-3139-426d-b3b9-b5e5f05219ac.png" 
+                alt="Event Designs" 
+                className="absolute inset-0 w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-white mb-2">Event Designs</h3>
+                <p className="text-blue-300 text-sm mb-4">Graphic Design</p>
                 <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] text-white w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/event-designs">
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
