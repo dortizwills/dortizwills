@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import shopmonkeyLogo from '@/assets/shopmonkey-logo.png';
 import rabornLogo from '@/assets/raborn-logo.png';
@@ -386,14 +387,18 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Graphic Designer Section Heading */}
-            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9]">
-              <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
-              <p className="text-gray-400 text-sm">2021-2023</p>
-            </div>
-
-            {/* Graphic Design Cards - 2 Column Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Graphic Designer Section - Collapsible */}
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="graphic-design" className="border-none">
+                <AccordionTrigger className="bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors hover:no-underline">
+                  <div className="flex items-center justify-between w-full">
+                    <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
+                    <span className="text-gray-400 text-sm">2021-2023</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pt-6">
+                  {/* Graphic Design Cards - 2 Column Grid */}
+                  <div className="grid grid-cols-2 gap-6">
               {/* Data-Driven eBooks */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                 <div className="aspect-video mb-3">
@@ -519,7 +524,10 @@ const Index = () => {
                   </Link>
                 </Button>
               </div>
-            </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         )}
 
