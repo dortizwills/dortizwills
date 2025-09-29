@@ -148,106 +148,90 @@ const Index = () => {
         {activeTab === 'portfolio' && (
           <div className="grid grid-cols-2 gap-6">
             {/* Grammy Museum */}
-            <div className="relative rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300">
-              <div className="aspect-[4/3] relative">
+            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+              <div className="aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded"
                 />
-                <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[2px] group-hover:bg-gray-900/40 transition-all duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-900/80 backdrop-blur-md border-t border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-2">Grammy Museum MS Redesign</h3>
-                <p className="text-blue-300 text-sm mb-4">Raborn Media</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
-                  asChild
-                >
-                  <Link to="/grammy-museum">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
+              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
+              <Button 
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                asChild
+              >
+                <Link to="/grammy-museum">
+                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                </Link>
+              </Button>
             </div>
             
             {/* Gourmet Recipes */}
-            <div className="relative rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300">
-              <div className="aspect-[4/3] relative">
+            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
                   alt="Gourmet Recipes" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover rounded" 
                 />
-                <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[2px] group-hover:bg-gray-900/40 transition-all duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-900/80 backdrop-blur-md border-t border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-2">Gourmet Recipes</h3>
-                <p className="text-blue-300 text-sm mb-4">Freelance Case Study</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
-                  asChild
-                >
-                  <Link to="/gourmet-recipes">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
+              <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
+              <Button 
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                asChild
+              >
+                <Link to="/gourmet-recipes">
+                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                </Link>
+              </Button>
             </div>
             
             {/* Express Lane */}
-            <div className="relative rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300">
-              <div className="aspect-[4/3] relative">
+            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/01-express-lane/display-express-lane.png" 
                   alt="Express Lane" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover rounded" 
                 />
-                <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[2px] group-hover:bg-gray-900/40 transition-all duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-900/80 backdrop-blur-md border-t border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-2">Express Lane – Lightning Quick Services</h3>
-                <p className="text-blue-300 text-sm mb-4">Shopmonkey</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
-                  asChild
-                >
-                  <Link to="/quick-services">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
+              <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
+              <Button 
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                asChild
+              >
+                <Link to="/quick-services">
+                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                </Link>
+              </Button>
             </div>
             
             {/* Mobile Apps */}
-            <div className="relative rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300">
-              <div className="aspect-[4/3] relative">
+            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
                   alt="Mobile Apps" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover rounded" 
                 />
-                <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-[2px] group-hover:bg-gray-900/40 transition-all duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-900/80 backdrop-blur-md border-t border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-2">Mobile App Portfolio</h3>
-                <p className="text-blue-300 text-sm mb-4">Raborn Media</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#0052E0] text-white px-6 py-2 rounded-lg font-medium hover:from-[#0052E0] hover:to-[#0066FF] transition-all"
-                  asChild
-                >
-                  <Link to="/mobile-apps">
-                    View Project <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
+              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
+              <Button 
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] hover:w-full transition-all duration-300"
+                asChild
+              >
+                <Link to="/mobile-apps">
+                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                </Link>
+              </Button>
             </div>
           </div>
         )}
