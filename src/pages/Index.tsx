@@ -157,7 +157,7 @@ const Index = () => {
           <div className="grid grid-cols-2 gap-6">
             {/* Grammy Museum */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/grammy-museum" className="block aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                   autoPlay
@@ -166,11 +166,11 @@ const Index = () => {
                   playsInline
                   className="w-full h-full object-cover rounded"
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -181,17 +181,17 @@ const Index = () => {
             
             {/* Gourmet Recipes */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/gourmet-recipes" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
                   alt="Gourmet Recipes" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -202,17 +202,17 @@ const Index = () => {
             
             {/* Express Lane */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/quick-services" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/01-express-lane/display-express-lane.png" 
                   alt="Express Lane" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
               <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/quick-services">
@@ -223,17 +223,17 @@ const Index = () => {
             
             {/* Mobile Apps */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/mobile-apps" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
                   alt="Mobile Apps" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -248,7 +248,7 @@ const Index = () => {
           <div className="grid grid-cols-2 gap-6">
             {/* Grammy Museum */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/grammy-museum" className="block aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                   autoPlay
@@ -257,11 +257,11 @@ const Index = () => {
                   playsInline
                   className="w-full h-full object-cover rounded"
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -272,17 +272,17 @@ const Index = () => {
 
             {/* Mobile App Portfolio */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/mobile-apps" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
                   alt="Mobile Apps" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -293,17 +293,17 @@ const Index = () => {
 
             {/* Adhere+ */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/adhere-plus" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
                   alt="Adhere+" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Adhere+</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/adhere-plus">
@@ -318,17 +318,17 @@ const Index = () => {
           <div className="grid grid-cols-2 gap-6">
             {/* Camping Made Easy */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/camping-app" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
                   alt="Camping Made Easy"
                   className="w-full h-full object-cover rounded"
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Camping Made Easy</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/camping-app">
@@ -339,17 +339,17 @@ const Index = () => {
             
             {/* Gourmet Recipes */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <div className="aspect-video mb-3">
+              <Link to="/gourmet-recipes" className="block aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
                   alt="Gourmet Recipes" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </div>
+              </Link>
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -365,17 +365,17 @@ const Index = () => {
             {/* Express Lane - Half Width */}
             <div className="grid grid-cols-2 gap-6">
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/quick-services" className="block aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/01-express-lane/display-express-lane.png" 
                     alt="Express Lane" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
                 <p className="text-gray-400 text-sm mb-2">Product Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/quick-services">
@@ -402,17 +402,17 @@ const Index = () => {
                   <div className="grid grid-cols-2 gap-6">
               {/* Data-Driven eBooks */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/data-driven-ebooks" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" 
+                    src="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
                     alt="Data-Driven eBooks" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/data-driven-ebooks">
@@ -423,17 +423,17 @@ const Index = () => {
               
               {/* Email Marketing */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/email-marketing" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
+                    src="/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png"
                     alt="Email Marketing" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/email-marketing">
@@ -444,17 +444,17 @@ const Index = () => {
 
               {/* Social Media */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/social-media" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/d4b947dd-e463-4481-b7d1-31c6bd247972.png" 
+                    src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png"
                     alt="Social Media" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Social Media</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/social-media">
@@ -465,17 +465,17 @@ const Index = () => {
 
               {/* Product Illustrations */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/product-illustrations" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/929e5c5d-c88e-466e-a8be-34520b2caf32.png" 
+                    src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
                     alt="Product Illustrations" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/product-illustrations">
@@ -486,17 +486,17 @@ const Index = () => {
 
               {/* Case Studies */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/case-studies" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/6261277f-8561-450f-a540-9cdd59870118.png" 
+                    src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
                     alt="Case Studies" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Case Studies</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/case-studies">
@@ -507,17 +507,17 @@ const Index = () => {
 
               {/* Event Designs */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                <div className="aspect-video mb-3">
+                <Link to="/graphic-designs/event-designs" className="block aspect-video mb-3">
                   <img 
-                    src="/lovable-uploads/37ca84b7-d63f-4f3a-8dbb-9c2db3ff21dd.png" 
+                    src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
                     alt="Event Designs" 
                     className="w-full h-full object-cover rounded" 
                   />
-                </div>
+                </Link>
                 <h4 className="text-white font-semibold mb-2">Event Designs</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out w-auto group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/event-designs">
