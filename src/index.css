@@ -100,4 +100,13 @@
   .clip-path-diagonal {
     clip-path: polygon(40% 0%, 100% 0, 100% 60%);
   }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
