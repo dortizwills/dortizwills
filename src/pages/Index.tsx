@@ -170,7 +170,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -191,7 +191,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -212,7 +212,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
               <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/quick-services">
@@ -233,7 +233,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -261,7 +261,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -282,7 +282,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -303,7 +303,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Adhere+</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/adhere-plus">
@@ -328,7 +328,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Camping Made Easy</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/camping-app">
@@ -349,7 +349,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -375,7 +375,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
                 <p className="text-gray-400 text-sm mb-2">Product Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/quick-services">
@@ -412,7 +412,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/data-driven-ebooks">
@@ -433,7 +433,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/email-marketing">
@@ -454,7 +454,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Social Media</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/social-media">
@@ -475,7 +475,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/product-illustrations">
@@ -496,7 +496,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Case Studies</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/case-studies">
@@ -517,7 +517,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Event Designs</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-500 ease-in-out w-fit group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/event-designs">
