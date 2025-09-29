@@ -386,7 +386,7 @@ const Index = () => {
             </div>
 
             {/* Graphic Designer Section - Collapsible */}
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible defaultValue="graphic-design" className="w-full">
               <AccordionItem value="graphic-design" className="border-none">
                 <AccordionPrimitive.Header className="flex">
                   <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors w-full group">
