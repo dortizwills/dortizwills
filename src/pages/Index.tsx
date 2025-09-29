@@ -386,14 +386,14 @@ const Index = () => {
 
             {/* Graphic Designer Section with Accordion */}
             <Accordion type="single" collapsible defaultValue="graphic-designs" className="w-full">
-              <AccordionItem value="graphic-designs" className="bg-[#161522]/50 backdrop-blur-sm rounded-lg border border-[#A2C6E9]">
-                <AccordionTrigger className="px-4 py-4 hover:no-underline">
-                  <div>
-                    <h3 className="text-white text-xl font-semibold text-left">Graphic Designer</h3>
-                    <p className="text-gray-400 text-sm text-left">2021-2023</p>
+              <AccordionItem value="graphic-designs" className="bg-[#161522]/50 backdrop-blur-sm rounded-lg border border-[#A2C6E9] hover:border-white transition-colors">
+                <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                  <div className="flex items-center justify-between w-full">
+                    <span className="text-sm font-medium text-white">Graphic Designer</span>
+                    <span className="text-xs text-gray-400 mr-8">2009-2025</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4">
+                <AccordionContent className="px-6 pb-4">
                   {/* Graphic Design Cards - 2 Column Grid */}
                   <div className="grid grid-cols-2 gap-6 pt-4">
                     {/* Data-Driven eBooks */}
