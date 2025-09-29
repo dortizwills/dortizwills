@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import shopmonkeyLogo from '@/assets/shopmonkey-logo.png';
 import rabornLogo from '@/assets/raborn-logo.png';
@@ -294,7 +293,7 @@ const Index = () => {
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="aspect-video mb-3">
                 <img 
-                  src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
+                  src="/lovable-uploads/01-Adhere/evidence-full.png" 
                   alt="Adhere+" 
                   className="w-full h-full object-cover rounded" 
                 />
@@ -318,9 +317,12 @@ const Index = () => {
             {/* Camping Made Easy */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="aspect-video mb-3">
-                <img 
-                  src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
-                  alt="Camping Made Easy"
+                <video 
+                  src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="w-full h-full object-cover rounded"
                 />
               </div>
@@ -384,147 +386,140 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Graphic Designer Section with Accordion */}
-            <Accordion type="single" collapsible defaultValue="graphic-designs" className="w-full">
-              <AccordionItem value="graphic-designs" className="bg-[#161522]/50 backdrop-blur-sm rounded-lg border border-[#A2C6E9] hover:border-white transition-colors">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <div className="flex items-center justify-between w-full">
-                    <span className="text-sm font-medium text-white">Graphic Designer</span>
-                    <span className="text-xs text-gray-400 mr-8">2009-2025</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  {/* Graphic Design Cards - 2 Column Grid */}
-                  <div className="grid grid-cols-2 gap-6 pt-4">
-                    {/* Data-Driven eBooks */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png" 
-                          alt="Data-Driven eBooks" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/data-driven-ebooks">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
-                    
-                    {/* Email Marketing */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png" 
-                          alt="Email Marketing" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/email-marketing">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
+            {/* Graphic Designer Section Heading */}
+            <div className="bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9]">
+              <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
+              <p className="text-gray-400 text-sm">2021-2023</p>
+            </div>
 
-                    {/* Social Media */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png" 
-                          alt="Social Media" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Social Media</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/social-media">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
+            {/* Graphic Design Cards - 2 Column Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* Data-Driven eBooks */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" 
+                    alt="Data-Driven eBooks" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/data-driven-ebooks">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Email Marketing */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
+                    alt="Email Marketing" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/email-marketing">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
 
-                    {/* Product Illustrations */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png" 
-                          alt="Product Illustrations" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/product-illustrations">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
+              {/* Social Media */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/d4b947dd-e463-4481-b7d1-31c6bd247972.png" 
+                    alt="Social Media" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Social Media</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/social-media">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
 
-                    {/* Case Studies */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png" 
-                          alt="Case Studies" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Case Studies</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/case-studies">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
+              {/* Product Illustrations */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/929e5c5d-c88e-466e-a8be-34520b2caf32.png" 
+                    alt="Product Illustrations" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/product-illustrations">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
 
-                    {/* Event Designs */}
-                    <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-                      <div className="aspect-video mb-3">
-                        <img 
-                          src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png" 
-                          alt="Event Designs" 
-                          className="w-full h-full object-cover rounded" 
-                        />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">Event Designs</h4>
-                      <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                      <Button 
-                        className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
-                        asChild
-                      >
-                        <Link to="/graphic-designs/event-designs">
-                          View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+              {/* Case Studies */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/6261277f-8561-450f-a540-9cdd59870118.png" 
+                    alt="Case Studies" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Case Studies</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/case-studies">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Event Designs */}
+              <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
+                <div className="aspect-video mb-3">
+                  <img 
+                    src="/lovable-uploads/37ca84b7-d63f-4f3a-8dbb-9c2db3ff21dd.png" 
+                    alt="Event Designs" 
+                    className="w-full h-full object-cover rounded" 
+                  />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Event Designs</h4>
+                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
+                <Button 
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  asChild
+                >
+                  <Link to="/graphic-designs/event-designs">
+                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         )}
 
