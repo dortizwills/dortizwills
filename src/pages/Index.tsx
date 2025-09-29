@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRightIcon } from 'lucide-react';
+import { ArrowRightIcon, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import shopmonkeyLogo from '@/assets/shopmonkey-logo.png';
 import rabornLogo from '@/assets/raborn-logo.png';
@@ -169,7 +170,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -190,7 +191,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -211,7 +212,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
               <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/quick-services">
@@ -232,7 +233,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -260,7 +261,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/grammy-museum">
@@ -281,7 +282,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/mobile-apps">
@@ -294,7 +295,7 @@ const Index = () => {
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="aspect-video mb-3">
                 <img 
-                  src="/lovable-uploads/01-Adhere/evidence-full.png" 
+                  src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
                   alt="Adhere+" 
                   className="w-full h-full object-cover rounded" 
                 />
@@ -302,7 +303,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Adhere+</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/adhere-plus">
@@ -318,19 +319,16 @@ const Index = () => {
             {/* Camping Made Easy */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <div className="aspect-video mb-3">
-                <video 
-                  src="/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <img 
+                  src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
+                  alt="Camping Made Easy"
                   className="w-full h-full object-cover rounded"
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Camping Made Easy</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/camping-app">
@@ -351,7 +349,7 @@ const Index = () => {
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                 asChild
               >
                 <Link to="/gourmet-recipes">
@@ -377,7 +375,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
                 <p className="text-gray-400 text-sm mb-2">Product Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/quick-services">
@@ -390,12 +388,15 @@ const Index = () => {
             {/* Graphic Designer Section - Collapsible */}
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="graphic-design" className="border-none">
-                <AccordionTrigger className="bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors hover:no-underline">
-                  <div className="flex items-center justify-between w-full">
+                <AccordionPrimitive.Header className="flex">
+                  <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors w-full group">
                     <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
-                    <span className="text-gray-400 text-sm">2021-2023</span>
-                  </div>
-                </AccordionTrigger>
+                    <div className="flex items-center gap-4">
+                      <span className="text-gray-400 text-sm">2021-2023</span>
+                      <ChevronDown className="h-5 w-5 text-gray-400 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </div>
+                  </AccordionPrimitive.Trigger>
+                </AccordionPrimitive.Header>
                 <AccordionContent className="pt-6">
                   {/* Graphic Design Cards - 2 Column Grid */}
                   <div className="grid grid-cols-2 gap-6">
@@ -411,7 +412,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/data-driven-ebooks">
@@ -432,7 +433,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/email-marketing">
@@ -453,7 +454,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Social Media</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/social-media">
@@ -474,7 +475,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/product-illustrations">
@@ -495,7 +496,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Case Studies</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/case-studies">
@@ -516,7 +517,7 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Event Designs</h4>
                 <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
                 <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 group-hover:w-full"
+                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:w-full"
                   asChild
                 >
                   <Link to="/graphic-designs/event-designs">
