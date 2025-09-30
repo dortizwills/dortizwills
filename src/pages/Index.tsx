@@ -48,7 +48,12 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#011232] to-[#00081D] md:bg-cover md:bg-center md:bg-no-repeat md:bg-fixed" style={{ backgroundImage: window.innerWidth >= 768 ? `url(${backgroundImage})` : 'none' }}>
+    <div 
+      className="min-h-screen bg-gradient-to-b from-[#011232] to-[#00081D] md:bg-none md:bg-cover md:bg-center md:bg-no-repeat md:bg-fixed" 
+      style={{ 
+        backgroundImage: typeof window !== 'undefined' && window.innerWidth >= 768 ? `url(${backgroundImage})` : undefined 
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
         <div className="rounded-lg p-5 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
