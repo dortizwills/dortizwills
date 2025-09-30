@@ -58,14 +58,19 @@ const TopNavigation: FC = () => {
           <div className="flex items-center gap-8">
             {/* UXUI Designs Dropdown */}
             <div className="relative">
-              <button
+              <div
                 onMouseEnter={() => setUxuiDropdownOpen(true)}
                 onMouseLeave={() => setUxuiDropdownOpen(false)}
-                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
+                className="flex items-center gap-1"
               >
-                UXUI Designs
-                <ChevronDown className="h-4 w-4" />
-              </button>
+                <Link
+                  to="/product-designs"
+                  className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
+                >
+                  UXUI Designs
+                  <ChevronDown className="h-4 w-4" />
+                </Link>
+              </div>
               
               {uxuiDropdownOpen && (
                 <div 
@@ -73,13 +78,6 @@ const TopNavigation: FC = () => {
                   onMouseEnter={() => setUxuiDropdownOpen(true)}
                   onMouseLeave={() => setUxuiDropdownOpen(false)}
                 >
-                  <Link 
-                    to="/product-designs"
-                    onClick={handleLinkClick}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-medium border-b border-gray-100"
-                  >
-                    View All UXUI Designs
-                  </Link>
                   {uxuiDesigns.map((item) => (
                     <Link 
                       key={item.name}
@@ -96,14 +94,19 @@ const TopNavigation: FC = () => {
 
             {/* Graphic Designs Dropdown */}
             <div className="relative">
-              <button
+              <div
                 onMouseEnter={() => setGraphicDropdownOpen(true)}
                 onMouseLeave={() => setGraphicDropdownOpen(false)}
-                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
+                className="flex items-center gap-1"
               >
-                Graphic Designs
-                <ChevronDown className="h-4 w-4" />
-              </button>
+                <Link
+                  to="/graphic-designs"
+                  className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
+                >
+                  Graphic Designs
+                  <ChevronDown className="h-4 w-4" />
+                </Link>
+              </div>
               
               {graphicDropdownOpen && (
                 <div 
@@ -111,13 +114,6 @@ const TopNavigation: FC = () => {
                   onMouseEnter={() => setGraphicDropdownOpen(true)}
                   onMouseLeave={() => setGraphicDropdownOpen(false)}
                 >
-                  <Link 
-                    to="/graphic-designs"
-                    onClick={handleLinkClick}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-medium border-b border-gray-100"
-                  >
-                    View All Graphic Designs
-                  </Link>
                   {graphicDesigns.map((item) => (
                     <Link 
                       key={item.name}

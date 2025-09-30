@@ -73,7 +73,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="px-3 md:px-6">
-        <h2 className="text-xl md:text-[1.2rem] md:leading-[2rem] font-normal text-pink-400 mb-4">
+        <h2 className="text-xl md:text-2xl font-bold text-pink-400 mb-4">
           Collaboration is my middle name, prior managers and peers agree.
         </h2>
         <div className="text-left" style={{ marginBottom: '0px' }}>
