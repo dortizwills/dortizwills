@@ -51,7 +51,7 @@ const Index = () => {
     <div className="min-h-screen bg-cover bg-center bg-no-repeat md:bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
-        <div className="rounded-lg p-3 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+        <div className="rounded-lg p-5 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-[80px] h-[80px] max-w-[80px] max-h-[80px] object-contain rounded-lg" />
@@ -64,7 +64,7 @@ const Index = () => {
         </div>
         
         {/* Testimonial Section */}
-        <div className="rounded-lg p-3 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+        <div className="rounded-lg p-5 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="w-full">
             <TestimonialCarousel testimonials={testimonials} />
           </div>
@@ -145,7 +145,7 @@ const Index = () => {
         {activeTab === 'portfolio' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Grammy Museum */}
-            <Link to="/product-designs/grammy-museum" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/grammy-museum" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
@@ -169,7 +169,7 @@ const Index = () => {
             </Link>
             
             {/* Gourmet Recipes */}
-            <Link to="/product-designs/gourmet-recipes" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/gourmet-recipes" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
@@ -190,7 +190,7 @@ const Index = () => {
             </Link>
             
             {/* Express Lane */}
-            <Link to="/product-designs/quick-services" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/quick-services" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/01-express-lane/display-express-lane.png" 
@@ -211,7 +211,7 @@ const Index = () => {
             </Link>
             
             {/* Mobile Apps */}
-            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
@@ -236,7 +236,7 @@ const Index = () => {
         {activeTab === 'raborn' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Grammy Museum */}
-            <Link to="/product-designs/grammy-museum" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/grammy-museum" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
@@ -260,7 +260,7 @@ const Index = () => {
             </Link>
 
             {/* Mobile App Portfolio */}
-            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
@@ -281,7 +281,7 @@ const Index = () => {
             </Link>
 
             {/* Adhere+ */}
-            <Link to="/product-designs/adhere-plus" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/adhere-plus" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" 
@@ -306,7 +306,7 @@ const Index = () => {
         {activeTab === 'dow' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Camping Made Easy */}
-            <Link to="/product-designs/camping-app" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/camping-app" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png"
@@ -327,7 +327,7 @@ const Index = () => {
             </Link>
             
             {/* Gourmet Recipes */}
-            <Link to="/product-designs/gourmet-recipes" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+            <Link to="/product-designs/gourmet-recipes" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
@@ -353,7 +353,7 @@ const Index = () => {
           <div className="space-y-6">
             {/* Express Lane - Half Width */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link to="/product-designs/quick-services" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/product-designs/quick-services" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/01-express-lane/display-express-lane.png" 
@@ -390,7 +390,7 @@ const Index = () => {
                   {/* Graphic Design Cards - 2 Column Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Data-Driven eBooks */}
-              <Link to="/graphic-designs/data-driven-ebooks" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/data-driven-ebooks" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/5e6af2ef-afda-4354-a360-56b751c12cff.png"
@@ -411,7 +411,7 @@ const Index = () => {
               </Link>
               
               {/* Email Marketing */}
-              <Link to="/graphic-designs/email-marketing" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/email-marketing" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png"
@@ -432,7 +432,7 @@ const Index = () => {
               </Link>
 
               {/* Social Media */}
-              <Link to="/graphic-designs/social-media" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/social-media" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png"
@@ -453,7 +453,7 @@ const Index = () => {
               </Link>
 
               {/* Product Illustrations */}
-              <Link to="/graphic-designs/product-illustrations" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/product-illustrations" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png"
@@ -474,7 +474,7 @@ const Index = () => {
               </Link>
 
               {/* Case Studies */}
-              <Link to="/graphic-designs/case-studies" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/case-studies" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png"
@@ -495,7 +495,7 @@ const Index = () => {
               </Link>
 
               {/* Event Designs */}
-              <Link to="/graphic-designs/event-designs" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <Link to="/graphic-designs/event-designs" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
                 <div className="aspect-video mb-3">
                   <img 
                     src="/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png"
