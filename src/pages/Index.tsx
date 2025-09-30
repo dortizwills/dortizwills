@@ -51,7 +51,7 @@ const Index = () => {
     <div className="min-h-screen bg-cover bg-center bg-no-repeat md:bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
-        <div className="rounded-lg px-8 pt-[calc(2rem-4px)] pb-[calc(2rem-4px)] bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+        <div className="rounded-lg p-3 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-[80px] h-[80px] max-w-[80px] max-h-[80px] object-contain rounded-lg" />
@@ -64,7 +64,7 @@ const Index = () => {
         </div>
         
         {/* Testimonial Section */}
-        <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+        <div className="rounded-lg p-3 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="w-full">
             <TestimonialCarousel testimonials={testimonials} />
           </div>
