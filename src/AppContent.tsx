@@ -58,7 +58,7 @@ const AppContent: FC = () => {
   return (
     <AnalyticsWrapper>
       <TopNavigation />
-      <div className="pt-10 md:pt-14">
+      <div className="pt-6">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
