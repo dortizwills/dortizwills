@@ -81,7 +81,7 @@ const Index = () => {
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
-              <span className="text-sm font-medium">Portfolio Highlights</span>
+              <span className="text-sm font-medium">Highlights</span>
               <span className="hidden md:inline text-xs text-gray-400">2019-2025</span>
             </button>
             
