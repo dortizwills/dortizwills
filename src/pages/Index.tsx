@@ -54,7 +54,7 @@ const Index = () => {
         <div className="rounded-lg px-8 pt-[calc(2rem-4px)] pb-[calc(2rem-4px)] bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-[220px] h-[220px] max-w-[220px] max-h-[220px] object-contain rounded-lg" />
+              <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-[80px] h-[80px] max-w-[80px] max-h-[80px] object-contain rounded-lg" />
               <div>
                 <h1 className="text-lg font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
                 <p className="text-gray-300 text-sm md:text-[1.2rem] md:leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
