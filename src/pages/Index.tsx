@@ -49,7 +49,7 @@ const Index = () => {
 
   return (
     <div 
-      className="min-h-screen bg-gradient-to-b from-[#011232] to-[#00081D] md:bg-none md:bg-cover md:bg-center md:bg-no-repeat md:bg-fixed" 
+      className="min-h-screen bg-gradient-to-b from-[#011232] via-[#00081D] to-[#042258] md:bg-none md:bg-cover md:bg-center md:bg-no-repeat md:bg-fixed" 
       style={{ 
         backgroundImage: typeof window !== 'undefined' && window.innerWidth >= 768 ? `url(${backgroundImage})` : undefined 
       }}
