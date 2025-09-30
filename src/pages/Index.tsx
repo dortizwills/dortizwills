@@ -64,19 +64,19 @@ const Index = () => {
         
         {/* Testimonial Section */}
         <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-          <div className="flex flex-col md:flex-row items-start gap-8">
-            <div className="w-full md:w-1/3 flex-shrink-0 md:order-1 order-2">
-              <img 
-                src={avatarIllustration} 
-                alt="Danny Ortiz-Wills" 
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-            <div className="w-full md:w-2/3 md:order-2 order-1">
-              <h2 className="text-xl text-pink-400 mb-4">
-                Collaboration is my middle name, prior managers and peers agree.
-              </h2>
+          <h2 className="text-xl font-normal text-pink-400 mb-4">
+            Collaboration is my middle name, prior managers and peers agree.
+          </h2>
+          <div className="grid md:grid-cols-[1fr,auto] items-center gap-6 md:gap-8 max-w-4xl mx-auto">
+            <div>
               <TestimonialCarousel testimonials={testimonials} />
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <img 
+                src="/lovable-uploads/self-photo@2x.png"
+                alt="Danny Ortiz-Wills"
+                className="rounded-lg shadow-lg object-cover max-w-[220px] max-h-[220px]"
+              />
             </div>
           </div>
         </div>

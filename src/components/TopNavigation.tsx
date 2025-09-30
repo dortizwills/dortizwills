@@ -43,7 +43,7 @@ const TopNavigation: FC = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-6 py-4">
+      <nav className="hidden md:flex fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-6" style={{ height: '54px' }}>
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
@@ -69,7 +69,7 @@ const TopNavigation: FC = () => {
               
               {uxuiDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full left-0 -mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={() => setUxuiDropdownOpen(true)}
                   onMouseLeave={() => setUxuiDropdownOpen(false)}
                 >
@@ -107,7 +107,7 @@ const TopNavigation: FC = () => {
               
               {graphicDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full left-0 -mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={() => setGraphicDropdownOpen(true)}
                   onMouseLeave={() => setGraphicDropdownOpen(false)}
                 >
