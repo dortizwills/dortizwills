@@ -47,7 +47,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat md:bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
         <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
@@ -55,8 +55,8 @@ const Index = () => {
             <div className="flex items-center gap-4">
               <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
               <div>
-                <h1 className="text-2xl font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
-                <p className="text-gray-300 text-[1.2rem] leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
+                <h1 className="text-lg font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
+                <p className="text-gray-300 text-base">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
               </div>
             </div>
           </div>
@@ -64,16 +64,16 @@ const Index = () => {
         
         {/* Testimonial Section */}
         <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-          <div className="flex items-start gap-8">
-            <div className="w-1/3 flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="w-full md:w-1/3 flex-shrink-0">
               <img 
                 src={avatarIllustration} 
                 alt="Danny Ortiz-Wills" 
                 className="w-full h-auto rounded-lg"
               />
             </div>
-            <div className="w-2/3">
-              <h2 className="text-[1.75rem] leading-[2.25rem] font-bold text-pink-400 mb-4">
+            <div className="w-full md:w-2/3">
+              <h2 className="text-xl font-bold text-pink-400 mb-4">
                 Collaboration is my middle name, prior managers and peers agree.
               </h2>
               <TestimonialCarousel testimonials={testimonials} />
@@ -154,10 +154,10 @@ const Index = () => {
 
         {/* Tab Content */}
         {activeTab === 'portfolio' && (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Grammy Museum */}
-            <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <Link to="/grammy-museum" className="block aspect-video mb-3">
+            <Link to="/grammy-museum" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <div className="aspect-video mb-3">
                 <video 
                   src="/lovable-uploads/Grammy Museum/Demo-Clip.mp4"
                   autoPlay
@@ -166,86 +166,86 @@ const Index = () => {
                   playsInline
                   className="w-full h-full object-cover rounded"
                 />
-              </Link>
+              </div>
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
                 asChild
               >
-                <Link to="/grammy-museum">
+                <span>
                   View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </Link>
+                </span>
               </Button>
-            </div>
+            </Link>
             
             {/* Gourmet Recipes */}
-            <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <Link to="/gourmet-recipes" className="block aspect-video mb-3">
+            <Link to="/gourmet-recipes" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" 
                   alt="Gourmet Recipes" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </Link>
+              </div>
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
               <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
                 asChild
               >
-                <Link to="/gourmet-recipes">
+                <span>
                   View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </Link>
+                </span>
               </Button>
-            </div>
+            </Link>
             
             {/* Express Lane */}
-            <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <Link to="/quick-services" className="block aspect-video mb-3">
+            <Link to="/quick-services" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/01-express-lane/display-express-lane.png" 
                   alt="Express Lane" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </Link>
+              </div>
               <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
               <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
                 asChild
               >
-                <Link to="/quick-services">
+                <span>
                   View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </Link>
+                </span>
               </Button>
-            </div>
+            </Link>
             
             {/* Mobile Apps */}
-            <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
-              <Link to="/mobile-apps" className="block aspect-video mb-3">
+            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors block">
+              <div className="aspect-video mb-3">
                 <img 
                   src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
                   alt="Mobile Apps" 
                   className="w-full h-full object-cover rounded" 
                 />
-              </Link>
+              </div>
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
               <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
               <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full"
+                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
                 asChild
               >
-                <Link to="/mobile-apps">
+                <span>
                   View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </Link>
+                </span>
               </Button>
-            </div>
+            </Link>
           </div>
         )}
 
         {activeTab === 'raborn' && (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Grammy Museum */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <Link to="/grammy-museum" className="block aspect-video mb-3">
@@ -315,7 +315,7 @@ const Index = () => {
         )}
 
         {activeTab === 'dow' && (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Camping Made Easy */}
             <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
               <Link to="/camping-app" className="block aspect-video mb-3">
@@ -363,7 +363,7 @@ const Index = () => {
         {activeTab === 'shopmonkey' && (
           <div className="space-y-6">
             {/* Express Lane - Half Width */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                 <Link to="/quick-services" className="block aspect-video mb-3">
                   <img 
@@ -392,14 +392,14 @@ const Index = () => {
                   <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors w-full group">
                     <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
                     <div className="flex items-center gap-4">
-                      <span className="text-gray-400 text-sm">2021-2023</span>
+                      <span className="text-gray-400 text-sm">2019-2022</span>
                       <ChevronDown className="h-5 w-5 text-gray-400 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                     </div>
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
                 <AccordionContent className="pt-6">
                   {/* Graphic Design Cards - 2 Column Grid */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Data-Driven eBooks */}
               <div className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-4 border border-[#A2C6E9] hover:border-white transition-colors">
                 <Link to="/graphic-designs/data-driven-ebooks" className="block aspect-video mb-3">

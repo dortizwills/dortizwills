@@ -74,12 +74,12 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-left" style={{ marginBottom: '0px' }}>
-            <blockquote className="text-white text-[1.2rem] leading-[2rem]" style={{ marginBottom: '8px' }}>
+            <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal" style={{ marginBottom: '8px' }}>
               "{testimonials[activeIndex].quote}"
             </blockquote>
             <div className="flex items-center space-x-2" style={{ marginBottom: '24px' }}>
-              <div className="text-gray-300 text-[1.2rem] leading-[2rem] font-bold">{testimonials[activeIndex].author}</div>
-              <div className="text-gray-300 text-[1.2rem] leading-[2rem]">{testimonials[activeIndex].title}</div>
+              <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem] font-bold">{testimonials[activeIndex].author}</div>
+              <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem]">{testimonials[activeIndex].title}</div>
             </div>
           
           <div className="flex items-center space-x-4">

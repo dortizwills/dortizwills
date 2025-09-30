@@ -7,6 +7,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from '@/components/ui/button';
+import logoFull from '@/assets/logo-full.png';
+import logoMobile from '@/assets/logo-mobile.png';
 
 const TopNavigation: FC = () => {
   const location = useLocation();
@@ -46,9 +48,9 @@ const TopNavigation: FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="/src/assets/new-logo.png" 
+              src={logoFull} 
               alt="DOW Logo" 
-              className="h-7"
+              className="h-7 w-auto"
             />
           </Link>
 
@@ -156,11 +158,10 @@ const TopNavigation: FC = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <img 
-              src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+              src={logoMobile} 
               alt="DOW Logo" 
-              className="h-6 w-6"
+              className="h-6 w-auto"
             />
-            <div className="text-sm font-bold text-blue-600">DOW</div>
           </Link>
           
           <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -174,9 +175,9 @@ const TopNavigation: FC = () => {
                 <div className="flex items-center justify-between mb-6">
                   <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
                     <img 
-                      src="/src/assets/new-logo.png" 
+                      src={logoMobile} 
                       alt="DOW Logo" 
-                      className="h-7"
+                      className="h-7 w-auto"
                     />
                   </Link>
                   <Button 

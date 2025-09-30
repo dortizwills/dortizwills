@@ -17,6 +17,8 @@ import {
   DrawerContent,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import logoFull from '@/assets/logo-full.png';
+import logoMobile from '@/assets/logo-mobile.png';
 
 const Sidebar: FC = () => {
   const location = useLocation();
@@ -81,9 +83,9 @@ const Sidebar: FC = () => {
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+            src={logoMobile} 
             alt="Logo" 
-            className="h-8 w-8 object-contain"
+            className="h-8 w-auto object-contain"
           />
         </Link>
         <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -97,9 +99,9 @@ const Sidebar: FC = () => {
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <img 
-                  src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+                  src={logoMobile} 
                   alt="Logo" 
-                  className="h-8 w-8 object-contain"
+                  className="h-8 w-auto object-contain"
                 />
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
@@ -201,11 +203,11 @@ const Sidebar: FC = () => {
       {/* Desktop Sidebar */}
       <aside className={`hidden custom:block fixed left-0 top-0 h-full w-[244px] bg-white border-r border-gray-200 flex flex-col py-8 px-4`}>
         <div className="flex items-center justify-between mb-8">
-          <div className="h-10 w-10 flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <img 
-              src="/lovable-uploads/6c29bf1f-d5a7-4d54-9891-d6c2fdf36bb5.png" 
+              src={logoFull} 
               alt="Logo" 
-              className="h-10 w-10 object-contain"
+              className="h-10 w-auto object-contain"
             />
           </div>
           <div className="h-12 w-12"></div>
