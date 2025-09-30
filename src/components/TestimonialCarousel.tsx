@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface TestimonialProps {
   quote: string;
@@ -88,9 +88,9 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
               size="icon"
               onClick={handlePrevious}
               aria-label="Previous testimonial"
-              className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+              className="border-[#A2C6E9] bg-[#003CBC] text-white hover:bg-[#001B56] hover:text-white hover:border-white"
             >
-              <ArrowLeft size={16} />
+              <ChevronLeft size={16} />
             </Button>
             
             <Button 
@@ -98,9 +98,9 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
               size="icon"
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+              className="border-[#A2C6E9] bg-[#003CBC] text-white hover:bg-[#001B56] hover:text-white hover:border-white"
             >
-              <ArrowRight size={16} />
+              <ChevronRight size={16} />
             </Button>
           </div>
         </div>

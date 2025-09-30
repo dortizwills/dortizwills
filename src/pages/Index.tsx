@@ -50,13 +50,13 @@ const Index = () => {
     <div className="min-h-screen bg-cover bg-center bg-no-repeat md:bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
-        <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
+        <div className="rounded-lg px-8 pt-[calc(2rem-4px)] pb-[calc(2rem-4px)] bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img src={dowLogo} alt="DOW Logo" className="w-12 h-12" />
               <div>
                 <h1 className="text-lg font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
-                <p className="text-gray-300 text-base">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
+                <p className="text-gray-300 text-sm md:text-[1.2rem] md:leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
               </div>
             </div>
           </div>
@@ -65,15 +65,15 @@ const Index = () => {
         {/* Testimonial Section */}
         <div className="rounded-lg p-8 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
           <div className="flex flex-col md:flex-row items-start gap-8">
-            <div className="w-full md:w-1/3 flex-shrink-0">
+            <div className="w-full md:w-1/3 flex-shrink-0 md:order-1 order-2">
               <img 
                 src={avatarIllustration} 
                 alt="Danny Ortiz-Wills" 
                 className="w-full h-auto rounded-lg"
               />
             </div>
-            <div className="w-full md:w-2/3">
-              <h2 className="text-xl font-bold text-pink-400 mb-4">
+            <div className="w-full md:w-2/3 md:order-2 order-1">
+              <h2 className="text-xl text-pink-400 mb-4">
                 Collaboration is my middle name, prior managers and peers agree.
               </h2>
               <TestimonialCarousel testimonials={testimonials} />
@@ -93,19 +93,19 @@ const Index = () => {
               }`}
             >
               <span className="text-sm font-medium">Portfolio Highlights</span>
-              <span className="text-xs text-gray-400">2019-2025</span>
+              <span className="hidden md:inline text-xs text-gray-400">2019-2025</span>
             </button>
             
             <button
               onClick={() => setActiveTab('raborn')}
-              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-3 md:px-6 px-4 py-4 rounded-lg border transition-colors whitespace-nowrap ${
                 activeTab === 'raborn' 
                   ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
               <img src={rabornTabLogo} alt="Raborn" className="w-8 h-8" />
-              <div className="text-left flex-1">
+              <div className={`text-left flex-1 ${activeTab === 'raborn' ? 'block' : 'hidden md:block'}`}>
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-sm font-medium">Raborn Media</span>
                   <span className="text-xs text-gray-400">2024-2025</span>
@@ -116,14 +116,14 @@ const Index = () => {
             
             <button
               onClick={() => setActiveTab('dow')}
-              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-3 md:px-6 px-4 py-4 rounded-lg border transition-colors whitespace-nowrap ${
                 activeTab === 'dow' 
                   ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
               <img src={dowTabLogo} alt="DOW" className="w-8 h-8" />
-              <div className="text-left flex-1">
+              <div className={`text-left flex-1 ${activeTab === 'dow' ? 'block' : 'hidden md:block'}`}>
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-sm font-medium">DOW Freelance Designer</span>
                   <span className="text-xs text-gray-400">2023-2025</span>
@@ -134,14 +134,14 @@ const Index = () => {
 
             <button
               onClick={() => setActiveTab('shopmonkey')}
-              className={`flex items-center gap-3 px-6 py-4 rounded-lg border transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-3 md:px-6 px-4 py-4 rounded-lg border transition-colors whitespace-nowrap ${
                 activeTab === 'shopmonkey' 
                   ? 'bg-[#161522]/50 backdrop-blur-sm border-white text-white' 
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
               <img src={shopmonkeyTabLogo} alt="Shopmonkey" className="w-8 h-8" />
-              <div className="text-left flex-1">
+              <div className={`text-left flex-1 ${activeTab === 'shopmonkey' ? 'block' : 'hidden md:block'}`}>
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-sm font-medium">Shopmonkey</span>
                   <span className="text-xs text-gray-400">2021-2023</span>
