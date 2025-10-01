@@ -68,52 +68,45 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
 
   return (
     <div 
-      className="relative w-full"
+      className="relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <h2 className="text-xl md:text-2xl font-bold text-pink-400 mb-6">
-        Collaboration is my middle name, prior managers and peers agree.
-      </h2>
-      
-      <div className="w-full bg-[#23283B] rounded-lg p-6 md:p-8 mb-6">
-        <div className="text-left">
-          <blockquote className="text-white text-base md:text-xl md:leading-relaxed font-normal mb-6">
-            "{testimonials[activeIndex].quote}"
-          </blockquote>
-          <div className="testimonial-meta">
-            <cite className="not-italic">
-              <span className="text-blue-300 text-sm md:text-lg font-bold">
-                – {testimonials[activeIndex].author}
-              </span>
-              <span className="text-gray-300 text-sm md:text-lg">
-                , {testimonials[activeIndex].title}
-              </span>
-            </cite>
+      <div>
+        <h2 className="text-xl md:text-2xl font-bold text-pink-400 mb-4">
+          Collaboration is my middle name, prior managers and peers agree.
+        </h2>
+        <div className="text-left" style={{ marginBottom: '0px' }}>
+            <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal" style={{ marginBottom: '8px' }}>
+              "{testimonials[activeIndex].quote}"
+            </blockquote>
+            <div className="flex items-center space-x-2" style={{ marginBottom: '24px' }}>
+              <div className="text-blue-300 text-xs md:text-[1.2rem] md:leading-[2rem] font-bold">{testimonials[activeIndex].author}</div>
+              <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem]">{testimonials[activeIndex].title}</div>
+            </div>
+          
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handlePrevious}
+              aria-label="Previous testimonial"
+              className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
+            >
+              <ChevronLeft size={16} />
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+              className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
+            >
+              <ChevronRight size={16} />
+            </Button>
           </div>
         </div>
-      </div>
-      
-      <div className="flex items-center justify-center md:justify-start space-x-4">
-        <Button 
-          variant="outline" 
-          size="icon"
-          onClick={handlePrevious}
-          aria-label="Previous testimonial"
-          className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
-        >
-          <ChevronLeft size={20} />
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          size="icon"
-          onClick={handleNext}
-          aria-label="Next testimonial"
-          className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
-        >
-          <ChevronRight size={20} />
-        </Button>
       </div>
     </div>
   );
