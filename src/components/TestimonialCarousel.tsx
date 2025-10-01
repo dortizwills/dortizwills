@@ -35,7 +35,7 @@ const defaultTestimonials = [
     title: "Head of UX Design, Raborn Media"
   },
   {
-    quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
+    quote: "I have no doubt that Danny would be a valuable asset to any organization requiring someone who's willing to work hard and pay attention to detail. His dedication, integrity, and work ethic make him an excellent candidate for any position he would pursue.",
     author: "Matt Stratton",
     title: "COO, Raborn Media"
   }
