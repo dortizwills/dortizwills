@@ -77,7 +77,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
           Collaboration is my middle name, prior managers and peers agree.
         </h2>
         <div className="text-left">
-          <div className="min-h-[200px] md:min-h-[160px] mb-6">
+          <div className="mb-6">
             <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal mb-2">
               "{testimonials[activeIndex].quote}"
             </blockquote>
@@ -86,28 +86,28 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
               <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem]">{testimonials[activeIndex].title}</div>
             </div>
           </div>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <Button 
+            variant="outline" 
+            size="icon"
+            onClick={handlePrevious}
+            aria-label="Previous testimonial"
+            className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
+          >
+            <ChevronLeft size={16} />
+          </Button>
           
-          <div className="flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={handlePrevious}
-              aria-label="Previous testimonial"
-              className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
-            >
-              <ChevronLeft size={16} />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={handleNext}
-              aria-label="Next testimonial"
-              className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
-            >
-              <ChevronRight size={16} />
-            </Button>
-          </div>
+          <Button 
+            variant="outline" 
+            size="icon"
+            onClick={handleNext}
+            aria-label="Next testimonial"
+            className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
+          >
+            <ChevronRight size={16} />
+          </Button>
         </div>
       </div>
     </div>

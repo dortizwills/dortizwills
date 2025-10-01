@@ -75,6 +75,9 @@ const Index = () => {
           </div>
         </div>
         
+        {/* Now Viewing Subheading */}
+        <h2 className="text-xl md:text-2xl font-bold text-white">Now Viewing</h2>
+        
         {/* Tab Navigation */}
         <div className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-4 min-w-max pb-2">
