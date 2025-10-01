@@ -26,7 +26,7 @@ const Index = () => {
       title: "Creative Director, Shopmonkey"
     },
     {
-      quote: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
+      quote: "I was consistently impressed by Daniel's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
       author: "Steven Chic",
       title: "VP, Alvys"
     },
@@ -36,12 +36,12 @@ const Index = () => {
       title: "Director of Web, Raborn Media"
     },
     {
-      quote: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
+      quote: "One highlight from our time together was a safety-focused web concept Daniel helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
       author: "Samantha Lane",
       title: "Head of UX Design, Raborn Media"
     },
     {
-      quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
+      quote: "Danny consistently showed a commitment to his role, I have no doubt that Daniel would be a valuable asset to any organization requiring someone who’s willing to work hard and pay attention to detail. His dedication, integrity, and work ethic make him an excellent candidate for any position he would pursue.",
       author: "Matt Stratton",
       title: "COO, Raborn Media"
     }
