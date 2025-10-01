@@ -76,14 +76,16 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
         <h2 className="text-xl md:text-2xl font-bold text-pink-400 mb-4">
           Collaboration is my middle name, prior managers and peers agree.
         </h2>
-        <div className="text-left" style={{ marginBottom: '0px' }}>
-            <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal" style={{ marginBottom: '8px' }}>
+        <div className="text-left mb-6">
+          <div className="min-h-[280px] md:min-h-[200px]">
+            <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal mb-2">
               "{testimonials[activeIndex].quote}"
             </blockquote>
-            <div className="flex items-center space-x-2" style={{ marginBottom: '24px' }}>
+            <div className="flex items-center space-x-2">
               <div className="text-blue-300 text-xs md:text-[1.2rem] md:leading-[2rem] font-bold">{testimonials[activeIndex].author}</div>
               <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem]">{testimonials[activeIndex].title}</div>
             </div>
+          </div>
           
           <div className="flex items-center space-x-4">
             <Button 
