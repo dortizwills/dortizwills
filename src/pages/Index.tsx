@@ -31,12 +31,12 @@ const Index = () => {
       title: "VP, Alvys"
     },
     {
-      quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well.",
+      quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His impact on our projects has been outstanding, and his ability to expand his skill set will no doubt continue to serve his future teams well.",
       author: "Kelsey McAuley",
       title: "Director of Web, Raborn Media"
     },
     {
-      quote: "One highlight from our time together was a safety-focused web concept Daniel helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
+      quote: "Daniel helped design a safety-focused web concept — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of his creative thinking with purpose-driven design. He brought thoughtfulness, curiosity, and a collaborative spirit to every project.",
       author: "Samantha Lane",
       title: "Head of UX Design, Raborn Media"
     },
