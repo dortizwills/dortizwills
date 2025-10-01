@@ -66,9 +66,18 @@ const About = () => {
               />
             </div>
             
-            <div className="mt-8">
-              <ContactForm />
-            </div>
+          </div>
+        </div>
+
+        {/* Contact Form Section */}
+        <div className="mt-16 pt-12 border-t border-gray-200">
+          <div className="max-w-2xl custom:max-w-none">
+            <h2 className="font-display text-3xl font-bold mb-6">Interested in working together?</h2>
+            <p className="text-gray-600 mb-8">
+              If you'd like to discuss opportunities or have any questions about my experience, 
+              I'd love to hear from you. Let's connect!
+            </p>
+            <ContactForm />
           </div>
         </div>
       </main>
