@@ -103,10 +103,7 @@ const Index = () => {
             >
               <img src={rabornTabLogo} alt="Raborn" className="w-8 h-8" />
               <div className={`text-left flex-1 ${activeTab === 'raborn' ? 'block' : 'hidden md:block'}`}>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm font-medium">Raborn Media</span>
-                  <span className="text-xs text-gray-400">2024-2025</span>
-                </div>
+                <div className="text-sm font-medium">Raborn Media | 2024-2025</div>
                 <div className="text-xs text-gray-400 mt-1">UXUI Designer, Project Manager</div>
               </div>
             </button>
@@ -121,10 +118,7 @@ const Index = () => {
             >
               <img src={dowTabLogo} alt="DOW" className="w-8 h-8" />
               <div className={`text-left flex-1 ${activeTab === 'dow' ? 'block' : 'hidden md:block'}`}>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm font-medium">DOW Freelance Designer</span>
-                  <span className="text-xs text-gray-400">2023-2025</span>
-                </div>
+                <div className="text-sm font-medium">DOW Freelance Designer | 2023-2025</div>
                 <div className="text-xs text-gray-400 mt-1">Product Designer, Mobile Designer, UXUI Designer</div>
               </div>
             </button>
@@ -139,10 +133,7 @@ const Index = () => {
             >
               <img src={shopmonkeyTabLogo} alt="Shopmonkey" className="w-8 h-8" />
               <div className={`text-left flex-1 ${activeTab === 'shopmonkey' ? 'block' : 'hidden md:block'}`}>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm font-medium">Shopmonkey</span>
-                  <span className="text-xs text-gray-400">2019-2023</span>
-                </div>
+                <div className="text-sm font-medium">Shopmonkey | 2019-2023</div>
                 <div className="text-xs text-gray-400 mt-1">Product Designer, Jr. Product Designer</div>
               </div>
             </button>
@@ -165,15 +156,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
-              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Raborn Media</p>
             </Link>
             
             {/* Gourmet Recipes */}
@@ -186,15 +169,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
-              <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Freelance Case Study</p>
             </Link>
             
             {/* Express Lane */}
@@ -207,36 +182,20 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
-              <p className="text-gray-400 text-sm mb-2">Shopmonkey</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Shopmonkey</p>
             </Link>
             
             {/* Mobile Apps */}
             <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
               <div className="aspect-video mb-3">
                 <img 
-                  src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
+                  src="/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png" 
                   alt="Mobile Apps" 
                   className="w-full h-full object-cover rounded" 
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
-              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Raborn Media</p>
             </Link>
           </div>
         )}
@@ -256,36 +215,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Grammy Museum MS Redesign</h4>
-              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
-            </Link>
-
-            {/* Mobile App Portfolio */}
-            <Link to="/mobile-apps" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
-              <div className="aspect-video mb-3">
-                <img 
-                  src="/lovable-uploads/c041bbcf-4f2c-49cc-98bd-4bb0c981f7c4.png" 
-                  alt="Mobile Apps" 
-                  className="w-full h-full object-cover rounded" 
-                />
-              </div>
-              <h4 className="text-white font-semibold mb-2">Mobile App Portfolio</h4>
-              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Raborn Media</p>
             </Link>
 
             {/* Adhere+ */}
@@ -298,15 +228,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Adhere+</h4>
-              <p className="text-gray-400 text-sm mb-2">Raborn Media</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Raborn Media</p>
             </Link>
           </div>
         )}
@@ -323,15 +245,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Camping Made Easy</h4>
-              <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Freelance Case Study</p>
             </Link>
             
             {/* Gourmet Recipes */}
@@ -344,15 +258,7 @@ const Index = () => {
                 />
               </div>
               <h4 className="text-white font-semibold mb-2">Gourmet Recipes</h4>
-              <p className="text-gray-400 text-sm mb-2">Freelance Case Study</p>
-              <Button 
-                className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                asChild
-              >
-                <span>
-                  View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                </span>
-              </Button>
+              <p className="text-gray-400 text-sm">Freelance Case Study</p>
             </Link>
           </div>
         )}
@@ -370,15 +276,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
-                <p className="text-gray-400 text-sm mb-2">Product Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Product Design</p>
               </Link>
             </div>
 
@@ -407,15 +305,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
               
               {/* Email Marketing */}
@@ -428,15 +318,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
 
               {/* Social Media */}
@@ -449,15 +331,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Social Media</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
 
               {/* Product Illustrations */}
@@ -470,15 +344,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
 
               {/* Case Studies */}
@@ -491,15 +357,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Case Studies</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
 
               {/* Event Designs */}
@@ -512,15 +370,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Event Designs</h4>
-                <p className="text-gray-400 text-sm mb-2">Graphic Design</p>
-                <Button 
-                  className="bg-gradient-to-r from-[#003CBC] to-[#001B56] transition-[width] duration-[2000ms] ease-in-out w-fit group-hover:w-full pointer-events-none"
-                  asChild
-                >
-                  <span>
-                    View Project <ArrowRightIcon className="ml-1 h-3 w-3" />
-                  </span>
-                </Button>
+                <p className="text-gray-400 text-sm">Graphic Design</p>
               </Link>
                   </div>
                 </AccordionContent>
