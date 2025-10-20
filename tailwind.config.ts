@@ -103,11 +103,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
-		fontFamily: {
-			'display': ['Lexend', 'sans-serif'],
-			'sans': ['DM Sans', 'sans-serif'],
-			'bbh': ['BBH Sans Bartle', 'sans-serif']
-		}
+			fontFamily: {
+				'display': ['Lexend', 'sans-serif'],
+				'sans': ['DM Sans', 'sans-serif']
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
