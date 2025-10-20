@@ -29,7 +29,7 @@ const GrammyMuseum = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="sticky top-8">
+            <div className="sticky top-[76px]">
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <h2 className="text-2xl font-display font-semibold">Project Details</h2>
