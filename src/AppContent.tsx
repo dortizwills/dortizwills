@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useAnalytics } from '@/hooks/useAnalytics';
-import CookieConsent from '@/components/CookieConsent';
 import Index from './pages/Index';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -37,12 +36,7 @@ function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
     }
   }, [location, hasConsent, trackPageView]);
 
-  return (
-    <>
-      {children}
-      <CookieConsent onConsent={setConsent} />
-    </>
-  );
+  return <>{children}</>;
 }
 
 const AppContent: FC = () => {
