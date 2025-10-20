@@ -57,13 +57,11 @@ const Index = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
         {/* Header Section */}
         <div className="rounded-lg p-5 bg-[#161522]/50 backdrop-blur-sm border border-[#A2C6E9] hover:border-white transition-colors">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-[80px] h-[80px] max-w-[80px] max-h-[80px] object-contain rounded-lg" />
-              <div>
-                <h1 className="text-lg font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
-                <p className="text-gray-300 text-sm md:text-[1.2rem] md:leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
-              </div>
+          <div className="flex items-center gap-4">
+            <img src={heroAvatar} alt="Danny Ortiz-Wills" className="w-1/3 object-contain" />
+            <div className="w-2/3">
+              <h1 className="font-bbh text-lg font-bold text-white">Danny Ortiz-Wills' Portfolio | 2019-2025</h1>
+              <p className="text-gray-300 text-sm md:text-[1.2rem] md:leading-[2rem]">Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast</p>
             </div>
           </div>
         </div>
@@ -89,7 +87,7 @@ const Index = () => {
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
-              <Badge variant="secondary">Highlights</Badge>
+              <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-transparent">Highlights</span>
               <span className="text-xs text-gray-400">2019-2025</span>
             </button>
             
