@@ -89,7 +89,7 @@ const Index = () => {
                   : 'bg-[#161522]/50 backdrop-blur-sm border-[#A2C6E9] text-gray-300 hover:border-white'
               }`}
             >
-              <Badge variant="secondary">Highlights</Badge>
+              <div className="inline-flex items-center px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-transparent">Highlights</div>
               <span className="text-xs text-gray-400">2019-2025</span>
             </button>
             
