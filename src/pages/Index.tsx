@@ -293,7 +293,7 @@ const Index = () => {
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
                 <AccordionContent className="pt-6">
-                  {/* Graphic Design Cards - 2 Column Grid */}
+                  {/* Visual Design Cards - 2 Column Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Data-Driven eBooks */}
               <Link to="/graphic-designs/data-driven-ebooks" className="group bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors block">
@@ -305,7 +305,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Data-Driven eBooks</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
               
               {/* Email Marketing */}
@@ -318,7 +318,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Email Marketing</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
 
               {/* Social Media */}
@@ -331,7 +331,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Social Media</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
 
               {/* Product Illustrations */}
@@ -344,7 +344,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Product Illustrations</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
 
               {/* Case Studies */}
@@ -357,7 +357,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Case Studies</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
 
               {/* Event Designs */}
@@ -370,7 +370,7 @@ const Index = () => {
                   />
                 </div>
                 <h4 className="text-white font-semibold mb-2">Event Designs</h4>
-                <p className="text-gray-400 text-sm">Graphic Design</p>
+                <p className="text-gray-400 text-sm">Visual Design</p>
               </Link>
                   </div>
                 </AccordionContent>

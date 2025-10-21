@@ -103,7 +103,7 @@ const TopNavigation: FC = () => {
                   to="/graphic-designs"
                   className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors py-3 px-1"
                 >
-                  Graphic Designs
+                  Visual Designs
                   <ChevronDown className="h-4 w-4" />
                 </Link>
               </div>
@@ -214,7 +214,7 @@ const TopNavigation: FC = () => {
                       onClick={handleLinkClick}
                       className="block text-lg font-medium text-gray-900 mb-3"
                     >
-                      Graphic Designs
+                      Visual Designs
                     </Link>
                     <div className="pl-4 space-y-2">
                       {graphicDesigns.map((item) => (
