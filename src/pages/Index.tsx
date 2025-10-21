@@ -278,6 +278,18 @@ const Index = () => {
                 <h4 className="text-white font-semibold mb-2">Express Lane – Lightning Quick Services</h4>
                 <p className="text-gray-400 text-sm">Product Design</p>
               </Link>
+
+              {/* View More Projects Card - Desktop Only */}
+              <div className="hidden md:flex bg-[#161522]/50 backdrop-blur-sm rounded-lg p-5 border border-[#A2C6E9] hover:border-white transition-colors items-center justify-center">
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <h4 className="text-white font-bold text-3xl text-center">View More Projects</h4>
+                  <div className="flex flex-col gap-2">
+                    <ChevronDown className="h-8 w-8 text-white" />
+                    <ChevronDown className="h-8 w-8 text-white" />
+                    <ChevronDown className="h-8 w-8 text-white" />
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Graphic Designer Section - Collapsible */}
