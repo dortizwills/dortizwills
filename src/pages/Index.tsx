@@ -285,7 +285,7 @@ const Index = () => {
               <AccordionItem value="graphic-design" className="border-none">
                 <AccordionPrimitive.Header className="flex">
                   <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between bg-[#161522]/50 backdrop-blur-sm rounded-lg px-6 py-4 border border-[#A2C6E9] hover:border-white transition-colors w-full group">
-                    <h3 className="text-white text-xl font-semibold">Graphic Designer</h3>
+                    <h3 className="text-white text-xl font-semibold">Visual Designer</h3>
                     <div className="flex items-center gap-4">
                       <span className="text-gray-400 text-sm">2019-2022</span>
                       <ChevronDown className="h-5 w-5 text-gray-400 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
