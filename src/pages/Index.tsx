@@ -109,16 +109,29 @@ const Index = () => {
   // Testimonial quotes data
   const quotes = [
     {
-      author: "Samantha Lane – Head of UX Design, Raborn Media",
+      author: "Kyle Marks",
+      title: "Creative Director, Shopmonkey",
+      text: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and perspectives that make him stand out in the creative field. His versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines."
+    },
+    {
+      author: "Steven Chic",
+      title: "VP, Alvys",
+      text: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations."
+    },
+    {
+      author: "Kelsey McAuley",
+      title: "Director of Web, Raborn Media",
+      text: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well."
+    },
+    {
+      author: "Samantha Lane",
+      title: "Head of UX Design, Raborn Media",
       text: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
     },
     {
-      author: "John Smith – Senior Product Manager",
-      text: "Daniel consistently delivered exceptional work that exceeded our expectations. His attention to detail and ability to translate complex requirements into intuitive designs made him an invaluable member of our team."
-    },
-    {
-      author: "Sarah Johnson – Lead Developer",
-      text: "Working with Daniel was a pleasure. He bridged the gap between design and development seamlessly, always considering technical constraints while maintaining creative excellence."
+      author: "Matt Stratton",
+      title: "COO, Raborn Media",
+      text: "I have no doubt that Danny would be a valuable asset to any organization requiring someone who's willing to work hard and pay attention to detail. His dedication, integrity, and work ethic make him an excellent candidate for any position he would pursue."
     }
   ];
 
@@ -152,10 +165,10 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] rounded-full bg-[#16EB28] opacity-20 blur-[150px] animate-[float_30s_ease-in-out_infinite_10s]" />
       </div>
 
-      <div className="h-full max-w-[1600px] mx-auto px-4 md:px-8 py-8">
+      <div className="h-full max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-[24px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
           {/* Left Column */}
-          <div className="flex flex-col h-[calc(100vh-80px)]">
+          <div className="flex flex-col h-[calc(100vh-104px)]">
             {/* Fixed Title */}
             <div className="flex-shrink-0 mb-8 mt-3">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
@@ -219,21 +232,21 @@ const Index = () => {
           </div>
 
           {/* Right Column - Static, Vertically Centered, Always Visible */}
-          <div className="flex flex-col justify-center h-[calc(100vh-80px)] space-y-6 pointer-events-none">
+          <div className="flex flex-col justify-center h-[calc(100vh-104px)] space-y-6 pointer-events-none">
             <div className="pointer-events-auto">
             {/* Show Testimonial or Media based on selected project */}
             {selectedProject === 0 ? (
               /* Testimonial Quote with Glass Effect and Navigation */
               <div 
                 id="quotes"
-                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg min-h-[280px] flex flex-col"
+                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
                 style={{
                   background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
                 }}
               >
-                <div className="flex-1">
+                <div className="flex-1 overflow-y-auto">
                   <h2 
-                    className="text-2xl md:text-3xl font-bold font-unbounded mb-4"
+                    className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
                     style={{
                       background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
                       WebkitBackgroundClip: 'text',
@@ -243,6 +256,7 @@ const Index = () => {
                   >
                     {quotes[currentQuote].author}
                   </h2>
+                  <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
                   <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
                     "{quotes[currentQuote].text}"
                   </p>
@@ -272,16 +286,16 @@ const Index = () => {
               </div>
             ) : projectsData[selectedProject].id === 'pitching' || projectsData[selectedProject].id === 'camping' ? (
               /* Special case for Pitching and Camping projects - centered videos */
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center h-[500px]">
                 {projectsData[selectedProject].id === 'pitching' ? (
-                  <div className="grid grid-cols-2 gap-4 max-w-full">
+                  <div className="grid grid-cols-2 gap-4 max-w-full h-full">
                     <video
                       src="/lovable-uploads/School-Defense.mp4"
                       autoPlay
                       muted
                       loop
                       playsInline
-                      className="w-full h-auto rounded-lg"
+                      className="w-full h-full object-contain rounded-lg"
                     />
                     <video
                       src="/lovable-uploads/Pickle Ball.mp4"
@@ -289,7 +303,7 @@ const Index = () => {
                       muted
                       loop
                       playsInline
-                      className="w-full h-auto rounded-lg"
+                      className="w-full h-full object-contain rounded-lg"
                     />
                   </div>
                 ) : (
@@ -299,7 +313,7 @@ const Index = () => {
                     muted
                     loop
                     playsInline
-                    className="w-full max-w-[600px] h-auto rounded-lg"
+                    className="h-full w-auto object-contain rounded-lg"
                   />
                 )}
               </div>
