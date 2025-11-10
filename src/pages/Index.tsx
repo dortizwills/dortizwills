@@ -33,12 +33,12 @@ const projectsData: ProjectCard[] = [
     title: 'Pitching & Developing Future Partnerships',
     company: 'Raborn Media',
     category: 'Responsive Web',
-    duration: '2 months',
+    duration: '4 weeks',
     description: '2 Mobile app designs promoted to potential clients.',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/Mobile 1.1.png',
+    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/School-Defense.mp4',
     link: '/mobile-apps',
-    tabs: ['Raborn Media', 'Responsive Web', '2 months'],
+    tabs: ['Raborn Media', 'Mobile Apps', '4 weeks'],
   },
   {
     id: 'securing',
@@ -64,6 +64,42 @@ const projectsData: ProjectCard[] = [
     link: '/product-designs/adhere-plus',
     tabs: ['Raborn Media', 'Responsive Web', '2 months'],
   },
+  {
+    id: 'grammy',
+    title: 'Grammy Museum MS Redesign',
+    company: 'Raborn Media',
+    category: 'Responsive Web',
+    duration: '6 weeks',
+    description: "Redesigning the Non-Profit's digital experience to showcase history and education",
+    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
+    link: '/product-designs/grammy-museum',
+    tabs: ['Raborn Media', 'Responsive Web', '6 weeks'],
+  },
+  {
+    id: 'camping',
+    title: 'Camping Made Easy',
+    company: 'Freelance',
+    category: 'Mobile App',
+    duration: '3 months',
+    description: "Camping shouldn't be hard, or that's what this app helps users to think",
+    mediaType: 'image',
+    mediaSrc: '/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png',
+    link: '/product-designs/camping-app',
+    tabs: ['Freelance', 'Mobile App', '3 months'],
+  },
+  {
+    id: 'recipes',
+    title: 'Gourmet Recipes Anytime',
+    company: 'Blue Apron',
+    category: 'Mobile App',
+    duration: '2 months',
+    description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are",
+    mediaType: 'image',
+    mediaSrc: '/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png',
+    link: '/product-designs/gourmet-recipes',
+    tabs: ['Blue Apron', 'Mobile App', '2 months'],
+  },
 ];
 
 const Index = () => {
@@ -78,7 +114,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] rounded-full bg-[#16EB28] opacity-20 blur-[150px] animate-[float_30s_ease-in-out_infinite_10s]" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column */}
           <div className="flex flex-col h-screen">
@@ -93,7 +129,12 @@ const Index = () => {
             </div>
 
             {/* Scrollable Project Cards */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-2">
+            <div className="flex-1 overflow-y-auto space-y-4 pr-2 pb-8"
+              style={{ 
+                maskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)'
+              }}
+            >
               {projectsData.map((project, index) => (
                 <button
                   key={project.id}
@@ -166,6 +207,28 @@ const Index = () => {
                   "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
                 </p>
               </div>
+            ) : projectsData[selectedProject].id === 'pitching' ? (
+              /* Special case for Pitching project - show two videos side by side */
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white p-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <video
+                    src="/lovable-uploads/School-Defense.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <video
+                    src="/lovable-uploads/Pickle Ball.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
                 {projectsData[selectedProject].mediaType === 'video' ? (
@@ -188,7 +251,7 @@ const Index = () => {
             )}
 
             {/* Navigation Dots */}
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 pt-4">
               {projectsData.map((_, index) => (
                 <button
                   key={index}
@@ -206,7 +269,7 @@ const Index = () => {
             {/* View Project Button - Only show if not testimonial */}
             {selectedProject !== 0 && (
               <Link to={projectsData[selectedProject].link}>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-2">
                   View Project
                 </Button>
               </Link>
