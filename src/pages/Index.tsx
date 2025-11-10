@@ -156,6 +156,159 @@ const Index = () => {
     setCurrentQuote((prev) => (prev === quotes.length - 1 ? 0 : prev + 1));
   };
 
+  const renderProjectContent = (project: ProjectCard, index: number) => {
+    if (index === 0) {
+      return (
+        <div 
+          id="quotes"
+          className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
+          style={{
+            background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
+          }}
+        >
+          <div className="flex-1 overflow-y-auto">
+            <h2 
+              className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
+              style={{
+                background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              {quotes[currentQuote].author}
+            </h2>
+            <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
+            <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
+              "{quotes[currentQuote].text}"
+            </p>
+          </div>
+          
+          {/* Navigation Arrows */}
+          <div className="flex justify-center gap-4 mt-6 pt-4 border-t border-white/30">
+            <button
+              onClick={handlePreviousQuote}
+              className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+              aria-label="Previous quote"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={handleNextQuote}
+              className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+              aria-label="Next quote"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'pitching' || project.id === 'camping') {
+      return (
+        <>
+          <div className="flex items-center justify-center max-h-[70vh]">
+            {project.id === 'pitching' ? (
+              <div className="grid grid-cols-2 gap-6 max-w-[600px] w-full">
+                <video
+                  src="/lovable-uploads/School-Defense.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                />
+                <video
+                  src="/lovable-uploads/Pickle Ball.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                />
+              </div>
+            ) : (
+              <video
+                src={project.mediaSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="max-h-[70vh] w-auto object-contain rounded-lg"
+              />
+            )}
+          </div>
+          <div className="flex justify-center gap-2 pt-6">
+            {projectsData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSelectedProject(i)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  selectedProject === i
+                    ? 'bg-blue-500 w-8'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to project ${i + 1}`}
+              />
+            ))}
+          </div>
+          <Link to={project.link}>
+            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
+              View Project
+            </Button>
+          </Link>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 max-h-[70vh]">
+          {project.mediaType === 'video' ? (
+            <video
+              src={project.mediaSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto max-h-[70vh] object-contain"
+            />
+          ) : (
+            <img
+              src={project.mediaSrc}
+              alt={project.title}
+              className="w-full h-auto max-h-[70vh] object-contain"
+            />
+          )}
+        </div>
+        <div className="flex justify-center gap-2 pt-6">
+          {projectsData.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedProject(i)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                selectedProject === i
+                  ? 'bg-blue-500 w-8'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to project ${i + 1}`}
+            />
+          ))}
+        </div>
+        <Link to={project.link}>
+          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
+            View Project
+          </Button>
+        </Link>
+      </>
+    );
+  };
+
   return (
     <div className="h-screen bg-white relative overflow-hidden">
       {/* Animated Gradient Background */}
@@ -187,181 +340,62 @@ const Index = () => {
               }}
             >
               {projectsData.map((project, index) => (
-                <button
-                  key={project.id}
-                  onClick={() => setSelectedProject(index)}
-                  className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
-                    selectedProject === index
-                      ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
-                      : 'border border-gray-200 hover:shadow-lg'
-                  }`}
-                >
-                  {/* Arrow Button */}
-                  <div className="absolute top-6 right-6">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                      selectedProject === index ? 'bg-blue-500' : 'bg-gray-200 group-hover:bg-gray-300'
-                    }`}>
-                      <ArrowRight className={`w-5 h-5 ${selectedProject === index ? 'text-white' : 'text-gray-600'}`} />
+                <div key={project.id}>
+                  <button
+                    onClick={() => setSelectedProject(index)}
+                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
+                      selectedProject === index
+                        ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
+                        : 'border border-gray-200 hover:shadow-lg'
+                    }`}
+                  >
+                    {/* Arrow Button */}
+                    <div className="absolute top-6 right-6">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                        selectedProject === index ? 'bg-blue-500' : 'bg-gray-200 group-hover:bg-gray-300'
+                      }`}>
+                        <ArrowRight className={`w-5 h-5 ${selectedProject === index ? 'text-white' : 'text-gray-600'}`} />
+                      </div>
                     </div>
-                  </div>
 
-                  <h3 className="text-2xl font-bold font-unbounded mb-4 pr-14">
-                    {project.title}
-                  </h3>
+                    <h3 className="text-2xl font-bold font-unbounded mb-4 pr-14">
+                      {project.title}
+                    </h3>
 
-                  {/* Tabs */}
-                  {project.tabs && (
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {project.tabs.map((tab, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
-                        >
-                          {tab}
-                        </span>
-                      ))}
+                    {/* Tabs */}
+                    {project.tabs && (
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tabs.map((tab, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
+                          >
+                            {tab}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <p className="text-gray-600">
+                      {project.description}
+                    </p>
+                  </button>
+
+                  {/* Mobile/Tablet Content - Shows below selected card */}
+                  {selectedProject === index && (
+                    <div className="lg:hidden mt-4 space-y-4 pointer-events-auto">
+                      {renderProjectContent(project, index)}
                     </div>
                   )}
-
-                  <p className="text-gray-600">
-                    {project.description}
-                  </p>
-                </button>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Right Column - Static, Vertically Centered, Always Visible */}
-          <div className="flex flex-col justify-center h-[calc(100vh-56px)] space-y-6 pointer-events-none">
+          {/* Right Column - Desktop Only */}
+          <div className="hidden lg:flex flex-col justify-center h-[calc(100vh-56px)] space-y-6 pointer-events-none">
             <div className="pointer-events-auto">
-            {/* Show Testimonial or Media based on selected project */}
-            {selectedProject === 0 ? (
-              /* Testimonial Quote with Glass Effect and Navigation */
-              <div 
-                id="quotes"
-                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
-                }}
-              >
-                <div className="flex-1 overflow-y-auto">
-                  <h2 
-                    className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
-                    style={{
-                      background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {quotes[currentQuote].author}
-                  </h2>
-                  <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
-                  <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
-                    "{quotes[currentQuote].text}"
-                  </p>
-                </div>
-                
-                {/* Navigation Arrows */}
-                <div className="flex justify-center gap-4 mt-6 pt-4 border-t border-white/30">
-                  <button
-                    onClick={handlePreviousQuote}
-                    className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-                    aria-label="Previous quote"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={handleNextQuote}
-                    className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-                    aria-label="Next quote"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            ) : projectsData[selectedProject].id === 'pitching' || projectsData[selectedProject].id === 'camping' ? (
-              /* Special case for Pitching and Camping projects - centered videos */
-              <div className="flex items-center justify-center max-h-[70vh]">
-                {projectsData[selectedProject].id === 'pitching' ? (
-                  <div className="grid grid-cols-2 gap-6 max-w-[600px] w-full">
-                    <video
-                      src="/lovable-uploads/School-Defense.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-                    />
-                    <video
-                      src="/lovable-uploads/Pickle Ball.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-                    />
-                  </div>
-                ) : (
-                  <video
-                    src={projectsData[selectedProject].mediaSrc}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="max-h-[70vh] w-auto object-contain rounded-lg"
-                  />
-                )}
-              </div>
-            ) : (
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 max-h-[70vh]">
-                {projectsData[selectedProject].mediaType === 'video' ? (
-                  <video
-                    src={projectsData[selectedProject].mediaSrc}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto max-h-[70vh] object-contain"
-                  />
-                ) : (
-                  <img
-                    src={projectsData[selectedProject].mediaSrc}
-                    alt={projectsData[selectedProject].title}
-                    className="w-full h-auto max-h-[70vh] object-contain"
-                  />
-                )}
-              </div>
-            )}
-
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 pt-6">
-              {projectsData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedProject(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    selectedProject === index
-                      ? 'bg-blue-500 w-8'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* View Project Button - Only show if not testimonial */}
-            {selectedProject !== 0 && (
-              <Link to={projectsData[selectedProject].link}>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
-                  View Project
-                </Button>
-              </Link>
-            )}
+              {renderProjectContent(projectsData[selectedProject], selectedProject)}
             </div>
           </div>
         </div>
