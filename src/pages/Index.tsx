@@ -286,16 +286,16 @@ const Index = () => {
               </div>
             ) : projectsData[selectedProject].id === 'pitching' || projectsData[selectedProject].id === 'camping' ? (
               /* Special case for Pitching and Camping projects - centered videos */
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center max-h-[70vh]">
                 {projectsData[selectedProject].id === 'pitching' ? (
-                  <div className="grid grid-cols-2 gap-6 max-w-[600px]">
+                  <div className="grid grid-cols-2 gap-6 max-w-[600px] w-full">
                     <video
                       src="/lovable-uploads/School-Defense.mp4"
                       autoPlay
                       muted
                       loop
                       playsInline
-                      className="w-full h-auto rounded-lg"
+                      className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
                     />
                     <video
                       src="/lovable-uploads/Pickle Ball.mp4"
@@ -303,7 +303,7 @@ const Index = () => {
                       muted
                       loop
                       playsInline
-                      className="w-full h-auto rounded-lg"
+                      className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
                     />
                   </div>
                 ) : (
@@ -313,12 +313,12 @@ const Index = () => {
                     muted
                     loop
                     playsInline
-                    className="h-[500px] w-auto object-contain rounded-lg"
+                    className="max-h-[70vh] w-auto object-contain rounded-lg"
                   />
                 )}
               </div>
             ) : (
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 max-h-[70vh]">
                 {projectsData[selectedProject].mediaType === 'video' ? (
                   <video
                     src={projectsData[selectedProject].mediaSrc}
@@ -326,13 +326,13 @@ const Index = () => {
                     muted
                     loop
                     playsInline
-                    className="w-full h-auto"
+                    className="w-full h-auto max-h-[70vh] object-contain"
                   />
                 ) : (
                   <img
                     src={projectsData[selectedProject].mediaSrc}
                     alt={projectsData[selectedProject].title}
-                    className="w-full h-auto"
+                    className="w-full h-auto max-h-[70vh] object-contain"
                   />
                 )}
               </div>
