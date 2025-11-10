@@ -284,17 +284,38 @@ const Index = () => {
                   </button>
                 </div>
               </div>
-            ) : projectsData[selectedProject].id === 'camping' ? (
-              /* Special case for Camping project - centered video */
+            ) : projectsData[selectedProject].id === 'pitching' || projectsData[selectedProject].id === 'camping' ? (
+              /* Special case for Pitching and Camping projects - centered videos */
               <div className="flex items-center justify-center h-[500px]">
-                <video
-                  src={projectsData[selectedProject].mediaSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="h-full w-auto object-contain rounded-lg"
-                />
+                {projectsData[selectedProject].id === 'pitching' ? (
+                  <div className="grid grid-cols-2 gap-4 max-w-full h-full">
+                    <video
+                      src="/lovable-uploads/School-Defense.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                    <video
+                      src="/lovable-uploads/Pickle Ball.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  </div>
+                ) : (
+                  <video
+                    src={projectsData[selectedProject].mediaSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-auto object-contain rounded-lg"
+                  />
+                )}
               </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
