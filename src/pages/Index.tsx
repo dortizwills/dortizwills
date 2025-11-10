@@ -80,10 +80,10 @@ const Index = () => {
 
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left Column - Scrollable */}
-          <div className="space-y-6">
+          {/* Left Column */}
+          <div className="flex flex-col h-screen">
             {/* Fixed Title */}
-            <div className="mb-8">
+            <div className="flex-shrink-0 mb-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
                 Daniel Ortiz Wills Portfolio
               </h1>
@@ -92,8 +92,8 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Project Cards */}
-            <div className="space-y-4">
+            {/* Scrollable Project Cards */}
+            <div className="flex-1 overflow-y-auto space-y-4 pr-2">
               {projectsData.map((project, index) => (
                 <button
                   key={project.id}
@@ -139,8 +139,8 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Right Column - Static, Bottom Aligned, Always Visible */}
-          <div className="sticky top-8 self-end h-fit space-y-6">
+          {/* Right Column - Static, Vertically Centered, Always Visible */}
+          <div className="sticky top-1/2 -translate-y-1/2 self-center h-fit space-y-6">
             {/* Show Testimonial or Media based on selected project */}
             {selectedProject === 0 ? (
               /* Testimonial Quote with Glass Effect */
