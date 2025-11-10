@@ -26,7 +26,7 @@ const projectsData: ProjectCard[] = [
     description: 'View Quotes from peers, managers, and leadership >>',
     mediaType: 'image',
     mediaSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
-    link: '/about',
+    link: '#quotes',
   },
   {
     id: 'pitching',
@@ -92,29 +92,6 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Testimonial Quote with Glass Effect */}
-            <div 
-              className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
-              }}
-            >
-              <h2 
-                className="text-3xl md:text-4xl font-bold font-unbounded mb-4"
-                style={{
-                  background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Samantha Lane – Head of UX Design, Raborn Media
-              </h2>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
-              </p>
-            </div>
-
             {/* Project Cards */}
             <div className="space-y-4">
               {projectsData.map((project, index) => (
@@ -162,29 +139,56 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Right Column - Static, Bottom Aligned */}
-          <div className="lg:sticky lg:top-8 lg:self-end h-fit">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
-              {projectsData[selectedProject].mediaType === 'video' ? (
-                <video
-                  src={projectsData[selectedProject].mediaSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto"
-                />
-              ) : (
-                <img
-                  src={projectsData[selectedProject].mediaSrc}
-                  alt={projectsData[selectedProject].title}
-                  className="w-full h-auto"
-                />
-              )}
-            </div>
+          {/* Right Column - Static, Bottom Aligned, Always Visible */}
+          <div className="sticky top-8 self-end h-fit space-y-6">
+            {/* Show Testimonial or Media based on selected project */}
+            {selectedProject === 0 ? (
+              /* Testimonial Quote with Glass Effect */
+              <div 
+                id="quotes"
+                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
+                }}
+              >
+                <h2 
+                  className="text-2xl md:text-3xl font-bold font-unbounded mb-4"
+                  style={{
+                    background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  Samantha Lane – Head of UX Design, Raborn Media
+                </h2>
+                <p className="text-gray-800 text-base md:text-lg leading-relaxed">
+                  "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
+                </p>
+              </div>
+            ) : (
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                {projectsData[selectedProject].mediaType === 'video' ? (
+                  <video
+                    src={projectsData[selectedProject].mediaSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto"
+                  />
+                ) : (
+                  <img
+                    src={projectsData[selectedProject].mediaSrc}
+                    alt={projectsData[selectedProject].title}
+                    className="w-full h-auto"
+                  />
+                )}
+              </div>
+            )}
 
             {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2">
               {projectsData.map((_, index) => (
                 <button
                   key={index}
@@ -199,12 +203,14 @@ const Index = () => {
               ))}
             </div>
 
-            {/* View Project Button */}
-            <Link to={projectsData[selectedProject].link}>
-              <Button className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl">
-                View Project
-              </Button>
-            </Link>
+            {/* View Project Button - Only show if not testimonial */}
+            {selectedProject !== 0 && (
+              <Link to={projectsData[selectedProject].link}>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl">
+                  View Project
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
