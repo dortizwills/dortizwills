@@ -197,7 +197,8 @@ const GourmetRecipes = () => {
               autoPlay 
               muted 
               loop 
-              className="w-full max-h-[580px] object-contain bg-white rounded-lg"
+              preload="auto"
+              className="w-full max-h-[580px] object-contain bg-gray-200 rounded-lg"
             >
               <source src="/lovable-uploads/01-blue-apron/guided-filters-left-final.mp4" type="video/mp4" />
             </video>          
@@ -222,7 +223,8 @@ const GourmetRecipes = () => {
             autoPlay 
             muted 
             loop 
-            className="w-full max-h-[580px] object-contain bg-white rounded-lg"
+            preload="auto"
+            className="w-full max-h-[580px] object-contain bg-gray-200 rounded-lg"
           >
             <source src="/lovable-uploads/01-blue-apron/smart-search-right-final.mp4" type="video/mp4" />
           </video>

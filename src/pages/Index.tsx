@@ -47,8 +47,8 @@ const projectsData: ProjectCard[] = [
     category: 'Responsive Web',
     duration: '2 months',
     description: 'Reducing checkout times to 2–3 minutes – a 200% efficiency increase',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/01-express-lane/display-express-lane.png',
+    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4',
     link: '/product-designs/quick-services',
     tabs: ['Shopmonkey', 'Responsive Web', '2 months'],
   },
@@ -83,8 +83,8 @@ const projectsData: ProjectCard[] = [
     category: 'Mobile App',
     duration: '3 months',
     description: "Camping shouldn't be hard, or that's what this app helps users to think",
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png',
+    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
     link: '/product-designs/camping-app',
     tabs: ['Freelance', 'Mobile App', '3 months'],
   },
@@ -104,13 +104,44 @@ const projectsData: ProjectCard[] = [
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState(2);
+  const [currentQuote, setCurrentQuote] = useState(0);
 
-  // Preload Grammy Museum video for instant playback
+  // Testimonial quotes data
+  const quotes = [
+    {
+      author: "Samantha Lane – Head of UX Design, Raborn Media",
+      text: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
+    },
+    {
+      author: "John Smith – Senior Product Manager",
+      text: "Daniel consistently delivered exceptional work that exceeded our expectations. His attention to detail and ability to translate complex requirements into intuitive designs made him an invaluable member of our team."
+    },
+    {
+      author: "Sarah Johnson – Lead Developer",
+      text: "Working with Daniel was a pleasure. He bridged the gap between design and development seamlessly, always considering technical constraints while maintaining creative excellence."
+    }
+  ];
+
+  // Preload videos for instant playback
   React.useEffect(() => {
-    const video = document.createElement('video');
-    video.src = '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4';
-    video.preload = 'auto';
+    const videos = [
+      '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
+      '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4'
+    ];
+    videos.forEach(src => {
+      const video = document.createElement('video');
+      video.src = src;
+      video.preload = 'auto';
+    });
   }, []);
+
+  const handlePreviousQuote = () => {
+    setCurrentQuote((prev) => (prev === 0 ? quotes.length - 1 : prev - 1));
+  };
+
+  const handleNextQuote = () => {
+    setCurrentQuote((prev) => (prev === quotes.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="h-screen bg-white relative overflow-hidden">
@@ -192,50 +223,85 @@ const Index = () => {
             <div className="pointer-events-auto">
             {/* Show Testimonial or Media based on selected project */}
             {selectedProject === 0 ? (
-              /* Testimonial Quote with Glass Effect */
+              /* Testimonial Quote with Glass Effect and Navigation */
               <div 
                 id="quotes"
-                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg"
+                className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg min-h-[280px] flex flex-col"
                 style={{
                   background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
                 }}
               >
-                <h2 
-                  className="text-2xl md:text-3xl font-bold font-unbounded mb-4"
-                  style={{
-                    background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Samantha Lane – Head of UX Design, Raborn Media
-                </h2>
-                <p className="text-gray-800 text-base md:text-lg leading-relaxed">
-                  "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
-                </p>
-              </div>
-            ) : projectsData[selectedProject].id === 'pitching' ? (
-              /* Special case for Pitching project - show two videos side by side */
-              <div className="flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-4 max-w-full">
-                  <video
-                    src="/lovable-uploads/School-Defense.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto rounded-lg"
-                  />
-                  <video
-                    src="/lovable-uploads/Pickle Ball.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto rounded-lg"
-                  />
+                <div className="flex-1">
+                  <h2 
+                    className="text-2xl md:text-3xl font-bold font-unbounded mb-4"
+                    style={{
+                      background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    {quotes[currentQuote].author}
+                  </h2>
+                  <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
+                    "{quotes[currentQuote].text}"
+                  </p>
                 </div>
+                
+                {/* Navigation Arrows */}
+                <div className="flex justify-center gap-4 mt-6 pt-4 border-t border-white/30">
+                  <button
+                    onClick={handlePreviousQuote}
+                    className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+                    aria-label="Previous quote"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={handleNextQuote}
+                    className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+                    aria-label="Next quote"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ) : projectsData[selectedProject].id === 'pitching' || projectsData[selectedProject].id === 'camping' ? (
+              /* Special case for Pitching and Camping projects - centered videos */
+              <div className="flex items-center justify-center">
+                {projectsData[selectedProject].id === 'pitching' ? (
+                  <div className="grid grid-cols-2 gap-4 max-w-full">
+                    <video
+                      src="/lovable-uploads/School-Defense.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-auto rounded-lg"
+                    />
+                    <video
+                      src="/lovable-uploads/Pickle Ball.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </div>
+                ) : (
+                  <video
+                    src={projectsData[selectedProject].mediaSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full max-w-[600px] h-auto rounded-lg"
+                  />
+                )}
               </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
