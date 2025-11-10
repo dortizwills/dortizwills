@@ -105,6 +105,13 @@ const projectsData: ProjectCard[] = [
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState(2);
 
+  // Preload Grammy Museum video for instant playback
+  React.useEffect(() => {
+    const video = document.createElement('video');
+    video.src = '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4';
+    video.preload = 'auto';
+  }, []);
+
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Animated Gradient Background */}
@@ -117,9 +124,9 @@ const Index = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column */}
-          <div className="flex flex-col h-screen">
+          <div className="flex flex-col h-[calc(100vh-100px)]">
             {/* Fixed Title */}
-            <div className="flex-shrink-0 mb-8">
+            <div className="flex-shrink-0 mb-8 mt-3">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
                 Daniel Ortiz Wills Portfolio
               </h1>
@@ -139,7 +146,7 @@ const Index = () => {
                 <button
                   key={project.id}
                   onClick={() => setSelectedProject(index)}
-                  className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group ${
+                  className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
                     selectedProject === index
                       ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
                       : 'border border-gray-200 hover:shadow-lg'
@@ -209,25 +216,23 @@ const Index = () => {
               </div>
             ) : projectsData[selectedProject].id === 'pitching' ? (
               /* Special case for Pitching project - show two videos side by side */
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white p-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <video
-                    src="/lovable-uploads/School-Defense.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto rounded-lg"
-                  />
-                  <video
-                    src="/lovable-uploads/Pickle Ball.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
+              <div className="grid grid-cols-2 gap-4">
+                <video
+                  src="/lovable-uploads/School-Defense.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto rounded-lg"
+                />
+                <video
+                  src="/lovable-uploads/Pickle Ball.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto rounded-lg"
+                />
               </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
