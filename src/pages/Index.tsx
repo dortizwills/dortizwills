@@ -113,7 +113,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="h-screen bg-white relative overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full bg-[#DD16EB] opacity-20 blur-[150px] animate-[float_20s_ease-in-out_infinite]" />
@@ -121,10 +121,10 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] rounded-full bg-[#16EB28] opacity-20 blur-[150px] animate-[float_30s_ease-in-out_infinite_10s]" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="h-full max-w-[1600px] mx-auto px-4 md:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
           {/* Left Column */}
-          <div className="flex flex-col h-[calc(100vh-100px)]">
+          <div className="flex flex-col h-[calc(100vh-80px)]">
             {/* Fixed Title */}
             <div className="flex-shrink-0 mb-8 mt-3">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
@@ -188,7 +188,8 @@ const Index = () => {
           </div>
 
           {/* Right Column - Static, Vertically Centered, Always Visible */}
-          <div className="sticky top-1/2 -translate-y-1/2 self-center h-fit space-y-6">
+          <div className="flex flex-col justify-center h-[calc(100vh-80px)] space-y-6 pointer-events-none">
+            <div className="pointer-events-auto">
             {/* Show Testimonial or Media based on selected project */}
             {selectedProject === 0 ? (
               /* Testimonial Quote with Glass Effect */
@@ -216,23 +217,25 @@ const Index = () => {
               </div>
             ) : projectsData[selectedProject].id === 'pitching' ? (
               /* Special case for Pitching project - show two videos side by side */
-              <div className="grid grid-cols-2 gap-4">
-                <video
-                  src="/lovable-uploads/School-Defense.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto rounded-lg"
-                />
-                <video
-                  src="/lovable-uploads/Pickle Ball.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto rounded-lg"
-                />
+              <div className="flex items-center justify-center">
+                <div className="grid grid-cols-2 gap-4 max-w-full">
+                  <video
+                    src="/lovable-uploads/School-Defense.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <video
+                    src="/lovable-uploads/Pickle Ball.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
               </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
@@ -256,7 +259,7 @@ const Index = () => {
             )}
 
             {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 pt-4">
+            <div className="flex justify-center gap-2 pt-6">
               {projectsData.map((_, index) => (
                 <button
                   key={index}
@@ -274,11 +277,12 @@ const Index = () => {
             {/* View Project Button - Only show if not testimonial */}
             {selectedProject !== 0 && (
               <Link to={projectsData[selectedProject].link}>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-2">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
                   View Project
                 </Button>
               </Link>
             )}
+            </div>
           </div>
         </div>
       </div>
