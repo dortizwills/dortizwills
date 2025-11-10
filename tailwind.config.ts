@@ -105,7 +105,8 @@ export default {
 			},
 			fontFamily: {
 				'display': ['Lexend', 'sans-serif'],
-				'sans': ['DM Sans', 'sans-serif']
+				'sans': ['DM Sans', 'sans-serif'],
+				'unbounded': ['Unbounded', 'sans-serif']
 			}
 		}
 	},

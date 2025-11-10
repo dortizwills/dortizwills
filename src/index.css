@@ -73,6 +73,14 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --gradient-pink: #F96CD7;
+    --gradient-purple: #8F63D3;
+    --gradient-blue: #1D40A1;
+    
+    --neon-pink: #DD16EB;
+    --neon-cyan: #16A7EB;
+    --neon-green: #16EB28;
   }
 }
 
