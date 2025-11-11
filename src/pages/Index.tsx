@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface ProjectCard {
@@ -455,6 +455,15 @@ const Index = () => {
               {/* Project Cards */}
               {projectsData.map((project, index) => (
                 <div key={project.id}>
+                  {/* Visual Designs Divider */}
+                  {index === 7 && (
+                    <div className="flex items-center gap-4 my-8">
+                      <div className="flex-1 h-px bg-gray-300"></div>
+                      <span className="text-gray-600 font-medium whitespace-nowrap">Visual Designs below</span>
+                      <div className="flex-1 h-px bg-gray-300"></div>
+                    </div>
+                  )}
+                  
                   <button
                     onClick={() => setSelectedProject(index)}
                     className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
@@ -500,6 +509,22 @@ const Index = () => {
                     <div className="lg:hidden mt-4 space-y-4 pointer-events-auto">
                       {renderProjectContent(project, index)}
                     </div>
+                  )}
+                  
+                  {/* Return to Top Button */}
+                  {index === projectsData.length - 1 && (
+                    <button
+                      onClick={() => {
+                        const leftColumn = document.querySelector('.flex-1.overflow-y-auto');
+                        if (leftColumn) {
+                          leftColumn.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                      }}
+                      className="w-full mt-6 py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <ArrowUp className="w-5 h-5" />
+                      Return to Top
+                    </button>
                   )}
                 </div>
               ))}
