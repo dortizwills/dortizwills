@@ -30,7 +30,7 @@ const projectsData: ProjectCard[] = [
   },
   {
     id: 'grammy',
-    title: 'Grammy Museum MS Redesign',
+    title: '+15% Ticket Sales from +30% Donate Page Views',
     company: 'Raborn Media',
     category: 'Responsive Web',
     duration: '6 weeks',
@@ -66,11 +66,11 @@ const projectsData: ProjectCard[] = [
   },
   {
     id: 'camping',
-    title: 'Camping Made Easy',
+    title: 'New Camping Trips Increased by 50%',
     company: 'Freelance',
     category: 'Mobile App',
     duration: '3 months',
-    description: "Camping shouldn't be hard, or that's what this app helps users to think",
+    description: "Providing first time campers an experience similar to booking a hotel.",
     mediaType: 'video',
     mediaSrc: '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
     link: '/product-designs/camping-app',
@@ -78,11 +78,11 @@ const projectsData: ProjectCard[] = [
   },
   {
     id: 'recipes',
-    title: 'Gourmet Recipes Anytime',
+    title: 'Features Boosting Subscriptions by 15%',
     company: 'Blue Apron',
     category: 'Mobile App',
     duration: '2 months',
-    description: "Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are",
+    description: "Changing forgotten meal plans into additional opportunities for gourmet recipes",
     mediaType: 'image',
     mediaSrc: '/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png',
     link: '/product-designs/gourmet-recipes',
@@ -90,11 +90,11 @@ const projectsData: ProjectCard[] = [
   },
   {
     id: 'adhere',
-    title: 'Adhere full website rebrand & design system',
+    title: '20% Conversions Increase',
     company: 'Raborn Media',
     category: 'Responsive Web',
     duration: '2 months',
-    description: 'Complete website redesign with comprehensive design system',
+    description: 'Adhere+ full website rebrand & design system',
     mediaType: 'image',
     mediaSrc: '/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png',
     link: '/product-designs/adhere-plus',
@@ -175,7 +175,7 @@ const projectsData: ProjectCard[] = [
 ];
 
 const Index = () => {
-  const [selectedProject, setSelectedProject] = useState(2);
+  const [selectedProject, setSelectedProject] = useState(1);
   const [currentQuote, setCurrentQuote] = useState(0);
 
   // Testimonial quotes data
@@ -234,70 +234,72 @@ const Index = () => {
   const renderProjectContent = (project: ProjectCard, index: number) => {
     if (index === 0) {
       return (
-        <div 
-          id="quotes"
-          className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
-          style={{
-            background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
-          }}
-        >
-          <div className="flex-1 overflow-y-auto">
-            <h2 
-              className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
-              style={{
-                background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              {quotes[currentQuote].author}
-            </h2>
-            <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
-            <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
-              "{quotes[currentQuote].text}"
-            </p>
-          </div>
-          
-          {/* Quote Progress Bubbles */}
-          <div className="flex justify-center gap-2 mt-4">
-            {quotes.map((_, i) => (
+        <>
+          <div 
+            id="quotes"
+            className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
+            style={{
+              background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
+            }}
+          >
+            <div className="flex-1 overflow-y-auto">
+              <h2 
+                className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
+                style={{
+                  background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                {quotes[currentQuote].author}
+              </h2>
+              <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
+              <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
+                "{quotes[currentQuote].text}"
+              </p>
+            </div>
+            
+            {/* Quote Progress Bubbles */}
+            <div className="flex justify-center gap-2 mt-4">
+              {quotes.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentQuote(i)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentQuote === i
+                      ? 'bg-blue-500 w-8'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to quote ${i + 1}`}
+                />
+              ))}
+            </div>
+            
+            {/* Navigation Arrows */}
+            <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-white/30">
               <button
-                key={i}
-                onClick={() => setCurrentQuote(i)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  currentQuote === i
-                    ? 'bg-blue-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to quote ${i + 1}`}
-              />
-            ))}
-          </div>
-          
-          {/* Navigation Arrows */}
-          <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-white/30">
-            <button
-              onClick={handlePreviousQuote}
-              className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-              aria-label="Previous quote"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={handleNextQuote}
-              className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-              aria-label="Next quote"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+                onClick={handlePreviousQuote}
+                className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+                aria-label="Previous quote"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={handleNextQuote}
+                className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
+                aria-label="Next quote"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          {/* Project Card Progress Bubbles */}
+          {/* Project Card Progress Bubbles - Below quotes block */}
           <div className="flex justify-center gap-2 mt-6">
             {projectsData.map((_, i) => (
               <button
@@ -312,7 +314,7 @@ const Index = () => {
               />
             ))}
           </div>
-        </div>
+        </>
       );
     }
 
