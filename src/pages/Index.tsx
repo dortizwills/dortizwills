@@ -466,9 +466,9 @@ const Index = () => {
                   {/* Visual Designs Divider */}
                   {index === 7 && (
                     <div className="flex items-center gap-4 my-8">
-                      <div className="flex-1 h-px bg-gray-300"></div>
-                      <span className="text-[#1D40A1] font-medium whitespace-nowrap">Visual Designs below</span>
-                      <div className="flex-1 h-px bg-gray-300"></div>
+                      <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, transparent, #F96CD7, #F96CD7)' }}></div>
+                      <span className="text-[#1D40A1] font-unbounded font-semibold whitespace-nowrap">Visual Designs below</span>
+                      <div className="flex-1 h-px" style={{ background: 'linear-gradient(to left, transparent, #F96CD7, #F96CD7)' }}></div>
                     </div>
                   )}
                   

@@ -43,8 +43,8 @@ const TopNavigation: FC = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-6" style={{ height: '54px' }}>
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+      <nav className="hidden md:flex fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 px-4 md:px-8" style={{ height: '54px' }}>
+        <div className="flex items-center justify-between w-full max-w-[1600px] mx-auto">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
