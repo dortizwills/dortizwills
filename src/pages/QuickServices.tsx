@@ -34,7 +34,7 @@ const QuickServices = () => {
       {/* Background */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Background</h2>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -57,13 +57,13 @@ const QuickServices = () => {
       
       {/* Early Stages */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Early Stages</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Early Stages</h2>
       </div>
       
       {/* User Personas */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Personas</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -99,7 +99,7 @@ const QuickServices = () => {
       {/* Sketches & Brainstorming */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Sketches & Brainstorming</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Sketches & Brainstorming</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -121,7 +121,7 @@ const QuickServices = () => {
       {/* Initial Designs */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Initial Designs</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Initial Designs</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -156,13 +156,13 @@ const QuickServices = () => {
       
       {/* New Directions */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">New Directions</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">New Directions</h2>
       </div>
       
       {/* Update an Existing Design */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Update an Existing Design</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Update an Existing Design</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -180,7 +180,7 @@ const QuickServices = () => {
       {/* The New Vision */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The New Vision</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The New Vision</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -197,13 +197,13 @@ const QuickServices = () => {
       
       {/* The Design Process */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">The Design Process</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">The Design Process</h2>
       </div>
       
       {/* Design Sprints & User Research */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Design Sprints & User Research</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Design Sprints & User Research</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -233,7 +233,7 @@ const QuickServices = () => {
       {/* Takeaways */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Takeaways – a summary of the full process</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Takeaways – a summary of the full process</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <ol className="list-decimal pl-5 mb-6 space-y-2">
@@ -248,7 +248,7 @@ const QuickServices = () => {
       {/* Design Process Snapshots */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Design Process Snapshots</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Design Process Snapshots</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -260,7 +260,7 @@ const QuickServices = () => {
       {/* The Dashboard */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The Dashboard</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The Dashboard</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -298,7 +298,7 @@ const QuickServices = () => {
       {/* Co-branded Tire Portal */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Co-branded Tire Portal</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Co-branded Tire Portal</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -335,7 +335,7 @@ const QuickServices = () => {
       {/* Quick Tires */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Quick Tires</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Quick Tires</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -371,13 +371,13 @@ const QuickServices = () => {
       
       {/* Final Prototypes */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Final Prototypes</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Final Prototypes</h2>
       </div>
       
       {/* Service Writer */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Quickly creating orders as a Service Writer</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Quickly creating orders as a Service Writer</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Advance Control</h4>
@@ -412,7 +412,7 @@ const QuickServices = () => {
       {/* For Technicians */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Customizing Access For Technicians</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Customizing Access For Technicians</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Pertinent Permissions</h4>
@@ -445,13 +445,13 @@ const QuickServices = () => {
       
       {/* Results */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Results</h2>
       </div>
       
       {/* Enterprise Partnerships */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Enterprise Partnerships</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Enterprise Partnerships</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -463,7 +463,7 @@ const QuickServices = () => {
       {/* Market Differentiator */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Market Differentiator</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Market Differentiator</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">

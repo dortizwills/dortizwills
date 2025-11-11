@@ -37,13 +37,13 @@ const GourmetRecipes = () => {
       {/* Early Stages */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Early Stages</h2>
         </div>
        </div> 
       {/* Validation Process */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Research</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -58,7 +58,7 @@ const GourmetRecipes = () => {
       {/* User Persona */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Persona</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Persona</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -75,7 +75,7 @@ const GourmetRecipes = () => {
       {/* Sketches/Iterations */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Sketches / Iterations</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Sketches / Iterations</h2>
         </div>
         <div className="col-span-2">
           <p className="mb-3">
@@ -98,13 +98,13 @@ const GourmetRecipes = () => {
       {/* Validation Process */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Validation Process</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Validation Process</h2>
         </div>
        </div> 
      {/* Final App Designs */}      
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Early User Flows</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Early User Flows</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -135,7 +135,7 @@ const GourmetRecipes = () => {
       {/* The Second Iteration */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The Second Iteration</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -155,7 +155,7 @@ const GourmetRecipes = () => {
       {/* Change of Direction */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Change of Direction</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Change of Direction</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -172,7 +172,7 @@ const GourmetRecipes = () => {
       {/* Third Round Adjustments */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Third Round Adjustments</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -243,7 +243,7 @@ const GourmetRecipes = () => {
       {/*
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div>
-              <h4 className="text-lg font-display font-medium mb-3">1. Guided Filters</h4>
+              <h4 className="font-medium text-lg mb-3">1. Guided Filters</h4>
               <p className="mb-4">
                 In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
               </p>
@@ -260,7 +260,7 @@ const GourmetRecipes = () => {
               </a>
             </div>
             <div>
-              <h4 className="text-lg font-display font-medium mb-3">2. Smart Search</h4>
+              <h4 className="font-medium text-lg mb-3">2. Smart Search</h4>
               <p className="mb-4">
                 Or a single search bar where anything can be added. Users could search for anything in the search bar including time, culinary preferences, diets, and more. All they had to do was include it within their search and watch the results update.
               </p>
@@ -279,7 +279,7 @@ const GourmetRecipes = () => {
           </div>  */} 
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3"></h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3"></h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
          <p className="mb-6">
@@ -294,14 +294,14 @@ const GourmetRecipes = () => {
       {/* Final App Designs */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Final App Designs</h2>
         </div>
        </div> 
       
       {/* Results */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 1: Intelligent Searches</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 1: Intelligent Searches</h3>
         </div>
         <div className="col-span-2">
           <div className="mb-8"></div>
@@ -326,7 +326,7 @@ const GourmetRecipes = () => {
       {/* User Need 2 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 2: Convenience</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 2: Convenience</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -352,13 +352,13 @@ const GourmetRecipes = () => {
       {/* Results */}
        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Results</h2>
         </div>
        </div>
       {/* Increased Interest */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Increased Interest</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -373,7 +373,7 @@ const GourmetRecipes = () => {
       {/* Trusting the Consumer */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Trusting the Consumer</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Trusting the Consumer</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">

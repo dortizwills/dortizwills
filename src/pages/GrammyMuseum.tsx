@@ -32,7 +32,7 @@ const GrammyMuseum = () => {
             <div className="sticky top-[76px]">
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <h2 className="text-2xl font-display font-semibold">Project Details</h2>
+                  <h2 className="text-2xl font-unbounded font-semibold">Project Details</h2>
                   <span className="px-3 py-1 rounded text-sm font-medium bg-green-500 text-white">
                     NEW
                   </span>
@@ -40,24 +40,24 @@ const GrammyMuseum = () => {
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-display font-semibold mb-3">Timeline</h3>
+                    <h3 className="text-lg font-unbounded font-semibold mb-3">Timeline</h3>
                     <p className="text-sm text-muted-foreground">6 Weeks Total: 4 weeks for sitewide branding and design system, 2 additional weeks for final designs</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-display font-semibold mb-3">Responsibilities</h3>
+                    <h3 className="text-lg font-unbounded font-semibold mb-3">Responsibilities</h3>
                     <p className="text-sm text-muted-foreground">Branding, User flows, Responsive Design, Usability Testing, Prototyping, Project Management</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-display font-semibold mb-3">Project Overview</h3>
+                    <h3 className="text-lg font-unbounded font-semibold mb-3">Project Overview</h3>
                     <p className="text-sm text-muted-foreground">
                       This project focuses on creating an engaging and interactive platform that brings the Grammy Museum MS's rich content to life online. The goal was to create an immersive, educational experience that would engage visitors of all ages and encourage donations and event bookings.
                     </p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-display font-semibold mb-3">Results</h3>
+                    <h3 className="text-lg font-unbounded font-semibold mb-3">Results</h3>
                     <p className="text-sm text-muted-foreground">100% client satisfaction, ~15% boost in ticket sales since July, ~30% increase on Demo Page views</p>
                   </div>
                 </div>

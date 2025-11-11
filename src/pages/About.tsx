@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div>
       <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-12">
-        <h1 className="font-display text-5xl font-bold mb-8">About Me</h1>
+        <h1 className="font-unbounded text-5xl font-bold mb-8">About Me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
@@ -72,7 +72,7 @@ const About = () => {
         {/* Contact Form Section */}
         <div className="mt-16 pt-12 border-t border-gray-200">
           <div className="max-w-2xl custom:max-w-none">
-            <h2 className="font-display text-3xl font-bold mb-6">Interested in working together?</h2>
+            <h2 className="font-unbounded text-3xl font-bold mb-6">Interested in working together?</h2>
             <p className="text-gray-600 mb-8">
               If you'd like to discuss opportunities or have any questions about my experience, 
               I'd love to hear from you. Let's connect!

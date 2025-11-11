@@ -39,7 +39,7 @@ const MobileApps = () => {
         {/* Overview Section */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold">Overview</h2>
+          <h2 className="text-2xl font-unbounded font-semibold">Overview</h2>
         </div>
         <div className="col-span-2">
           <p className="text-gray-700 leading-relaxed mb-6">
@@ -110,13 +110,13 @@ const MobileApps = () => {
         <div>
           {/* The Process Section */}
           <div className="mb-8">
-            <h2 className="text-2xl font-display font-semibold mb-6">The Process</h2>
+            <h2 className="text-2xl font-unbounded font-semibold mb-6">The Process</h2>
           </div>
           
           {/* Div Block 9 */}
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">Quick & <span className="line-through">Dirty</span> Clean</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">Quick & <span className="line-through">Dirty</span> Clean</h3>
             </div>  
             <div className="col-span-2">
               {/* paragraph Content */}  
@@ -138,7 +138,7 @@ const MobileApps = () => {
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             {/* School Safety: The Presentation */}
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">The Presentation</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">The Presentation</h3>
             </div>
             <div className="col-span-2 max-sm:col-span-1">    
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -189,7 +189,7 @@ const MobileApps = () => {
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             {/* The Results */}
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">The Results</h3>
             </div>
             <div className="col-span-2 max-sm:col-span-1">    
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -207,13 +207,13 @@ const MobileApps = () => {
         <div>
           {/* The Process Section */}
           <div className="mb-8">
-            <h2 className="text-2xl font-display font-semibold mb-6">The Process</h2>
+            <h2 className="text-2xl font-unbounded font-semibold mb-6">The Process</h2>
           </div>
           
           {/* Div Block 9 */}
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">Meet Short Timelines</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">Meet Short Timelines</h3>
             </div>  
             <div className="col-span-2">
               {/* paragraph Content */}  
@@ -235,7 +235,7 @@ const MobileApps = () => {
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             {/* School Safety: The Presentation */}
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">The Changes</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">The Changes</h3>
             </div>
             <div className="col-span-2 max-sm:col-span-1">    
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -276,7 +276,7 @@ const MobileApps = () => {
           <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             {/* The Results */}
             <div className="col-span-1">
-              <h3 className="text-xl font-display font-medium mb-3">The Results</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-3">The Results</h3>
             </div>
             <div className="col-span-2 max-sm:col-span-1">    
               <p className="text-gray-700 leading-relaxed mb-4">

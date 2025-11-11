@@ -37,7 +37,7 @@ const AdherePlus = () => {
         {/* Background Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Background</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Background</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <p className="text-gray-700 leading-relaxed">
@@ -52,12 +52,12 @@ const AdherePlus = () => {
         {/* Early Stages Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Early Stages</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Early Stages</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             {/* Research subsection */}
             <div className="mb-6">
-              <h3 className="text-xl font-display font-medium mb-4">Research</h3>
+              <h3 className="text-xl font-unbounded font-medium mb-4">Research</h3>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Before jumping into design, I took time to understand the core users. I utilized the client's information as well as gathering research from chatbots and forums; this found a few key pieces for our end user's needs:
               </p>
@@ -65,19 +65,19 @@ const AdherePlus = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">1</span>
+                    <span className="font-unbounded text-lg font-semibold">1</span>
                   </div>
                   <p className="text-gray-700">Medical Practitioners desire to monitor patients and assess provider performance.</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">2</span>
+                    <span className="font-unbounded text-lg font-semibold">2</span>
                   </div>
                   <p className="text-gray-700">Patients require assistance to stay consistent with medication schedules and treatment plans.</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-lg font-semibold">3</span>
+                    <span className="font-unbounded text-lg font-semibold">3</span>
                   </div>
                   <p className="text-gray-700">Executives desire reducing cost from expensive treatments from disconnections between Patients and Practitioners.</p>
                 </div>
@@ -93,7 +93,7 @@ const AdherePlus = () => {
         {/* Goals & Strategy Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Goals & Strategy</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Goals & Strategy</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -103,19 +103,19 @@ const AdherePlus = () => {
             <div className="space-y-4 mb-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="font-display text-lg font-semibold">1</span>
+                  <span className="font-unbounded text-lg font-semibold">1</span>
                 </div>
                 <p className="text-gray-700">Increase demo bookings for their mobile platform.</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="font-display text-lg font-semibold">2</span>
+                  <span className="font-unbounded text-lg font-semibold">2</span>
                 </div>
                 <p className="text-gray-700">Patients require assistance to stay consistent with medication schedules and treatment plans.</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-designer-red text-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="font-display text-lg font-semibold">3</span>
+                  <span className="font-unbounded text-lg font-semibold">3</span>
                 </div>
                 <p className="text-gray-700">Create a consistent visual style for web and social channels.</p>
               </div>
@@ -139,7 +139,7 @@ const AdherePlus = () => {
         {/* Design Process Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Design Process</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Design Process</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">            
             <div className="space-y-6">
@@ -195,7 +195,7 @@ const AdherePlus = () => {
         {/* Final Designs Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Final Designs</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Final Designs</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
@@ -225,7 +225,7 @@ const AdherePlus = () => {
         {/* Inner Page Restrictions Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h3 className="text-2xl font-display font-semibold">Inner Page Restrictions</h3>
+            <h3 className="text-2xl font-unbounded font-semibold">Inner Page Restrictions</h3>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
@@ -249,19 +249,19 @@ const AdherePlus = () => {
         {/* Results Section */}
         <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8">
           <div className="col-span-1">
-            <h2 className="text-2xl font-display font-semibold">Results</h2>
+            <h2 className="text-2xl font-unbounded font-semibold">Results</h2>
           </div>
           <div className="col-span-2 max-sm:col-span-1">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-display font-medium mb-3">Booking Increases:</h3>
+                <h3 className="text-xl font-unbounded font-medium mb-3">Booking Increases:</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Adhere Plus saw an over 20% increase in conversions from site landings over the next 6 months. More importantly, this satisfaction on this initial build was helpful in the perceived value from Raborn Media, which in turn positioned Raborn for completing future projects with Adhere.
                 </p>
               </div>
               
               <div>
-                <h3 className="text-xl font-display font-medium mb-3">Future Roadmap:</h3>
+                <h3 className="text-xl font-unbounded font-medium mb-3">Future Roadmap:</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Adhere+ now has the ability to focus on their app and potentially leverage Raborn's engineering team on not only web but application development. This was a goal of Raborn to expand into new verticals and Adhere's mobile app would bolster Raborn's portfolio for future new client contracts.
                 </p>

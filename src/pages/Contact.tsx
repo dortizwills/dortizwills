@@ -87,12 +87,12 @@ const Contact = () => {
   return (
     <div>
       <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-12">
-        <h1 className="font-display text-5xl font-bold mb-8">Contact me</h1>
+        <h1 className="font-unbounded text-5xl font-bold mb-8">Contact me</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Contact Info */}
           <div>
-            <h2 className="text-2xl font-display font-semibold mb-6">Get in Touch</h2>
+            <h2 className="text-2xl font-unbounded font-semibold mb-6">Get in Touch</h2>
             <p className="text-gray-600 mb-8">
               Got an idea you'd like to bring to life or a growing team that's ready for one more? <br></br>
               You can count on me to bring excitement, resilience, a spirit of collaboration, and logical thinking to the conversation to achieve your goals. <br></br>
@@ -138,7 +138,7 @@ const Contact = () => {
           <div className="bg-white border border-black p-8 rounded-lg">
             {!isSubmitted ? (
               <>
-                <h2 className="text-2xl font-display font-semibold mb-6">Send a Message</h2>
+                <h2 className="text-2xl font-unbounded font-semibold mb-6">Send a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -201,7 +201,7 @@ const Contact = () => {
               </>
             ) : (
               <div className="text-center">
-                <h2 className="text-2xl font-display font-semibold mb-6">Message Sent!</h2>
+                <h2 className="text-2xl font-unbounded font-semibold mb-6">Message Sent!</h2>
                 <div className="space-y-4">
                   <p className="text-gray-600">Thank you for reaching out!</p>
                   <p className="text-gray-600">

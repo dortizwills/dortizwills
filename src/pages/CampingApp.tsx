@@ -35,7 +35,7 @@ const CampingApp = () => {
       {/* Div Block 2 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Background</h2>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -54,13 +54,13 @@ const CampingApp = () => {
       
       {/* Div Block 3 */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Early Stages</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Early Stages</h2>
       </div>
       
       {/* Div Block 4 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Research</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -112,7 +112,7 @@ const CampingApp = () => {
       {/* Div Block 7 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Personas</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -146,13 +146,13 @@ const CampingApp = () => {
       
       {/* Div Block 8 */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Validation Process</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Validation Process</h2>
       </div>
       
       {/* Div Block 9 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Flows</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Flows</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -171,7 +171,7 @@ const CampingApp = () => {
       {/* Div Block 11 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The Second Iteration</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -195,7 +195,7 @@ const CampingApp = () => {
       {/* Div Block 13 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Third Round Adjustments</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -222,7 +222,7 @@ const CampingApp = () => {
       {/* Div Block 15 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-6">Revised User Flow</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-6">Revised User Flow</h2>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -239,7 +239,7 @@ const CampingApp = () => {
       {/* Div Block 16 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Primary Happy Path</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Primary Happy Path</h3>
         </div> {/* Fixed: Corrected the div structure - added closing div and reopened */}
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -280,7 +280,7 @@ const CampingApp = () => {
       {/* Div Block 18 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3"></h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3"></h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -301,7 +301,7 @@ const CampingApp = () => {
       {/* Div Block 20 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-6">Final App Designs</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-6">Final App Designs</h2>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -313,7 +313,7 @@ const CampingApp = () => {
       {/* Div Block 21 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 1: Customization</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 1: Customization</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -334,7 +334,7 @@ const CampingApp = () => {
       {/* Div Block 23 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 2: Information</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 2: Information</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -355,7 +355,7 @@ const CampingApp = () => {
       {/* Div Block 25 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Final Booking Demonstration</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Final Booking Demonstration</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
           <p className="mb-6">
@@ -405,13 +405,13 @@ const CampingApp = () => {
       
       {/* Div Block 27 */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Results</h2>
       </div>
       
       {/* Div Block 9 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Increased New Camper Interest</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Increased New Camper Interest</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -421,7 +421,7 @@ const CampingApp = () => {
       </div>
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">New User Access</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">New User Access</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
