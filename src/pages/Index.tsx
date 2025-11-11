@@ -376,25 +376,25 @@ const Index = () => {
     }
 
     return (
-      <>
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 max-h-[70vh]">
-          {project.mediaType === 'video' ? (
-            <video
-              src={project.mediaSrc}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto max-h-[70vh] object-contain"
-            />
-          ) : (
-            <img
-              src={project.mediaSrc}
-              alt={project.title}
-              className="w-full h-auto max-h-[70vh] object-contain"
-            />
-          )}
-        </div>
+        <>
+          <div className="rounded-2xl overflow-hidden max-h-[70vh]">
+            {project.mediaType === 'video' ? (
+              <video
+                src={project.mediaSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-auto max-h-[70vh] object-contain"
+              />
+            ) : (
+              <img
+                src={project.mediaSrc}
+                alt={project.title}
+                className="w-full h-auto max-h-[70vh] object-contain"
+              />
+            )}
+          </div>
         <div className="flex justify-center gap-2 pt-6">
           {projectsData.map((_, i) => (
             <button
@@ -466,9 +466,9 @@ const Index = () => {
                   {/* Visual Designs Divider */}
                   {index === 7 && (
                     <div className="flex items-center gap-4 my-8">
-                      <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, transparent, #F96CD7, #F96CD7)' }}></div>
-                      <span className="text-[#1D40A1] font-unbounded font-semibold whitespace-nowrap">Visual Designs below</span>
-                      <div className="flex-1 h-px" style={{ background: 'linear-gradient(to left, transparent, #F96CD7, #F96CD7)' }}></div>
+                      <div className="flex-1 h-px bg-[#EB65CD]"></div>
+                      <span className="text-[#1D40A1] font-unbounded font-semibold whitespace-nowrap">Visual Designs Below</span>
+                      <div className="flex-1 h-px bg-[#EB65CD]"></div>
                     </div>
                   )}
                   
@@ -477,7 +477,7 @@ const Index = () => {
                     className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
                       selectedProject === index
                         ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
-                        : 'border border-gray-200 hover:shadow-lg'
+                        : 'border border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     {/* Arrow Button */}
