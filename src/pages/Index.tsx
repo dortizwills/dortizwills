@@ -259,7 +259,7 @@ const Index = () => {
             </p>
           </div>
           
-          {/* Progress Bubbles */}
+          {/* Quote Progress Bubbles */}
           <div className="flex justify-center gap-2 mt-4">
             {quotes.map((_, i) => (
               <button
@@ -295,6 +295,22 @@ const Index = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
+          </div>
+
+          {/* Project Card Progress Bubbles */}
+          <div className="flex justify-center gap-2 mt-6">
+            {projectsData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSelectedProject(i)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  selectedProject === i
+                    ? 'bg-blue-500 w-8'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to project ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
       );
@@ -417,23 +433,24 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
           {/* Left Column */}
           <div className="flex flex-col h-[calc(100vh-56px)]">
-            {/* Fixed Title */}
-            <div className="flex-shrink-0 mb-8 mt-3">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
-                Daniel Ortiz Wills Portfolio
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600">
-                Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast
-              </p>
-            </div>
-
-            {/* Scrollable Project Cards */}
+            {/* Scrollable Content - Including Title */}
             <div className="flex-1 overflow-y-auto space-y-4 pr-2 pb-8"
               style={{ 
                 maskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)'
               }}
             >
+              {/* Title Section */}
+              <div className="mb-8 mt-3">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
+                  Daniel Ortiz Wills Portfolio
+                </h1>
+                <p className="text-lg md:text-xl text-gray-600">
+                  Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast
+                </p>
+              </div>
+
+              {/* Project Cards */}
               {projectsData.map((project, index) => (
                 <div key={project.id}>
                   <button
