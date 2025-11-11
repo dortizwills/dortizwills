@@ -211,12 +211,15 @@ const Index = () => {
   React.useEffect(() => {
     const videos = [
       '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
-      '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4'
+      '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
+      '/lovable-uploads/School-Defense.mp4',
+      '/lovable-uploads/Pickle Ball.mp4'
     ];
     videos.forEach(src => {
       const video = document.createElement('video');
       video.src = src;
       video.preload = 'auto';
+      video.load();
     });
   }, []);
 
@@ -256,8 +259,24 @@ const Index = () => {
             </p>
           </div>
           
+          {/* Progress Bubbles */}
+          <div className="flex justify-center gap-2 mt-4">
+            {quotes.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentQuote(i)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  currentQuote === i
+                    ? 'bg-blue-500 w-8'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to quote ${i + 1}`}
+              />
+            ))}
+          </div>
+          
           {/* Navigation Arrows */}
-          <div className="flex justify-center gap-4 mt-6 pt-4 border-t border-white/30">
+          <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-white/30">
             <button
               onClick={handlePreviousQuote}
               className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
@@ -383,12 +402,16 @@ const Index = () => {
 
   return (
     <div className="h-screen bg-white relative overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full bg-[#DD16EB] opacity-20 blur-[150px] animate-[float_20s_ease-in-out_infinite]" />
-        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] rounded-full bg-[#16A7EB] opacity-20 blur-[150px] animate-[float_25s_ease-in-out_infinite_5s]" />
-        <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] rounded-full bg-[#16EB28] opacity-20 blur-[150px] animate-[float_30s_ease-in-out_infinite_10s]" />
-      </div>
+      {/* Static Background Image */}
+      <div 
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/lovable-uploads/homepage-background-gradient.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      />
 
       <div className="h-full max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
@@ -472,20 +495,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-        }
-      `}</style>
     </div>
   );
 };
