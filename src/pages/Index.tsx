@@ -444,7 +444,15 @@ const Index = () => {
             >
               {/* Title Section */}
               <div className="mb-8 mt-3">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4">
+                <h1 
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4"
+                  style={{
+                    background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
                   Daniel Ortiz Wills Portfolio
                 </h1>
                 <p className="text-lg md:text-xl text-gray-600">
@@ -459,7 +467,7 @@ const Index = () => {
                   {index === 7 && (
                     <div className="flex items-center gap-4 my-8">
                       <div className="flex-1 h-px bg-gray-300"></div>
-                      <span className="text-gray-600 font-medium whitespace-nowrap">Visual Designs below</span>
+                      <span className="text-[#1D40A1] font-medium whitespace-nowrap">Visual Designs below</span>
                       <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
                   )}
