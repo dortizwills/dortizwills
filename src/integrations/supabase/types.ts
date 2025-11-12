@@ -14,48 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      contact_leads: {
-        Row: {
-          company: string | null
-          created_at: string
-          email: string | null
-          id: string
-          lead_score: number | null
-          name: string | null
-          notes: string | null
-          phone: string | null
-          session_id: string | null
-          source: string | null
-          updated_at: string
-        }
-        Insert: {
-          company?: string | null
-          created_at?: string
-          email?: string | null
-          id?: string
-          lead_score?: number | null
-          name?: string | null
-          notes?: string | null
-          phone?: string | null
-          session_id?: string | null
-          source?: string | null
-          updated_at?: string
-        }
-        Update: {
-          company?: string | null
-          created_at?: string
-          email?: string | null
-          id?: string
-          lead_score?: number | null
-          name?: string | null
-          notes?: string | null
-          phone?: string | null
-          session_id?: string | null
-          source?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
       contact_submissions: {
         Row: {
           created_at: string
