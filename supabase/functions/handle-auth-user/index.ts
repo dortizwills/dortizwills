@@ -38,8 +38,7 @@ serve(async (req) => {
         .from('profiles')
         .insert({
           user_id: user.id,
-          display_name: user.raw_user_meta_data?.display_name || user.email?.split('@')[0] || null,
-          role: 'user' // Default role
+          display_name: user.raw_user_meta_data?.display_name || user.email?.split('@')[0] || null
         });
 
       if (error) {
