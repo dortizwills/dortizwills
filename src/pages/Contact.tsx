@@ -17,28 +17,22 @@ const Contact = () => {
     const formData = new FormData(form);
 
     const contactData = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      subject: (formData.get('subject') as string) || 'Reaching Out',
-      message: formData.get('message') as string
+      name: (formData.get('name') as string).trim(),
+      email: (formData.get('email') as string).trim(),
+      subject: ((formData.get('subject') as string) || 'Reaching Out').trim(),
+      message: (formData.get('message') as string).trim()
     };
-
-    console.log('Contact form submission started with data:', contactData);
 
     try {
       const { data, error } = await supabase.functions.invoke('contact-form', {
         body: contactData
       });
 
-      console.log('Supabase function response:', { data, error });
-
       if (error) {
-        console.error('Supabase function error:', error);
         throw error;
       }
 
-      console.log('Contact form submitted successfully');
-      form.reset(); // Clear the form immediately after successful submission
+      form.reset();
       setIsSubmitted(true);
       setIsSubmitting(false);
       
@@ -52,16 +46,8 @@ const Contact = () => {
       }
 
     } catch (error) {
-      console.error('Error submitting form:', error);
-      
-      // Show more specific error messages
-      let errorMessage = 'Failed to send message. Please try again.';
-      if (error?.message) {
-        errorMessage = error.message;
-      }
-      
-      toast.error(errorMessage);
-      setIsSubmitting(false); // Only reset submitting state on error, keep form data
+      toast.error('Failed to send message. Please try again.');
+      setIsSubmitting(false);
     }
   };
 

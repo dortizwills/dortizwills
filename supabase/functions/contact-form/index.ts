@@ -2,6 +2,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { Resend } from "https://esm.sh/resend@2.0.0";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -9,11 +10,51 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  subject?: string;
-  message: string;
+// Validation schema with security-focused length limits
+const contactFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Name is required")
+    .max(100, "Name must be less than 100 characters"),
+  email: z.string()
+    .trim()
+    .email("Invalid email address")
+    .max(255, "Email must be less than 255 characters"),
+  subject: z.string()
+    .trim()
+    .max(200, "Subject must be less than 200 characters")
+    .optional(),
+  message: z.string()
+    .trim()
+    .min(1, "Message is required")
+    .max(5000, "Message must be less than 5000 characters"),
+});
+
+// Simple rate limiting using in-memory store
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 3600000; // 1 hour in milliseconds
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return true;
+  }
+  
+  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
+
+// Sanitize text for plain text email - remove any control characters
+function sanitizeText(text: string): string {
+  return text.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -23,31 +64,34 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    console.log('Contact form function called');
-    const requestBody = await req.json();
-    console.log('Raw request body:', requestBody);
+    // Rate limiting check
+    const clientIp = req.headers.get("x-forwarded-for")?.split(',')[0] || 
+                     req.headers.get("x-real-ip") || 
+                     "unknown";
     
-    // Extract form data with better error handling
-    const { name, email, subject, message }: ContactFormData = requestBody;
-    console.log('Parsed form data:', { 
-      name: name || "Missing", 
-      email: email || "Missing", 
-      subject: subject || "No subject", 
-      messageLength: message?.length || 0 
-    });
-
-    // Validate required fields with better error messages
-    if (!name || !email || !message) {
-      const missingFields = [];
-      if (!name) missingFields.push('name');
-      if (!email) missingFields.push('email');
-      if (!message) missingFields.push('message');
-      
-      console.error('Missing required fields:', missingFields);
+    if (!checkRateLimit(clientIp)) {
+      console.warn(`Rate limit exceeded for IP: ${clientIp}`);
       return new Response(
         JSON.stringify({ 
-          error: `Missing required fields: ${missingFields.join(', ')}`,
-          received: { name: !!name, email: !!email, message: !!message }
+          error: "Too many submissions. Please try again later."
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    const requestBody = await req.json();
+    
+    // Validate input using zod schema
+    const validation = contactFormSchema.safeParse(requestBody);
+    
+    if (!validation.success) {
+      console.warn('Validation failed:', validation.error.errors[0].message);
+      return new Response(
+        JSON.stringify({ 
+          error: "Invalid form data. Please check your input and try again."
         }),
         {
           status: 400,
@@ -56,37 +100,34 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
+    const { name, email, subject, message } = validation.data;
+
     // Initialize Supabase client
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     );
 
-    console.log('Attempting to save to database...');
     // Insert the contact form submission into the database
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("contact_submissions")
       .insert({
         name,
         email,
         subject: subject || "New Contact Form Submission",
         message,
-      })
-      .select()
-      .single();
+      });
 
     if (error) {
-      console.error("Database error:", error);
+      console.error("Database error:", error.code);
       return new Response(
-        JSON.stringify({ error: "Failed to save submission", details: error.message }),
+        JSON.stringify({ error: "Unable to process your submission. Please try again later." }),
         {
           status: 500,
           headers: { "Content-Type": "application/json", ...corsHeaders },
         }
       );
     }
-
-    console.log("Contact form submission saved successfully:", data.id);
 
     // Check if Resend API key is available
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
@@ -106,48 +147,53 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Initialize Resend for email notifications
-    console.log('Attempting to send emails with Resend...');
     const resend = new Resend(resendApiKey);
 
+    // Sanitize all text content for email
+    const safeName = sanitizeText(name);
+    const safeEmail = sanitizeText(email);
+    const safeSubject = sanitizeText(subject || "No Subject");
+    const safeMessage = sanitizeText(message);
+
     try {
-      // Send notification email to you
-      console.log('Sending notification email...');
-      const notificationResult = await resend.emails.send({
+      // Send notification email to you (plain text for security)
+      await resend.emails.send({
         from: "Contact Form <onboarding@resend.dev>",
         to: ["dortizwills@gmail.com"],
-        subject: `New Contact Form Submission: ${subject || "No Subject"}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject || "No subject provided"}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
-          <hr>
-          <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
+        subject: `New Contact: ${safeSubject}`,
+        text: `
+New Contact Form Submission
+
+Name: ${safeName}
+Email: ${safeEmail}
+Subject: ${safeSubject}
+
+Message:
+${safeMessage}
+
+Submitted at: ${new Date().toLocaleString()}
         `,
       });
 
-      console.log('Notification email result:', notificationResult);
-
-      // Send confirmation email to the sender
-      console.log('Sending confirmation email...');
-      const confirmationResult = await resend.emails.send({
+      // Send confirmation email to the sender (plain text for security)
+      await resend.emails.send({
         from: "Daniel Ortiz-Wills <onboarding@resend.dev>",
-        to: [email],
+        to: [safeEmail],
         subject: "Thanks for reaching out!",
-        html: `
-          <h2>Hi ${name},</h2>
-          <p>Thank you for reaching out! I've received your message and will get back to you within 24 hours.</p>
-          <p><strong>Your message:</strong></p>
-          <p><em>"${message}"</em></p>
-          <p>Looking forward to exploring your project vision!</p>
-          <p>Best regards,<br>Daniel Ortiz-Wills</p>
+        text: `
+Hi ${safeName},
+
+Thank you for reaching out! I've received your message and will get back to you within 24 hours.
+
+Your message:
+"${safeMessage}"
+
+Looking forward to exploring your project vision!
+
+Best regards,
+Daniel Ortiz-Wills
         `,
       });
-
-      console.log('Confirmation email result:', confirmationResult);
-      console.log("Both emails sent successfully");
 
       return new Response(
         JSON.stringify({ 
@@ -161,22 +207,13 @@ const handler = async (req: Request): Promise<Response> => {
       );
 
     } catch (emailError) {
-      console.error("Email sending failed:", emailError);
+      console.error("Email sending failed:", emailError.name);
       
-      // Check if it's a DNS/domain verification issue
-      const errorMessage = emailError.message || emailError.toString();
-      let userMessage = "Your message has been saved, but there was an issue sending confirmation emails.";
-      
-      if (errorMessage.includes('DNS') || errorMessage.includes('domain') || errorMessage.includes('verify')) {
-        userMessage += " This appears to be a domain verification issue with the email service.";
-      }
-
       return new Response(
         JSON.stringify({ 
           success: true, 
-          message: userMessage,
-          warning: "Email delivery issue detected",
-          technicalDetails: errorMessage
+          message: "Your message has been saved. We'll get back to you soon!",
+          warning: "Email notifications may be delayed"
         }),
         {
           status: 200,
@@ -186,11 +223,10 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
   } catch (error) {
-    console.error("Error in contact form function:", error);
+    console.error("Error in contact form function:", error.name);
     return new Response(
       JSON.stringify({ 
-        error: "Internal server error", 
-        details: error.message || error.toString() 
+        error: "Unable to process your request. Please try again later."
       }),
       {
         status: 500,

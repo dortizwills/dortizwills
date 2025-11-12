@@ -30,29 +30,23 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    console.log('Form submission started with data:', formData);
-
     try {
       const { data, error } = await supabase.functions.invoke('contact-form', {
         body: {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject || 'Reaching Out',
-          message: formData.message
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject?.trim() || 'Reaching Out',
+          message: formData.message.trim()
         }
       });
 
-      console.log('Supabase function response:', { data, error });
-
       if (error) {
-        console.error('Supabase function error:', error);
         throw error;
       }
 
       // Handle successful submission
-      console.log('Form submitted successfully');
-      resetForm(); // Clear the form immediately
-      setIsSubmitted(true); // Show thank you message
+      resetForm();
+      setIsSubmitted(true);
       
       // Show appropriate success message based on response
       if (data?.warning) {
@@ -64,16 +58,8 @@ const ContactForm = () => {
       }
 
     } catch (error) {
-      console.error('Error sending message:', error);
-      
-      // Show more specific error messages
-      let errorMessage = 'Failed to send message. Please try again.';
-      if (error?.message) {
-        errorMessage = error.message;
-      }
-      
-      toast.error(errorMessage);
-      setIsSubmitting(false); // Only reset submitting state on error, keep form data
+      toast.error('Failed to send message. Please try again.');
+      setIsSubmitting(false);
     }
   };
 
