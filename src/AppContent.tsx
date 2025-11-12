@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useAnalytics } from '@/hooks/useAnalytics';
 import Index from './pages/Index';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -26,19 +25,6 @@ import CaseStudies from './pages/graphic-designs/CaseStudies';
 import AdherePlus from './pages/AdherePlus';
 import GrammyMuseum from './pages/GrammyMuseum';
 
-function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
-  const { trackPageView, setConsent, hasConsent } = useAnalytics();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (hasConsent) {
-      trackPageView(location.pathname, document.title);
-    }
-  }, [location, hasConsent, trackPageView]);
-
-  return <>{children}</>;
-}
-
 const AppContent: FC = () => {
   const location = useLocation();
 
@@ -48,7 +34,7 @@ const AppContent: FC = () => {
   }, [location]);
 
   return (
-    <AnalyticsWrapper>
+    <>
       <TopNavigation />
       <div className="pt-6">
         <Routes>
@@ -74,7 +60,7 @@ const AppContent: FC = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </AnalyticsWrapper>
+    </>
   );
 };
 
