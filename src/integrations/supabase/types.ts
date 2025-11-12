@@ -14,41 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      analytics_events: {
-        Row: {
-          event_data: Json | null
-          event_type: string
-          id: string
-          page_url: string | null
-          session_id: string
-          timestamp: string
-        }
-        Insert: {
-          event_data?: Json | null
-          event_type: string
-          id?: string
-          page_url?: string | null
-          session_id: string
-          timestamp?: string
-        }
-        Update: {
-          event_data?: Json | null
-          event_type?: string
-          id?: string
-          page_url?: string | null
-          session_id?: string
-          timestamp?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "analytics_events_session_id_fkey"
-            columns: ["session_id"]
-            isOneToOne: false
-            referencedRelation: "visitor_sessions"
-            referencedColumns: ["session_id"]
-          },
-        ]
-      }
       contact_leads: {
         Row: {
           company: string | null
@@ -89,15 +54,7 @@ export type Database = {
           source?: string | null
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "contact_leads_session_id_fkey"
-            columns: ["session_id"]
-            isOneToOne: false
-            referencedRelation: "visitor_sessions"
-            referencedColumns: ["session_id"]
-          },
-        ]
+        Relationships: []
       }
       contact_submissions: {
         Row: {
@@ -129,162 +86,15 @@ export type Database = {
         }
         Relationships: []
       }
-      page_views: {
-        Row: {
-          id: string
-          page_title: string | null
-          page_url: string
-          scroll_depth: number | null
-          session_id: string
-          time_on_page: number | null
-          timestamp: string
-        }
-        Insert: {
-          id?: string
-          page_title?: string | null
-          page_url: string
-          scroll_depth?: number | null
-          session_id: string
-          time_on_page?: number | null
-          timestamp?: string
-        }
-        Update: {
-          id?: string
-          page_title?: string | null
-          page_url?: string
-          scroll_depth?: number | null
-          session_id?: string
-          time_on_page?: number | null
-          timestamp?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "page_views_session_id_fkey"
-            columns: ["session_id"]
-            isOneToOne: false
-            referencedRelation: "visitor_sessions"
-            referencedColumns: ["session_id"]
-          },
-        ]
-      }
-      profiles: {
-        Row: {
-          created_at: string
-          display_name: string | null
-          id: string
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          display_name?: string | null
-          id?: string
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          display_name?: string | null
-          id?: string
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          created_at: string
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
-      visitor_sessions: {
-        Row: {
-          browser: string | null
-          city: string | null
-          country: string | null
-          device: string | null
-          duration_seconds: number | null
-          first_visit: string
-          id: string
-          is_returning_visitor: boolean | null
-          landing_page: string | null
-          last_activity: string
-          os: string | null
-          page_views: number | null
-          referrer: string | null
-          session_id: string
-          user_agent: string | null
-          visitor_ip: string | null
-        }
-        Insert: {
-          browser?: string | null
-          city?: string | null
-          country?: string | null
-          device?: string | null
-          duration_seconds?: number | null
-          first_visit?: string
-          id?: string
-          is_returning_visitor?: boolean | null
-          landing_page?: string | null
-          last_activity?: string
-          os?: string | null
-          page_views?: number | null
-          referrer?: string | null
-          session_id: string
-          user_agent?: string | null
-          visitor_ip?: string | null
-        }
-        Update: {
-          browser?: string | null
-          city?: string | null
-          country?: string | null
-          device?: string | null
-          duration_seconds?: number | null
-          first_visit?: string
-          id?: string
-          is_returning_visitor?: boolean | null
-          landing_page?: string | null
-          last_activity?: string
-          os?: string | null
-          page_views?: number | null
-          referrer?: string | null
-          session_id?: string
-          user_agent?: string | null
-          visitor_ip?: string | null
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      get_current_user_role: { Args: never; Returns: string }
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "moderator" | "user"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -411,8 +221,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "moderator", "user"],
-    },
+    Enums: {},
   },
 } as const
