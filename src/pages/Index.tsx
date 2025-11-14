@@ -424,7 +424,7 @@ const Index = () => {
       <div 
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/lovable-uploads/homepage-background-gradient.png)',
+          backgroundImage: 'url(/lovable-uploads/homepage-gradient-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
