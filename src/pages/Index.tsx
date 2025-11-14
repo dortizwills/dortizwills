@@ -474,7 +474,7 @@ const Index = () => {
                   
                   <button
                     onClick={() => setSelectedProject(index)}
-                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
+                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 bg-white ${
                       selectedProject === index
                         ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
                         : 'border border-gray-200 hover:border-gray-300'
