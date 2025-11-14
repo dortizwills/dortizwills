@@ -419,7 +419,7 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen bg-white relative overflow-hidden">
+    <div className="h-screen relative overflow-hidden">
       {/* Static Background Image */}
       <div 
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
