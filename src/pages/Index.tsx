@@ -419,7 +419,7 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen relative overflow-hidden">
+    <div className="h-screen bg-white relative overflow-hidden">
       {/* Static Background Image */}
       <div 
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
@@ -474,7 +474,7 @@ const Index = () => {
                   
                   <button
                     onClick={() => setSelectedProject(index)}
-                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 bg-white ${
+                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
                       selectedProject === index
                         ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
                         : 'border border-gray-200 hover:border-gray-300'
