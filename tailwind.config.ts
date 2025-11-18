@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			screens: {
+				'custom': '680px',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -103,7 +105,8 @@ export default {
 			},
 			fontFamily: {
 				'display': ['Lexend', 'sans-serif'],
-				'sans': ['DM Sans', 'sans-serif']
+				'sans': ['DM Sans', 'sans-serif'],
+				'unbounded': ['Unbounded', 'sans-serif']
 			}
 		}
 	},

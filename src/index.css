@@ -73,6 +73,14 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --gradient-pink: #F96CD7;
+    --gradient-purple: #8F63D3;
+    --gradient-blue: #1D40A1;
+    
+    --neon-pink: #DD16EB;
+    --neon-cyan: #16A7EB;
+    --neon-green: #16EB28;
   }
 }
 
@@ -86,7 +94,7 @@
   }
   
   h1, h2, h3, h4 {
-    @apply font-display;
+    @apply font-unbounded;
   }
 
   .active-nav-item {
@@ -95,5 +103,18 @@
   
   .active-nav-item::after {
     @apply content-[''] absolute -bottom-1 left-0 h-1 w-16 bg-gradient-primary;
+  }
+  
+  .clip-path-diagonal {
+    clip-path: polygon(40% 0%, 100% 0, 100% 60%);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

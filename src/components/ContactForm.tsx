@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { Mail, User, MessageSquare } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -20,36 +21,44 @@ const ContactForm = () => {
     });
   };
 
+  const resetForm = () => {
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const form = new FormData();
-    form.append('name', formData.name);
-    form.append('email', formData.email);
-    form.append('subject', formData.subject || 'Reaching Out');
-    form.append('message', formData.message);
-
-    // Set hidden fields for FormSubmit
-    form.append('_next', window.location.href);
-    form.append('_captcha', 'false');
-
     try {
-      const response = await fetch('https://formsubmit.co/d4ddafc4feecd5d121fc719063293c2c', {
-        method: 'POST',
-        body: form
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject?.trim() || 'Reaching Out',
+          message: formData.message.trim()
+        }
       });
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
+      if (error) {
+        throw error;
       }
+
+      // Handle successful submission
+      resetForm();
+      setIsSubmitted(true);
+      
+      // Show appropriate success message based on response
+      if (data?.warning) {
+        toast.success(data.message || 'Message sent successfully!', {
+          description: data.warning
+        });
+      } else {
+        toast.success(data?.message || 'Message sent successfully! I\'ll get back to you within 24 hours.');
+      }
+
     } catch (error) {
-      console.error('Error sending message:', error);
       toast.error('Failed to send message. Please try again.');
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -58,7 +67,7 @@ const ContactForm = () => {
     return (
       <div className="bg-white border border-black p-8 rounded-lg text-center">
         <div className="space-y-4">
-          <h3 className="font-display text-2xl font-bold">Message Sent</h3>
+          <h3 className="font-display text-2xl font-bold">Message Sent!</h3>
           <p className="text-gray-600">Thank you for reaching out!</p>
           <p className="text-gray-600">
             You can expect a message from me in the next 24 hours. I'm happy to explore 
@@ -66,7 +75,10 @@ const ContactForm = () => {
           </p>
           <p className="text-gray-600 font-medium">Talk soon!</p>
           <button 
-            onClick={() => setIsSubmitted(false)}
+            onClick={() => {
+              setIsSubmitted(false);
+              resetForm(); // Ensure form is cleared when returning to form
+            }}
             className="bg-gradient-primary text-white font-medium py-3 px-6 rounded-md transition-opacity hover:opacity-90 mt-6"
           >
             Send Another Message

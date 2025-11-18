@@ -35,7 +35,7 @@ const CaseStudies = () => {
         <h2 className="text-2xl font-display font-semibold mb-4 md:col-span-3">Project Process</h2>
       </div>
       
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Background</h3>
         </div>
@@ -49,7 +49,7 @@ const CaseStudies = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Creating a Design System</h3>
         </div>
@@ -61,7 +61,7 @@ const CaseStudies = () => {
         </div>
       </div>
      
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Sales Enablement & Customer Validation</h3>
         </div>
