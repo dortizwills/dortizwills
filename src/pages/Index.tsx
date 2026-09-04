@@ -232,7 +232,7 @@ const Index = () => {
   };
 
   const renderProjectContent = (project: ProjectCard, index: number) => {
-    if (index === 0) {
+    if (project.id === 'collaboration') {
       return (
         <>
           <div 
