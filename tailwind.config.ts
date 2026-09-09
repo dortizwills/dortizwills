@@ -65,11 +65,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				designer: {
-					red: '#2037C9',
-					gray: '#D2D4FF',
-					darkgray: '#333333',
-					accent: '#00BFA5'
+				editorial: {
+					bg: '#F4F5F2',
+					fg: '#17211B',
+					muted: '#6B7870',
+					accent: '#6E856F',
+					line: '#D9DDD5',
+					soft: '#E8EBE5',
+					card: '#FAFBF9',
+					gold: '#B8954F'
 				}
 			},
 			backgroundImage: {
@@ -104,9 +108,11 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
 			fontFamily: {
-				'display': ['Lexend', 'sans-serif'],
-				'sans': ['DM Sans', 'sans-serif'],
-				'unbounded': ['Unbounded', 'sans-serif']
+				'heading': ['Outfit', 'sans-serif'],
+				'body': ['Figtree', 'sans-serif'],
+				'display': ['Outfit', 'sans-serif'],
+				'sans': ['Figtree', 'sans-serif'],
+				'unbounded': ['Outfit', 'sans-serif']
 			}
 		}
 	},
