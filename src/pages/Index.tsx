@@ -34,8 +34,8 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['Web', 'Brand & Product Design'],
     description: "A redesign of a non-profit music museum's digital experience, built to make donating, booking, and exploring effortless.",
     meta: 'Designer · 6 weeks',
-    mediaSrc: '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
-    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
+    mediaType: 'image',
     link: '/product-designs/grammy-museum',
   },
   {
@@ -45,8 +45,8 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['Mobile Apps', 'Concept Design'],
     description: 'Two mobile app designs promoted to potential clients, balancing clarity with visual energy.',
     meta: 'Product Designer · 4 weeks',
-    mediaSrc: '/lovable-uploads/School-Defense.mp4',
-    mediaType: 'video',
+    mediaSrc: '/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png',
+    mediaType: 'image',
     link: '/mobile-apps',
   },
   {
