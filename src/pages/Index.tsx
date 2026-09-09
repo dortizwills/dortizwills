@@ -1,552 +1,274 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUp } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface ProjectCard {
+interface FeaturedProject {
   id: string;
   title: string;
   company: string;
-  category: string;
-  duration: string;
+  categories: string[];
   description: string;
-  mediaType: 'image' | 'video';
+  meta: string;
   mediaSrc: string;
+  mediaType: 'image' | 'video';
   link: string;
-  tabs?: string[];
 }
 
-const projectsData: ProjectCard[] = [
+const featuredProjects: FeaturedProject[] = [
   {
     id: 'securing',
     title: 'Securing 100+ shops via Enterprise partnerships',
     company: 'Shopmonkey',
-    category: 'Responsive Web',
-    duration: '2 months',
-    description: 'Reducing checkout times to 2–3 minutes – a 200% efficiency increase',
-    mediaType: 'video',
-    mediaSrc: '/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4',
+    categories: ['B2B SaaS', 'Product Design'],
+    description: 'An express checkout experience for quick-service auto shops, designed to cut minutes out of every order.',
+    meta: 'Product Designer · 2 months',
+    mediaSrc: '/lovable-uploads/01-express-lane/dashboard-3.png',
+    mediaType: 'image',
     link: '/product-designs/quick-services',
-    tabs: ['Shopmonkey', 'Responsive Web', '2 months'],
   },
   {
     id: 'grammy',
     title: '+15% Ticket Sales from +30% Donate Page Views',
-    company: 'Raborn Media',
-    category: 'Responsive Web',
-    duration: '6 weeks',
-    description: "Redesigning the Non-Profit's digital experience to showcase history and education",
+    company: 'Grammy Museum Mississippi',
+    categories: ['Web', 'Brand & Product Design'],
+    description: "A redesign of a non-profit music museum's digital experience, built to make donating, booking, and exploring effortless.",
+    meta: 'Designer · 6 weeks',
+    mediaSrc: '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
     mediaType: 'video',
-    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
     link: '/product-designs/grammy-museum',
-    tabs: ['Raborn Media', 'Responsive Web', '6 weeks'],
   },
   {
     id: 'pitching',
     title: 'Pitching & Developing Future Partnerships',
     company: 'Raborn Media',
-    category: 'Responsive Web',
-    duration: '4 weeks',
-    description: '2 Mobile app designs promoted to potential clients.',
-    mediaType: 'video',
+    categories: ['Mobile Apps', 'Concept Design'],
+    description: 'Two mobile app designs promoted to potential clients, balancing clarity with visual energy.',
+    meta: 'Product Designer · 4 weeks',
     mediaSrc: '/lovable-uploads/School-Defense.mp4',
-    link: '/mobile-apps',
-    tabs: ['Raborn Media', 'Mobile Apps', '4 weeks'],
-  },
-  {
-    id: 'camping',
-    title: 'New Camping Trips Increased by 50%',
-    company: 'Freelance',
-    category: 'Mobile App',
-    duration: '3 months',
-    description: "Providing first time campers an experience similar to booking a hotel.",
     mediaType: 'video',
-    mediaSrc: '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
-    link: '/product-designs/camping-app',
-    tabs: ['Freelance', 'Mobile App', '3 months'],
-  },
-  {
-    id: 'recipes',
-    title: 'Features Boosting Subscriptions by 15%',
-    company: 'Blue Apron',
-    category: 'Mobile App',
-    duration: '2 months',
-    description: "Changing forgotten meal plans into additional opportunities for gourmet recipes",
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png',
-    link: '/product-designs/gourmet-recipes',
-    tabs: ['Blue Apron', 'Mobile App', '2 months'],
+    link: '/mobile-apps',
   },
   {
     id: 'adhere',
     title: '20% Conversions Increase',
-    company: 'Raborn Media',
-    category: 'Responsive Web',
-    duration: '2 months',
-    description: 'Adhere+ full website rebrand & design system',
-    mediaType: 'image',
+    company: 'Adhere+',
+    categories: ['Healthcare SaaS', 'Brand & Web'],
+    description: 'A full website rebrand and design system for a healthcare SaaS platform that helps patients stay on their recovery plans.',
+    meta: 'Branding, UX/UI · 2 months',
     mediaSrc: '/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png',
+    mediaType: 'image',
     link: '/product-designs/adhere-plus',
-    tabs: ['Raborn Media', 'Responsive Web', '2 months'],
-  },
-  {
-    id: 'collaboration',
-    title: 'Visual Designs',
-    company: 'Testimonials',
-    category: 'View Quotes',
-    duration: 'from peers, managers, and leadership >>',
-    description: 'View Quotes from peers, managers, and leadership >>',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
-    link: '#quotes',
-  },
-  {
-    id: 'data-driven-ebooks',
-    title: 'Data-Driven eBooks',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '3 months',
-    description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png',
-    link: '/graphic-designs/data-driven-ebooks',
-    tabs: ['Shopmonkey', 'Graphic Design', '3 months'],
-  },
-  {
-    id: 'email-marketing',
-    title: 'Email Marketing Campaigns',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '6 months',
-    description: 'Email marketing campaigns for an audience that is not reading inclined',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/3b9e02c1-446c-48b1-9c63-d01152ab0b67.png',
-    link: '/graphic-designs/email-marketing',
-    tabs: ['Shopmonkey', 'Graphic Design', '6 months'],
-  },
-  {
-    id: 'product-illustrations',
-    title: 'Refining Product Illustrations',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '2 months',
-    description: "Rebranding assets for Series C funding that refined Shopmonkey's brand",
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/baed769b-8cd3-4542-9dc3-80ea9e094ce8.png',
-    link: '/graphic-designs/product-illustrations',
-    tabs: ['Shopmonkey', 'Graphic Design', '2 months'],
-  },
-  {
-    id: 'social-media',
-    title: 'Social Media Campaigns',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '1 year',
-    description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png',
-    link: '/graphic-designs/social-media',
-    tabs: ['Shopmonkey', 'Graphic Design', '1 year'],
-  },
-  {
-    id: 'case-studies',
-    title: 'Case Studies',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '4 months',
-    description: 'Story telling case studies that encapsulate success stories from different automotive shops – from repair to custom builds',
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/f79e2d2b-248a-4a89-9a44-ffa1e56eba9c.png',
-    link: '/graphic-designs/case-studies',
-    tabs: ['Shopmonkey', 'Graphic Design', '4 months'],
-  },
-  {
-    id: 'event-designs',
-    title: 'Event Designs',
-    company: 'Shopmonkey',
-    category: 'Graphic Design',
-    duration: '2 months',
-    description: "Booth and event designs displaying Shopmonkey's friendly brand towards a skeptical crowd at SEMA – The largest tradeshow in the automotive sphere",
-    mediaType: 'image',
-    mediaSrc: '/lovable-uploads/cbf46393-8c18-41e4-8e0b-ef504b5d046e.png',
-    link: '/graphic-designs/event-designs',
-    tabs: ['Shopmonkey', 'Graphic Design', '2 months'],
   },
 ];
 
+const trustLogos = ['Shopmonkey', 'Raborn Media', 'Grammy Museum Mississippi', 'Adhere+'];
+
 const Index = () => {
-  const [selectedProject, setSelectedProject] = useState(1);
-  const [currentQuote, setCurrentQuote] = useState(0);
-
-  // Testimonial quotes data
-  const quotes = [
-    {
-      author: "Kyle Marks",
-      title: "Creative Director, Shopmonkey",
-      text: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and perspectives that make him stand out in the creative field. His versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines."
-    },
-    {
-      author: "Steven Chic",
-      title: "VP, Alvys",
-      text: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations."
-    },
-    {
-      author: "Kelsey McAuley",
-      title: "Director of Web, Raborn Media",
-      text: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well."
-    },
-    {
-      author: "Samantha Lane",
-      title: "Head of UX Design, Raborn Media",
-      text: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design."
-    },
-    {
-      author: "Matt Stratton",
-      title: "COO, Raborn Media",
-      text: "I have no doubt that Danny would be a valuable asset to any organization requiring someone who's willing to work hard and pay attention to detail. His dedication, integrity, and work ethic make him an excellent candidate for any position he would pursue."
-    }
-  ];
-
-  // Preload videos for instant playback
-  React.useEffect(() => {
-    const videos = [
-      '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
-      '/lovable-uploads/01-camping-buddy/Final-Demo-Camp-Buddy.mp4',
-      '/lovable-uploads/School-Defense.mp4',
-      '/lovable-uploads/Pickle Ball.mp4'
-    ];
-    videos.forEach(src => {
-      const video = document.createElement('video');
-      video.src = src;
-      video.preload = 'auto';
-      video.load();
-    });
-  }, []);
-
-  const handlePreviousQuote = () => {
-    setCurrentQuote((prev) => (prev === 0 ? quotes.length - 1 : prev - 1));
-  };
-
-  const handleNextQuote = () => {
-    setCurrentQuote((prev) => (prev === quotes.length - 1 ? 0 : prev + 1));
-  };
-
-  const renderProjectContent = (project: ProjectCard, index: number) => {
-    if (project.id === 'collaboration') {
-      return (
-        <>
-          <div 
-            id="quotes"
-            className="relative rounded-2xl p-8 backdrop-blur-md bg-white/40 border border-white/60 shadow-lg h-[420px] flex flex-col"
-            style={{
-              background: 'linear-gradient(135deg, rgba(249, 108, 215, 0.1), rgba(143, 99, 211, 0.1), rgba(29, 64, 161, 0.1))',
-            }}
-          >
-            <div className="flex-1 overflow-y-auto">
-              <h2 
-                className="text-2xl md:text-3xl font-bold font-unbounded mb-2"
-                style={{
-                  background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                {quotes[currentQuote].author}
-              </h2>
-              <p className="text-gray-600 text-sm mb-4">{quotes[currentQuote].title}</p>
-              <p className="text-gray-800 leading-relaxed" style={{ fontSize: '1.1em' }}>
-                "{quotes[currentQuote].text}"
-              </p>
-            </div>
-            
-            {/* Quote Progress Bubbles */}
-            <div className="flex justify-center gap-2 mt-4">
-              {quotes.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentQuote(i)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    currentQuote === i
-                      ? 'bg-blue-500 w-8'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to quote ${i + 1}`}
-                />
-              ))}
-            </div>
-            
-            {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-white/30">
-              <button
-                onClick={handlePreviousQuote}
-                className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-                aria-label="Previous quote"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={handleNextQuote}
-                className="w-10 h-10 rounded-full bg-white/50 hover:bg-white/70 flex items-center justify-center transition-colors"
-                aria-label="Next quote"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Project Card Progress Bubbles - Below quotes block */}
-          <div className="flex justify-center gap-2 mt-6">
-            {projectsData.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setSelectedProject(i)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  selectedProject === i
-                    ? 'bg-blue-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to project ${i + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      );
-    }
-
-    if (project.id === 'pitching' || project.id === 'camping') {
-      return (
-        <>
-          <div className="flex items-center justify-center max-h-[70vh]">
-            {project.id === 'pitching' ? (
-              <div className="grid grid-cols-2 gap-6 max-w-[600px] w-full">
-                <video
-                  src="/lovable-uploads/School-Defense.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-                />
-                <video
-                  src="/lovable-uploads/Pickle Ball.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-                />
-              </div>
-            ) : (
-              <video
-                src={project.mediaSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="max-h-[70vh] w-auto object-contain rounded-lg"
-              />
-            )}
-          </div>
-          <div className="flex justify-center gap-2 pt-6">
-            {projectsData.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setSelectedProject(i)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  selectedProject === i
-                    ? 'bg-blue-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to project ${i + 1}`}
-              />
-            ))}
-          </div>
-          <Link to={project.link}>
-            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
-              View Project
-            </Button>
-          </Link>
-        </>
-      );
-    }
-
-    return (
-        <>
-          <div className="rounded-2xl overflow-hidden max-h-[70vh]">
-            {project.mediaType === 'video' ? (
-              <video
-                src={project.mediaSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-auto max-h-[70vh] object-contain"
-              />
-            ) : (
-              <img
-                src={project.mediaSrc}
-                alt={project.title}
-                className="w-full h-auto max-h-[70vh] object-contain"
-              />
-            )}
-          </div>
-        <div className="flex justify-center gap-2 pt-6">
-          {projectsData.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedProject(i)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                selectedProject === i
-                  ? 'bg-blue-500 w-8'
-                  : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to project ${i + 1}`}
-            />
-          ))}
-        </div>
-        <Link to={project.link}>
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl mt-4">
-            View Project
-          </Button>
-        </Link>
-      </>
-    );
-  };
-
   return (
-    <div className="h-screen bg-white relative overflow-hidden">
-      {/* Static Background Image */}
-      <div 
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/lovable-uploads/homepage-gradient-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      />
-
-      <div className="h-full max-w-[1600px] mx-auto px-4 md:px-8 py-8 pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
-          {/* Left Column */}
-          <div className="flex flex-col h-[calc(100vh-56px)]">
-            {/* Scrollable Content - Including Title */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-2 pb-8"
-              style={{ 
-                maskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black calc(100% - 40px), transparent 100%)'
-              }}
-            >
-              {/* Title Section */}
-              <div className="mb-8 mt-3">
-                <h1 
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold font-unbounded mb-4"
-                  style={{
-                    background: 'linear-gradient(135deg, #F96CD7, #8F63D3, #1D40A1)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Daniel Ortiz Wills Portfolio
-                </h1>
-                <p className="text-lg md:text-xl text-gray-600">
-                  Product Designer, UXUI Designer, Web Designer, Vibe Coder, AI Enthusiast
-                </p>
+    <div className="pt-16">
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8">
+        {/* Hero Section */}
+        <section className="py-16 md:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-6">
+                Product Designer
+              </p>
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] text-editorial-fg mb-6">
+                Design that drives clarity, speed, and{' '}
+                <span className="text-editorial-gold">real impact.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-editorial-muted leading-relaxed max-w-xl mb-8">
+                I partner with ambitious teams to turn complex product problems into clear, useful, and scalable digital experiences.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 mb-10">
+                <Link to="/product-designs">
+                  <Button className="bg-editorial-fg text-editorial-bg hover:bg-editorial-fg/90 rounded-full px-6 py-3 text-sm font-medium flex items-center gap-2">
+                    View my work
+                    <ArrowRight size={16} />
+                  </Button>
+                </Link>
+                <a href="/resume">
+                  <Button variant="outline" className="border-editorial-line text-editorial-fg hover:bg-editorial-soft rounded-full px-6 py-3 text-sm font-medium">
+                    Download resume
+                  </Button>
+                </a>
               </div>
+              <div className="flex items-center gap-5">
+                <a 
+                  href="https://www.linkedin.com/in/dortiz-wills" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-editorial-line flex items-center justify-center text-editorial-muted hover:text-editorial-fg hover:bg-editorial-soft transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a 
+                  href="mailto:dortizwills@gmail.com" 
+                  className="w-10 h-10 rounded-full border border-editorial-line flex items-center justify-center text-editorial-muted hover:text-editorial-fg hover:bg-editorial-soft transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-editorial-soft">
+                <img 
+                  src="/lovable-uploads/01-express-lane/dashboard-3.png" 
+                  alt="Selected product design work" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Project Cards */}
-              {projectsData.map((project, index) => (
-                <div key={project.id}>
-                  {/* Visual Designs Divider */}
-                  {index === 7 && (
-                    <div className="flex items-center gap-4 my-8">
-                      <div className="flex-1 h-px bg-[#EB65CD]"></div>
-                      <span className="text-[#1D40A1] font-unbounded font-semibold whitespace-nowrap">Visual Designs Below</span>
-                      <div className="flex-1 h-px bg-[#EB65CD]"></div>
-                    </div>
-                  )}
-                  
-                  <button
-                    onClick={() => setSelectedProject(index)}
-                    className={`w-full text-left rounded-2xl p-6 transition-all duration-300 relative group z-10 ${
-                      selectedProject === index
-                        ? 'border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]'
-                        : 'border border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    {/* Arrow Button */}
-                    <div className="absolute top-6 right-6">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                        selectedProject === index ? 'bg-blue-500' : 'bg-gray-200 group-hover:bg-gray-300'
-                      }`}>
-                        <ArrowRight className={`w-5 h-5 ${selectedProject === index ? 'text-white' : 'text-gray-600'}`} />
-                      </div>
-                    </div>
+        {/* Trust Row */}
+        <section className="py-10 border-t border-editorial-line">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-6">
+            Trusted by early-stage teams
+          </p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            {trustLogos.map((logo) => (
+              <span key={logo} className="text-editorial-fg font-medium text-lg">
+                {logo}
+              </span>
+            ))}
+          </div>
+        </section>
 
-                    <h3 className="text-2xl font-bold font-unbounded mb-4 pr-14">
-                      {project.title}
-                    </h3>
+        {/* Featured Work */}
+        <section className="py-16 md:py-24">
+          <div className="flex items-end justify-between mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-medium text-editorial-fg">Featured work</h2>
+            <Link to="/product-designs" className="hidden sm:flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+              See all work
+              <ArrowRight size={16} />
+            </Link>
+          </div>
 
-                    {/* Tabs */}
-                    {project.tabs && (
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {project.tabs.map((tab, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
-                          >
-                            {tab}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <p className="text-gray-600">
-                      {project.description}
-                    </p>
-                  </button>
-
-                  {/* Mobile/Tablet Content - Shows below selected card */}
-                  {selectedProject === index && (
-                    <div className="lg:hidden mt-4 space-y-4 pointer-events-auto">
-                      {renderProjectContent(project, index)}
-                    </div>
-                  )}
-                  
-                  {/* Return to Top Button */}
-                  {index === projectsData.length - 1 && (
-                    <button
-                      onClick={() => {
-                        const leftColumn = document.querySelector('.flex-1.overflow-y-auto');
-                        if (leftColumn) {
-                          leftColumn.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                      }}
-                      className="w-full mt-6 py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center gap-2 transition-colors"
-                    >
-                      <ArrowUp className="w-5 h-5" />
-                      Return to Top
-                    </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {featuredProjects.map((project) => (
+              <Link 
+                key={project.id}
+                to={project.link}
+                className="group block"
+              >
+                <div className="overflow-hidden rounded-2xl bg-editorial-soft aspect-[4/3] mb-6">
+                  {project.mediaType === 'video' ? (
+                    <video
+                      src={project.mediaSrc}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <img 
+                      src={project.mediaSrc} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                   )}
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.categories.map((cat) => (
+                    <span key={cat} className="text-xs font-semibold tracking-wider uppercase text-editorial-muted">
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-heading text-2xl font-medium text-editorial-fg mb-2 group-hover:text-editorial-accent transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-editorial-muted mb-3">{project.company}</p>
+                <p className="text-editorial-muted leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <p className="text-sm text-editorial-muted">{project.meta}</p>
+              </Link>
+            ))}
           </div>
 
-          {/* Right Column - Desktop Only */}
-          <div className="hidden lg:flex flex-col justify-center h-[calc(100vh-56px)] space-y-6 pointer-events-none">
-            <div className="pointer-events-auto">
-              {renderProjectContent(projectsData[selectedProject], selectedProject)}
+          <div className="mt-10 sm:hidden">
+            <Link to="/product-designs" className="inline-flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+              See all work
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </section>
+
+        {/* Bottom Cards */}
+        <section className="py-16 md:py-24 border-t border-editorial-line">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-editorial-card rounded-2xl p-8 md:p-10 border border-editorial-line">
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-editorial-fg mb-4">About Daniel</h2>
+              <p className="text-editorial-muted leading-relaxed mb-6">
+                A product designer who simplifies complex digital products: research, systems, and interface work for B2B platforms, healthcare, and consumer apps.
+              </p>
+              <Link 
+                to="/about" 
+                className="inline-flex items-center gap-2 text-sm font-medium text-editorial-fg hover:text-editorial-accent transition-colors"
+              >
+                Read more
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
+
+            <div className="bg-editorial-fg rounded-2xl p-8 md:p-10 text-editorial-bg">
+              <h2 className="font-heading text-2xl md:text-3xl font-medium mb-4">Let's talk</h2>
+              <p className="text-editorial-bg/70 leading-relaxed mb-6">
+                Open to product design roles and partnerships with early- and mid-stage startups.
+              </p>
+              <Link to="/contact">
+                <Button className="bg-editorial-bg text-editorial-fg hover:bg-editorial-bg/90 rounded-full px-5 py-2 text-sm font-medium">
+                  Get in touch
+                </Button>
+              </Link>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-12 border-t border-editorial-line">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+              <h3 className="font-heading text-lg font-medium text-editorial-fg mb-2">Daniel Ortiz-Wills</h3>
+              <p className="text-sm text-editorial-muted leading-relaxed">
+                Product designer turning complex product problems into clear, useful, scalable experiences.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-4">Work</h4>
+              <div className="space-y-2">
+                <Link to="/product-designs" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Product Design</Link>
+                <Link to="/graphic-designs" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Visual Design</Link>
+                <Link to="/about" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">About</Link>
+                <Link to="/resume" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Resume</Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-4">Contact</h4>
+              <div className="space-y-2">
+                <a href="mailto:dortizwills@gmail.com" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">dortizwills@gmail.com</a>
+                <a href="https://www.linkedin.com/in/dortiz-wills" target="_blank" rel="noopener noreferrer" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">LinkedIn</a>
+                <Link to="/resume" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Download resume (PDF)</Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-editorial-line flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-editorial-muted">© 2026 Daniel Ortiz-Wills. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <a href="https://www.linkedin.com/in/dortiz-wills" target="_blank" rel="noopener noreferrer" className="text-xs text-editorial-muted hover:text-editorial-fg transition-colors">LinkedIn</a>
+              <a href="mailto:dortizwills@gmail.com" className="text-xs text-editorial-muted hover:text-editorial-fg transition-colors">Email</a>
+            </div>
+          </div>
+        </footer>
+      </main>
     </div>
   );
 };
