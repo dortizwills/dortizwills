@@ -12,7 +12,9 @@ interface FeaturedProject {
   meta: string;
   mediaSrc: string;
   mediaType: 'image' | 'video';
+  posterSrc?: string;
   secondaryMediaSrc?: string;
+  secondaryPosterSrc?: string;
   link: string;
 }
 
@@ -26,6 +28,7 @@ const featuredProjects: FeaturedProject[] = [
     meta: 'Product Designer · 2 months',
     mediaSrc: '/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4',
     mediaType: 'video',
+    posterSrc: '/lovable-uploads/01-express-lane/dashboard-3.png',
     link: '/product-designs/quick-services',
   },
   {
@@ -47,7 +50,9 @@ const featuredProjects: FeaturedProject[] = [
     description: 'Two mobile app designs promoted to potential clients, balancing clarity with visual energy.',
     meta: 'Product Designer · 4 weeks',
     mediaSrc: '/lovable-uploads/School-Defense.mp4',
+    posterSrc: '/lovable-uploads/Mobile 1.3.png',
     secondaryMediaSrc: '/lovable-uploads/Pickle Ball.mp4',
+    secondaryPosterSrc: '/lovable-uploads/Pickle 1.2.png',
     mediaType: 'video',
     link: '/mobile-apps',
   },
@@ -120,6 +125,7 @@ const Index = () => {
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-editorial-soft">
                 <video
                   src="/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4"
+                  poster="/lovable-uploads/01-express-lane/dashboard-3.png"
                   aria-label="Express Lane product design walkthrough"
                   autoPlay
                   muted
@@ -167,10 +173,14 @@ const Index = () => {
                 <div className="overflow-hidden rounded-2xl bg-editorial-soft aspect-[4/3] mb-6">
                   {project.secondaryMediaSrc ? (
                     <div className="grid h-full grid-cols-2 gap-3 p-3 md:gap-4 md:p-4">
-                      {[project.mediaSrc, project.secondaryMediaSrc].map((src, mediaIndex) => (
+                      {[
+                        { src: project.mediaSrc, poster: project.posterSrc },
+                        { src: project.secondaryMediaSrc, poster: project.secondaryPosterSrc },
+                      ].map((media, mediaIndex) => (
                         <video
-                          key={src}
-                          src={src}
+                          key={media.src}
+                          src={media.src}
+                          poster={media.poster}
                           aria-label={`${project.title}, app concept ${mediaIndex + 1}`}
                           autoPlay
                           muted
@@ -184,6 +194,7 @@ const Index = () => {
                   ) : project.mediaType === 'video' ? (
                     <video
                       src={project.mediaSrc}
+                      poster={project.posterSrc}
                       aria-label={project.title}
                       autoPlay
                       muted
