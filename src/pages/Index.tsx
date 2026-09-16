@@ -12,6 +12,9 @@ interface FeaturedProject {
   meta: string;
   mediaSrc: string;
   mediaType: 'image' | 'video';
+  posterSrc?: string;
+  secondaryMediaSrc?: string;
+  secondaryPosterSrc?: string;
   link: string;
 }
 
@@ -23,8 +26,9 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['B2B SaaS', 'Product Design'],
     description: 'An express checkout experience for quick-service auto shops, designed to cut minutes out of every order.',
     meta: 'Product Designer · 2 months',
-    mediaSrc: '/lovable-uploads/01-express-lane/dashboard-3.png',
-    mediaType: 'image',
+    mediaSrc: '/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4',
+    mediaType: 'video',
+    posterSrc: '/lovable-uploads/01-express-lane/dashboard-3.png',
     link: '/product-designs/quick-services',
   },
   {
@@ -45,8 +49,11 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['Mobile Apps', 'Concept Design'],
     description: 'Two mobile app designs promoted to potential clients, balancing clarity with visual energy.',
     meta: 'Product Designer · 4 weeks',
-    mediaSrc: '/lovable-uploads/0f714717-7265-4d98-a8b3-c38229e4c303.png',
-    mediaType: 'image',
+    mediaSrc: '/lovable-uploads/School-Defense.mp4',
+    posterSrc: '/lovable-uploads/Mobile 1.3.png',
+    secondaryMediaSrc: '/lovable-uploads/Pickle Ball.mp4',
+    secondaryPosterSrc: '/lovable-uploads/Pickle 1.2.png',
+    mediaType: 'video',
     link: '/mobile-apps',
   },
   {
@@ -116,9 +123,15 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-editorial-soft">
-                <img 
-                  src="/lovable-uploads/01-express-lane/dashboard-3.png" 
-                  alt="Selected product design work" 
+                <video
+                  src="/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4"
+                  poster="/lovable-uploads/01-express-lane/dashboard-3.png"
+                  aria-label="Express Lane product design walkthrough"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -158,13 +171,36 @@ const Index = () => {
                 className="group block"
               >
                 <div className="overflow-hidden rounded-2xl bg-editorial-soft aspect-[4/3] mb-6">
-                  {project.mediaType === 'video' ? (
+                  {project.secondaryMediaSrc ? (
+                    <div className="grid h-full grid-cols-2 gap-3 p-3 md:gap-4 md:p-4">
+                      {[
+                        { src: project.mediaSrc, poster: project.posterSrc },
+                        { src: project.secondaryMediaSrc, poster: project.secondaryPosterSrc },
+                      ].map((media, mediaIndex) => (
+                        <video
+                          key={media.src}
+                          src={media.src}
+                          poster={media.poster}
+                          aria-label={`${project.title}, app concept ${mediaIndex + 1}`}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="h-full w-full min-w-0 object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                      ))}
+                    </div>
+                  ) : project.mediaType === 'video' ? (
                     <video
                       src={project.mediaSrc}
+                      poster={project.posterSrc}
+                      aria-label={project.title}
                       autoPlay
                       muted
                       loop
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
