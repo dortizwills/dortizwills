@@ -38,7 +38,7 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['Web', 'Brand & Product Design'],
     description: "A redesign of a non-profit music museum's digital experience, built to make donating, booking, and exploring effortless.",
     meta: 'Designer · 6 weeks',
-    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum 2.mp4',
+    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum Homepage.mp4',
     mediaType: 'video',
     posterSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
     link: '/product-designs/grammy-museum',
