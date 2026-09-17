@@ -12,6 +12,8 @@ import CampingApp from './pages/CampingApp';
 import GourmetRecipes from './pages/GourmetRecipes';
 import MobileApps from './pages/MobileApps';
 import TopNavigation from './components/TopNavigation';
+import SiteFooter from './components/SiteFooter';
+import Work from './pages/Work';
 
 // Marketing Designs inner pages
 import DataDrivenEbooks from './pages/graphic-designs/DataDrivenEbooks';
@@ -39,6 +41,7 @@ const AppContent: FC = () => {
       <div className="pt-6">
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/work" element={<Work />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
@@ -60,6 +63,7 @@ const AppContent: FC = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <SiteFooter />
     </>
   );
 };

@@ -15,10 +15,18 @@ const TopNavigation: FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Work', path: '/' },
+    { name: 'Work', path: '/work' },
     { name: 'About', path: '/about' },
-    { name: 'Resume', path: '/resume' },
+    { name: "Let's Talk", path: '/contact' },
   ];
+
+  const isActive = (path: string) => {
+    if (path === '/work') {
+      return location.pathname === '/work' || location.pathname === '/mobile-apps' || location.pathname.startsWith('/product-designs') || location.pathname.startsWith('/graphic-designs');
+    }
+
+    return location.pathname === path;
+  };
 
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
@@ -43,7 +51,7 @@ const TopNavigation: FC = () => {
                 key={link.name}
                 to={link.path}
                 className={`text-sm font-medium tracking-wide transition-colors ${
-                  location.pathname === link.path
+                  isActive(link.path)
                     ? 'text-editorial-fg'
                     : 'text-editorial-muted hover:text-editorial-fg'
                 }`}
@@ -51,11 +59,6 @@ const TopNavigation: FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact">
-              <Button className="bg-editorial-fg text-editorial-bg hover:bg-editorial-fg/90 rounded-full px-5 py-2 text-sm font-medium">
-                Let's talk
-              </Button>
-            </Link>
           </div>
         </div>
       </nav>
@@ -107,13 +110,6 @@ const TopNavigation: FC = () => {
                       {link.name}
                     </Link>
                   ))}
-                  <Link 
-                    to="/contact"
-                    onClick={handleLinkClick}
-                    className="inline-block bg-editorial-fg text-editorial-bg rounded-full px-5 py-2 text-sm font-medium"
-                  >
-                    Let's talk
-                  </Link>
                 </div>
               </div>
             </DrawerContent>

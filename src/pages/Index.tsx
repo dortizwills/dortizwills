@@ -38,8 +38,9 @@ const featuredProjects: FeaturedProject[] = [
     categories: ['Web', 'Brand & Product Design'],
     description: "A redesign of a non-profit music museum's digital experience, built to make donating, booking, and exploring effortless.",
     meta: 'Designer · 6 weeks',
-    mediaSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
-    mediaType: 'image',
+    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum Homepage.mp4',
+    mediaType: 'video',
+    posterSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
     link: '/product-designs/grammy-museum',
   },
   {
@@ -90,7 +91,7 @@ const Index = () => {
                 I partner with ambitious teams to turn complex product problems into clear, useful, and scalable digital experiences.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-10">
-                <Link to="/product-designs">
+                <Link to="/work">
                   <Button className="bg-editorial-fg text-editorial-bg hover:bg-editorial-fg/90 rounded-full px-6 py-3 text-sm font-medium flex items-center gap-2">
                     View my work
                     <ArrowRight size={16} />
@@ -157,7 +158,7 @@ const Index = () => {
         <section className="py-16 md:py-24">
           <div className="flex items-end justify-between mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-medium text-editorial-fg">Featured work</h2>
-            <Link to="/product-designs" className="hidden sm:flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+            <Link to="/work" className="hidden sm:flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
               See all work
               <ArrowRight size={16} />
             </Link>
@@ -231,7 +232,7 @@ const Index = () => {
           </div>
 
           <div className="mt-10 sm:hidden">
-            <Link to="/product-designs" className="inline-flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
               See all work
               <ArrowRight size={16} />
             </Link>
@@ -269,41 +270,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-12 border-t border-editorial-line">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
-              <h3 className="font-heading text-lg font-medium text-editorial-fg mb-2">Daniel Ortiz-Wills</h3>
-              <p className="text-sm text-editorial-muted leading-relaxed">
-                Product designer turning complex product problems into clear, useful, scalable experiences.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-4">Work</h4>
-              <div className="space-y-2">
-                <Link to="/product-designs" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Product Design</Link>
-                <Link to="/graphic-designs" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Visual Design</Link>
-                <Link to="/about" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">About</Link>
-                <Link to="/resume" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Resume</Link>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-4">Contact</h4>
-              <div className="space-y-2">
-                <a href="mailto:dortizwills@gmail.com" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">dortizwills@gmail.com</a>
-                <a href="https://www.linkedin.com/in/dortiz-wills" target="_blank" rel="noopener noreferrer" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">LinkedIn</a>
-                <Link to="/resume" className="block text-sm text-editorial-muted hover:text-editorial-fg transition-colors">Download resume (PDF)</Link>
-              </div>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-editorial-line flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-editorial-muted">© 2026 Daniel Ortiz-Wills. All rights reserved.</p>
-            <div className="flex items-center gap-4">
-              <a href="https://www.linkedin.com/in/dortiz-wills" target="_blank" rel="noopener noreferrer" className="text-xs text-editorial-muted hover:text-editorial-fg transition-colors">LinkedIn</a>
-              <a href="mailto:dortizwills@gmail.com" className="text-xs text-editorial-muted hover:text-editorial-fg transition-colors">Email</a>
-            </div>
-          </div>
-        </footer>
       </main>
     </div>
   );
