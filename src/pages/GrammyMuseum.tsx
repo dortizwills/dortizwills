@@ -33,9 +33,6 @@ const GrammyMuseum = () => {
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <h2 className="text-2xl font-unbounded font-semibold">Project Details</h2>
-                  <span className="px-3 py-1 rounded text-sm font-medium bg-green-500 text-white">
-                    NEW
-                  </span>
                 </div>
                 
                 <div className="space-y-6">
