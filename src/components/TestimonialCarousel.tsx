@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface TestimonialProps {
   quote: string;
@@ -35,7 +35,7 @@ const defaultTestimonials = [
     title: "Head of UX Design, Raborn Media"
   },
   {
-    quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
+    quote: "I have no doubt that Danny would be a valuable asset to any organization requiring someone who's willing to work hard and pay attention to detail. His dedication, integrity, and work ethic make him an excellent candidate for any position he would pursue.",
     author: "Matt Stratton",
     title: "COO, Raborn Media"
   }
@@ -72,39 +72,31 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <blockquote className="text-base md:text-lg mb-6 italic text-white">
-            "{testimonials[activeIndex].quote}"
-          </blockquote>
-          <div className="inline-flex flex-col items-center">
-            <div className="font-medium text-lg text-white">{testimonials[activeIndex].author}</div>
-            <div className="text-gray-300">{testimonials[activeIndex].title}</div>
+      <div>
+        <h2 className="text-xl md:text-2xl font-bold text-pink-400 mb-4">
+          Collaboration is my middle name, prior managers and peers agree.
+        </h2>
+        <div className="text-left">
+          <div className="mb-6">
+            <blockquote className="text-white text-sm md:text-[1.2rem] md:leading-[2rem] font-normal mb-2">
+              "{testimonials[activeIndex].quote}"
+            </blockquote>
+            <div className="flex items-center space-x-2">
+              <div className="text-blue-300 text-xs md:text-[1.2rem] md:leading-[2rem] font-bold">{testimonials[activeIndex].author}</div>
+              <div className="text-gray-300 text-xs md:text-[1.2rem] md:leading-[2rem]">{testimonials[activeIndex].title}</div>
+            </div>
           </div>
         </div>
         
-        <div className="flex justify-center items-center space-x-2 mb-4">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === activeIndex ? 'bg-white w-4' : 'bg-white/50'
-              }`}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
-        </div>
-        
-        <div className="flex justify-center space-x-4">
+        <div className="flex items-center space-x-4">
           <Button 
             variant="outline" 
             size="icon"
             onClick={handlePrevious}
             aria-label="Previous testimonial"
-            className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+            className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
           >
-            <ArrowLeft size={16} />
+            <ChevronLeft size={16} />
           </Button>
           
           <Button 
@@ -112,9 +104,9 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
             size="icon"
             onClick={handleNext}
             aria-label="Next testimonial"
-            className="border-white/20 bg-white text-black hover:bg-white/90 hover:text-black"
+            className="border-none bg-[#23283B] text-white hover:bg-[#0A0A1D]"
           >
-            <ArrowRight size={16} />
+            <ChevronRight size={16} />
           </Button>
         </div>
       </div>

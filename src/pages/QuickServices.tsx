@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,7 @@ const QuickServices = () => {
       image: "/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png"
     },
     {
-      title: "Non-Profit Redesign",
+      title: "Grammy Museum MS Redesign",
       description: "Redesigning the a Non-Profit Museum's digital experience to showcase music history and education.",
       path: "/product-designs/grammy-museum",
       image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png"
@@ -24,7 +23,7 @@ const QuickServices = () => {
       title="Redesigning 'Quick Services'" 
       backTo="/product-designs"
       backLabel="Back to UXUI Designs"
-      headerImage="/lovable-uploads/cc88ff3a-d97a-4ee2-91f6-848fecbd0ae1.png"
+      headerImage="/lovable-uploads/01-express-lane/display-express-lane.png"
       projectDetails={{
         timeline: "3 Months",
         responsibilities: "User Research, Interaction Design, Experience Design, Visual Design",
@@ -35,7 +34,7 @@ const QuickServices = () => {
       {/* Background */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Background</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Background</h2>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -58,13 +57,13 @@ const QuickServices = () => {
       
       {/* Early Stages */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Early Stages</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Early Stages</h2>
       </div>
       
       {/* User Personas */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Personas</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Personas</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -76,9 +75,9 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/45efcebf-96f5-4741-b608-c56128420745.png"
-            alt="User Type 1" 
-            className="w-full rounded-lg mb-6"
+            src="/lovable-uploads/01-express-lane/persona-service-writer.png"
+            alt="User Type – Service Writer" 
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
           
           <p className="mb-6">
@@ -90,9 +89,9 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/lovable-uploads/2382a937-53e8-4dd3-9c09-90181afda0e4.png"
-            alt="User Type 2" 
-            className="w-full rounded-lg mb-6"
+            src="/lovable-uploads/01-express-lane/persona-technician.png"
+            alt="User Type – Technician" 
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -100,7 +99,7 @@ const QuickServices = () => {
       {/* Sketches & Brainstorming */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Sketches & Brainstorming</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Sketches & Brainstorming</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -122,7 +121,7 @@ const QuickServices = () => {
       {/* Initial Designs */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Initial Designs</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Initial Designs</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -134,9 +133,9 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="public/lovable-uploads/Express Lane lofi.gif"
+            src="/lovable-uploads/Express Lane lofi.gif"
             alt="Sketches" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
           
           <p className="mb-6">
@@ -148,22 +147,22 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/update-an-existing-design.png"
-            alt="ATD Cobrand" 
-            className="w-full rounded-lg mb-6"
+            src="/lovable-uploads/01-express-lane/update-an-existing-design.png"
+            alt="Update Design" 
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
       
       {/* New Directions */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">New Directions</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">New Directions</h2>
       </div>
       
       {/* Update an Existing Design */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Update an Existing Design</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Update an Existing Design</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -171,9 +170,9 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/original-expr-lane.jpg"
-            alt="ATD Cobrand" 
-            className="w-full rounded-lg mb-6"
+            src="/lovable-uploads/01-express-lane/original-expr-lane.jpg"
+            alt="Original Express Lane" 
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />  
         </div>
       </div>
@@ -181,7 +180,7 @@ const QuickServices = () => {
       {/* The New Vision */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The New Vision</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The New Vision</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -189,22 +188,22 @@ const QuickServices = () => {
           </p>
           
           <img 
-            src="/public/lovable-uploads/01-express-lane/the-new-vision.png"
+            src="/lovable-uploads/01-express-lane/the-new-vision.png"
             alt="ATD Cobrand" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />  
         </div>
       </div>
       
       {/* The Design Process */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">The Design Process</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">The Design Process</h2>
       </div>
       
       {/* Design Sprints & User Research */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Design Sprints & User Research</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Design Sprints & User Research</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -226,7 +225,7 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/f2510f02-c49c-4623-b1c0-0f7633a0db97.png"
             alt="Graph" 
-            className="w-full rounded-lg mb-6"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -234,7 +233,7 @@ const QuickServices = () => {
       {/* Takeaways */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Takeaways – a summary of the full process</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Takeaways – a summary of the full process</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <ol className="list-decimal pl-5 mb-6 space-y-2">
@@ -249,7 +248,7 @@ const QuickServices = () => {
       {/* Design Process Snapshots */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Design Process Snapshots</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Design Process Snapshots</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -261,7 +260,7 @@ const QuickServices = () => {
       {/* The Dashboard */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The Dashboard</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The Dashboard</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -273,33 +272,33 @@ const QuickServices = () => {
       {/* Dashboard Images */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
+      {/* Commented out div 1 to move this image to section above  */}  
           <img 
-            src="/lovable-uploads/Dashboard 1.jpeg"
+            src="/lovable-uploads/01-express-lane/dashboard-4-0.png"
             alt="Dashboard 1" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/Dashboard 2.jpeg"
             alt="Dashboard 2" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
-        {/* Commented out div 3 to move this image to section above
         <div>
           <img 
-            src="/lovable-uploads/d4b947dd-e463-4481-b7d1-31c6bd247972.png"
+            src="/lovable-uploads/Dashboard 1.jpeg"
             alt="Dashboard 3"
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
-        </div>*/}
+        </div>
       </div>
       
       {/* Co-branded Tire Portal */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Co-branded Tire Portal</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Co-branded Tire Portal</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -314,21 +313,21 @@ const QuickServices = () => {
           <img 
             src="/lovable-uploads/73f2c0ae-6231-4d3d-adb7-ea5e3e0c4026.png"
             alt="All Tires 1" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/f025eb45-fe5a-4b9e-8fdc-cb02e82d8fc6.png"
             alt="All Tires 2" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
             src="/lovable-uploads/e8ef73a6-c610-4411-9e71-83aaaf37d6d8.png"
             alt="All Tires 3"
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
@@ -336,7 +335,7 @@ const QuickServices = () => {
       {/* Quick Tires */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Quick Tires</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Quick Tires</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -349,36 +348,36 @@ const QuickServices = () => {
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 1.jpeg"
+            src="/lovable-uploads/Quick Tires 1.jpeg"
             alt="Tire Portal 1" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 2.jpeg"
+            src="/lovable-uploads/Quick Tires 2.jpeg"
             alt="Tire Portal 2" 
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
         <div>
           <img 
-            src="public/lovable-uploads/Quick Tires 3.jpeg"
+            src="/lovable-uploads/Quick Tires 3.jpeg"
             alt="Tire Portal 3"
-            className="w-full rounded-lg h-auto"
+            className="w-full rounded-lg mb-6 border border-[#F1F1FA]"
           />
         </div>
       </div>
       
       {/* Final Prototypes */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Final Prototypes</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Final Prototypes</h2>
       </div>
       
       {/* Service Writer */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Quickly creating orders as a Service Writer</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Quickly creating orders as a Service Writer</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Advance Control</h4>
@@ -395,11 +394,11 @@ const QuickServices = () => {
           autoPlay 
           muted 
           loop 
-          className="w-full rounded-lg"
+          className="w-full object-cover bg-white rounded-lg"
         >
-          <source src="/lovable-uploads/Final-Service-Writers.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4" type="video/mp4" />
         </video>
-        
+          
           <br></br>
           
         <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
@@ -413,7 +412,7 @@ const QuickServices = () => {
       {/* For Technicians */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Customizing Access For Technicians</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Customizing Access For Technicians</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <h4 className="text-lg font-medium mb-2">Pertinent Permissions</h4>
@@ -429,9 +428,9 @@ const QuickServices = () => {
             autoPlay 
             muted 
             loop 
-            className="w-full rounded-lg"
+            className="w-full object-cover bg-white rounded-lg"
           >
-            <source src="/lovable-uploads/Final-Technicians.mp4" type="video/mp4" />
+            <source src="/lovable-uploads/01-express-lane/Express-Lane-Technician-Flow.mp4" type="video/mp4" />
           </video>
           
           <br></br>
@@ -446,13 +445,13 @@ const QuickServices = () => {
       
       {/* Results */}
       <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold mb-6">Results</h2>
+        <h2 className="text-2xl font-unbounded font-semibold mb-6">Results</h2>
       </div>
       
       {/* Enterprise Partnerships */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Enterprise Partnerships</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Enterprise Partnerships</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">
@@ -464,7 +463,7 @@ const QuickServices = () => {
       {/* Market Differentiator */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Market Differentiator</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Market Differentiator</h3>
         </div>
         <div className="col-span-2 max-sm:col-span-1">
           <p className="mb-6">

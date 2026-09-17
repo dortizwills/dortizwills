@@ -38,7 +38,7 @@ const ProductIllustrations = () => {
       
       {/* Div 2 */}
        
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Brand Evolution</h3>
         </div>
@@ -59,7 +59,7 @@ const ProductIllustrations = () => {
             className="w-full rounded-lg mb-10"
           />
       {/* Div 3 */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Illustration System & Character Design</h3>
         </div>
@@ -85,7 +85,7 @@ const ProductIllustrations = () => {
       </div>
       
       {/* Div 5 */}
-     <div className="grid grid-cols-3 gap-8 mb-10">
+     <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{marginBottom: '16px'}}>
         <div className="col-span-1">
           <h3 className="text-xl font-display font-medium mb-3">Product Extending to Marketing</h3>
         </div>

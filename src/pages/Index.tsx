@@ -1,301 +1,275 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ContactForm from '../components/ContactForm';
-import { ArrowRightIcon, Award, TrendingUp, Image, Users, Layout, Mail } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import TestimonialCarousel from '../components/TestimonialCarousel';
+
+interface FeaturedProject {
+  id: string;
+  title: string;
+  company: string;
+  categories: string[];
+  description: string;
+  meta: string;
+  mediaSrc: string;
+  mediaType: 'image' | 'video';
+  posterSrc?: string;
+  secondaryMediaSrc?: string;
+  secondaryPosterSrc?: string;
+  link: string;
+}
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    id: 'securing',
+    title: 'Securing 100+ shops via Enterprise partnerships',
+    company: 'Shopmonkey',
+    categories: ['B2B SaaS', 'Product Design'],
+    description: 'An express checkout experience for quick-service auto shops, designed to cut minutes out of every order.',
+    meta: 'Product Designer · 2 months',
+    mediaSrc: '/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4',
+    mediaType: 'video',
+    posterSrc: '/lovable-uploads/01-express-lane/dashboard-3.png',
+    link: '/product-designs/quick-services',
+  },
+  {
+    id: 'grammy',
+    title: '+15% Ticket Sales from +30% Donate Page Views',
+    company: 'Grammy Museum Mississippi',
+    categories: ['Web', 'Brand & Product Design'],
+    description: "A redesign of a non-profit music museum's digital experience, built to make donating, booking, and exploring effortless.",
+    meta: 'Designer · 6 weeks',
+    mediaSrc: '/lovable-uploads/Grammy Museum/Grammy Museum Homepage.mp4',
+    mediaType: 'video',
+    posterSrc: '/lovable-uploads/Grammy Museum/Slide 1.png',
+    link: '/product-designs/grammy-museum',
+  },
+  {
+    id: 'pitching',
+    title: 'Pitching & Developing Future Partnerships',
+    company: 'Raborn Media',
+    categories: ['Mobile Apps', 'Concept Design'],
+    description: 'Two mobile app designs promoted to potential clients, balancing clarity with visual energy.',
+    meta: 'Product Designer · 4 weeks',
+    mediaSrc: '/lovable-uploads/School-Defense.mp4',
+    posterSrc: '/lovable-uploads/Mobile 1.3.png',
+    secondaryMediaSrc: '/lovable-uploads/Pickle Ball.mp4',
+    secondaryPosterSrc: '/lovable-uploads/Pickle 1.2.png',
+    mediaType: 'video',
+    link: '/mobile-apps',
+  },
+  {
+    id: 'adhere',
+    title: '20% Conversions Increase',
+    company: 'Adhere+',
+    categories: ['Healthcare SaaS', 'Brand & Web'],
+    description: 'A full website rebrand and design system for a healthcare SaaS platform that helps patients stay on their recovery plans.',
+    meta: 'Branding, UX/UI · 2 months',
+    mediaSrc: '/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png',
+    mediaType: 'image',
+    link: '/product-designs/adhere-plus',
+  },
+];
+
+const trustLogos = ['Shopmonkey', 'Raborn Media', 'Grammy Museum Mississippi', 'Adhere+'];
 
 const Index = () => {
-  const marketingDesigns = [
-    {
-      title: 'Data-Driven eBooks',
-      description: 'Distilling hundreds of datapoints into 3 simplified ebooks in 30 pages or less',
-      href: '/graphic-designs/data-driven-ebooks',
-      imagePath: '/lovable-uploads/3132f8cd-a1d3-4166-8782-cee980f9043d.png'
-    },
-    {
-      title: 'Email Marketing Campaigns',
-      description: 'Email marketing campaigns for an audience that is not reading inclined',
-      href: '/graphic-designs/email-marketing',
-      imagePath: '/lovable-uploads/cc56fb43-85f6-41c6-8efb-bd1225f35097.png'
-    },
-    {
-      title: 'Social Media Campaigns',
-      description: 'Social media and advertising campaigns that separated Shopmonkey in the Automotive software community',
-      href: '/graphic-designs/social-media',
-      imagePath: '/lovable-uploads/62b8d063-053c-4fa6-a1a2-477546463e23.png'
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Daniel's presence enhances both the creative output and the culture of the workplace. He has contributed to a wide variety of design teams, gaining a rare breadth of experience and his versatile skill set reflects not only his technical ability but also a deep understanding of design across disciplines.",
-      author: "Kyle Marks",
-      title: "Creative Director, Shopmonkey"
-    },
-    {
-      quote: "I was consistently impressed by Danny's creativity and technical abilities. His designs were always innovative and well-executed, and he had a great eye for detail... creating graphics for marketing materials, or developing new ideas, Danny consistently produced high-quality work that exceeded expectations.",
-      author: "Steven Chic",
-      title: "VP, Alvys"
-    },
-    {
-      quote: "Daniel has shown a growing curiosity about how design and development intersect, which positions him well for creating designs that are both thoughtful and practical. His eagerness to expand his skill set will no doubt continue to serve him and his future teams well.",
-      author: "Kelsey McAuley",
-      title: "Director of Web, Raborn Media"
-    },
-    {
-      quote: "One highlight from our time together was a safety-focused web concept he helped design — his ideas showed real empathy and a strong understanding of user needs in high-stakes contexts. It was a great example of how he combines creative thinking with purpose-driven design.",
-      author: "Samantha Lane",
-      title: "Head of UX Design, Raborn Media"
-    },
-    {
-      quote: "Danny adapted well to our remote work environment, communicated proactively, and delivered quality results. His ability to manage responsibilities independently while still being a collaborative team player was truly commendable.",
-      author: "Matt Stratton",
-      title: "COO, Raborn Media"
-    }
-  ];
-
-  const skillPoints = [
-    {
-      title: "UX Design",
-      description: "I focus on creating user-centered designs that prioritize empathy and clarity, especially in complex or high-stakes environments.",
-      icon: <Layout size={24} className="text-blue-600" />
-    },
-    {
-      title: "UI Design",
-      description: "I design clean, responsive interfaces with attention to visual detail, accessibility, and consistency across mobile and web.",
-      icon: <Image size={24} className="text-blue-600" />
-    },
-    {
-      title: "Prototyping",
-      description: "I rapidly explore and iterate on multiple design projects, delivering practical prototypes that support agile development.",
-      icon: <Layout size={24} className="text-blue-600" />
-    },
-    {
-      title: "Results Focused",
-      description: "I produce high-quality work, consistently meet project goals, and iterate until the best cost efficient solution is found.",
-      icon: <Award size={24} className="text-blue-600" />
-    },
-    {
-      title: "Collaboration",
-      description: "I drive collaborative environments, encourage open feedback and communication, and build positive team cultures.",
-      icon: <Users size={24} className="text-blue-600" />
-    },
-    {
-      title: "Growth-Minded Solutions",
-      description: "I approach projects with curiosity and a desire to learn, always looking for ways to increase my skills and the company's bottom line.",
-      icon: <TrendingUp size={24} className="text-blue-600" />
-    }
-  ];
-
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* What Clients Say Section with updated background */}
-        <section 
-          className="mb-16 relative rounded-lg overflow-hidden"
-          style={{
-            backgroundImage: `url('/lovable-uploads/8b4673ec-42b6-4214-b86e-c33719b59abf.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <div className="relative z-10 p-8">
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
-              {/* Image - 1/3 */}
-              <div className="lg:col-span-1 flex justify-center lg:justify-start">
-                <img 
-                  src="/lovable-uploads/3435faa1-71a0-4540-99de-e63964218a84.png" 
-                  alt="Daniel Ortiz-Wills" 
-                  className="max-w-full max-h-[400px] object-contain"
+    <div className="pt-16">
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8">
+        {/* Hero Section */}
+        <section className="py-16 md:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-6">
+                Product Designer
+              </p>
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] text-editorial-fg mb-6">
+                Design that drives clarity, speed, and{' '}
+                <span className="text-editorial-gold">real impact.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-editorial-muted leading-relaxed max-w-xl mb-8">
+                I partner with ambitious teams to turn complex product problems into clear, useful, and scalable digital experiences.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 mb-10">
+                <Link to="/work">
+                  <Button className="bg-editorial-fg text-editorial-bg hover:bg-editorial-fg/90 rounded-full px-6 py-3 text-sm font-medium flex items-center gap-2">
+                    View my work
+                    <ArrowRight size={16} />
+                  </Button>
+                </Link>
+                <a href="/resume">
+                  <Button variant="outline" className="border-editorial-line text-editorial-fg hover:bg-editorial-soft rounded-full px-6 py-3 text-sm font-medium">
+                    Download resume
+                  </Button>
+                </a>
+              </div>
+              <div className="flex items-center gap-5">
+                <a 
+                  href="https://www.linkedin.com/in/dortiz-wills" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-editorial-line flex items-center justify-center text-editorial-muted hover:text-editorial-fg hover:bg-editorial-soft transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a 
+                  href="mailto:dortizwills@gmail.com" 
+                  className="w-10 h-10 rounded-full border border-editorial-line flex items-center justify-center text-editorial-muted hover:text-editorial-fg hover:bg-editorial-soft transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-editorial-soft">
+                <video
+                  src="/lovable-uploads/01-express-lane/Express-Lane-Admin.mp4"
+                  poster="/lovable-uploads/01-express-lane/dashboard-3.png"
+                  aria-label="Express Lane product design walkthrough"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              
-              {/* Header Content - 2/3 */}
-              <div className="lg:col-span-2">
-                <p className="text-lg text-white/80 mb-2">Welcome to Daniel Ortiz-Wills' Portfolio</p>
-                <h1 className="font-display text-3xl max-[819px]:text-2xl font-bold mb-4 bg-gradient-to-r from-[#E35CC3] via-[#F287D9] via-[#A888DA] to-[#6988DC] bg-clip-text text-transparent">
-                  I'm a enthusiastic designer that loves creating visually pleasant and practical systems.
-                </h1>
-                <p className="text-xl text-white/80 max-w-2xl">
-                  Don't just take my word for it though, see what some of my previous managers and peers have said about me.
-                </p>
-              </div>
-            </div>
-            
-            {/* Testimonials Carousel with transparent background */}
-            <div 
-              className="rounded-lg p-6"
-              style={{ backgroundColor: 'rgba(4, 16, 42, 0.8)' }}
-            >
-              <TestimonialCarousel testimonials={testimonials} />
             </div>
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Featured Projects</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Featured Project - Takes 2/3 of the width on large screens */}
-            <div className="lg:col-span-2 bg-white border border-black rounded-lg overflow-hidden">
-              <Link to="/product-designs/quick-services" className="block">
-                <div className="aspect-[16/9] relative">
-                  <img src="/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png" alt="Featured Project" className="w-full h-full object-cover" />
-                </div>
-              </Link>
-              <div className="p-6">
-                <h3 className="font-display text-2xl mb-2">Express Lane — Completing 15 minute services in 3 minutes</h3>
-                <p className="text-gray-600 mb-4">
-                  Reducing checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes
-                </p>
-                <Link to="/product-designs/quick-services" className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                  <span className="mr-2">View Project</span>
-                  <ArrowRightIcon size={16} />
-                </Link>
-              </div>
-            </div>
-            
-            {/* Side Featured Projects - Takes 1/3 of the width on large screens, stretches to align with main project */}
-            <div className="space-y-6 flex flex-col h-full">
-              <Link to="/product-designs/camping-app" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/5c802a04-6f1a-41ea-8c43-d0e7e3d5fdf4.png" alt="Camping Made Easy" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Camping Made Easy</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    Camping shouldn't be hard, or that's what this app helps users to think. Camp no matter your skill level
-                  </p>
-                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-1">View Project</span>
-                    <ArrowRightIcon size={14} />
-                  </div>
-                </div>
-              </Link>
-              
-              <Link to="/product-designs/gourmet-recipes" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/0fdf6c4c-2976-4b6e-af61-6e5b7ed41be0.png" alt="Gourmet Recipes Anytime" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Gourmet Recipes Anytime</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    Forgetting a recipe shouldn't stop you from getting gourmet recipes — no matter how busy you are
-                  </p>
-                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-1">View Project</span>
-                    <ArrowRightIcon size={14} />
-                  </div>
-                </div>
-              </Link>
-              
-              <Link to="/product-designs/adhere-plus" className="bg-white border border-black rounded-lg overflow-hidden flex hover:shadow-md transition-shadow">
-                <div className="w-1/3 aspect-[3/2]">
-                  <img src="/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png" alt="Adhere+" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 w-2/3">
-                  <h4 className="font-display text-lg mb-1">Adhere+</h4>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    0 to 1 web and branding design for a Adhere Plus's flagship app
-                  </p>
-                  <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-1">View Project</span>
-                    <ArrowRightIcon size={14} />
-                  </div>
-                </div>
-              </Link>
-              
-              {/* Button stretches to fill remaining space */}
-              <div className="flex-1 flex items-end">
-                <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-                  <Link to="/product-designs">
-                    View UXUI Designs
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="font-display text-3xl mb-6">Visual Designs</h2>
-          
-          {/* Grid layout for 820px and above */}
-          <div className="hidden min-[820px]:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {marketingDesigns.map((design, index) => (
-              <Link 
-                key={index} 
-                to={design.href}
-                className="bg-white border border-black rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-              >
-                <div className="aspect-video relative">
-                  <img 
-                    src={design.imagePath} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display text-xl mb-2">{design.title}</h4>
-                  <p className="text-gray-600 mb-4">
-                    {design.description}
-                  </p>
-                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                    <span className="mr-2">View Project</span>
-                    <ArrowRightIcon size={16} />
-                  </div>
-                </div>
-              </Link>
+        {/* Trust Row */}
+        <section className="py-10 border-t border-editorial-line">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-6">
+            Trusted by early-stage teams
+          </p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            {trustLogos.map((logo) => (
+              <span key={logo} className="text-editorial-fg font-medium text-lg">
+                {logo}
+              </span>
             ))}
           </div>
+        </section>
 
-          {/* Card layout for 819px and below - matching first reference image */}
-          <div className="max-[819px]:block hidden space-y-4 mb-8">
-            {marketingDesigns.map((design, index) => (
+        {/* Featured Work */}
+        <section className="py-16 md:py-24">
+          <div className="flex items-end justify-between mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-medium text-editorial-fg">Featured work</h2>
+            <Link to="/work" className="hidden sm:flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+              See all work
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {featuredProjects.map((project) => (
               <Link 
-                key={index}
-                to={design.href}
-                className="block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                key={project.id}
+                to={project.link}
+                className="group block"
               >
-                <div className="flex items-start gap-4 p-4">
-                  <div className="w-20 h-20 flex-shrink-0">
-                    <img 
-                      src={design.imagePath} 
-                      alt={design.title} 
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-display text-lg font-medium mb-1 text-gray-900">{design.title}</h4>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                      {design.description}
-                    </p>
-                    <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 transition-colors">
-                      <span className="mr-1">View Project</span>
-                      <ArrowRightIcon size={12} />
+                <div className="overflow-hidden rounded-2xl bg-editorial-soft aspect-[4/3] mb-6">
+                  {project.secondaryMediaSrc ? (
+                    <div className="grid h-full grid-cols-2 gap-3 p-3 md:gap-4 md:p-4">
+                      {[
+                        { src: project.mediaSrc, poster: project.posterSrc },
+                        { src: project.secondaryMediaSrc, poster: project.secondaryPosterSrc },
+                      ].map((media, mediaIndex) => (
+                        <video
+                          key={media.src}
+                          src={media.src}
+                          poster={media.poster}
+                          aria-label={`${project.title}, app concept ${mediaIndex + 1}`}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="h-full w-full min-w-0 object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                      ))}
                     </div>
-                  </div>
+                  ) : project.mediaType === 'video' ? (
+                    <video
+                      src={project.mediaSrc}
+                      poster={project.posterSrc}
+                      aria-label={project.title}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <img 
+                      src={project.mediaSrc} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                 </div>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.categories.map((cat) => (
+                    <span key={cat} className="text-xs font-semibold tracking-wider uppercase text-editorial-muted">
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-heading text-2xl font-medium text-editorial-fg mb-2 group-hover:text-editorial-accent transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-editorial-muted mb-3">{project.company}</p>
+                <p className="text-editorial-muted leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <p className="text-sm text-editorial-muted">{project.meta}</p>
               </Link>
             ))}
           </div>
 
-          {/* View Visual Designs Button */}
-          <div className="flex justify-center">
-              <Button asChild variant="outline" className="w-full py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-              <Link to="/graphic-designs">
-                View Visual Designs
-              </Link>
-            </Button>
+          <div className="mt-10 sm:hidden">
+            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-medium text-editorial-muted hover:text-editorial-fg transition-colors">
+              See all work
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </section>
 
-        <section>
-          <ContactForm />
+        {/* Bottom Cards */}
+        <section className="py-16 md:py-24 border-t border-editorial-line">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-editorial-card rounded-2xl p-8 md:p-10 border border-editorial-line">
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-editorial-fg mb-4">About Daniel</h2>
+              <p className="text-editorial-muted leading-relaxed mb-6">
+                A product designer who simplifies complex digital products: research, systems, and interface work for B2B platforms, healthcare, and consumer apps.
+              </p>
+              <Link 
+                to="/about" 
+                className="inline-flex items-center gap-2 text-sm font-medium text-editorial-fg hover:text-editorial-accent transition-colors"
+              >
+                Read more
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
+
+            <div className="bg-editorial-fg rounded-2xl p-8 md:p-10 text-editorial-bg">
+              <h2 className="font-heading text-2xl md:text-3xl font-medium mb-4">Let's talk</h2>
+              <p className="text-editorial-bg/70 leading-relaxed mb-6">
+                Open to product design roles and partnerships with early- and mid-stage startups.
+              </p>
+              <Link to="/contact">
+                <Button className="bg-editorial-bg text-editorial-fg hover:bg-editorial-bg/90 rounded-full px-5 py-2 text-sm font-medium">
+                  Get in touch
+                </Button>
+              </Link>
+            </div>
+          </div>
         </section>
+
       </main>
     </div>
   );
