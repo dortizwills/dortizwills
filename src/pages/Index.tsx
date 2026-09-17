@@ -84,11 +84,11 @@ const Index = () => {
                 Product Designer
               </p>
               <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] text-editorial-fg mb-6">
-                Design that drives clarity, speed, and{' '}
-                <span className="text-editorial-gold">real impact.</span>
+                Designer focused on Systems, Roadmaps, & AI to drive {' '}
+                <span className="text-editorial-gold">real business impacts.</span>
               </h1>
               <p className="text-lg md:text-xl text-editorial-muted leading-relaxed max-w-xl mb-8">
-                I partner with ambitious teams to turn complex product problems into clear, useful, and scalable digital experiences.
+                I turn collaborate with ambitious teams, utilize my experience, and AI to translate complex problems into meaningful experiences.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-10">
                 <Link to="/work">
