@@ -10,7 +10,7 @@ interface ProjectGroupProps {
 }
 
 const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupProps) => (
-  <section className="border-t py-16 md:py-24" aria-labelledby={`${eyebrow}-heading`}>
+  <section className="md:py-24" aria-labelledby={`${eyebrow}-heading`}>
     <div className="mb-10 max-w-2xl">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-editorial-muted">{eyebrow}</p>
       <h2 id={`${eyebrow}-heading`} className="text-3xl font-medium text-editorial-fg md:text-4xl">{title}</h2>
