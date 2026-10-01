@@ -19,8 +19,8 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
     <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
         <Link key={project.path} to={project.path} className="group block">
-          <div className="mb-5 aspect-[4/3] overflow-hidden rounded-lg bg-editorial-soft">
-            <img src={project.image} alt={`${project.title} project preview`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div className={`mb-5 aspect-[4/3] overflow-hidden rounded-lg ${project.path === '/mobile-apps' ? 'bg-editorial-media' : 'bg-editorial-soft'}`}>
+            <img src={project.image} alt={`${project.title} project preview`} loading="lazy" className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${project.path === '/mobile-apps' ? 'object-contain' : 'object-cover'}`} />
           </div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-editorial-muted">{project.meta}</p>
           <div className="flex items-start justify-between gap-4">
