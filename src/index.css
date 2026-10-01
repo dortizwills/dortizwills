@@ -34,6 +34,7 @@
     --ring: 140 11% 11%;
 
     --radius: 0.5rem;
+    --editorial-media: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -46,6 +47,7 @@
   }
 
   .dark {
+    --editorial-media: 140 11% 14%;
     --background: 140 11% 11%;
     --foreground: 80 9% 95%;
     --card: 140 11% 14%;

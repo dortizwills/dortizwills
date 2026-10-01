@@ -66,6 +66,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				editorial: {
+					media: 'hsl(var(--editorial-media))',
 					bg: '#F4F5F2',
 					fg: '#17211B',
 					muted: '#6B7870',

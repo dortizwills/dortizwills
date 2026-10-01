@@ -171,7 +171,7 @@ const Index = () => {
                 to={project.link}
                 className="group block"
               >
-                <div className="overflow-hidden rounded-2xl bg-editorial-soft aspect-[4/3] mb-6">
+                <div className={`overflow-hidden rounded-2xl aspect-[4/3] mb-6 ${project.secondaryMediaSrc ? 'bg-editorial-media' : 'bg-editorial-soft'}`}>
                   {project.secondaryMediaSrc ? (
                     <div className="grid h-full grid-cols-2 gap-3 p-3 md:gap-4 md:p-4">
                       {[
