@@ -71,7 +71,7 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
 );
 
 const Work = () => (
-  <main className="mx-auto max-w-[1600px] px-4 pb-8 pt-8 md:px-8 md:pt-8">
+  <main className="mx-auto max-w-[1600px] px-4 pb-8 pt-16 md:px-8 md:pt-16">
     <ProjectGroup
       eyebrow="01"
       title="Product Designs"
