@@ -34,4 +34,8 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
   </section>
 );
 
+const Work = () => (
+ 
+);
+
 export default Work;
