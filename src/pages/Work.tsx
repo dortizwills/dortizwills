@@ -34,11 +34,4 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
   </section>
 );
 
-const Work = () => (
-  <main className="mx-auto max-w-[1600px] px-4 pb-8 pt-28 md:px-8 md:pt-36">
-    <ProjectGroup eyebrow="01" title="Product Designs" description="Digital products shaped around clear workflows, measurable outcomes, and thoughtful interaction." projects={productProjects} />
-    <ProjectGroup eyebrow="02" title="Visual Designs" description="Brand systems and campaign work built to make complex ideas memorable and useful." projects={visualProjects} />
-  </main>
-);
-
 export default Work;
