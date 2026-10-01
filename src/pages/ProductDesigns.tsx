@@ -9,7 +9,7 @@ const ProductDesigns = () => {
       title: "Quick Services",
       description: "Reduce checkout times to 2-3 minutes for automotive shops.",
       path: "/product-designs/quick-services",
-      image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+      image: "/lovable-uploads/01-express-lane/display-express-lane.png"
     },
     {
       title: "Camping Made Easy",
@@ -30,24 +30,24 @@ const ProductDesigns = () => {
       image: "/lovable-uploads/8b455223-39de-4e07-bac2-cc46c96927a3.png"
     },
     {
-      title: "Non-Profit Redesign",
-      description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
-      path: "/product-designs/grammy-museum",
-      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png",
-      status: "WIP"
-    },
-    {
       title: "Mobile App Portfolio",
       description: "View a collection of my mobile app design work across various industries and platforms.",
       path: "/mobile-apps",
-      image: "/lovable-uploads/05689ef5-c838-4296-bfa6-611beb9222ca.png",
-      status: "WIP"
+      image: "/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png",
+      status: "NEW"
+    },
+    {
+      title: "Grammy Museum MS Redesign",
+      description: "Redesigning the Non-Profit's digital experience to showcase history and education.",
+      path: "/product-designs/grammy-museum",
+      image: "/lovable-uploads/e9d967b1-2ea7-4ffe-9768-e4c16c1de3ed.png",
+      status: "NEW"
     }
   ];
 
   return (
-    <div className="sm:pl-[220px] pl-0">
-      <main className="max-w-7xl mx-auto px-6 py-12">
+    <div>
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-12">
         <h1 className="font-display text-5xl font-bold mb-8">UXUI Designs</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
@@ -68,7 +68,11 @@ const ProductDesigns = () => {
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-display text-xl font-medium">{project.title}</h3>
                   {project.status && (
-                    <span className="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">
+                    <span className={`inline-block text-xs px-2 py-1 rounded ${
+                      project.status === 'NEW' 
+                        ? 'bg-green-500 text-white' 
+                        : 'text-gray-600'
+                    }`} style={project.status === 'WIP' ? { backgroundColor: '#DAE4E9' } : {}}>
                       {project.status}
                     </span>
                   )}
