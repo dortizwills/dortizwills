@@ -10,7 +10,7 @@ interface ProjectGroupProps {
 }
 
 const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupProps) => (
-  <section className="border-t border-editorial-line py-16 md:py-24" aria-labelledby={`${eyebrow}-heading`}>
+  <section className="border-t py-16 md:py-24" aria-labelledby={`${eyebrow}-heading`}>
     <div className="mb-10 max-w-2xl">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-editorial-muted">{eyebrow}</p>
       <h2 id={`${eyebrow}-heading`} className="text-3xl font-medium text-editorial-fg md:text-4xl">{title}</h2>
@@ -38,8 +38,6 @@ const Work = () => (
   <main className="mx-auto max-w-[1600px] px-4 pb-8 pt-28 md:px-8 md:pt-36">
     <header className="max-w-4xl pb-16 md:pb-24">
       <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-editorial-muted">Selected work</p>
-      <h1 className="text-5xl font-medium leading-[1.05] text-editorial-fg md:text-6xl lg:text-7xl">Product thinking with a strong visual point of view.</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-editorial-muted md:text-xl">Explore product experiences and visual systems designed for growing teams, established brands, and everyday people.</p>
     </header>
     <ProjectGroup eyebrow="01" title="Product Designs" description="Digital products shaped around clear workflows, measurable outcomes, and thoughtful interaction." projects={productProjects} />
     <ProjectGroup eyebrow="02" title="Visual Designs" description="Brand systems and campaign work built to make complex ideas memorable and useful." projects={visualProjects} />
