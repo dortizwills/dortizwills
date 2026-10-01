@@ -11,11 +11,6 @@ interface ProjectGroupProps {
 
 const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupProps) => (
   <section className="md:py-24" aria-labelledby={`${eyebrow}-heading`}>
-    <div className="mb-10 max-w-2xl">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-editorial-muted">{eyebrow}</p>
-      <h2 id={`${eyebrow}-heading`} className="text-3xl font-medium text-editorial-fg md:text-4xl">{title}</h2>
-      <p className="mt-3 text-lg leading-relaxed text-editorial-muted">{description}</p>
-    </div>
     <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
         <Link key={project.path} to={project.path} className="group block">
