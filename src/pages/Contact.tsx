@@ -82,22 +82,7 @@ const Contact = () => {
                   <p className="text-gray-600">4083343882</p>
                 </div>
               </div>
-              
-              <div className="flex items-start">
-                <MapPin className="text-designer-red mr-4 mt-1" size={20} />
-                <div>
-                  <h3 className="font-medium mb-1">Location</h3>
-                  <p className="text-gray-600">Rhonert Park, CA</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <Clock className="text-designer-red mr-4 mt-1" size={20} />
-                <div>
-                  <h3 className="font-medium mb-1">Working Hours</h3>
-                  <p className="text-gray-600">Monday to Friday, 9:00 AM - 5:00 PM PST</p>
-                </div>
-              </div>
+
             </div>
           </div>
           
