@@ -26,6 +26,9 @@ import CaseStudies from './pages/graphic-designs/CaseStudies';
 // UX/UI Designs inner pages
 import AdherePlus from './pages/AdherePlus';
 import GrammyMuseum from './pages/GrammyMuseum';
+import VendorInsurance from './pages/hivey/VendorInsurance';
+import EnterpriseCheckout from './pages/hivey/EnterpriseCheckout';
+import SelfServiceOnboarding from './pages/hivey/SelfServiceOnboarding';
 
 const AppContent: FC = () => {
   const location = useLocation();
@@ -53,6 +56,9 @@ const AppContent: FC = () => {
           <Route path="/mobile-apps" element={<MobileApps />} />
           <Route path="/product-designs/mobile-apps" element={<MobileApps />} />
           <Route path="/product-designs/grammy-museum" element={<GrammyMuseum />} />
+          <Route path="/product-designs/hivey/vendor-insurance" element={<VendorInsurance />} />
+          <Route path="/product-designs/hivey/enterprise-checkout" element={<EnterpriseCheckout />} />
+          <Route path="/product-designs/hivey/self-service-onboarding" element={<SelfServiceOnboarding />} />
           <Route path="/graphic-designs" element={<MarketingDesigns />} />
           <Route path="/graphic-designs/data-driven-ebooks" element={<DataDrivenEbooks />} />
           <Route path="/graphic-designs/email-marketing" element={<EmailMarketing />} />
