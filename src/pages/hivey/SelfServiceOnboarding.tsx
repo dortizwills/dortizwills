@@ -1,4 +1,4 @@
-import projectedFinancialImpact from '@/assets/projected-financial-impact.png.asset.json';
+import projectedFinancialImpact from '@/assets/projected-financial-impact-inline.png.asset.json';
 import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation } from '@/components/case-study/CaseStudyParts';
 
 const SelfServiceOnboarding = () => (
@@ -43,8 +43,9 @@ const SelfServiceOnboarding = () => (
       '$20K in potential annual onboarding labor capacity, at $50 per hour.',
       '$8K in annual acquisition spend protected, at $80 per customer. This applies only if those customers would otherwise have been lost before activating.',
       '$28K total modeled resource impact.',
-    ]} />
-    <MediaBlock src={projectedFinancialImpact.url} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
+    ]}>
+      <MediaBlock src={projectedFinancialImpact.url} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
+    </FinancialImpact>
     <CaseStudySection title="Where the Time Goes Instead">
       <p>Outbound sales: prospecting and developing new host relationships.</p>
       <p>Customer success: supporting complex existing customers instead of repeating initial setup.</p>
