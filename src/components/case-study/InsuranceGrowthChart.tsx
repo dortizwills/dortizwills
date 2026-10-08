@@ -4,7 +4,7 @@ const vendors = [500, 3240, 5400, 7600, 10080, 13000, 17300, 23500];
 
 const W = 1200, H = 440, L = 90, R = 100, T = 40, B = 60;
 const pw = W - L - R, ph = H - T - B;
-const REV_MAX = 30, VEN_MAX = 20000;
+const REV_MAX = 75, VEN_MAX = 25000;
 const step = pw / quarters.length;
 const barW = step * 0.66;
 const x = (i: number) => L + step * i + step / 2;
