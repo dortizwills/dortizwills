@@ -6,7 +6,7 @@ const VendorInsurance = () => (
     <ProjectHero
       eyebrow="Hivey · Product Design"
       title="Embedded Vendor Insurance & Compliance"
-      summary="I redesigned vendor insurance from a skippable side step into part of event registration. Adoption tripled from 20% to 60% in one month, securing Hivey's 10% revenue share on a 40-day partnership deadline."
+      summary="I redesigned vendor insurance from a skippable side step into part of event registration. Adoption tripled from 20% to 60% in one month, secured Hivey's 10% revenue share on a 40-day partnership deadline."
       details={[
         { label: 'Timeline', value: '40 days' },
         { label: 'Role', value: 'Product Strategy · UX/UI Design · Interaction Design · Prototyping' },
@@ -17,8 +17,8 @@ const VendorInsurance = () => (
     <MetricGrid metrics={[
       { value: '$12K', label: 'Projected insurance revenue', note: 'Modeled at 60% adoption across 4,000 or more vendors' },
       { value: '10%', label: 'Revenue share secured', note: 'Versus 8% if the deadline was missed' },
-      { value: '20% to 60%', label: 'Vendor insurance adoption', note: 'Within one month of launch' },
-      { value: '40 days', label: 'Enterprise launch deadline' },
+      { value: '+60%', label: 'Vendor insurance adoption', note: 'Within one month of launch' },
+      { value: '40 days', label: 'Partnership launch deadline' },
     ]} />
     <CaseStudySection title="The Problem">
       <p>Vendors were expected to provide proof of insurance, but before events there was hosts would have to manually inspect forms to see if they successfully uploaded insurance. Organizers chased certificates through email and spreadsheets, and only about 10% of vendors complied.</p>
