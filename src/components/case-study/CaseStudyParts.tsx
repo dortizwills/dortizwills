@@ -71,9 +71,10 @@ export const QuoteBlock = ({ quote }: { quote: string }) => (
   <blockquote className="border-l-2 border-editorial-accent pl-6 text-2xl font-medium leading-snug text-editorial-fg">{quote}</blockquote>
 );
 
-export const FinancialImpact = ({ label, paragraphs }: { label: string; paragraphs: string[] }) => (
+export const FinancialImpact = ({ label, paragraphs, children }: { label: string; paragraphs: string[]; children?: ReactNode }) => (
   <CaseStudySection title="Modeled Impact" label={label}>
     {paragraphs.map((p) => <p key={p}>{p}</p>)}
+    {children}
   </CaseStudySection>
 );
 

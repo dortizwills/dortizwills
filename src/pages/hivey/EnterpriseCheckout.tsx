@@ -1,3 +1,4 @@
+import combinedBusinessImpact from '@/assets/combined-business-impact.png.asset.json';
 import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation } from '@/components/case-study/CaseStudyParts';
 
 const EnterpriseCheckout = () => (
