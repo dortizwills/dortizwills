@@ -1,6 +1,6 @@
-const quarters = ['Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027', 'Q4 2027', 'Q1 2028', 'Q2 2028', 'Q3 2028', 'Q4 2028'];
-const revenue = [12, 13.5, 15, 16.5, 18, 19.8, 21.8, 24, 26.4, 28.8];
-const vendors = [5400, 5400, 7600, 8800, 10000, 10000, 12000, 14000, 16000, 18000];
+const quarters = ['Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027', 'Q4 2027', 'Q1 2028', 'Q2 2028'];
+const revenue = [1.5, 9.2, 16.2, 22.8, 30.2, 39, 51.9, 70.5];
+const vendors = [500, 3240, 5400, 7600, 10080, 13000, 17300, 23500];
 
 const W = 1200, H = 440, L = 90, R = 100, T = 40, B = 60;
 const pw = W - L - R, ph = H - T - B;
@@ -16,13 +16,13 @@ const NAVY = '#1F3A68';
 
 const InsuranceGrowthChart = () => (
   <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Chart projecting incremental insurance revenue and total vendors per quarter, Q3 2026 through Q4 2028" className="h-auto w-full" style={{ fontFamily: 'Figtree, sans-serif' }}>
-    {[0, 5, 10, 15, 20, 25, 30].map((v) => (
+    {[0, 15, 30, 45, 60, 75].map((v) => (
       <g key={v}>
         <line x1={L} x2={W - R} y1={yRev(v)} y2={yRev(v)} stroke="#E3E8EC" />
         <text x={L - 12} y={yRev(v) + 5} textAnchor="end" fontSize="16" fontWeight="700" fill={GREEN}>${v}K</text>
       </g>
     ))}
-    {[0, 4000, 8000, 12000, 16000, 20000].map((v) => (
+    {[0, 5000, 10000, 15000, 20000, 25000].map((v) => (
       <text key={v} x={W - R + 12} y={yVen(v) + 5} fontSize="16" fontWeight="700" fill={NAVY}>{v.toLocaleString()}</text>
     ))}
     <line x1={L} x2={L} y1={T} y2={T + ph} stroke={GREEN} strokeWidth="2" />
