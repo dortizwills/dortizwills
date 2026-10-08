@@ -40,8 +40,10 @@ const EnterpriseCheckout = () => (
       'Modeled annual recurring revenue: $65.9K. This assumes the $12K is fully incremental to the $53.9K baseline.',
       'Projected event growth: 1,040 additional annual events, based on 20 additional events per week across 52 weeks.',
       'Projected vendor capacity: 1,250 additional vendors on a base of 4,000 or more.',
-      'These are projections of capacity, not measured growth.',
-    ]} />
+    ]}>
+      <MediaBlock src={combinedBusinessImpact.url} alt="Bar chart comparing baseline and projected annual recurring revenue, events, vendors, and total partnership value" />
+      <p>These are projections of capacity, not measured growth.</p>
+    </FinancialImpact>
     <CaseStudySection title="Takeaway">
       <p>Enterprise design is systems design. A customer's requirements often expose a weakness in the product, and fixing the system serves that customer and every customer after.</p>
     </CaseStudySection>
