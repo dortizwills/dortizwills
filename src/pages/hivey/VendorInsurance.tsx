@@ -1,3 +1,4 @@
+import projectedInsuranceGrowth from '@/assets/projected-insurance-growth.png.asset.json';
 import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, QuoteBlock } from '@/components/case-study/CaseStudyParts';
 
 const VendorInsurance = () => (
