@@ -14,14 +14,14 @@ const VendorInsurance = () => (
     />
     <MediaBlock />
     <MetricGrid metrics={[
-      { value: '$12K', label: 'Projected insurance revenue', note: 'Modeled at 60% adoption across 4,000 or more vendors' },
+      { value: '$12K', label: 'Projected insurance revenue', note: 'Modeled at 60% adoption across +4,000 vendors' },
       { value: '10%', label: 'Revenue share secured', note: 'Versus 8% if the deadline was missed' },
       { value: '+60%', label: 'Vendor insurance adoption', note: 'Within one month of launch' },
       { value: '40 days', label: 'Partnership launch deadline' },
     ]} />
     <CaseStudySection title="The Problem">
-      <p>Vendors were expected to provide proof of insurance, but before events there was hosts would have to manually inspect forms to see if they successfully uploaded insurance. Organizers chased certificates through email and spreadsheets, and only about 10% of vendors complied.</p>
-      <p>Hivey also had 40 days to launch an insurance partnership with Vertical Insure (VI). Missing the deadline would cut its revenue share from 10% to 8%.</p>
+      <p>Vendors were expected to provide proof of insurance, but before events or hosts would assume full responsibility if an accient ocfured. Before this integration hosts would have to manually inspect forms to see if vendors successfully uploaded insurance. Organizers chased certificates through email and spreadsheets, and only about 10% of vendors complied.</p>
+      <p>Hivey secured a partnership that needed to be completed within 40 days to the first successfully billed claim through their insurance partnership with Vertical Insure (VI). Missing the deadline would cut Hivey's revenue share from 10% to 8%.</p>
     </CaseStudySection>
     <MediaBlock />
     <CaseStudySection title="What I Did">
@@ -32,14 +32,13 @@ const VendorInsurance = () => (
       </div>
     </CaseStudySection>
     <CaseStudySection title="Results">
-      <p>Insurance adoption rose from 20% to 60% within 3 weeks from launch, a 200% relative increase. The flow launched with 5 active users hosting +50 events, earning about $5 per completed insurance transaction.</p>
+      <p>Insurance adoption rose from 20% to 60% within 3 weeks from launch, a 200% relative increase. The flow launched with 5 active users hosting ~500 vendors, earning about $5 per completed insurance transaction.</p>
       <QuoteBlock quote="“Honest to God, this is a game changer for me.”" />
     </CaseStudySection>
     <MediaBlock />
     <FinancialImpact label="Modeled" paragraphs={[
-      "Hivey's base of +4,000 or more vendors showed that 60% adoption on the launch group of 5 hosts. ",
-      'This projects that this new integration would insure 2,400 vendors. At about $5 per insurance transaction, that projects $12,000 in revenue from this feature alone.',
-      'The 60% rate was measured on the launch group of 5 hosts and +50 monthly events.',
+      "Hivey's testing group of ~500 vendors showed that 60% adoption on the launch group of 5 hosts.",
+      'To date, Hivey has over 4000 vendors. This projects that this new integration would insure 2,400 vendors per weekly event. At about $5 per insurance transaction, that projects $12,000 in weekly revenue from this feature alone.',
       'My timely designs also secured a 10% revenue share instead of 8% — worth an additional $20,000 per year for every $1M of annual insurance volume.',
     ]}>
       <InsuranceGrowthChart />
