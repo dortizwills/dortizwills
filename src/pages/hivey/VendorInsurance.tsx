@@ -8,7 +8,6 @@ const VendorInsurance = () => (
       title="Embedded Vendor Insurance & Compliance"
       summary="I redesigned vendor insurance from a skippable side step into part of event registration. Adoption tripled from 20% to 60% in one month, secured Hivey's 10% revenue share on a 40-day partnership deadline."
       details={[
-        { label: 'Timeline', value: '40 days' },
         { label: 'Role', value: 'Product Strategy · UX/UI Design · Interaction Design · Prototyping' },
         { label: 'Collaborators', value: 'Product · Engineering · Vertical Insure' },
       ]}
