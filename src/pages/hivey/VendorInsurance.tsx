@@ -1,3 +1,4 @@
+import projectedInsuranceGrowth from '@/assets/projected-insurance-growth.png.asset.json';
 import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, QuoteBlock } from '@/components/case-study/CaseStudyParts';
 
 const VendorInsurance = () => (
@@ -41,7 +42,9 @@ const VendorInsurance = () => (
       'This projects that this new integration would insure 2,400 vendors. At about $5 per insurance transaction, that projects $12,000 in revenue from this feature alone.',
       'The 60% rate was measured on the launch group of 5 hosts and +50 monthly events.',
       'My timely designs also secured a 10% revenue share instead of 8% — worth an additional $20,000 per year for every $1M of annual insurance volume.',
-    ]} />
+    ]}>
+      <MediaBlock src={projectedInsuranceGrowth.url} alt="Chart and table projecting incremental insurance revenue and total vendors per quarter, Q3 2026 through Q4 2028" />
+    </FinancialImpact>
     <CaseStudySection title="Takeaway">
       <p>Removing a decision beat adding information. 
 
