@@ -38,10 +38,10 @@ const SelfServiceOnboarding = () => (
     <MediaBlock />
     <FinancialImpact label="Modeled opportunity. Not measured cash savings." paragraphs={[
       'Before the redesign, onboarding one customer cost about $200 in labor per onboarded customer. Marketing acquisition cost an estimated $80 per customer. This would require a minimum of 3 months of membership per onboarded customer.',
-      'At 25 self-onboarded customers per quarter, that is +100 customers per year.',
+      '',
       'At a new baseline of +25 self-onboarded customers per quarter, we predict that in the next year +150 customers would elect self-onboarding.',
       'Over the next year, $25K in potential annual onboarding labor capacity and $8K in annual acquisition spend protected, at $80 per customer.',
-      '$8K in annual acquisition spend protected, at $80 per customer.',
+      '',
       '$28K total modeled cost saving impact on resources.',
     ]}>
       <MediaBlock src={projectedFinancialImpact.url} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
