@@ -26,9 +26,9 @@ const VendorInsurance = () => (
     <MediaBlock />
     <CaseStudySection title="What I Did">
       <div className="space-y-10">
-        <Decision number="01" title="Standardized business data " body="Data showed the biggest drop-off happened before vendors ever requested a quote due to a skip button before seeing a quote. Vendors opted to supply insurance later but failed to upload documents into Vertical Insure before their event giving our first event only a 20% adoption rate – not very different from before." />
-        <Decision number="02" title="Removed the landing page" body="Vendors can no longer skip quotes. They either purchase coverage through a quote or upload their existing proof of insurance – that's it. By forcing vendors to view a claim they quickly began to utilize the VI integration or actually upload their own insurance. " />
-        <Decision number="03" title="Re-evaluated and adjusted compliance guardrails" body="I helped define a consistent business and address structure that works for independent makers, pop-up businesses, and cottage-food vendors. The nuances of licensing for new pop-up style vendors required us to have a flexible system for business vs personal addresses." />
+        <Decision number="01" title="Standardized business data " body="I helped define a consistent business and address structure that works for independent makers, pop-up businesses, and cottage-food vendors. The nuances of licensing for new pop-up style vendors required us to have a flexible system for business vs personal addresses." />
+        <Decision number="02" title="Removed the landing page" body="Data showed the biggest drop-off happened before vendors ever requested a quote due to a skip button before seeing a quote. Vendors opted to supply insurance later but failed to upload documents into Vertical Insure before their event giving our first event only a 20% adoption rate – not very different from before." />
+        <Decision number="03" title="Re-evaluated and adjusted compliance guardrails" body="Vendors can no longer skip quotes. They either purchase coverage through a quote or upload their existing proof of insurance – that's it. By forcing vendors to view a claim they quickly began to utilize the VI integration or actually upload their own insurance. " />
       </div>
     </CaseStudySection>
     <CaseStudySection title="Results">
