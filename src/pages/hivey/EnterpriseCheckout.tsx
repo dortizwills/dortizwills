@@ -41,7 +41,7 @@ const EnterpriseCheckout = () => (
       'Projected event growth: 1,040 additional annual events, based on 20 additional events per week across 52 weeks.',
       'Projected vendor capacity: 1,250 additional vendors on a base of 4,000 or more.',
     ]}>
-      <MediaBlock src={combinedBusinessImpact.url} alt="Bar chart comparing baseline and projected annual recurring revenue, events, vendors, and total partnership value" />
+      <MediaBlock src={new URL(combinedBusinessImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Bar chart comparing baseline and projected annual recurring revenue, events, vendors, and total partnership value" />
       <p>These are projections of capacity, not measured growth.</p>
     </FinancialImpact>
     <CaseStudySection title="Takeaway">
