@@ -44,7 +44,7 @@ const SelfServiceOnboarding = () => (
       '',
       '$28K total modeled cost saving impact on resources.',
     ]}>
-      <MediaBlock src={projectedFinancialImpact.url} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
+      <MediaBlock src={new URL(projectedFinancialImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
     </FinancialImpact>
     <CaseStudySection title="Where the Time Goes Instead">
       <p>Outbound Sales: prospecting and developing new enterprise host relationships.</p>
