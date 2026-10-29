@@ -2,6 +2,11 @@
 {
   "redirects": [
     {
+      "source": "/afterhours",
+      "destination": "https://dortizwills-afterhours.onrender.com",
+      "permanent": false
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
