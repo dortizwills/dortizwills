@@ -28,8 +28,9 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
     </div>
 
     <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project) => (
-        <Link key={project.path} to={project.path} className="group block">
+      {projects.map((project) => {
+        const content = (
+          <>
           <div
             className={`mb-5 aspect-[4/3] overflow-hidden rounded-lg ${
               project.path === '/mobile-apps'
@@ -64,8 +65,25 @@ const ProjectGroup = ({ eyebrow, title, description, projects }: ProjectGroupPro
           <p className="mt-2 leading-relaxed text-editorial-muted">
             {project.description}
           </p>
-        </Link>
-      ))}
+          </>
+        );
+
+        return project.external ? (
+          <a
+            key={project.path}
+            href={project.path}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            {content}
+          </a>
+        ) : (
+          <Link key={project.path} to={project.path} className="group block">
+            {content}
+          </Link>
+        );
+      })}
     </div>
   </section>
 );

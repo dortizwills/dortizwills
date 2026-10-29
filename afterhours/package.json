@@ -1,0 +1,13 @@
+{
+  "name": "afterhours-museum-of-unreality",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A cooperative multiplayer mystery with deterministic player-specific perceptions.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
