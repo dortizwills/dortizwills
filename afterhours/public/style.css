@@ -7,3 +7,155 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .score-counter{display:grid;gap:2px;text-align:right;padding-left:10px;border-left:1px solid var(--line)}.score-counter small{font:7px var(--mono);letter-spacing:.12em;color:#8f8c93}.score-counter b{font:14px var(--mono);color:var(--gold-bright)}
 .objective-banner{display:grid;grid-template-columns:1fr auto;gap:5px 12px;padding:10px 15px;margin:18px 0 0;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(198,165,107,.09),rgba(27,29,41,.6));}.objective-banner .panel-kicker{grid-column:1/-1;font-size:8px}.objective-banner b{font:14px var(--serif);font-weight:500;color:#e0d7c8}.objective-banner small{align-self:center;text-align:right;color:#89858e;font-size:9px}.score-rule{display:block;margin-top:7px;color:#85818a;font:9px/1.5 var(--sans)}
+
+
+/* Tabletop investigation: felt, floorplan paper, pocket cards, and shared tokens. */
+:root{--table-paper:#efe4cf;--table-ink:#2d2a27;--table-line:#cfc0a6;--table-wine:#8b4d43;--table-moss:#697a60;--table-blue:#536978;--table-gold:#b28b4e}
+.tabletop-shell{max-width:1520px;padding:20px 30px 18px;background:radial-gradient(ellipse at 16% 10%,#24242d 0,#151721 43%,#11131b 100%);min-height:100vh}
+.tabletop-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px 13px}
+.tabletop-heading .eyebrow{margin:0;color:#cbb07f}
+.tabletop-heading h1{font:500 clamp(28px,3vw,39px)/1.1 var(--serif);margin:6px 0;color:#f1e9dc}
+.tabletop-heading>div:first-child>p:last-child{max-width:770px;margin:0;color:#bbb4aa;font:14px/1.5 var(--sans)}
+.tabletop-heading .timer{flex:none;padding:10px 15px;border:1px solid #c1a36b44;border-radius:10px;background:#11131bcc}
+.objective-banner{position:relative;grid-template-columns:1fr auto;gap:5px 12px;padding:12px 17px;margin:12px 0 0;border:1px solid #c8a96844;border-left:4px solid var(--table-gold);border-radius:12px;background:linear-gradient(100deg,#4c45354a,#27242a);box-shadow:0 8px 24px #0003}
+.objective-banner b{font:500 15px var(--serif);color:#eee4d4}
+.objective-banner small{color:#c3b8a5}
+.game-layout{grid-template-columns:minmax(0,1.42fr) minmax(370px,.88fr);gap:20px;padding:16px 0}
+.exhibit-column,.sidebar{min-width:0}
+.museum-map,.hand-table,.group-panel,.case-table,.deduction-panel{border:1px solid #d4c3a55e;border-radius:16px;background:linear-gradient(150deg,#f2e9d8,#e7dbc4);color:var(--table-ink);box-shadow:0 14px 35px #08090d55}
+.museum-map{padding:15px 17px 12px}
+.map-header,.hand-header{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.map-header h2,.hand-header h2{margin:4px 0 0;font:500 20px var(--serif);color:#302c28}
+.map-header .panel-kicker,.hand-header .panel-kicker{color:#827760}
+.map-current{display:grid;gap:2px;text-align:right}
+.map-current small{font:8px var(--mono);letter-spacing:.12em;color:#857c6c}
+.map-current b{font:500 13px var(--serif);color:#564e42}
+.board-surface{position:relative;isolation:isolate;min-height:360px;margin:12px 0 8px;overflow:hidden;border:1px solid #9f8b68;border-radius:13px;background-color:#c9bd9e;background-image:radial-gradient(ellipse at 50% 48%,#e9dfc7 0,#d4c8aa 57%,#bbae91 100%),repeating-linear-gradient(0deg,transparent 0 23px,#675b4610 24px 25px),repeating-linear-gradient(90deg,transparent 0 23px,#675b4610 24px 25px);box-shadow:inset 0 0 0 7px #f5eddc77,inset 0 0 30px #473a252b}
+.board-surface:before{content:"";position:absolute;inset:16px;border:1px dashed #73634966;border-radius:10px;pointer-events:none;z-index:-1}
+.board-paths{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible}
+.board-paths line{stroke:#6c5b43;stroke-width:.65;stroke-dasharray:1.5 1.2;opacity:.7}
+.map-station{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:2;display:grid;justify-items:center;align-content:center;gap:3px;width:clamp(100px,17vw,148px);min-height:84px;padding:9px;border:1px solid #8d7858;border-radius:11px;background:linear-gradient(145deg,#faf3e5,#e5d9c0);color:#3b342b;box-shadow:0 5px 0 #79684b,0 8px 15px #51452a38;transition:transform .16s,box-shadow .16s}
+.map-station:not(:disabled){cursor:pointer}
+.map-station:not(:disabled):hover{transform:translate(-50%,-54%);box-shadow:0 8px 0 #79684b,0 14px 20px #51452a55}
+.map-station.is-current{border:2px solid #8a5346;background:linear-gradient(145deg,#fff7e8,#ead7bf);box-shadow:0 0 0 4px #8a534627,0 5px 0 #795342,0 9px 18px #51452a50}
+.map-station.is-distant{opacity:.58;filter:saturate(.65)}
+.station-symbol{width:28px;height:26px;display:grid;place-items:center;border-radius:8px;background:#8e665533;color:#714d39;font:20px var(--serif)}
+.station-name{font:600 12px/1.2 var(--sans);text-align:center}
+.station-status{font:7px var(--mono);letter-spacing:.1em;color:#887b65}
+.station-pawns{display:flex;gap:3px;position:absolute;right:4px;top:-7px}
+.pawn{width:22px;height:22px;display:inline-grid;place-items:center;flex:none;border:2px solid #f6eddd;border-radius:50%;background:#657a62;color:white;font:700 9px var(--sans);box-shadow:0 2px 5px #0004}
+.pawn-1{background:#a35d50}.pawn-2{background:#5f7783}.pawn-3{background:#b18c4d}
+.pawn-away{opacity:.38}
+.board-key{position:absolute;left:15px;bottom:10px;display:flex;align-items:center;gap:7px;color:#655b49;font:8px var(--mono);letter-spacing:.06em}
+.board-key .pawn{width:17px;height:17px;font-size:7px}
+.board-key i{width:24px;border-top:1px dashed #6c5b43;margin-left:6px}
+.move-instruction{display:flex;align-items:center;gap:6px;margin:7px 3px 0;color:#6b6254;font:11px/1.5 var(--sans)}
+.move-instruction b{color:#433b31}
+.hand-table{margin-top:14px;padding:15px 16px 17px}
+.hand-header h2 span{font:10px var(--mono);color:#8a7b64}
+.hand-tip{text-align:right;color:#827760;font:10px/1.45 var(--sans)}
+.hand-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px;margin-top:13px}
+.hand-card{position:relative;min-width:0;overflow:hidden;display:flex;flex-direction:column;min-height:300px;padding:11px 12px 10px;border:1px solid #b8a786;border-radius:10px;background:linear-gradient(147deg,#fff9ed 0%,#f2e7d2 55%,#e8dbc2 100%);color:#3f382f;box-shadow:0 4px 0 #b9a786,0 8px 14px #493d2c1b;transform:rotate(calc((var(--card-order) - 1) * .35deg));transition:transform .2s,box-shadow .2s}
+.hand-card:hover{transform:translateY(-3px) rotate(0);box-shadow:0 7px 0 #b9a786,0 15px 18px #493d2c30}
+.hand-card.is-played{background:linear-gradient(145deg,#e4e7d8,#d6ddca);border-color:#9ca88d;opacity:.84}
+.card-ribbon{display:flex;justify-content:space-between;align-items:center;padding-bottom:7px;border-bottom:1px solid #bba985;font:7px var(--mono);letter-spacing:.1em;color:#7c705d}
+.card-art{position:relative;height:70px;margin:9px 0 7px;display:grid;place-items:center;overflow:hidden;border:1px solid #ccb995;border-radius:6px;background:radial-gradient(ellipse at 50% 40%,#dfcfad,#c8b78f)}
+.card-art span{z-index:1;font:43px var(--serif);color:#7e5843;text-shadow:0 1px #fff7}
+.card-art i,.card-art b{position:absolute;width:58px;height:58px;border:1px solid #806b4b44;border-radius:50%}
+.card-art b{width:43px;height:43px}
+.card-copy small{font:7px var(--mono);letter-spacing:.08em;color:#91816b}
+.card-copy h3{margin:3px 0 5px;font:500 18px var(--serif);color:#332d27}
+.card-copy p{min-height:52px;margin:0;color:#524a3f;font:12px/1.42 var(--serif)}
+.card-location{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding:8px 0 7px;border-top:1px solid #c7b694}
+.card-location span{font:7px var(--mono);letter-spacing:.1em;color:#95866e}
+.card-location b{font:600 10px var(--sans);color:#5b4b3d}
+.play-card{min-height:36px;padding:7px;border:1px solid #8b6950;border-radius:6px;background:#765642;color:#fff4e4;font:8px var(--mono);letter-spacing:.06em;cursor:pointer;transition:background .16s,transform .16s}
+.play-card:hover:not(:disabled){background:#5e483b;transform:translateY(-1px)}
+.play-card:disabled{background:#c9bea9;color:#766b5a;border-color:#c1b399;cursor:default}
+.museum-vignette{margin-top:14px;overflow:hidden;border:1px solid #8f8067;border-radius:13px;box-shadow:0 10px 25px #0003}
+.museum-vignette .scene-wrap{height:190px}
+.museum-vignette .scene-caption{font-size:8px}
+.sidebar{gap:12px}
+.group-panel,.case-table,.deduction-panel{padding:15px}
+.group-panel .panel-heading h2,.case-table .panel-heading h2,.deduction-panel .panel-heading h2{font-size:18px;color:#352e28}
+.group-panel .panel-heading h2 span{color:#806a50}
+.group-panel .panel-kicker,.case-table .panel-kicker,.deduction-panel .panel-kicker{color:#827760}
+.player-list{display:grid;gap:3px;margin:10px 0 11px}
+.player-row{min-height:34px;border-bottom:1px solid #d4c6ac;color:#433c32}
+.player-row .player-role{font:8px var(--sans);letter-spacing:0;color:#766b59}
+.group-footer{border-top-color:#cfc2a9;color:#827760}
+.case-table{min-height:180px}
+.case-table .deduction-hint,.deduction-panel .deduction-hint{margin:7px 0 10px;color:#756a58}
+.played-cards{display:grid;gap:8px;max-height:420px;overflow:auto;padding:2px 4px 5px}
+.played-card{position:relative;padding:10px 11px;border:1px solid #c3b28f;border-left:4px solid #84704f;border-radius:7px;background:linear-gradient(120deg,#fff8e8,#ede0c7);box-shadow:0 3px 7px #4d3c251b;color:#40382d}
+.played-card.is-verified{border-left-color:#6d8060}
+.played-card-head{display:flex;align-items:center;gap:8px}
+.played-card-head>span:last-child{display:grid;gap:2px}
+.played-card-head b{font:600 11px var(--sans);color:#594a38}
+.played-card-head small{font:7px var(--mono);letter-spacing:.06em;color:#887b66}
+.played-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#d7c5a1;color:#77533c;font:16px var(--serif)}
+.played-card p{margin:7px 0 4px;color:#433b32;font:13px/1.42 var(--serif)}
+.seal-card{width:100%;min-height:34px;margin-top:4px;border:1px dashed #a58e62;border-radius:5px;background:#e6d7b9;color:#725d3e;font:8px var(--mono);letter-spacing:.06em;cursor:pointer}
+.seal-card:hover:not(:disabled){background:#d8c49b}
+.seal-card:disabled{opacity:.55;cursor:default}
+.anchor-stamp{display:grid;gap:3px;margin-top:7px;padding:6px 8px;border:2px double #617a5c;border-radius:5px;color:#53674d;font:8px var(--mono);letter-spacing:.08em;transform:rotate(-1deg)}
+.anchor-stamp small{font:10px/1.35 var(--serif);letter-spacing:0}
+.stamp-false{border-color:#9a5550;color:#914943}
+.case-table .empty-evidence{height:128px;color:#81745e}
+.case-table .empty-evidence b{color:#504638}
+.case-table .empty-evidence small{color:#7c715f}
+.deduction-panel{background:linear-gradient(150deg,#f8efde,#eadcc1)}
+.deduction-panel .lock-mark{color:#8d7753}
+.deduction-panel .answer-field{color:#665944}
+.deduction-panel .answer-field select{border-color:#c7b898;background:#fff7e8;color:#3f372c;border-radius:6px}
+.deduction-panel .answer-field select option{background:#fff8eb}
+.deduction-panel .button-gold{border-radius:7px;background:linear-gradient(110deg,#9e7546,#c39b5c);color:#fff8ea}
+.deduction-panel .fine-print,.score-rule{color:#7d715d}
+.anchor-panel{border:1px solid #b79d6d77;border-radius:12px;background:linear-gradient(135deg,#36322d,#29272a)}
+.anchor-panel-title b{color:#f0e2c7}
+.anchor-panel-title small{color:#c2b394}
+.anchor-actions button{min-height:40px;border-radius:6px;background:#2c2925;border-color:#c3a56d55;color:#e1c792}
+.anchor-cost{color:#bcb09a}
+.game-foot{color:#aaa18f}
+.game-foot button{color:#d2bd95}
+.score-rule{line-height:1.45}
+@media(max-width:980px){
+ .tabletop-shell{padding:16px 18px}
+ .game-layout{grid-template-columns:minmax(0,1.25fr) minmax(320px,.9fr);gap:12px}
+ .board-surface{min-height:325px}
+ .map-station{width:112px;min-height:77px}
+ .hand-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:740px){
+ .tabletop-shell{padding:12px 12px 8px}
+ .tabletop-heading{align-items:flex-start;padding:18px 3px 10px}
+ .tabletop-heading h1{font-size:28px}
+ .tabletop-heading>div:first-child>p:last-child{font-size:12px}
+ .tabletop-heading .timer{padding:8px 10px}
+ .game-layout{display:flex;flex-direction:column;gap:12px}
+ .board-surface{min-height:355px}
+ .map-station{width:clamp(85px,24vw,118px);min-height:75px;padding:6px}
+ .station-name{font-size:10px}
+ .station-status{font-size:6px}
+ .board-key{font-size:7px;left:9px;bottom:7px}
+ .hand-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .hand-card{min-height:278px;padding:9px}
+ .card-copy p{font-size:11px}
+ .hand-tip{font-size:9px}
+ .museum-vignette .scene-wrap{height:150px}
+ .mini-brand{font-size:9px}
+ .top-actions{gap:10px}
+ .anchor-counter span{display:none}
+ .game-foot{font-size:7px}
+}
+@media(max-width:410px){
+ .map-station{width:88px;min-height:69px}
+ .station-name{font-size:9px}
+ .station-symbol{width:23px;height:22px;font-size:17px}
+ .board-surface{min-height:330px}
+ .card-art{height:56px}
+ .card-copy h3{font-size:16px}
+ .card-location b{font-size:9px}
+ .play-card{font-size:7px}
+}
+

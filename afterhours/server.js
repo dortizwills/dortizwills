@@ -7,6 +7,32 @@ const PORT = Number(process.env.PORT || 3000);
 const ROOT = __dirname;
 const rooms = new Map();
 const MIME = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.svg':'image/svg+xml' };
+const MAPS = [
+  { title:'Portrait Gallery floor plan', start:'gallery', stations:[
+    {id:'gallery',name:'Gallery floor',symbol:'✳',x:50,y:53},
+    {id:'portrait',name:'The portrait',symbol:'▧',x:50,y:17},
+    {id:'clock',name:'The clock',symbol:'◷',x:16,y:53},
+    {id:'plinth',name:'Empty plinth',symbol:'◇',x:50,y:87},
+    {id:'frame',name:'East frame',symbol:'▣',x:84,y:53}
+  ], paths:[['gallery','portrait'],['gallery','clock'],['gallery','plinth'],['gallery','frame']] },
+  { title:'Hall of Doors floor plan', start:'corridor', stations:[
+    {id:'corridor',name:'The corridor',symbol:'✳',x:50,y:72},
+    {id:'door-one',name:'First door',symbol:'◯',x:19,y:28},
+    {id:'door-two',name:'Middle door',symbol:'✦',x:50,y:19},
+    {id:'door-three',name:'Crescent door',symbol:'☾',x:81,y:28}
+  ], paths:[['corridor','door-one'],['corridor','door-two'],['corridor','door-three']] },
+  { title:'The Room That Remembers floor plan', start:'memory-room', stations:[
+    {id:'memory-room',name:'Memory room',symbol:'✳',x:50,y:50},
+    {id:'ledger',name:'Staff archive',symbol:'▤',x:19,y:22},
+    {id:'fuse',name:'Fuse cabinet',symbol:'ϟ',x:81,y:22},
+    {id:'bell',name:'Bell chamber',symbol:'◉',x:50,y:84}
+  ], paths:[['memory-room','ledger'],['memory-room','fuse'],['memory-room','bell']] }
+];
+const FACT_STATIONS = {
+  portrait:{hand:'plinth',gaze:'portrait',clock:'clock',inscription:'frame'},
+  doors:{rule:'corridor',first:'door-one',middle:'door-two',last:'door-three'},
+  memory:{evidence1:'ledger',evidence2:'fuse',evidence3:'bell',memory:'memory-room'}
+};
 
 const EXHIBITS = [
   {
@@ -49,9 +75,9 @@ function safeRoom(room, player) {
   const me = room.players.get(player.id);
   return {
     code:room.code, phase:room.phase, hostId:room.hostId, exhibitIndex:room.exhibitIndex,
-    exhibit:{id:exhibit.id,title:exhibit.title,eyebrow:exhibit.eyebrow,intro:exhibit.intro},
-    players:[...room.players.values()].map(p=>({id:p.id,name:p.name,ready:p.ready,distortion:p.id===player.id?p.distortion:undefined,online:p.online})),
-    me:{id:me.id,name:me.name,role:me.role,distortion:me.distortion,observations:me.observations.map(o=>({id:o.id,label:o.label,index:o.index,view:o.variants[variantIndex(room,me,o)]}))},
+    exhibit:{id:exhibit.id,title:exhibit.title,eyebrow:exhibit.eyebrow,intro:exhibit.intro,map:MAPS[room.exhibitIndex]},
+    players:[...room.players.values()].map(p=>({id:p.id,name:p.name,ready:p.ready,distortion:p.id===player.id?p.distortion:undefined,online:p.online,location:p.location})),
+    me:{id:me.id,name:me.name,role:me.role,location:me.location,distortion:me.distortion,observations:me.observations.map(o=>({id:o.id,label:o.label,index:o.index,view:o.variants[variantIndex(room,me,o)],stationId:FACT_STATIONS[exhibit.id][o.id]}))},
     evidence:room.evidence.map(e=>({...e, own:e.playerId===player.id})), anchors:room.anchors,
     voteCount:Object.keys(room.votes).length, hasVoted:!!room.votes[player.id], total:[...room.players.values()].filter(p=>p.online).length,
     publicReveal:room.publicReveal||{}, publicHint:room.publicHint||null,
@@ -71,7 +97,7 @@ function assign(room){
   const ex=EXHIBITS[room.exhibitIndex]; let slot=0;
   for(const p of room.players.values()){
     p.slot=slot++; p.distortion=room.exhibitIndex===0?14+((room.seed+p.slot*11)%9):Math.min(85,p.distortion+18); p.distortionBand=Math.min(3,Math.floor(p.distortion/25));
-    p.role=['The Keeper','The Witness','The Restorer','The Night Clerk'][p.slot%4];
+    p.role=['The Keeper','The Witness','The Restorer','The Night Clerk'][p.slot%4]; p.location=MAPS[room.exhibitIndex].start;
     p.observations=ex.facts.map((f,i)=>({...f,index:i})).filter((_,i)=>i%room.players.size===p.slot%room.players.size);
     if(p.observations.length===0)p.observations=[{...ex.facts[p.slot%ex.facts.length],index:p.slot%ex.facts.length}];
   }
@@ -104,9 +130,16 @@ const server=http.createServer(async(req,res)=>{
         if(b.type==='leave'){room.players.delete(p.id);if(room.players.size===0)rooms.delete(room.code);else{if(room.hostId===p.id)room.hostId=room.players.keys().next().value;emit(room);}return json(res,200,{ok:true});}
         return publicError(res,409,'That action is not available in the lobby.');
       }
+      if(b.type==='move'){
+        if(room.phase!=='investigating')return publicError(res,409,'The board is closed between exhibits.');
+        const map=MAPS[room.exhibitIndex], destination=map.stations.find(s=>s.id===b.stationId); if(!destination)return publicError(res,400,'Choose a station on the board.');
+        const current=p.location||map.start, adjacent=map.paths.some(([a,c])=>(a===current&&c===destination.id)||(c===current&&a===destination.id));
+        if(destination.id!==current&&!adjacent)return publicError(res,409,'Move one connected space at a time.');
+        p.location=destination.id; emit(room); return json(res,200,{ok:true});
+      }
       if(b.type==='share'){
         if(room.phase!=='investigating')return publicError(res,409,'This exhibit is not accepting evidence.');
-        const ex=EXHIBITS[room.exhibitIndex],fact=ex.facts.find(x=>x.id===b.factId);if(!fact||!p.observations.some(o=>o.id===fact.id))return publicError(res,403,'That observation is not in your private notes.');if(room.sharedClues.has(p.id+':'+fact.id))return publicError(res,409,'You already shared that observation.');room.sharedClues.add(p.id+':'+fact.id);room.evidence.push({id:crypto.randomUUID(),factId:fact.id,label:fact.label,text:fact.variants[variantIndex(room,p,fact)],playerId:p.id,playerName:p.name});room.notice=null;emit(room);return json(res,200,{ok:true});
+        const ex=EXHIBITS[room.exhibitIndex],fact=ex.facts.find(x=>x.id===b.factId);if(!fact||!p.observations.some(o=>o.id===fact.id))return publicError(res,403,'That card is not in your hand.');const stationId=FACT_STATIONS[ex.id][fact.id];if(p.location!==stationId)return publicError(res,409,'Move your pawn to '+MAPS[room.exhibitIndex].stations.find(s=>s.id===stationId).name+' before playing this card.');if(room.sharedClues.has(p.id+':'+fact.id))return publicError(res,409,'You already played that card.');room.sharedClues.add(p.id+':'+fact.id);room.evidence.push({id:crypto.randomUUID(),factId:fact.id,label:fact.label,text:fact.variants[variantIndex(room,p,fact)],playerId:p.id,playerName:p.name});room.notice=null;emit(room);return json(res,200,{ok:true});
       }
       if(b.type==='anchor-verify'||b.type==='anchor-reveal'||b.type==='anchor-stabilize'){
         if(room.anchors<1)return publicError(res,409,'The group has no Anchors left.');if(room.phase!=='investigating')return publicError(res,409,'Anchors can only be used during an investigation.');
