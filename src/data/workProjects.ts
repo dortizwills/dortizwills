@@ -6,9 +6,11 @@ export interface WorkProject {
   path: string;
   image: string;
   meta: string;
+  external?: boolean;
 }
 
 export const productProjects: WorkProject[] = [
+  { title: 'AFTERHOURS: The Museum of Unreality', description: 'A cooperative psychological mystery where four visitors compare conflicting perceptions to uncover what happened after closing.', path: 'https://play.dortizwills.com', image: '/afterhours-cover.svg', meta: 'Multiplayer Game · Interactive Experience', external: true },
   { title: 'Quick Services', description: 'An express checkout experience that helps automotive shops complete routine orders in minutes.', path: '/product-designs/quick-services', image: '/lovable-uploads/01-express-lane/display-express-lane.png', meta: 'B2B SaaS · Product Design' },
   { title: 'Grammy Museum MS Redesign', description: 'A redesigned museum experience focused on discovery, ticket sales, and donations.', path: '/product-designs/grammy-museum', image: '/lovable-uploads/Grammy Museum/Slide 1.png', meta: 'Web · Brand & Product Design' },
   { title: 'Mobile App Portfolio', description: 'Two mobile concepts developed for potential partnerships across safety and recreation.', path: '/mobile-apps', image: '/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png', meta: 'Mobile Apps · Concept Design' },
