@@ -158,4 +158,8 @@
  .card-location b{font-size:9px}
  .play-card{font-size:7px}
 }
+.solo-cta{display:grid;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid #d4c6ac}
+.solo-cta .button{width:100%;font-size:9px;letter-spacing:.07em}
+.solo-cta small{color:#887d69;text-align:center;font:9px/1.4 var(--sans)}
+.bot-tag{display:inline-block;margin-left:5px;padding:2px 4px;border:1px solid #b39a70;border-radius:3px;color:#8b7047;font:7px var(--mono);letter-spacing:.08em;vertical-align:1px}
 

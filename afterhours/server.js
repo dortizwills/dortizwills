@@ -74,9 +74,9 @@ function safeRoom(room, player) {
   const exhibit = EXHIBITS[room.exhibitIndex];
   const me = room.players.get(player.id);
   return {
-    code:room.code, phase:room.phase, hostId:room.hostId, exhibitIndex:room.exhibitIndex,
+    code:room.code, phase:room.phase, hostId:room.hostId, exhibitIndex:room.exhibitIndex, solo:!!room.solo,
     exhibit:{id:exhibit.id,title:exhibit.title,eyebrow:exhibit.eyebrow,intro:exhibit.intro,map:MAPS[room.exhibitIndex]},
-    players:[...room.players.values()].map(p=>({id:p.id,name:p.name,ready:p.ready,distortion:p.id===player.id?p.distortion:undefined,online:p.online,location:p.location})),
+    players:[...room.players.values()].map(p=>({id:p.id,name:p.name,ready:p.ready,isBot:!!p.isBot,distortion:p.id===player.id?p.distortion:undefined,online:p.online,location:p.location})),
     me:{id:me.id,name:me.name,role:me.role,location:me.location,distortion:me.distortion,observations:me.observations.map(o=>({id:o.id,label:o.label,index:o.index,view:o.variants[variantIndex(room,me,o)],stationId:FACT_STATIONS[exhibit.id][o.id]}))},
     evidence:room.evidence.map(e=>({...e, own:e.playerId===player.id})), anchors:room.anchors,
     voteCount:Object.keys(room.votes).length, hasVoted:!!room.votes[player.id], total:[...room.players.values()].filter(p=>p.online).length,
@@ -102,7 +102,9 @@ function assign(room){
     if(p.observations.length===0)p.observations=[{...ex.facts[p.slot%ex.facts.length],index:p.slot%ex.facts.length}];
   }
 }
-function start(room){room.phase='investigating';room.evidence=[];room.sharedClues.clear();room.submissions.clear();room.votes={};room.result=null;room.revealed=null;room.notice=null;room.publicReveal={};room.publicHint=null;room.recoveryUsed=false;room.deadline=Date.now()+170000;room.startedAt=Date.now();assign(room);emit(room);}
+function start(room){room.phase='investigating';room.evidence=[];room.sharedClues.clear();room.submissions.clear();room.votes={};room.result=null;room.revealed=null;room.notice=null;room.publicReveal={};room.publicHint=null;room.recoveryUsed=false;room.deadline=Date.now()+170000;room.startedAt=Date.now();assign(room);emit(room);if(room.solo)scheduleBots(room);}
+function scheduleBots(room){[...room.players.values()].filter(p=>p.isBot).forEach((bot,index)=>setTimeout(()=>playBotClue(room,bot),1200+index*2200));}
+function playBotClue(room,bot){if(room.phase!=='investigating')return;const fact=bot.observations[0];if(!fact)return;const ex=EXHIBITS[room.exhibitIndex],stationId=FACT_STATIONS[ex.id][fact.id];bot.location=stationId;emit(room);setTimeout(()=>{if(room.phase!=='investigating'||room.sharedClues.has(bot.id+':'+fact.id))return;room.sharedClues.add(bot.id+':'+fact.id);room.evidence.push({id:crypto.randomUUID(),factId:fact.id,label:fact.label,text:fact.variants[variantIndex(room,bot,fact)],playerId:bot.id,playerName:bot.name});emit(room);},1100);}
 function endExhibit(room,success){if(success){const corroborated=new Set(room.evidence.map(e=>e.factId)).size;room.exhibitScore=100+room.anchors*10+Math.min(corroborated,4)*5;room.score=(room.score||0)+room.exhibitScore;room.exhibitsSolved=(room.exhibitsSolved||0)+1;}room.phase=success?(room.exhibitIndex===EXHIBITS.length-1?'won':'solved'):'failed';room.result=success?'The reconstruction holds.':'The reconstruction does not hold.';room.revealed=EXHIBITS[room.exhibitIndex].reveal;emit(room);}
 function resolveVotes(room){const active=[...room.players.values()].filter(p=>p.online);if(Object.keys(room.votes).length<active.length){emit(room);return;}const values=Object.values(room.votes),same=(a,b)=>Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>a[k]===b[k]),unanimous=values.length>0&&values.every(v=>same(v,values[0])),answer=EXHIBITS[room.exhibitIndex].answer;if(unanimous&&same(values[0],answer)){endExhibit(room,true);return;}room.votes={};room.submissions.clear();room.attempts=(room.attempts||0)+1;room.notice='The reconstruction does not hold. Revisit the evidence and discuss what each visitor saw.';if(room.attempts>=2&&!room.recoveryUsed){room.anchors=Math.min(4,room.anchors+1);room.recoveryUsed=true;room.attempts=0;room.publicHint='A fresh Anchor returns. Re-read the shared clues and compare details you have not verified.';}emit(room);}
 
@@ -113,8 +115,9 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET'&&url.pathname==='/api/health')return json(res,200,{ok:true,rooms:rooms.size});
     if(req.method==='POST'&&url.pathname==='/api/rooms'){
       const body=await readBody(req);const name=String(body.name||'Night Guest').trim().slice(0,24)||'Night Guest';let code;do{code=roomCode()}while(rooms.has(code));
-      const id=crypto.randomUUID(),secret=token();const p={id,token:secret,name,ready:true,online:true,distortion:0,slot:0,role:'Host',observations:[]};
-      const room={code,hostId:id,players:new Map([[id,p]]),phase:'lobby',exhibitIndex:0,anchors:3,evidence:[],sharedClues:new Set(),submissions:new Set(),votes:{},listeners:new Set(),seed:crypto.randomInt(1,1000000),version:0,result:null,revealed:null,deadline:null,startedAt:null,recoveryUsed:false,score:0,exhibitsSolved:0,createdAt:Date.now()};rooms.set(code,room);return json(res,201,{code,playerId:id,token:secret});
+      const id=crypto.randomUUID(),secret=token(),solo=body.solo===true;const p={id,token:secret,name,ready:true,online:true,distortion:0,slot:0,role:'Host',observations:[]};
+      const players=new Map([[id,p]]);if(solo){['Ada Vale','Mr. Bell','The Night Guard'].forEach((botName,index)=>{const botId=crypto.randomUUID();players.set(botId,{id:botId,token:null,name:botName,ready:true,online:true,isBot:true,distortion:0,slot:index+1,role:'Museum Witness',observations:[]});});}
+      const room={code,hostId:id,players,solo,phase:'lobby',exhibitIndex:0,anchors:3,evidence:[],sharedClues:new Set(),submissions:new Set(),votes:{},listeners:new Set(),seed:crypto.randomInt(1,1000000),version:0,result:null,revealed:null,deadline:null,startedAt:null,recoveryUsed:false,score:0,exhibitsSolved:0,createdAt:Date.now()};rooms.set(code,room);return json(res,201,{code,playerId:id,token:secret});
     }
     if(req.method==='POST'&&url.pathname==='/api/join'){
       const body=await readBody(req),code=String(body.code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');const room=rooms.get(code);if(!room)return publicError(res,404,'That room code was not found.');if(room.phase!=='lobby')return publicError(res,409,'This investigation is already underway.');if(room.players.size>=4)return publicError(res,409,'This room is full.');
@@ -122,11 +125,11 @@ const server=http.createServer(async(req,res)=>{
     }
     if(req.method==='GET'&&url.pathname==='/api/events'){
       const code=(url.searchParams.get('code')||'').toUpperCase(),room=rooms.get(code),id=url.searchParams.get('playerId'),secret=url.searchParams.get('token'),p=room?.players.get(id);if(!p||p.token!==secret)return publicError(res,401,'Reconnect details are invalid.');
-      p.online=true;res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache, no-transform','Connection':'keep-alive'});res.write('retry: 2000\n');const push=()=>res.write(`data: ${JSON.stringify(safeRoom(room,p))}\n\n`);room.listeners.add(push);emit(room);const heartbeat=setInterval(()=>res.write(':keepalive\n\n'),20000);req.on('close',()=>{clearInterval(heartbeat);room.listeners.delete(push);p.online=false;delete room.votes[p.id];room.submissions.delete('answer:'+p.id);if(room.hostId===p.id){const replacement=[...room.players.values()].find(other=>other.online);if(replacement)room.hostId=replacement.id;}if(room.phase==='investigating')resolveVotes(room);else emit(room);});return;
+      p.online=true;res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache, no-transform','Connection':'keep-alive'});res.write('retry: 2000\n');const push=()=>res.write(`data: ${JSON.stringify(safeRoom(room,p))}\n\n`);room.listeners.add(push);emit(room);const heartbeat=setInterval(()=>res.write(':keepalive\n\n'),20000);req.on('close',()=>{clearInterval(heartbeat);room.listeners.delete(push);p.online=false;delete room.votes[p.id];room.submissions.delete('answer:'+p.id);if(room.hostId===p.id){const replacement=[...room.players.values()].find(other=>other.online&&!other.isBot);if(replacement)room.hostId=replacement.id;}if(room.phase==='investigating')resolveVotes(room);else emit(room);});return;
     }
     if(req.method==='POST'&&url.pathname==='/api/action'){
       const b=await readBody(req),room=rooms.get(String(b.code||'').toUpperCase()),p=playerAuth(room,b);if(!p)return publicError(res,401,'Your room session expired. Rejoin with your room code.');if(room.phase==='lobby'){
-        if(b.type==='start'){if(p.id!==room.hostId)return publicError(res,403,'Only the host can begin.');if(room.players.size<2)return publicError(res,409,'Invite at least one more visitor before starting.');start(room);return json(res,200,{ok:true});}
+        if(b.type==='start'){if(p.id!==room.hostId)return publicError(res,403,'Only the host can begin.');if([...room.players.values()].filter(visitor=>visitor.online||visitor.isBot).length<2)return publicError(res,409,'Invite another visitor, or start a solo room with bot witnesses.');start(room);return json(res,200,{ok:true});}
         if(b.type==='leave'){room.players.delete(p.id);if(room.players.size===0)rooms.delete(room.code);else{if(room.hostId===p.id)room.hostId=room.players.keys().next().value;emit(room);}return json(res,200,{ok:true});}
         return publicError(res,409,'That action is not available in the lobby.');
       }
@@ -150,7 +153,7 @@ const server=http.createServer(async(req,res)=>{
       }
       if(b.type==='solve'){
         if(room.phase!=='investigating')return publicError(res,409,'This exhibit is not accepting answers.');if(Object.keys(b.answer||{}).length!==Object.keys(EXHIBITS[room.exhibitIndex].answer).length)return publicError(res,400,'Complete each part of the reconstruction.');
-        if(room.submissions.has('answer:'+p.id))return publicError(res,409,'Your group answer has already been recorded.');room.submissions.add('answer:'+p.id);room.votes[p.id]=b.answer;
+        if(room.submissions.has('answer:'+p.id))return publicError(res,409,'Your group answer has already been recorded.');room.submissions.add('answer:'+p.id);room.votes[p.id]=b.answer;if(room.solo)for(const bot of room.players.values())if(bot.isBot)room.votes[bot.id]=EXHIBITS[room.exhibitIndex].answer;
         resolveVotes(room);return json(res,200,{ok:true,waiting:room.phase==='investigating'&&!room.votes[p.id]});
       }
       if(b.type==='next') {if(p.id!==room.hostId)return publicError(res,403,'The host advances the investigation.');if(room.phase!=='solved')return publicError(res,409,'Finish the exhibit first.');room.exhibitIndex++;room.anchors=Math.max(1,room.anchors);room.attempts=0;start(room);return json(res,200,{ok:true});}
