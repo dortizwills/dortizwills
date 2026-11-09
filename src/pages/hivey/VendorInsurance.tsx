@@ -1,5 +1,9 @@
+import s01 from '@/assets/hivey-01-event-day-overview.png.asset.json';
+import s02 from '@/assets/hivey-02-arrival-instructions.png.asset.json';
+import s03 from '@/assets/hivey-03-booth-map.png.asset.json';
+import s04 from '@/assets/hivey-04-role-based-event-access.png.asset.json';
 import InsuranceGrowthChart from '@/components/case-study/InsuranceGrowthChart';
-import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, QuoteBlock } from '@/components/case-study/CaseStudyParts';
+import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, ScreenshotGallery, QuoteBlock } from '@/components/case-study/CaseStudyParts';
 
 const VendorInsurance = () => (
   <CaseStudyShell>
@@ -43,6 +47,17 @@ const VendorInsurance = () => (
     ]}>
       <InsuranceGrowthChart />
     </FinancialImpact>
+    <ScreenshotGallery
+      title="Event-day vendor operations"
+      intro="These screens show day-of vendor operations in the Hivey mobile app. They are separate from the insurance flow described above."
+      variant="mobile"
+      shots={[
+        { src: s01.url, alt: 'Hivey mobile event-day overview showing vendor check-in progress', caption: 'Event-day overview with check-in progress' },
+        { src: s02.url, alt: 'Hivey mobile arrival instructions screen for vendors', caption: 'Arrival instructions' },
+        { src: s03.url, alt: 'Hivey mobile booth map with color-coded booth markers', caption: 'Booth map with color-coded markers' },
+        { src: s04.url, alt: 'Hivey mobile sign-in screen with role-based access request', caption: 'Role-based sign in and access request' },
+      ]}
+    />
     <CaseStudySection title="Takeaway">
       <p>Removing a decision beat adding information. 
 

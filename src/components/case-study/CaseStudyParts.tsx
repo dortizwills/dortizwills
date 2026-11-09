@@ -115,3 +115,35 @@ export const ProjectNavigation = ({ current }: { current: string }) => {
 export const CaseStudyShell = ({ children }: { children: ReactNode }) => (
   <main className="mx-auto max-w-[1600px] px-4 pb-16 pt-16 md:px-8">{children}</main>
 );
+
+export interface GalleryShot { src: string; alt: string; caption: string }
+
+const HOSTED_ORIGIN = 'https://dortiz-wills.lovable.app';
+
+/** Captioned screenshot sequence. Pointer URLs resolve against the Lovable-hosted origin so they also load on external hosting. */
+export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop' }: {
+  title: string; intro?: string; shots: GalleryShot[]; variant?: 'mobile' | 'desktop';
+}) => (
+  <section className="border-t border-editorial-line py-16" aria-label={title}>
+    <div className="mb-10 max-w-3xl">
+      <h2 className="text-2xl font-medium text-editorial-fg md:text-3xl">{title}</h2>
+      {intro && <p className="mt-4 text-lg leading-relaxed text-editorial-muted">{intro}</p>}
+    </div>
+    <ol className={variant === 'mobile'
+      ? 'grid grid-cols-2 gap-6 lg:grid-cols-4'
+      : 'grid gap-8 md:grid-cols-2'}>
+      {shots.map((s, i) => (
+        <li key={s.src}>
+          <figure>
+            <div className="overflow-hidden rounded-lg border border-editorial-line bg-editorial-media">
+              <img src={new URL(s.src, HOSTED_ORIGIN).href} alt={s.alt} loading="lazy" className="w-full" />
+            </div>
+            <figcaption className="mt-3 text-sm text-editorial-muted">
+              <span className="mr-2 font-semibold text-editorial-accent">{String(i + 1).padStart(2, '0')}</span>{s.caption}
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ol>
+  </section>
+);

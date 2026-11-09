@@ -1,5 +1,8 @@
+import s05 from '@/assets/hivey-05-event-creation-layout-templates.png.asset.json';
+import s06 from '@/assets/hivey-06-event-creation-categories-fees.png.asset.json';
+import s07 from '@/assets/hivey-07-event-creation-compliance-docs.png.asset.json';
 import combinedBusinessImpact from '@/assets/combined-business-impact.png.asset.json';
-import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation } from '@/components/case-study/CaseStudyParts';
+import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, ScreenshotGallery } from '@/components/case-study/CaseStudyParts';
 
 const EnterpriseCheckout = () => (
   <CaseStudyShell>
@@ -44,6 +47,14 @@ const EnterpriseCheckout = () => (
       <MediaBlock src={new URL(combinedBusinessImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Bar chart comparing baseline and projected annual recurring revenue, events, vendors, and total partnership value" />
       <p>These are projections of capacity, not measured growth.</p>
     </FinancialImpact>
+    <ScreenshotGallery
+      title="New event creation"
+      shots={[
+        { src: s05.url, alt: 'Create New Event step for choosing a layout and templates', caption: 'Layout and templates' },
+        { src: s06.url, alt: 'Create New Event step for setting vendor categories and fees', caption: 'Vendor categories and fees' },
+        { src: s07.url, alt: 'Create New Event step for required compliance documents', caption: 'Compliance documents' },
+      ]}
+    />
     <CaseStudySection title="Takeaway">
       <p>Enterprise design is systems design. A customer's requirements often expose a weakness in the product, and fixing the system serves that customer and every customer after.</p>
     </CaseStudySection>

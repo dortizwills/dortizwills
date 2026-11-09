@@ -1,5 +1,10 @@
+import s08 from '@/assets/hivey-08-onboarding-start.png.asset.json';
+import s09 from '@/assets/hivey-09-onboarding-categories.png.asset.json';
+import s10 from '@/assets/hivey-10-onboarding-required-docs.png.asset.json';
+import s11 from '@/assets/hivey-11-onboarding-complete.png.asset.json';
+import s12 from '@/assets/hivey-12-events-dashboard.png.asset.json';
 import projectedFinancialImpact from '@/assets/projected-financial-impact-inline.png.asset.json';
-import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation } from '@/components/case-study/CaseStudyParts';
+import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, ScreenshotGallery } from '@/components/case-study/CaseStudyParts';
 
 const SelfServiceOnboarding = () => (
   <CaseStudyShell>
@@ -51,6 +56,16 @@ const SelfServiceOnboarding = () => (
       <p>Customer Success: supporting complex existing customers instead of repeating initial setup.</p>
       <p>Executive Strategy: more leadership time for partnerships, business development, and pursuing venture capitol.</p>
     </CaseStudySection>
+    <ScreenshotGallery
+      title="Onboarding sequence"
+      shots={[
+        { src: s08.url, alt: 'Welcome to Hivey account setup screen that starts vendor onboarding', caption: 'Onboarding start' },
+        { src: s09.url, alt: 'Onboarding step for selecting spaces and categories', caption: 'Spaces and categories' },
+        { src: s10.url, alt: 'Onboarding step listing required documents', caption: 'Required documents' },
+        { src: s11.url, alt: 'Onboarding completion confirmation screen', caption: 'Onboarding complete' },
+        { src: s12.url, alt: 'Hivey events dashboard shown after onboarding', caption: 'Events dashboard' },
+      ]}
+    />
     <CaseStudySection title="Takeaway">
       <p>Good onboarding doesn't just teach the product. It frees the team. Human support is reserved for the moments where expertise adds value.</p>
     </CaseStudySection>
