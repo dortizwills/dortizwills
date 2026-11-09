@@ -207,7 +207,7 @@ Daniel Ortiz-Wills
       );
 
     } catch (emailError) {
-      console.error("Email sending failed:", emailError.name);
+      console.error("Email sending failed:", emailError instanceof Error ? emailError.name : emailError);
       
       return new Response(
         JSON.stringify({ 
@@ -223,7 +223,7 @@ Daniel Ortiz-Wills
     }
 
   } catch (error) {
-    console.error("Error in contact form function:", error.name);
+    console.error("Error in contact form function:", error instanceof Error ? error.name : error);
     return new Response(
       JSON.stringify({ 
         error: "Unable to process your request. Please try again later."
