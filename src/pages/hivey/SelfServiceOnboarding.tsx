@@ -39,6 +39,18 @@ const SelfServiceOnboarding = () => (
     <CaseStudySection title="Results">
       <p>Without a support call, a new host connected Stripe, created their own fee structures, built booth templates, and launched an event that received 17 paid applications for their first event — all without a single touchpoint from our staff.</p>
       <p>This proved successful activation, not just feature usage. Now hosts shifted from asking "How do I set this up?" to "I can figure this out myself."</p>
+      <ScreenshotGallery
+        title="Onboarding sequence"
+        embedded
+        cropAspect="1247 / 670"
+        shots={[
+          { src: s08.url, alt: 'Welcome to Hivey account setup screen that starts vendor onboarding', caption: 'Onboarding start' },
+          { src: s09.url, alt: 'Onboarding step for selecting spaces and categories', caption: 'Spaces and categories' },
+          { src: s10.url, alt: 'Onboarding step listing required documents', caption: 'Required documents' },
+          { src: s11.url, alt: 'Onboarding completion confirmation screen', caption: 'Onboarding complete' },
+          { src: s12.url, alt: 'Hivey events dashboard shown after onboarding', caption: 'Events dashboard' },
+        ]}
+      />
     </CaseStudySection>
     <MediaBlock />
     <FinancialImpact label="Modeled opportunity. Not measured cash savings." paragraphs={[
@@ -56,16 +68,6 @@ const SelfServiceOnboarding = () => (
       <p>Customer Success: supporting complex existing customers instead of repeating initial setup.</p>
       <p>Executive Strategy: more leadership time for partnerships, business development, and pursuing venture capitol.</p>
     </CaseStudySection>
-    <ScreenshotGallery
-      title="Onboarding sequence"
-      shots={[
-        { src: s08.url, alt: 'Welcome to Hivey account setup screen that starts vendor onboarding', caption: 'Onboarding start' },
-        { src: s09.url, alt: 'Onboarding step for selecting spaces and categories', caption: 'Spaces and categories' },
-        { src: s10.url, alt: 'Onboarding step listing required documents', caption: 'Required documents' },
-        { src: s11.url, alt: 'Onboarding completion confirmation screen', caption: 'Onboarding complete' },
-        { src: s12.url, alt: 'Hivey events dashboard shown after onboarding', caption: 'Events dashboard' },
-      ]}
-    />
     <CaseStudySection title="Takeaway">
       <p>Good onboarding doesn't just teach the product. It frees the team. Human support is reserved for the moments where expertise adds value.</p>
     </CaseStudySection>

@@ -121,14 +121,14 @@ export interface GalleryShot { src: string; alt: string; caption: string }
 const HOSTED_ORIGIN = 'https://dortiz-wills.lovable.app';
 
 /** Captioned screenshot sequence. Pointer URLs resolve against the Lovable-hosted origin so they also load on external hosting. */
-export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop' }: {
+export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop', cropAspect, embedded }: {
   title: string; intro?: string; shots: GalleryShot[]; variant?: 'mobile' | 'desktop';
-}) => (
-  <section className="border-t border-editorial-line py-16" aria-label={title}>
-    <div className="mb-10 max-w-3xl">
-      <h2 className="text-2xl font-medium text-editorial-fg md:text-3xl">{title}</h2>
-      {intro && <p className="mt-4 text-lg leading-relaxed text-editorial-muted">{intro}</p>}
-    </div>
+  /** Crop every image from the bottom to this width/height ratio so they share one height. */
+  cropAspect?: string;
+  /** Render without its own section heading/border, e.g. inside another section. */
+  embedded?: boolean;
+}) => {
+  const list = (
     <ol className={variant === 'mobile'
       ? 'grid grid-cols-2 gap-6 lg:grid-cols-4'
       : 'grid gap-8 md:grid-cols-2'}>
@@ -136,7 +136,9 @@ export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop' }: 
         <li key={s.src}>
           <figure>
             <div className="overflow-hidden rounded-lg border border-editorial-line bg-editorial-media">
-              <img src={new URL(s.src, HOSTED_ORIGIN).href} alt={s.alt} loading="lazy" className="w-full" />
+              <img src={new URL(s.src, HOSTED_ORIGIN).href} alt={s.alt} loading="lazy"
+                className={cropAspect ? 'w-full object-cover object-top' : 'w-full'}
+                style={cropAspect ? { aspectRatio: cropAspect } : undefined} />
             </div>
             <figcaption className="mt-3 text-sm text-editorial-muted">
               <span className="mr-2 font-semibold text-editorial-accent">{String(i + 1).padStart(2, '0')}</span>{s.caption}
@@ -145,5 +147,15 @@ export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop' }: 
         </li>
       ))}
     </ol>
-  </section>
-);
+  );
+  if (embedded) return <div className="mt-10" aria-label={title}>{list}</div>;
+  return (
+    <section className="border-t border-editorial-line py-16" aria-label={title}>
+      <div className="mb-10 max-w-3xl">
+        <h2 className="text-2xl font-medium text-editorial-fg md:text-3xl">{title}</h2>
+        {intro && <p className="mt-4 text-lg leading-relaxed text-editorial-muted">{intro}</p>}
+      </div>
+      {list}
+    </section>
+  );
+};
