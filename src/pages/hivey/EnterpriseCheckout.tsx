@@ -1,6 +1,7 @@
-import s05 from '@/assets/hivey-05-event-creation-layout-templates.png.asset.json';
-import s06 from '@/assets/hivey-06-event-creation-categories-fees.png.asset.json';
-import s07 from '@/assets/hivey-07-event-creation-compliance-docs.png.asset.json';
+import s01 from '@/assets/hivey-01-event-day-overview.png.asset.json';
+import s02 from '@/assets/hivey-02-arrival-instructions.png.asset.json';
+import s03 from '@/assets/hivey-03-booth-map.png.asset.json';
+import s04 from '@/assets/hivey-04-role-based-event-access.png.asset.json';
 import combinedBusinessImpact from '@/assets/combined-business-impact.png.asset.json';
 import { CaseStudyShell, CaseStudySection, Decision, FinancialImpact, MediaBlock, MetricGrid, ProjectHero, ProjectNavigation, ScreenshotGallery } from '@/components/case-study/CaseStudyParts';
 
@@ -48,11 +49,14 @@ const EnterpriseCheckout = () => (
       <p>These are projections of capacity, not measured growth.</p>
     </FinancialImpact>
     <ScreenshotGallery
-      title="New event creation"
+      title="Enterprise requests we answered"
+      intro="These screens show day-of vendor operations in the Hivey mobile app — the operational requests the enterprise partner brought, answered through the platform."
+      variant="mobile"
       shots={[
-        { src: s05.url, alt: 'Create New Event step for choosing a layout and templates', caption: 'Layout and templates' },
-        { src: s06.url, alt: 'Create New Event step for setting vendor categories and fees', caption: 'Vendor categories and fees' },
-        { src: s07.url, alt: 'Create New Event step for required compliance documents', caption: 'Compliance documents' },
+        { src: s01.url, alt: 'Hivey mobile event-day overview showing vendor check-in progress', caption: 'Event-day overview with check-in progress' },
+        { src: s02.url, alt: 'Hivey mobile arrival instructions screen for vendors', caption: 'Arrival instructions' },
+        { src: s03.url, alt: 'Hivey mobile booth map with color-coded booth markers', caption: 'Booth map with color-coded markers' },
+        { src: s04.url, alt: 'Hivey mobile sign-in screen with role-based access request', caption: 'Role-based sign in and access request' },
       ]}
     />
     <CaseStudySection title="Takeaway">
