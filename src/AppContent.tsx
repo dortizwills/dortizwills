@@ -29,6 +29,7 @@ import GrammyMuseum from './pages/GrammyMuseum';
 import VendorInsurance from './pages/hivey/VendorInsurance';
 import EnterpriseCheckout from './pages/hivey/EnterpriseCheckout';
 import SelfServiceOnboarding from './pages/hivey/SelfServiceOnboarding';
+import RoomScanner from './pages/lab/RoomScanner';
 
 const AppContent: FC = () => {
   const location = useLocation();
@@ -66,6 +67,7 @@ const AppContent: FC = () => {
           <Route path="/graphic-designs/social-media" element={<SocialMedia />} />
           <Route path="/graphic-designs/case-studies" element={<CaseStudies />} />
           <Route path="/graphic-designs/event-designs" element={<EventDesigns />} />
+          <Route path="/lab/room-scanner" element={<RoomScanner />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
