@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { Canvas, ThreeEvent } from '@react-three/fiber';
-import { OrbitControls, Stage, Grid, Line, Html, useGLTF, Environment, Lightformer } from '@react-three/drei';
-import * as THREE from 'three';
+import RoomStudio from './room-scanner/RoomStudio';
+import CaptureModal, { type CaptureResult } from './room-scanner/CaptureModal';
+import type { CatalogItem } from './room-scanner/studioRules';
 import { Client, handle_file } from '@gradio/client';
 
 // Hidden project: not linked from navigation.
@@ -9,62 +9,11 @@ const SAMPLE_GLB = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-A
 const FALLBACK_SAMPLE = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ABeautifulGame/glTF-Binary/ABeautifulGame.glb';
 const STORAGE_KEY = 'room-scanner-scans';
 
-type Scan = { id: string; name: string; url: string; createdAt: string; thumb?: string; local?: boolean };
+type Scan = { id: string; name: string; url?: string; createdAt: string; thumb?: string; local?: boolean };
 
 const loadScans = (): Scan[] => {
   try { return (JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]') as Scan[]).filter(s => !s.local); } catch { return []; }
 };
-
-function Model({ url, wireframe, onPick }: { url: string; wireframe: boolean; onPick: (p: THREE.Vector3) => void }) {
-  const { scene } = useGLTF(url);
-  useEffect(() => {
-    scene.traverse((o) => {
-      const m = (o as THREE.Mesh).material as THREE.Material | THREE.Material[] | undefined;
-      if (!m) return;
-      (Array.isArray(m) ? m : [m]).forEach((mm) => { (mm as THREE.MeshStandardMaterial).wireframe = wireframe; });
-    });
-  }, [scene, wireframe]);
-  return <primitive object={scene} onClick={(e: ThreeEvent<MouseEvent>) => { e.stopPropagation(); onPick(e.point.clone()); }} />;
-}
-
-function Viewer({ scan, onClose }: { scan: Scan; onClose: () => void }) {
-  const [wire, setWire] = useState(false);
-  const [grid, setGrid] = useState(true);
-  const [measuring, setMeasuring] = useState(false);
-  const [pts, setPts] = useState<THREE.Vector3[]>([]);
-  const [camKey, setCamKey] = useState(0);
-  const pick = (p: THREE.Vector3) => { if (!measuring) return; setPts((cur) => (cur.length >= 2 ? [p] : [...cur, p])); };
-  const dist = pts.length === 2 ? pts[0].distanceTo(pts[1]) : null;
-  const btn = (active: boolean) => `rounded-full border px-4 py-2 text-sm ${active ? 'bg-foreground text-background' : 'border-border bg-background text-foreground'}`;
-  return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-background">
-      <div className="flex flex-wrap items-center gap-2 border-b border-border p-3">
-        <strong className="mr-auto font-heading">{scan.name}</strong>
-        <button className={btn(false)} onClick={() => setCamKey((k) => k + 1)}>Reset camera</button>
-        <button className={btn(wire)} onClick={() => setWire(!wire)}>Wireframe</button>
-        <button className={btn(grid)} onClick={() => setGrid(!grid)}>Grid</button>
-        <button className={btn(measuring)} onClick={() => { setMeasuring(!measuring); setPts([]); }}>Measure</button>
-        <button className={btn(false)} onClick={onClose}>Close</button>
-      </div>
-      {measuring && <p className="px-3 py-2 text-sm text-muted-foreground">{dist !== null ? `Distance: ${dist.toFixed(2)} units (relative scale)` : `Click ${2 - pts.length} point(s) on the model`}</p>}
-      <div className="relative flex-1" data-scene-ready>
-        <Canvas key={camKey} camera={{ position: [4, 3, 6], fov: 50 }}>
-          <Environment><Lightformer intensity={2} position={[0, 5, 0]} scale={[10, 10, 1]} /></Environment>
-          <Suspense fallback={<Html center>Loading model…</Html>}>
-            <Stage adjustCamera intensity={0.6} environment={null} shadows={false}>
-              <Model url={scan.url} wireframe={wire} onPick={pick} />
-            </Stage>
-          </Suspense>
-          {grid && <Grid infiniteGrid cellSize={0.5} sectionSize={2} fadeDistance={40} />}
-          {pts.map((p, i) => <mesh key={i} position={p}><sphereGeometry args={[0.04]} /><meshBasicMaterial color="#e5484d" /></mesh>)}
-          {pts.length === 2 && <Line points={pts} color="#e5484d" lineWidth={3} />}
-          {pts.length === 2 && dist !== null && <Html position={pts[0].clone().lerp(pts[1], 0.5)} center><span className="rounded bg-foreground px-2 py-1 text-xs text-background">{dist.toFixed(2)}</span></Html>}
-          <OrbitControls makeDefault />
-        </Canvas>
-      </div>
-    </div>
-  );
-}
 
 function AdSlot({ label }: { label: string }) {
   return <div className="my-6 rounded-xl border border-dashed border-border p-4 text-center text-xs uppercase tracking-wide text-muted-foreground">Advertisement · {label}</div>;
@@ -79,6 +28,16 @@ export default function RoomScanner() {
   const [spaceId, setSpaceId] = useState('facebook/vggt');
   const [scans, setScans] = useState<Scan[]>(loadScans);
   const [open, setOpen] = useState<Scan | null>(null);
+  const [capture, setCapture] = useState<'room' | 'object' | null>(null);
+  const [myItems, setMyItems] = useState<CatalogItem[]>([]);
+  const addObject = (name: string, extra: Partial<CatalogItem>) => setMyItems((c) => [...c, { key: crypto.randomUUID(), name, kind: 'scanned', size: [0.6, 0.6, 0.6], color: '#999', mount: 'floor', ...extra }]);
+  const onCaptured = (r: CaptureResult) => {
+    setCapture(null);
+    if (r.mode === 'object') { addObject(`Scanned object ${myItems.length + 1}`, { texture: r.thumbs[0] }); if (!open) addScan({ id: crypto.randomUUID(), name: 'Room shell', createdAt: new Date().toISOString(), local: true }); return; }
+    setPhotos(r.frames.slice(0, 8)); setTab('scan');
+    setStatus('Live scan captured. Generating your 3D room from the keyframes…');
+    setTimeout(() => generateFrom(r.frames.filter((_, i) => i % Math.ceil(r.frames.length / 8) === 0).slice(0, 8)), 0);
+  };
   const thumbs = useMemo(() => photos.map((f) => URL.createObjectURL(f)), [photos]);
   const sessionRef = useRef<Scan[]>([]);
 
@@ -86,7 +45,8 @@ export default function RoomScanner() {
 
   const addScan = (s: Scan) => { setScans((c) => [s, ...c]); sessionRef.current.push(s); setTab('studio'); setOpen(s); };
 
-  const generate = async () => {
+  const generate = () => generateFrom(photos);
+  const generateFrom = async (files: File[]) => {
     setBusy(true); setFailed(false); setStatus('Connecting to the free GPU space…');
     try {
       const client = await Client.connect(spaceId, {
@@ -96,7 +56,7 @@ export default function RoomScanner() {
       const endpoint = Object.keys(api.named_endpoints)[0];
       if (!endpoint) throw new Error('No endpoint found');
       setStatus(`In queue for ${endpoint}…`);
-      const job = client.submit(endpoint, [photos.map((f) => handle_file(f))]);
+      const job = client.submit(endpoint, [files.map((f) => handle_file(f))]);
       let glb: string | undefined;
       for await (const msg of job) {
         if (msg.type === 'status') setStatus(`Queue: ${msg.stage}${msg.position != null ? ` · position ${msg.position}` : ''}`);
@@ -117,11 +77,12 @@ export default function RoomScanner() {
     } catch (e) {
       console.error(e);
       setFailed(true);
-      setStatus('The free GPU queue is busy or rate-limited right now. Try again in a few minutes, switch the space in settings, or load the sample room.');
+      setStatus('The free GPU queue is busy or rate-limited right now. Try again, switch the space in settings, or open the room shell to start designing.');
     } finally { setBusy(false); }
   };
 
   const onGlb = (f?: File) => { if (!f) return; addScan({ id: crypto.randomUUID(), name: f.name, url: URL.createObjectURL(f), createdAt: new Date().toISOString(), local: true }); };
+  const openShell = () => addScan({ id: crypto.randomUUID(), name: 'Room shell', createdAt: new Date().toISOString(), local: true });
   const loadSample = () => addScan({ id: crypto.randomUUID(), name: 'Sample room', url: SAMPLE_GLB, createdAt: new Date().toISOString() });
 
   const tabBtn = (t: typeof tab, l: string) => <button onClick={() => setTab(t)} className={`rounded-full px-5 py-2 text-sm ${tab === t ? 'bg-foreground text-background' : 'border border-border'}`}>{l}</button>;
@@ -129,12 +90,21 @@ export default function RoomScanner() {
   return (
     <main className="mx-auto max-w-[1600px] px-4 py-10 md:px-8">
       <h1 className="font-heading text-4xl font-semibold md:text-5xl">3D Room Scanner</h1>
-      <p className="mt-2 max-w-xl text-muted-foreground">Capture a room with photos or import a scan, then explore and measure it in 3D.</p>
+      <p className="mt-2 max-w-xl text-muted-foreground">Scan a room, then furnish it, remodel walls and floors, and measure it in 3D.</p>
       <div className="mt-6 flex gap-2">{tabBtn('scan', 'Scan & Reconstruct')}{tabBtn('studio', `Studio & Gallery (${scans.length})`)}</div>
       <AdSlot label="Top banner" />
 
       {tab === 'scan' ? (
         <section className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-border p-6 md:col-span-2">
+            <h2 className="font-heading text-xl font-semibold">Live scan</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Record a walkthrough with your camera. Keyframes are captured every second and turned into a 3D room. Scan an object to drop it into your space.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button onClick={() => setCapture('room')} className="rounded-full bg-foreground px-6 py-3 text-sm text-background">Scan room</button>
+              <button onClick={() => setCapture('object')} className="rounded-full border border-border px-6 py-3 text-sm">Scan object</button>
+              <button onClick={openShell} className="rounded-full border border-border px-6 py-3 text-sm">Design in room shell</button>
+            </div>
+          </div>
           <div className="rounded-2xl border border-border p-6">
             <h2 className="font-heading text-xl font-semibold">Room photos</h2>
             <p className="mt-1 text-sm text-muted-foreground">Take or upload 3–8 overlapping photos.</p>
@@ -142,6 +112,7 @@ export default function RoomScanner() {
             {thumbs.length > 0 && <div className="mt-4 grid grid-cols-4 gap-2">{thumbs.map((t) => <img key={t} src={t} alt="Room photo" className="aspect-square rounded-lg object-cover" />)}</div>}
             <button disabled={busy || photos.length < 3} onClick={generate} className="mt-4 rounded-full bg-foreground px-6 py-3 text-sm text-background disabled:opacity-40">{busy ? 'Generating…' : 'Generate 3D Room'}</button>
             {status && <div className="mt-4"><div className="h-1 overflow-hidden rounded bg-muted"><div className={`h-full bg-foreground ${busy ? 'w-1/2 animate-pulse' : 'w-full'}`} /></div><p className="mt-2 text-sm text-muted-foreground">{status}</p></div>}
+            {failed && <button onClick={openShell} className="mt-3 mr-2 rounded-full bg-foreground px-5 py-2 text-sm text-background">Open room shell</button>}
             {failed && <button onClick={loadSample} className="mt-3 rounded-full border border-border px-5 py-2 text-sm">Load Sample 3D Room</button>}
             <details className="mt-4 text-sm"><summary className="cursor-pointer text-muted-foreground">Settings</summary>
               <select value={spaceId} onChange={(e) => setSpaceId(e.target.value)} className="mt-2 rounded border border-border bg-background p-2">
@@ -167,7 +138,8 @@ export default function RoomScanner() {
         </section>
       )}
       <AdSlot label="Bottom banner" />
-      {open && <Viewer scan={open} onClose={() => setOpen(null)} />}
+      {open && <RoomStudio scanUrl={open.url} scanName={open.name} myItems={myItems} onClose={() => setOpen(null)} onScanObject={() => setCapture('object')} onAddObjectGlb={(f) => addObject(f.name.replace(/\.gl(b|tf)$/i, ''), { modelUrl: URL.createObjectURL(f), size: [0.8, 0.8, 0.8] })} />}
+      {capture && <CaptureModal initialMode={capture} onDone={onCaptured} onClose={() => setCapture(null)} />}
     </main>
   );
 }
