@@ -2,6 +2,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import RoomStudio from './room-scanner/RoomStudio';
 import CaptureModal, { type CaptureResult } from './room-scanner/CaptureModal';
 import type { CatalogItem } from './room-scanner/studioRules';
+import { composeRoom, type RoomTextures } from './room-scanner/composeRoom';
 import { Client, handle_file } from '@gradio/client';
 
 // Hidden project: not linked from navigation.
@@ -9,7 +10,7 @@ const SAMPLE_GLB = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-A
 const FALLBACK_SAMPLE = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ABeautifulGame/glTF-Binary/ABeautifulGame.glb';
 const STORAGE_KEY = 'room-scanner-scans';
 
-type Scan = { id: string; name: string; url?: string; createdAt: string; thumb?: string; local?: boolean };
+type Scan = { id: string; name: string; url?: string; createdAt: string; thumb?: string; local?: boolean; textures?: RoomTextures };
 
 const loadScans = (): Scan[] => {
   try { return (JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]') as Scan[]).filter(s => !s.local); } catch { return []; }
@@ -33,10 +34,12 @@ export default function RoomScanner() {
   const addObject = (name: string, extra: Partial<CatalogItem>) => setMyItems((c) => [...c, { key: crypto.randomUUID(), name, kind: 'scanned', size: [0.6, 0.6, 0.6], color: '#999', mount: 'floor', ...extra }]);
   const onCaptured = (r: CaptureResult) => {
     setCapture(null);
-    if (r.mode === 'object') { addObject(`Scanned object ${myItems.length + 1}`, { texture: r.thumbs[0] }); if (!open) addScan({ id: crypto.randomUUID(), name: 'Room shell', createdAt: new Date().toISOString(), local: true }); return; }
-    setPhotos(r.frames.slice(0, 8)); setTab('scan');
-    setStatus('Live scan captured. Generating your 3D room from the keyframes…');
-    setTimeout(() => generateFrom(r.frames.filter((_, i) => i % Math.ceil(r.frames.length / 8) === 0).slice(0, 8)), 0);
+    if (r.mode === 'object') { addObject(`Scanned object ${myItems.length + 1}`, { texture: r.frames[0]?.url }); if (!open) addScan({ id: crypto.randomUUID(), name: 'Room shell', createdAt: new Date().toISOString(), local: true }); return; }
+    // Build the room on the device from the mapped directions; AI reconstruction stays optional.
+    setPhotos(r.frames.map((f) => f.file).slice(0, 8));
+    setStatus('Placing your scan on the room walls and floor…');
+    composeRoom(r.frames).then((textures) => { setStatus(''); addScan({ id: crypto.randomUUID(), name: 'Scanned room', createdAt: new Date().toISOString(), local: true, textures, thumb: r.frames[0]?.url }); })
+      .catch(() => setStatus('Could not build the room from this scan. Try scanning again.'));
   };
   const thumbs = useMemo(() => photos.map((f) => URL.createObjectURL(f)), [photos]);
   const sessionRef = useRef<Scan[]>([]);
@@ -138,7 +141,7 @@ export default function RoomScanner() {
         </section>
       )}
       <AdSlot label="Bottom banner" />
-      {open && <RoomStudio scanUrl={open.url} scanName={open.name} myItems={myItems} onClose={() => setOpen(null)} onScanObject={() => setCapture('object')} onAddObjectGlb={(f) => addObject(f.name.replace(/\.gl(b|tf)$/i, ''), { modelUrl: URL.createObjectURL(f), size: [0.8, 0.8, 0.8] })} />}
+      {open && <RoomStudio scanUrl={open.url} scanTextures={open.textures} scanName={open.name} myItems={myItems} onClose={() => setOpen(null)} onScanObject={() => setCapture('object')} onAddObjectGlb={(f) => addObject(f.name.replace(/\.gl(b|tf)$/i, ''), { modelUrl: URL.createObjectURL(f), size: [0.8, 0.8, 0.8] })} />}
       {capture && <CaptureModal initialMode={capture} onDone={onCaptured} onClose={() => setCapture(null)} />}
     </main>
   );

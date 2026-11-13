@@ -19,8 +19,8 @@ function finishTexture(f: Finish, repeat: [number, number]) {
 
 type HitHandler = (e: ThreeEvent<MouseEvent>, surface?: SurfaceId) => void;
 
-function Surface({ id, finish, position, rotation, size, selected, onHit }: { id: SurfaceId; finish: Finish; position: Vec3; rotation: Vec3; size: [number, number]; selected: boolean; onHit: HitHandler }) {
-  const tex = useMemo(() => finishTexture(finish, [size[0] / 1.2, size[1] / 1.2]), [finish, size]);
+function Surface({ id, finish, photo, position, rotation, size, selected, onHit }: { id: SurfaceId; photo?: string; finish: Finish; position: Vec3; rotation: Vec3; size: [number, number]; selected: boolean; onHit: HitHandler }) {
+  const tex = useMemo(() => { if (photo) { const t = new THREE.TextureLoader().load(photo); t.colorSpace = THREE.SRGBColorSpace; return t; } return finishTexture(finish, [size[0] / 1.2, size[1] / 1.2]); }, [finish, size, photo]);
   return (
     <mesh position={position} rotation={rotation} receiveShadow onClick={(e) => onHit(e, id)}>
       <planeGeometry args={size} />
@@ -75,14 +75,15 @@ function Item({ item, selected, onSelect }: { item: PlacedItem; selected: boolea
   );
 }
 
-export type StudioProps = { scanUrl?: string; scanName: string; myItems: CatalogItem[]; onClose: () => void; onScanObject: () => void; onAddObjectGlb: (f: File) => void };
+export type StudioProps = { scanUrl?: string; scanTextures?: Partial<Record<SurfaceId, string>>; scanName: string; myItems: CatalogItem[]; onClose: () => void; onScanObject: () => void; onAddObjectGlb: (f: File) => void };
 
-export default function RoomStudio({ scanUrl, scanName, myItems, onClose, onScanObject, onAddObjectGlb }: StudioProps) {
+export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, onClose, onScanObject, onAddObjectGlb }: StudioProps) {
   const [mode, setMode] = useState<Mode>('furnish');
   const [items, setItems] = useState<PlacedItem[]>([]);
   const [pending, setPending] = useState<CatalogItem | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [surface, setSurface] = useState<SurfaceId | null>(null);
+  const [photos, setPhotos] = useState(scanTextures || {});
   const [finishes, setFinishes] = useState<Record<SurfaceId, Finish>>({ floor: FINISHES.floor[0], 'wall-back': FINISHES.wall[0], 'wall-left': FINISHES.wall[0], 'wall-right': FINISHES.wall[0] });
   const [measure, setMeasure] = useState<THREE.Vector3[]>([]);
   const [msg, setMsg] = useState('Pick an item, then click the floor or a wall to place it.');
@@ -113,14 +114,14 @@ export default function RoomStudio({ scanUrl, scanName, myItems, onClose, onScan
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-background">
-      <div className="flex flex-wrap items-center gap-2 border-b border-border p-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-border p-2 md:p-3" style={{ paddingTop: 'max(0.5rem, env(safe-area-inset-top))' }}>
         <strong className="mr-auto font-heading">{scanName}</strong>
         {(['inspect', 'furnish', 'remodel'] as Mode[]).map((m) => <button key={m} className={btn(mode === m)} onClick={() => { setMode(m); setPending(null); setMeasure([]); }}>{m === 'inspect' ? 'Inspect & Measure' : m === 'furnish' ? 'Furnish' : 'Remodel'}</button>)}
         <button className={btn(false)} onClick={onClose}>Close</button>
       </div>
       <div className="flex min-h-0 flex-1 flex-col md:flex-row">
-        <div className="relative min-h-[50vh] flex-1" data-scene-ready>
-          <Canvas shadows camera={{ position: [4.5, 3.6, 5.5], fov: 50 }} onPointerMissed={() => setSelected(null)}>
+        <div className="relative min-h-[55vh] flex-1 touch-none select-none" style={{ touchAction: 'none' }} data-scene-ready>
+          <Canvas shadows dpr={[1, 1.5]} camera={{ position: [5.5, 4.4, 7], fov: 55 }} onPointerMissed={() => setSelected(null)}>
             <color attach="background" args={['#eef0ec']} />
             <ambientLight intensity={0.4} />
             <directionalLight position={[3, 6, 4]} intensity={1.2} castShadow />
@@ -129,10 +130,10 @@ export default function RoomStudio({ scanUrl, scanName, myItems, onClose, onScan
               <Suspense fallback={<Html center>Loading scan…</Html>}><ScannedModel url={scanUrl} onHit={onHit} /></Suspense>
             ) : (
               <group>
-                <Surface id="floor" finish={finishes.floor} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} size={[W, D]} selected={surface === 'floor'} onHit={onHit} />
-                <Surface id="wall-back" finish={finishes['wall-back']} position={[0, H / 2, -D / 2]} rotation={[0, 0, 0]} size={[W, H]} selected={surface === 'wall-back'} onHit={onHit} />
-                <Surface id="wall-left" finish={finishes['wall-left']} position={[-W / 2, H / 2, 0]} rotation={[0, Math.PI / 2, 0]} size={[D, H]} selected={surface === 'wall-left'} onHit={onHit} />
-                <Surface id="wall-right" finish={finishes['wall-right']} position={[W / 2, H / 2, 0]} rotation={[0, -Math.PI / 2, 0]} size={[D, H]} selected={surface === 'wall-right'} onHit={onHit} />
+                <Surface id="floor" photo={photos['floor']} finish={finishes.floor} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} size={[W, D]} selected={surface === 'floor'} onHit={onHit} />
+                <Surface id="wall-back" photo={photos['wall-back']} finish={finishes['wall-back']} position={[0, H / 2, -D / 2]} rotation={[0, 0, 0]} size={[W, H]} selected={surface === 'wall-back'} onHit={onHit} />
+                <Surface id="wall-left" photo={photos['wall-left']} finish={finishes['wall-left']} position={[-W / 2, H / 2, 0]} rotation={[0, Math.PI / 2, 0]} size={[D, H]} selected={surface === 'wall-left'} onHit={onHit} />
+                <Surface id="wall-right" photo={photos['wall-right']} finish={finishes['wall-right']} position={[W / 2, H / 2, 0]} rotation={[0, -Math.PI / 2, 0]} size={[D, H]} selected={surface === 'wall-right'} onHit={onHit} />
               </group>
             )}
             <Grid position={[0, -0.001, 0]} infiniteGrid cellSize={0.5} sectionSize={2} fadeDistance={30} cellColor="#cfd4cb" sectionColor="#b5bcb1" />
@@ -149,10 +150,10 @@ export default function RoomStudio({ scanUrl, scanName, myItems, onClose, onScan
             )}
             {measure.map((p, i) => <mesh key={i} position={p}><sphereGeometry args={[0.04]} /><meshBasicMaterial color="#e5484d" /></mesh>)}
             {dist !== null && <Html position={measure[0].clone().lerp(measure[1], 0.5)} center><span className="whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background">{scanUrl ? `${dist.toFixed(2)} units` : `${dist.toFixed(2)} m · ${(dist * 3.281).toFixed(1)} ft`}</span></Html>}
-            <OrbitControls makeDefault target={[0, 1, 0]} maxPolarAngle={Math.PI / 2.05} />
+            <OrbitControls makeDefault target={[0, 1, 0]} maxPolarAngle={Math.PI / 2.05} enableDamping minDistance={1.5} maxDistance={14} touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }} />
           </Canvas>
         </div>
-        <aside className="w-full shrink-0 overflow-y-auto border-t border-border p-4 md:w-80 md:border-l md:border-t-0">
+        <aside className="max-h-[40vh] w-full shrink-0 overflow-y-auto border-t border-border p-4 md:max-h-none md:w-80 md:border-l md:border-t-0">
           <p className="text-sm text-muted-foreground">{mode === 'inspect' ? (dist !== null ? 'Click again to start a new measurement.' : 'Click two points to measure.') : msg}</p>
           {mode === 'furnish' && (<>
             <h3 className="mt-5 font-heading text-sm font-semibold uppercase tracking-wide">Furniture</h3>
@@ -170,7 +171,7 @@ export default function RoomStudio({ scanUrl, scanName, myItems, onClose, onScan
             {surface && !scanUrl && (<>
               <h3 className="mt-5 font-heading text-sm font-semibold uppercase tracking-wide">Finish · {surface.replace('-', ' ')}</h3>
               <div className="mt-2 flex flex-wrap gap-2">{FINISHES[surface === 'floor' ? 'floor' : 'wall'].map((f) => (
-                <button key={f.key} className={btn(finishes[surface].key === f.key)} onClick={() => setFinishes((c) => ({ ...c, [surface]: f }))}>
+                <button key={f.key} className={btn(finishes[surface].key === f.key)} onClick={() => { setFinishes((c) => ({ ...c, [surface]: f })); setPhotos((c) => ({ ...c, [surface]: undefined })); }}>
                   <span className="mr-2 inline-block h-3 w-3 rounded-full border border-border align-middle" style={{ background: f.color }} />{f.name}</button>))}</div>
             </>)}
           </>)}
