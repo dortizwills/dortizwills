@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProjectDetailLayout from '../components/ProjectDetailLayout';
@@ -18,7 +17,7 @@ const GourmetRecipes = () => {
       title: "Quick Services",
       description: "Reduce checkout times to 2-3 minutes, because quick service transactions shouldn't take 10-15 minutes.",
       path: "/product-designs/quick-services",
-      image: "/lovable-uploads/2fad7cda-021e-4386-83c6-7b65f6b7d71f.png"
+      image: "/lovable-uploads/01-express-lane/display-express-lane.png"
     }
   ];
   
@@ -38,13 +37,13 @@ const GourmetRecipes = () => {
       {/* Early Stages */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Early Stages</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Early Stages</h2>
         </div>
        </div> 
       {/* Validation Process */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Research</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Research</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -59,7 +58,7 @@ const GourmetRecipes = () => {
       {/* User Persona */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Persona</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Persona</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -76,7 +75,7 @@ const GourmetRecipes = () => {
       {/* Sketches/Iterations */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Sketches / Iterations</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Sketches / Iterations</h2>
         </div>
         <div className="col-span-2">
           <p className="mb-3">
@@ -99,13 +98,13 @@ const GourmetRecipes = () => {
       {/* Validation Process */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Validation Process</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Validation Process</h2>
         </div>
        </div> 
      {/* Final App Designs */}      
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Early User Flows</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Early User Flows</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -136,7 +135,7 @@ const GourmetRecipes = () => {
       {/* The Second Iteration */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">The Second Iteration</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">The Second Iteration</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -156,14 +155,14 @@ const GourmetRecipes = () => {
       {/* Change of Direction */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Change of Direction</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Change of Direction</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
             My revised path would allow these tertiary features to be skipped so that the primary path was not inhibited by my desires to see a particular path succeed. Instead the users' preferred search method would now inform which method of finding a unique recipe.
           </p>
           <img 
-            src="/lovable-uploads/461e9278-1540-4d5d-ad2c-4506d6bdfebc.png" 
+            src="/lovable-uploads/01-blue-apron/User-Flows.gif" 
             alt="User Flows 1" 
             className="w-full rounded-lg mb-6" 
           />
@@ -173,7 +172,7 @@ const GourmetRecipes = () => {
       {/* Third Round Adjustments */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Third Round Adjustments</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Third Round Adjustments</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -194,13 +193,23 @@ const GourmetRecipes = () => {
              In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
           </p>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
-             <span className="text-gray-600">Guided Filters Video Placeholder</span>
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              preload="auto"
+              className="w-full max-h-[580px] object-contain bg-gray-200 rounded-lg"
+            >
+              <source src="/lovable-uploads/01-blue-apron/guided-filters-left-final.mp4" type="video/mp4" />
+            </video>          
           </div>
-          <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-             <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
-                Guided Filters Prototype
-             </a>
-          </Button>
+          <div className="flex justify-center">
+            <Button asChild variant="outline" className="justify-center py-6 text-sm bg-gradient-primary text-white border-none hover:opacity-90">
+               <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=525-1027&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=525%3A1027&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
+                  Guided Filters Prototype
+               </a>
+            </Button>
+          </div>
         </div>
         
         {/* Right div block */}
@@ -210,20 +219,31 @@ const GourmetRecipes = () => {
             Or a single search bar where anything can be added. Users could search for anything in the search bar including time, culinary preferences, diets, and more. All they had to do was include it within their search and watch the results update.
           </p>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center mb-4">
-            <span className="text-gray-600">Smart Search Video Placeholder</span>
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            preload="auto"
+            className="w-full max-h-[580px] object-contain bg-gray-200 rounded-lg"
+          >
+            <source src="/lovable-uploads/01-blue-apron/smart-search-right-final.mp4" type="video/mp4" />
+          </video>
+          
           </div>
-          <Button asChild variant="outline" className="justify-center py-6 text-lg bg-gradient-primary text-white border-none hover:opacity-90">
-            <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=621-10070&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=621%3A10070&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
-              Smart Search Prototype
-            </a>
-          </Button>
+          <div className="flex justify-center">
+            <Button asChild variant="outline" className="justify-center py-6 text-sm bg-gradient-primary text-white border-none hover:opacity-90">
+              <a href="https://www.figma.com/proto/IdHbqz9qHvX4DQTi0Q279G/Side-Projects?page-id=461%3A210&node-id=621-10070&viewport=2573%2C-4462%2C0.38&t=6T33Qa1oKuBrMMot-1&scaling=min-zoom&starting-point-node-id=621%3A10070&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
+                Smart Search Prototype
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
       {/*Previous content*/}   
       {/*
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
             <div>
-              <h4 className="text-lg font-display font-medium mb-3">1. Guided Filters</h4>
+              <h4 className="font-medium text-lg mb-3">1. Guided Filters</h4>
               <p className="mb-4">
                 In this version users enter a guided path where complexity is added incrementally. Each step adds another layer of filtration to limit the overwhelming number of quality recipes they can choose for themselves.
               </p>
@@ -240,7 +260,7 @@ const GourmetRecipes = () => {
               </a>
             </div>
             <div>
-              <h4 className="text-lg font-display font-medium mb-3">2. Smart Search</h4>
+              <h4 className="font-medium text-lg mb-3">2. Smart Search</h4>
               <p className="mb-4">
                 Or a single search bar where anything can be added. Users could search for anything in the search bar including time, culinary preferences, diets, and more. All they had to do was include it within their search and watch the results update.
               </p>
@@ -258,27 +278,30 @@ const GourmetRecipes = () => {
             </div>
           </div>  */} 
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
-        <div className="col-span-1">   
-          <p className="mb-6">
-            My users seemed to prefer the smart search feature where they could add any ingredient, recipe title, or cuisine style they wanted. However, it was not intuitive they could also search by prep time, delivery options, or by including/excluding specific ingredients to their recipe; these actions were far easier to complete in the smart filters version.
-          </p>
-          <p className="mb-6">
-            Using the insights from this iteration I decided to combine the best aspects of both user flows into one final path.
-          </p>
+        <div className="col-span-1">
+          <h3 className="text-xl font-unbounded font-medium mb-3"></h3>
+        </div>
+        <div className="col-span-2 max-sm:col-span-1"> {/* Fixed: Added col-span-2 to match grid layout */}
+         <p className="mb-6">
+           My users seemed to prefer the smart search feature where they could add any ingredient, recipe title, or cuisine style they wanted. However, it was not intuitive they could also search by prep time, delivery options, or by including/excluding specific ingredients to their recipe; these actions were far easier to complete in the smart filters version.
+         </p>
+         <p className="mb-6">
+           Using the insights from this iteration I decided to combine the best aspects of both user flows into one final path.
+         </p>
         </div>
       </div>
     
       {/* Final App Designs */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Final App Designs</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Final App Designs</h2>
         </div>
        </div> 
       
       {/* Results */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 1: Intelligent Searches</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 1: Intelligent Searches</h3>
         </div>
         <div className="col-span-2">
           <div className="mb-8"></div>
@@ -303,7 +326,7 @@ const GourmetRecipes = () => {
       {/* User Need 2 */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">User Need 2: Convenience</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">User Need 2: Convenience</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
@@ -329,16 +352,15 @@ const GourmetRecipes = () => {
       {/* Results */}
        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h2 className="text-2xl font-display font-semibold mb-4">Results</h2>
+          <h2 className="text-2xl font-unbounded font-semibold mb-4">Results</h2>
         </div>
        </div>
       {/* Increased Interest */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Increased Interest</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Increased Interest</h3>
         </div>
         <div className="col-span-2">
-          <div className="mb-6"></div>
           <p className="mb-6">
             I surveyed users at the beginning and conclusion of my project about their willingness to use Blue Apron's services. By adding this feature prior and new users expressed a 30% increase in their likelihood to use the service.
           </p>
@@ -351,7 +373,7 @@ const GourmetRecipes = () => {
       {/* Trusting the Consumer */}
       <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-8 mb-10">
         <div className="col-span-1">
-          <h3 className="text-xl font-display font-medium mb-3">Trusting the Consumer</h3>
+          <h3 className="text-xl font-unbounded font-medium mb-3">Trusting the Consumer</h3>
         </div>
         <div className="col-span-2">
           <p className="mb-6">
