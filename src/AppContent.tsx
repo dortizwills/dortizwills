@@ -30,6 +30,7 @@ import VendorInsurance from './pages/hivey/VendorInsurance';
 import EnterpriseCheckout from './pages/hivey/EnterpriseCheckout';
 import SelfServiceOnboarding from './pages/hivey/SelfServiceOnboarding';
 import RoomScanner from './pages/lab/RoomScanner';
+import HalfMarathonPRPlan from './pages/ai-projects/HalfMarathonPRPlan';
 
 const AppContent: FC = () => {
   const location = useLocation();
@@ -38,6 +39,10 @@ const AppContent: FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  if (location.pathname.replace(/\/$/, '') === '/ai-projects/half-marathon') {
+    return <HalfMarathonPRPlan />;
+  }
 
   return (
     <>
