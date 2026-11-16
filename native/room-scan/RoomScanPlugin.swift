@@ -35,6 +35,7 @@ final class RoomScanViewController: UIViewController, ARSessionDelegate {
     private var meshAnchors: [UUID: ARMeshAnchor] = [:]
     private var points: [UInt64: SIMD3<Float>] = [:]
     private var cloudNode = SCNNode()
+    private var meshNodes: [UUID: SCNNode] = [:]
     private var lastUpdate: TimeInterval = 0
     private let hasMesh = ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh)
     var complete: (([String: Any]) -> Void)?
@@ -46,6 +47,7 @@ final class RoomScanViewController: UIViewController, ARSessionDelegate {
         sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(sceneView)
         sceneView.session.delegate = self
+        sceneView.session.delegateQueue = .main
         sceneView.automaticallyUpdatesLighting = true
         sceneView.scene.rootNode.addChildNode(cloudNode)
         status.numberOfLines = 0; status.textColor = .white; status.backgroundColor = .black.withAlphaComponent(0.7)
@@ -64,15 +66,34 @@ final class RoomScanViewController: UIViewController, ARSessionDelegate {
         ])
         let config = ARWorldTrackingConfiguration()
         config.worldAlignment = .gravity
-        if hasMesh { config.sceneReconstruction = .mesh; sceneView.debugOptions.insert(.showSceneUnderstanding) }
+        if hasMesh { config.sceneReconstruction = .mesh }
         sceneView.session.run(config)
     }
 
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated); sceneView.session.pause() }
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) { updateMeshes(anchors) }
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) { updateMeshes(anchors) }
-    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) { for anchor in anchors { meshAnchors.removeValue(forKey: anchor.identifier) } }
-    private func updateMeshes(_ anchors: [ARAnchor]) { for case let anchor as ARMeshAnchor in anchors { meshAnchors[anchor.identifier] = anchor } }
+    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) { for anchor in anchors { meshAnchors.removeValue(forKey: anchor.identifier); meshNodes.removeValue(forKey: anchor.identifier)?.removeFromParentNode() } }
+    private func updateMeshes(_ anchors: [ARAnchor]) {
+        for case let anchor as ARMeshAnchor in anchors {
+            meshAnchors[anchor.identifier] = anchor
+            let mesh = anchor.geometry
+            let vertices = (0..<mesh.vertices.count).map { i -> SCNVector3 in
+                let address = mesh.vertices.buffer.contents().advanced(by: mesh.vertices.offset + i * mesh.vertices.stride)
+                let vertex = address.assumingMemoryBound(to: SIMD3<Float>.self).pointee
+                return SCNVector3(vertex.x, vertex.y, vertex.z)
+            }
+            let faces = mesh.faces
+            let data = Data(bytes: faces.buffer.contents(), count: faces.count * faces.indexCountPerPrimitive * faces.bytesPerIndex)
+            let element = SCNGeometryElement(data: data, primitiveType: .triangles, primitiveCount: faces.count, bytesPerIndex: faces.bytesPerIndex)
+            let geometry = SCNGeometry(sources: [SCNGeometrySource(vertices: vertices)], elements: [element])
+            let material = SCNMaterial(); material.diffuse.contents = UIColor.systemGreen.withAlphaComponent(0.4)
+            material.isDoubleSided = true; material.lightingModel = .constant; geometry.materials = [material]
+            let node = meshNodes[anchor.identifier] ?? SCNNode()
+            node.geometry = geometry; node.simdTransform = anchor.transform
+            if meshNodes[anchor.identifier] == nil { sceneView.scene.rootNode.addChildNode(node); meshNodes[anchor.identifier] = node }
+        }
+    }
 
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         guard frame.timestamp - lastUpdate > 0.3 else { return }; lastUpdate = frame.timestamp

@@ -7,6 +7,9 @@
 ## Room scanner direction
 
 - [x] Choose native iPhone scanning plus portfolio viewer; prioritize real live scanning over website-only delivery.
-- [ ] Replace simulated mapping with a supported reconstruction pipeline; native ARKit/CoreML/fusion requires an iOS build and device validation.
-- [ ] Add a four-corner photo fallback, one photo per corner facing the opposite diagonal corner.
-- [ ] Allow image uploads to be placed and moved inside the reconstructed 3D room.
+- [x] Remove simulated mapping; add native ARKit tracking/mesh source and website capability detection.
+- [ ] Complete and verify native live scanning on a physical iPhone (requires Mac/Xcode, signing and device access).
+- [ ] Complete XS dense-mesh reconstruction using metric Core ML depth and validated TSDF fusion (model/fusion integration and XS device validation remain outstanding).
+- [x] Add four-corner capture with measured room-shell fallback, explicitly not automatic reconstruction.
+- [ ] Reconstruct actual geometry automatically from four corner photos (requires a validated reconstruction service; four views alone do not guarantee enough overlap).
+- [x] Allow aspect-correct image uploads to be placed and moved on room surfaces; verified in browser on desktop and phone sizes.

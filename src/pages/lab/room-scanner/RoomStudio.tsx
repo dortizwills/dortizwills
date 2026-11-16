@@ -3,13 +3,16 @@ import { Canvas, ThreeEvent, useLoader } from '@react-three/fiber';
 import { OrbitControls, TransformControls, Html, useGLTF, Environment, Lightformer, Grid } from '@react-three/drei';
 import * as THREE from 'three';
 import { CATALOG, FINISHES, ROOM, snap, classify, type CatalogItem, type PlacedItem, type SurfaceId, type Vec3 } from './studioRules';
+import { Button } from '@/components/ui/button';
+import { imageSize, type RoomDimensions } from './photoRoom';
+import type { NativeRoom } from './nativeScanner';
 
 type Finish = (typeof FINISHES)['floor'][number];
 type Mode = 'inspect' | 'furnish' | 'remodel';
 
 function finishTexture(f: Finish, repeat: [number, number]) {
   const c = document.createElement('canvas'); c.width = c.height = 256;
-  const g = c.getContext('2d')!; g.fillStyle = f.color; g.fillRect(0, 0, 256, 256);
+  const g = c.getContext('2d'); if (!g) return new THREE.CanvasTexture(c); g.fillStyle = f.color; g.fillRect(0, 0, 256, 256);
   g.strokeStyle = 'rgba(0,0,0,0.12)'; g.lineWidth = 2;
   if (f.pattern === 'planks') for (let y = 0; y < 256; y += 32) { g.strokeRect(((y / 32) % 2) * 80, y, 256, 32); g.beginPath(); g.moveTo(((y / 32) % 3) * 70 + 40, y); g.lineTo(((y / 32) % 3) * 70 + 40, y + 32); g.stroke(); }
   if (f.pattern === 'tile') for (let i = 0; i <= 256; i += 64) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 256); g.moveTo(0, i); g.lineTo(256, i); g.stroke(); }
@@ -55,9 +58,26 @@ function TexturedBox({ size, texture }: { size: Vec3; texture: string }) {
   return <mesh castShadow><boxGeometry args={size} /><meshStandardMaterial map={t} roughness={0.7} /></mesh>;
 }
 
+function ImagePlane({ size, texture }: { size: Vec3; texture: string }) {
+  const t = useLoader(THREE.TextureLoader, texture); t.colorSpace = THREE.SRGBColorSpace;
+  return <mesh><planeGeometry args={[size[0], size[1]]} /><meshBasicMaterial map={t} transparent side={THREE.DoubleSide} /></mesh>;
+}
+
+function NativeGeometry({ room, onHit }: { room: NativeRoom; onHit: HitHandler }) {
+  const geometry = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(room.source === 'lidar-mesh' ? room.positions : room.points, 3));
+    if (room.indices.length) { g.setIndex(room.indices); g.computeVertexNormals(); }
+    return g;
+  }, [room]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return room.source === 'lidar-mesh' ? <mesh geometry={geometry} onClick={onHit}><meshStandardMaterial color="lightgray" side={THREE.DoubleSide} /></mesh> : <points geometry={geometry}><pointsMaterial color="seagreen" size={0.025} /></points>;
+}
+
 function Item({ item, selected, onSelect }: { item: PlacedItem; selected: boolean; onSelect: () => void }) {
   const [w, h, d] = item.size;
-  const body = item.modelUrl ? <ItemModel url={item.modelUrl} size={item.size} />
+  const body = item.kind === 'image' && item.texture ? <ImagePlane size={item.size} texture={item.texture} />
+    : item.modelUrl ? <ItemModel url={item.modelUrl} size={item.size} />
     : item.texture ? <TexturedBox size={item.size} texture={item.texture} />
     : item.key === 'doorway' ? (<group><mesh><boxGeometry args={[w, h, d]} /><meshStandardMaterial color="#1c1d1a" /></mesh>
         {[-1, 1].map((s) => <mesh key={s} position={[s * (w / 2 + 0.04), 0, 0.02]}><boxGeometry args={[0.08, h, d + 0.04]} /><meshStandardMaterial color="#f2efe8" /></mesh>)}
@@ -75,9 +95,9 @@ function Item({ item, selected, onSelect }: { item: PlacedItem; selected: boolea
   );
 }
 
-export type StudioProps = { scanUrl?: string; scanTextures?: Partial<Record<SurfaceId, string>>; scanName: string; myItems: CatalogItem[]; onClose: () => void; onScanObject: () => void; onAddObjectGlb: (f: File) => void };
+export type StudioProps = { scanUrl?: string; scanTextures?: Partial<Record<SurfaceId, string>>; nativeRoom?: NativeRoom; dimensions?: RoomDimensions; referencePhotos?: string[]; scanName: string; myItems: CatalogItem[]; onClose: () => void; onScanObject: () => void; onAddObjectGlb: (f: File) => void };
 
-export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, onClose, onScanObject, onAddObjectGlb }: StudioProps) {
+export default function RoomStudio({ scanUrl, scanTextures, nativeRoom, dimensions, referencePhotos, scanName, myItems, onClose, onScanObject, onAddObjectGlb }: StudioProps) {
   const [mode, setMode] = useState<Mode>('furnish');
   const [items, setItems] = useState<PlacedItem[]>([]);
   const [pending, setPending] = useState<CatalogItem | null>(null);
@@ -89,6 +109,18 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
   const [msg, setMsg] = useState('Pick an item, then click the floor or a wall to place it.');
   const groupRefs = useRef<Record<string, THREE.Group | null>>({});
   const [, force] = useState(0);
+  const imageInput = useRef<HTMLInputElement>(null);
+  const uploadedUrls = useRef<string[]>([]);
+  useEffect(() => () => uploadedUrls.current.forEach((url) => URL.revokeObjectURL(url)), []);
+  const importImage = (file?: File) => {
+    if (!file || !file.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(file); uploadedUrls.current.push(url);
+    const img = new Image(); img.onload = () => {
+      setMode('furnish'); setSelected(null);
+      setPending({ key: crypto.randomUUID(), name: file.name, kind: 'image', size: imageSize(img.naturalWidth, img.naturalHeight), color: '', mount: 'wall', texture: url });
+      setMsg('Select a wall to place your image.');
+    }; img.onerror = () => setMsg('This image could not be opened. Choose a JPEG or PNG.'); img.src = url;
+  };
   useEffect(() => { const t = setTimeout(() => force(1), 50); return () => clearTimeout(t); }, [selected]);
 
   const onHit: HitHandler = (e, sid) => {
@@ -109,7 +141,8 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
   const update = (id: string, p: Partial<PlacedItem>) => setItems((c) => c.map((i) => (i.id === id ? { ...i, ...p } : i)));
   const dist = measure.length === 2 ? measure[0].distanceTo(measure[1]) : null;
   const btn = (a: boolean) => `rounded-full border px-4 py-2 text-sm ${a ? 'border-foreground bg-foreground text-background' : 'border-border bg-background'}`;
-  const { width: W, depth: D, height: H } = ROOM;
+  const { width: W, depth: D, height: H } = dimensions || ROOM;
+  const selectedGroup = sel ? groupRefs.current[sel.id] : null;
   const list = (arr: CatalogItem[]) => arr.map((c) => <button key={c.key} onClick={() => { setPending(c); setSelected(null); setMsg(`Click ${c.mount === 'floor' ? 'the floor' : 'a wall'} to place the ${c.name.toLowerCase()}.`); }} className={btn(pending?.key === c.key)}>{c.name}</button>);
 
   return (
@@ -126,7 +159,7 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
             <ambientLight intensity={0.4} />
             <directionalLight position={[3, 6, 4]} intensity={1.2} castShadow />
             <Environment><Lightformer intensity={2} position={[0, 5, 0]} scale={[10, 10, 1]} /><Lightformer intensity={1} color="#dfe8dc" position={[-5, 1, -1]} rotation-y={Math.PI / 2} scale={[20, 1, 1]} /></Environment>
-            {scanUrl ? (
+            {nativeRoom ? <NativeGeometry room={nativeRoom} onHit={onHit} /> : scanUrl ? (
               <Suspense fallback={<Html center>Loading scan…</Html>}><ScannedModel url={scanUrl} onHit={onHit} /></Suspense>
             ) : (
               <group>
@@ -144,8 +177,8 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
                 </group>
               ))}
             </Suspense>
-            {sel && groupRefs.current[sel.id] && (
-              <TransformControls object={groupRefs.current[sel.id]!} mode="translate" showY={sel.mount === 'wall'} size={0.7}
+            {sel && selectedGroup && (
+              <TransformControls object={selectedGroup} mode="translate" showY={sel.mount === 'wall'} size={0.7}
                 onMouseUp={() => { const g = groupRefs.current[sel.id]; if (g) update(sel.id, { position: [g.position.x, g.position.y, g.position.z] }); }} />
             )}
             {measure.map((p, i) => <mesh key={i} position={p}><sphereGeometry args={[0.04]} /><meshBasicMaterial color="#e5484d" /></mesh>)}
@@ -154,6 +187,10 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
           </Canvas>
         </div>
         <aside className="max-h-[40vh] w-full shrink-0 overflow-y-auto border-t border-border p-4 md:max-h-none md:w-80 md:border-l md:border-t-0">
+          <Button variant="outline" onClick={() => imageInput.current?.click()} disabled={nativeRoom?.source === 'arkit-points'}>Upload image</Button>
+          <input ref={imageInput} aria-label="Image to place in room" className="sr-only" type="file" accept="image/*" onChange={(e) => { importImage(e.target.files?.[0]); e.target.value = ''; }} />
+          {nativeRoom?.source === 'arkit-points' && <p className="mt-2 text-sm text-muted-foreground">Tracking points only. Surface reconstruction is not yet available on this device.</p>}
+          {referencePhotos && <div className="mt-3 grid grid-cols-2 gap-2">{referencePhotos.map((url, i) => <img key={url} src={url} alt={`Corner ${i + 1} reference`} className="aspect-[4/3] w-full rounded object-cover" />)}</div>}
           <p className="text-sm text-muted-foreground">{mode === 'inspect' ? (dist !== null ? 'Click again to start a new measurement.' : 'Click two points to measure.') : msg}</p>
           {mode === 'furnish' && (<>
             <h3 className="mt-5 font-heading text-sm font-semibold uppercase tracking-wide">Furniture</h3>
@@ -184,7 +221,7 @@ export default function RoomStudio({ scanUrl, scanTextures, scanName, myItems, o
               </div>
             </div>
           )}
-          <p className="mt-6 text-xs text-muted-foreground">{scanUrl ? 'Scan scale is relative; measurements are in model units.' : 'Room shell: 6 × 5 m, 2.7 m ceiling.'}</p>
+          <p className="mt-6 text-xs text-muted-foreground">{nativeRoom ? nativeRoom.source === 'lidar-mesh' ? 'ARKit mesh · world coordinates in meters.' : 'ARKit sparse points · not a room mesh.' : scanUrl ? 'Scan scale is relative; measurements are in model units.' : `Measured room shell: ${W} × ${D} m, ${H} m ceiling.`}</p>
         </aside>
       </div>
     </div>

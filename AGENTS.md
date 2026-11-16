@@ -7,3 +7,6 @@
 - Use semantic CSS/Tailwind media-surface tokens for project artwork backgrounds, so white artwork areas can respect theming.- Build Hivey case studies from the shared case-study parts, one page component per study, so styling stays consistent and an auth gate can wrap each page later.
 
 - Hidden lab projects live under /lab/* and are not linked from navigation, so they stay unlisted.
+- Keep ARKit scanning in a Capacitor iOS plugin and the viewer in shared Three.js code; browsers cannot access native spatial APIs.
+- Distinguish native triangle meshes, sparse tracking points, and measured photo-assisted shells; never present estimated or synthetic geometry as a completed scan.
+- Render uploaded room images as aspect-correct planes positioned by surface raycasts, not textured furniture boxes.

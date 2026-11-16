@@ -12,7 +12,7 @@ export default function FourCornerCapture({ onDone }: { onDone: (photos: File[],
     const next = photos.map((f) => f ? URL.createObjectURL(f) : ''); setUrls(next);
     return () => next.forEach((url) => { if (url) URL.revokeObjectURL(url); });
   }, [photos]);
-  return <section className="border-t border-border py-6">
+  return <section className="min-w-0 border-t border-border py-6">
     <h2 className="font-heading text-xl font-semibold">Four corner photos</h2>
     <p className="mt-2 text-sm text-muted-foreground">One photo from each corner facing the opposite corner. This fallback creates a measured room shell, not an automatic scan.</p>
     <div className="mt-4 grid grid-cols-2 gap-3">
@@ -23,7 +23,7 @@ export default function FourCornerCapture({ onDone }: { onDone: (photos: File[],
       </label>)}
     </div>
     <div className="mt-4 grid grid-cols-3 gap-3">
-      {(['width', 'depth', 'height'] as const).map((key) => <label key={key} className="text-sm capitalize">{key} (m)<Input aria-label={`${key} in meters`} type="number" min="0.1" step="0.1" value={dimensions[key] || ''} onChange={(e) => setDimensions((d) => ({ ...d, [key]: Number(e.target.value) }))} className="mt-1" /></label>)}
+      {(['width', 'depth', 'height'] as const).map((key) => <label key={key} className="min-w-0 text-sm capitalize">{key} (m)<Input aria-label={`${key} in meters`} type="number" min="0.1" step="0.1" value={dimensions[key] || ''} onChange={(e) => setDimensions((d) => ({ ...d, [key]: Number(e.target.value) }))} className="mt-1 min-w-0" /></label>)}
     </div>
     <Button className="mt-4" disabled={!readyForPhotoRoom(photos, dimensions)} onClick={() => onDone(photos.filter((f): f is File => f !== null), dimensions)}>Open measured room</Button>
   </section>;

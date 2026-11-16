@@ -1,6 +1,6 @@
 // Plain rules for the Room Studio: no React or three.js imports.
 export type Vec3 = [number, number, number];
-export type Kind = 'furniture' | 'cabinetry' | 'opening' | 'scanned';
+export type Kind = 'furniture' | 'cabinetry' | 'opening' | 'scanned' | 'image';
 export type CatalogItem = { key: string; name: string; kind: Kind; size: Vec3; color: string; mount: 'floor' | 'wall'; wallY?: number; texture?: string; modelUrl?: string };
 export type PlacedItem = { id: string; key: string; name: string; kind: Kind; size: Vec3; color: string; texture?: string; modelUrl?: string; position: Vec3; rotationY: number; mount: 'floor' | 'wall' };
 export type SurfaceId = 'floor' | 'wall-back' | 'wall-left' | 'wall-right';
