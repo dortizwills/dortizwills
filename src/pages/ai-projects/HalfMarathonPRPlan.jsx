@@ -22,22 +22,22 @@ const VIDEO_LINKS = {
   // Not confirmed: opens YouTube search results for the exact move
   "Pigeon pose": yt("Pigeon pose for runners", "pigeon pose stretch for runners"),
   "IT band stretch": yt("IT band stretch for runners", "IT band stretch for runners"),
-  "Hip flexor stretch": yt("Hip flexor stretch for runners", "hip flexor stretch for runners"),
-  "Calf stretch on wall": yt("Wall calf stretch", "wall calf stretch runners"),
-  "Calf stretch wall": yt("Wall calf stretch", "wall calf stretch runners"),
+  "Hip flexor stretch": { url: "https://www.youtube.com/watch?v=EXCIBkqxcYE", label: "Hip Flexor Stretch for Runners" },
+  "Calf stretch on wall": { url: "https://www.youtube.com/watch?v=y01ri_43G50", label: "Wall Calf Stretch" },
+  "Calf stretch wall": { url: "https://www.youtube.com/watch?v=y01ri_43G50", label: "Wall Calf Stretch" },
   "Calf stretch": yt("Calf stretch for runners", "calf stretch for runners"),
   "Figure-four glute stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
   "Figure-four stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
   "Glute stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
   "Ankle circles": yt("Ankle circles", "ankle circles mobility exercise"),
-  "Single-leg glute bridge": yt("Single-leg glute bridge", "single leg glute bridge form"),
+  "Single-leg glute bridge": { url: "https://www.youtube.com/watch?v=ZJodU5OOaiA", label: "Single-Leg Glute Bridge" },
   "Glute bridges": yt("Glute bridge", "glute bridge form"),
-  "Standing calf raise with weights": yt("Dumbbell calf raise", "standing dumbbell calf raise form"),
-  "Calf raise": yt("Calf raises for shin splints", "calf raises for shin splints runners"),
-  "Goblet squat": yt("Goblet squat", "goblet squat dumbbell form"),
-  "Reverse lunge": yt("Reverse lunge", "dumbbell reverse lunge form"),
-  "Banded lateral walk": yt("Banded lateral walk", "banded lateral walk form"),
-  "Banded toe raise": yt("Banded toe raise (tibialis)", "resistance band tibialis toe raise"),
+  "Standing calf raise with weights": { url: "https://www.youtube.com/watch?v=wxwY7GXxL4k", label: "Standing Dumbbell Calf Raise" },
+  "Calf raise": { url: "https://www.youtube.com/shorts/hnzTTsY4thU", label: "Calf Raises for Shin Splints" },
+  "Goblet squat": { url: "https://www.youtube.com/watch?v=CkFzgR55gho", label: "Goblet Squat with a Dumbbell" },
+  "Reverse lunge": { url: "https://www.youtube.com/watch?v=RZKXLMxPF_I", label: "Reverse Lunge with Weights" },
+  "Banded lateral walk": { url: "https://www.youtube.com/watch?v=M5uxEQH5BUM", label: "Banded Lateral Walk" },
+  "Banded toe raise": { url: "https://www.youtube.com/watch?v=HNa-n4xq8ro", label: "Banded Toe Raise for Shin Strength" },
   "Romanian deadlift": yt("Dumbbell Romanian deadlift", "dumbbell romanian deadlift form"),
   "Bent-over row": yt("Dumbbell bent-over row", "dumbbell bent over row form"),
   "Banded pull-apart": yt("Banded pull-apart", "resistance band pull apart form"),
@@ -398,7 +398,10 @@ const ORIGINAL_WORKOUTS = SCHEDULE.flatMap((week) => week.days.map((workout, ind
 function getVideo(text, type) {
   const match = findVideoLink(text);
   if (match) {
-    const videoId = match.search ? null : new URL(match.url).searchParams.get("v");
+    const url = new URL(match.url);
+    const pathVideoId = url.pathname.match(/\/(?:shorts|embed)\/([^/]+)/)?.[1];
+    const shortVideoId = url.hostname === "youtu.be" ? url.pathname.split("/").filter(Boolean)[0] : null;
+    const videoId = match.search ? null : (url.searchParams.get("v") || pathVideoId || shortVideoId);
     return { ...match, videoId };
   }
   const query = type === "strides" ? "how to run strides running drills" : `${text} running exercise tutorial`;
