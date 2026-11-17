@@ -40,7 +40,8 @@ const AppContent: FC = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  if (location.pathname.replace(/\/$/, '') === '/ai-projects/half-marathon') {
+  const privateTrainingPaths = ['/ai-projects/half-marathon-pr', '/ai-projects/half-marathon'];
+  if (privateTrainingPaths.includes(location.pathname.replace(/\/$/, ''))) {
     return <HalfMarathonPRPlan />;
   }
 
