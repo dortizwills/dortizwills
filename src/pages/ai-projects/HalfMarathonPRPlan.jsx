@@ -196,6 +196,7 @@ const W = [
 ];
 
 const START = new Date(2026, 10, 16); // Mon Nov 16, 2026
+const fmt = d => d.toLocaleDateString("en-US", { month:"short", day:"numeric" });
 
 const STR = {
   A: { title:"Strength A: Legs & Glutes", ex:[
