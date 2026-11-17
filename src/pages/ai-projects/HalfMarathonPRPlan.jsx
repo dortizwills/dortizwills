@@ -505,7 +505,7 @@ export default function HalfMarathonPRPlan() {
     });
   }, [workouts, completed, planStart]);
 
-  const shownWeeks = groupedWeeks.filter(week => filter === "All" || week.phases.includes(filter));
+  const shownWeeks = useMemo(() => groupedWeeks.filter(week => filter === "All" || week.phases.includes(filter)), [groupedWeeks, filter]);
   const currentWeekGroup = groupedWeeks.find(week => week.days.some(day => day.date === today)) || groupedWeeks.find(week => week.weekStart === todayWeek) || groupedWeeks.find(week => week.weekStart >= todayWeek) || groupedWeeks[groupedWeeks.length - 1];
   const displayedWeek = groupedWeeks.find(week => week.id === activeWeekId) || currentWeekGroup;
   const inRange = today >= planStart && today <= raceDate;
