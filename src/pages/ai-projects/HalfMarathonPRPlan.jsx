@@ -289,7 +289,12 @@ const STYLES = `
   .hm-week-range { font-size:11px; color:#6E7F96; margin-top:3px; }
   .hm-week-total { font-size:12px; font-weight:800; white-space:nowrap; }
   .hm-week-progress { width:70px; text-align:right; color:#9BA8B5; font-size:11px; }
-  .hm-week-body { padding:10px 0 4px; display:grid; gap:9px; }
+  .hm-week-body { padding:10px 0 4px; display:grid; grid-template-columns:minmax(0,1fr); gap:9px; }
+  .hm-week, .hm-day, .hm-workout-groups, .hm-activity { min-width:0; max-width:100%; }
+  .hm-chevron { flex:none; width:28px; height:28px; border-radius:8px; border:1px solid #2A3441; background:#1C2330; color:#9BA8B5; display:grid; place-items:center; cursor:pointer; padding:0; transition:transform .2s ease; }
+  .hm-chevron svg { width:14px; height:14px; }
+  .hm-chevron.is-open { transform:rotate(180deg); }
+  .hm-week-heading { cursor:pointer; }
   .hm-note { color:#2DD4BF; background:#2DD4BF12; border-radius:9px; padding:10px 12px; font-size:12px; line-height:1.55; }
   .hm-day { scroll-margin-top:180px; border:1px solid #2A3441; border-radius:13px; background:#161B22; overflow:visible; }
   .hm-day.is-today { border-color:#FF5D3B99; box-shadow:0 0 0 1px #FF5D3B33; }
@@ -304,7 +309,7 @@ const STYLES = `
   .hm-day-status { font-size:10px; color:#6E7F96; white-space:nowrap; }
   .hm-day-status.done { color:#4ADE80; }
   .hm-day-status.missed { color:#F59E0B; }
-  .hm-day-content { border-top:1px solid #2A3441; padding:12px; display:grid; gap:12px; }
+  .hm-day-content { border-top:1px solid #2A3441; padding:12px; display:grid; grid-template-columns:minmax(0,1fr); gap:12px; }
   .hm-activity { min-width:0; }
   .hm-activity-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:0 2px 7px; }
   .hm-activity-title { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; }
@@ -318,7 +323,8 @@ const STYLES = `
   .hm-card-title { font-size:12px; font-weight:800; line-height:1.35; }
   .hm-card-sub { font-size:10px; color:#6E7F96; margin-top:3px; }
   .hm-card-body { font-size:11px; line-height:1.55; color:#9BA8B5; }
-  .hm-card-bottom { margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .hm-card-bottom { cursor:pointer; margin:auto -12px -12px; padding:9px 12px 12px; border-radius:0 0 12px 12px; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .hm-card-bottom:hover { background:#ffffff08; }
   .hm-watch { border:1px solid #ff5d3b45; background:#ff5d3b12; color:#ff8066; border-radius:8px; text-decoration:none; padding:6px 9px; font-size:10px; font-weight:700; cursor:pointer; }
   .hm-watch.search { color:#ff7373; border-color:#ff000033; background:#ff000010; }
   .hm-card-index { color:#6E7F96; font-size:10px; }
@@ -365,7 +371,8 @@ const STYLES = `
     .hm-week-progress { width:54px; }
     .hm-day { scroll-margin-top:148px; }
     .hm-day-content { padding:10px; }
-    .hm-card { flex-basis:82%; }
+    .hm-card { flex-basis:min(280px, calc(100% - 40px)); }
+    .hm-week-total { display:none; }
     .hm-video-panel { position:fixed; z-index:50; left:10px; right:10px; bottom:8px; top:auto; min-height:0; max-height:76vh; border-radius:17px; box-shadow:0 10px 40px #000b; transform:translateY(calc(100% - 48px)); transition:transform .28s ease; }
     .hm-video-panel.is-open { transform:translateY(0); }
     .hm-video-head { min-height:48px; cursor:pointer; }
@@ -427,13 +434,18 @@ function makeCards(workout) {
 }
 
 function Card({ workout, card, index, count, checked, onCheck, onVideo, onStrides }) {
+  function openCard() {
+    if (card.guide) return onStrides();
+    if (card.video.search) return window.open(card.video.url, "_blank", "noopener");
+    onVideo({ ...card.video, workoutId:workout.id, exerciseName:card.title });
+  }
   return <article className={`hm-card${checked ? " is-checked" : ""}`}>
     <div className="hm-card-top">
       <input className="hm-check" aria-label={`Mark ${card.title} complete`} type="checkbox" checked={checked} onChange={onCheck} />
       <div className="hm-card-heading"><div className="hm-card-title">{card.title}</div><div className="hm-card-sub">{card.subtitle}</div></div>
     </div>
     <div className="hm-card-body">{card.body}</div>
-    <div className="hm-card-bottom">
+    <div className="hm-card-bottom" role="button" tabIndex={0} aria-label={`Open ${card.guide ? "how-to guide" : "video"} for ${card.title}`} onClick={event => { if (event.target.closest("a,button")) return; openCard(); }} onKeyDown={event => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); openCard(); } }}>
       {card.video.search
         ? <a className="hm-watch search" href={card.video.url} target="_blank" rel="noreferrer">↗ Find video</a>
         : <button type="button" className="hm-watch" onClick={() => onVideo({ ...card.video, workoutId:workout.id, exerciseName:card.title })}>▶ Watch</button>}
@@ -451,7 +463,8 @@ export default function HalfMarathonPRPlan() {
   const [raceDate, setRaceDate] = useState(() => STORE.get("race-date", INITIAL_RACE_DATE));
   const [filter, setFilter] = useState("All");
   const [activeWeekId, setActiveWeekId] = useState(null);
-  const [openDay, setOpenDay] = useState(null);
+  const [openDay, setOpenDay] = useState(() => STORE.get("open-day", null));
+  const [collapsedWeeks, setCollapsedWeeks] = useState(() => STORE.get("collapsed-weeks", {}));
   const [activeVideo, setActiveVideo] = useState(null);
   const [mobileVideoOpen, setMobileVideoOpen] = useState(false);
   const [dialog, setDialog] = useState(null);
@@ -467,6 +480,8 @@ export default function HalfMarathonPRPlan() {
   useEffect(() => { STORE.set("completed", completed); }, [completed]);
   useEffect(() => { STORE.set("missed", missed); }, [missed]);
   useEffect(() => { STORE.set("race-date", raceDate); }, [raceDate]);
+  useEffect(() => { STORE.set("open-day", openDay); }, [openDay]);
+  useEffect(() => { STORE.set("collapsed-weeks", collapsedWeeks); }, [collapsedWeeks]);
   useEffect(() => {
     const previousTitle = document.title;
     const meta = document.querySelector('meta[name="robots"]') || document.createElement("meta");
@@ -616,13 +631,16 @@ export default function HalfMarathonPRPlan() {
           {shownWeeks.map(week => {
             const color = PH[week.phases[0]] || C.accent;
             const weekEnd = dateToISO(addDays(dateFromISO(week.weekStart),6));
+            const weekOpen = !collapsedWeeks[week.id];
+            const toggleWeek = () => setCollapsedWeeks(current => ({ ...current, [week.id]:weekOpen }));
             return <section key={week.id} className="hm-week" data-week-id={week.id} ref={node => node ? weekRefs.current.set(week.id,node) : weekRefs.current.delete(week.id)}>
-              <div className="hm-week-heading">
+              <div className="hm-week-heading" onClick={toggleWeek}>
                 <div className="hm-week-num" style={{background:`${color}22`,border:`1px solid ${color}66`,color}}>{week.planWeek}</div>
                 <div className="hm-week-meta"><div className="hm-week-title">Week {week.planWeek} <span style={{fontSize:10,color,marginLeft:5}}>{week.phase}</span></div><div className="hm-week-range">{formatDate(week.weekStart,{month:"short",day:"numeric"})} – {formatDate(weekEnd,{month:"short",day:"numeric"})}</div></div>
                 <div className="hm-week-total">{week.miles.toFixed(1)} mi</div><div className="hm-week-progress">{week.total ? Math.round(week.done / week.total * 100) : 0}% done</div>
+                <Chevron open={weekOpen} label={`${weekOpen ? "Collapse" : "Expand"} week ${week.planWeek}`} onClick={toggleWeek} />
               </div>
-              <div className="hm-week-body">
+              {weekOpen && <div className="hm-week-body">
                 {week.notes.map(note => <div className="hm-note" key={note}>{note}</div>)}
                 {week.days.map(day => {
                   const isToday = day.date === today;
@@ -638,6 +656,7 @@ export default function HalfMarathonPRPlan() {
                       <div className="hm-day-date"><b>{formatDate(day.date,{weekday:"short"})}</b><span>{formatDate(day.date,{month:"short",day:"numeric"})}</span></div>
                       <div className="hm-day-main"><div className="hm-day-title">{isToday ? "Today · " : ""}{summary}</div><div className="hm-day-summary-text">{day.items.map(item => item.text).join(" · ")}</div></div>
                       <span className={`hm-day-status${dayComplete ? " done" : isPast || missed[day.date] ? " missed" : ""}`}>{status}</span>
+                      <Chevron open={isOpen} label={`${isOpen ? "Collapse" : "Expand"} ${formatDate(day.date,{weekday:"long"})}`} onClick={() => setOpenDay(isOpen ? (isToday ? "__closed__" : null) : day.date)} />
                       <span className="hm-menu-wrap" onClick={event => event.stopPropagation()}><DayMenu workouts={day.items} missed={missed[day.date]} onMiss={() => setMissedForDay(day.date,true)} onUnmiss={() => setMissedForDay(day.date,false)} onMove={workout => setDialog({type:"move",workout,date:dateFor(workout)})} onShift={workout => setDialog({type:"shift",workout,days:7})} onReset={resetWorkout} /></span>
                     </div>
                     {isOpen && <div className="hm-day-content">
@@ -645,7 +664,7 @@ export default function HalfMarathonPRPlan() {
                     </div>}
                   </article>;
                 })}
-              </div>
+              </div>}
             </section>;
           })}
         </div>}
@@ -675,6 +694,12 @@ export default function HalfMarathonPRPlan() {
     {dialog && <ScheduleDialog dialog={dialog} workouts={workouts} raceDate={raceDate} onCancel={() => setDialog(null)} onMove={saveMove} onShift={shiftRemaining} warnings={dateWarnings} />}
     {mobileVideoOpen && <span className="hm-mobile-video-bar" aria-hidden="true" />}
   </div>;
+}
+
+function Chevron({ open, label, onClick }) {
+  return <button type="button" className={`hm-chevron${open ? " is-open" : ""}`} aria-label={label} aria-expanded={open} onClick={event => { event.stopPropagation(); onClick(); }}>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6l4 4 4-4" /></svg>
+  </button>;
 }
 
 function WorkoutGroups({ workout, completed, onCheck, onVideo, onStrides }) {
