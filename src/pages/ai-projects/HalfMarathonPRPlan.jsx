@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Trophy } from "lucide-react";
 import TrainingHistory from "./TrainingHistory";
+import SantaCruzPriorPlan from "./SantaCruzPriorPlan";
 import { suppliedVideo } from "./trainingHistory";
 
 const COLORS = {
@@ -615,10 +616,16 @@ export default function HalfMarathonPRPlan() {
       </div>
     </div>
 
-    <div className="hm-layout">
+    <section id="hm-prior-plan" aria-label="Completed prior training plan">
+      <div className="hm-info" style={{margin:"12px auto",maxWidth:900}}><strong style={{color:C.green}}>✓ Completed prior plan · Santa Cruz Half Marathon</strong><br />From zero running experience to a half marathon under a 12-minute mile. Scroll down for the current PR plan.</div>
+      <SantaCruzPriorPlan />
+      <div style={{textAlign:"center",padding:"8px 0 20px"}}><Button variant="outline" onClick={() => document.getElementById("hm-current-plan")?.scrollIntoView({behavior:"smooth"})}>↓ Current PR plan</Button></div>
+    </section>
+
+    <div className="hm-layout" id="hm-current-plan">
       <main className="hm-main">
         <header className="hm-hero">
-          <Button variant="ghost" size="sm" className="hm-history-link" onClick={() => setView("history")}><Trophy />Race results & prior plans</Button>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="ghost" size="sm" className="hm-history-link" onClick={() => document.getElementById("hm-prior-plan")?.scrollIntoView({behavior:"smooth"})}>↑ Prior plan: Santa Cruz</Button><Button variant="ghost" size="sm" className="hm-history-link" onClick={() => setView("history")}><Trophy />Race results</Button></div>
           <div className="hm-eyebrow">Private training plan · 17 weeks</div>
           <h1>Beat 2:29:30</h1>
           <div className="hm-subtitle">{formatDate(planStart, { month:"short", day:"numeric", year:"numeric" })} – <strong style={{color:C.accent}}>{formatDate(raceDate, { month:"short", day:"numeric", year:"numeric" })}</strong></div>
