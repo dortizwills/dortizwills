@@ -1,4 +1,8 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Trophy } from "lucide-react";
+import TrainingHistory from "./TrainingHistory";
+import { suppliedVideo } from "./trainingHistory";
 
 const COLORS = {
   bg: "#0D1117", surface: "#161B22", card: "#1C2330", border: "#2A3441",
@@ -49,6 +53,8 @@ const VIDEO_LINKS = {
 };
 
 function findVideoLink(stretchText) {
+  const supplied = suppliedVideo(stretchText);
+  if (supplied) return supplied;
   for (const [key, val] of Object.entries(VIDEO_LINKS)) {
     if (stretchText.toLowerCase().includes(key.toLowerCase())) return val;
   }
@@ -457,6 +463,7 @@ function Card({ workout, card, index, count, checked, onCheck, onVideo, onStride
 
 
 export default function HalfMarathonPRPlan() {
+  const [view, setView] = useState("training");
   const [schedule, setSchedule] = useState(() => STORE.get("schedule", {}));
   const [completed, setCompleted] = useState(() => STORE.get("completed", {}));
   const [missed, setMissed] = useState(() => STORE.get("missed", {}));
@@ -587,6 +594,8 @@ export default function HalfMarathonPRPlan() {
       .map(other => `${TYPES[other.t].label} is scheduled ${dateFor(other) === targetDate ? "on the same day" : "the day before or after"} (${formatDate(dateFor(other), { month:"short", day:"numeric" })}).`);
   }
 
+  if (view === "history") return <div className="hm-shell"><style>{STYLES}</style><TrainingHistory onBack={() => setView("training")} snapshot={{ raceDate, workouts:workouts.map(workout => ({ id:workout.id, date:workout.date, text:workout.text, mi:workout.mi, cards:makeCards(workout).flatMap(group => group.cards).map(card => ({ title:card.title, completed:Boolean(completed[cardProgressKey(workout.id,card.id)]) })) })) }} /></div>;
+
   return <div className="hm-shell">
     <style>{STYLES}</style>
     {showStrides && <StridesGuide onClose={() => setShowStrides(false)} />}
@@ -609,6 +618,7 @@ export default function HalfMarathonPRPlan() {
     <div className="hm-layout">
       <main className="hm-main">
         <header className="hm-hero">
+          <Button variant="ghost" size="sm" className="hm-history-link" onClick={() => setView("history")}><Trophy />Race results & prior plans</Button>
           <div className="hm-eyebrow">Private training plan · 17 weeks</div>
           <h1>Beat 2:29:30</h1>
           <div className="hm-subtitle">{formatDate(planStart, { month:"short", day:"numeric", year:"numeric" })} – <strong style={{color:C.accent}}>{formatDate(raceDate, { month:"short", day:"numeric", year:"numeric" })}</strong></div>

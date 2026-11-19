@@ -1,5 +1,11 @@
 # Current work
 
+## Half-marathon portfolio
+
+- [x] Add the ten supplied exercise videos.
+- [x] Add race results and saved prior training plans without inventing missing history.
+- [x] Verify player links, persisted history and mobile layout (actual YouTube playback is controlled by YouTube).
+
 - [x] Use the supplied two-app picture for the Mobile App Portfolio card on Work.
 - [x] Make the two-video Pitching & Developing area white on the homepage.
 - [x] Restore both Hivey chart image addresses and verify their appearance in the preview.

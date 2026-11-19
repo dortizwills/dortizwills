@@ -10,3 +10,4 @@
 - Keep ARKit scanning in a Capacitor iOS plugin and the viewer in shared Three.js code; browsers cannot access native spatial APIs.
 - Distinguish native triangle meshes, sparse tracking points, and measured photo-assisted shells; never present estimated or synthetic geometry as a completed scan.
 - Render uploaded room images as aspect-correct planes positioned by surface raycasts, not textured furniture boxes.
+- Keep training history in separate browser-storage keys from active training and archive immutable workout/check-off snapshots, so reviewing prior plans never changes the active plan.
