@@ -16,6 +16,11 @@ export function suppliedVideo(text: string) {
   return Object.entries(SUPPLIED_VIDEOS).find(([key]) => text.toLowerCase().includes(key.toLowerCase()))?.[1];
 }
 
+export type TrainingPlanId = "current" | "santa-cruz";
+export function toggleTrainingPlan(current: TrainingPlanId | null, selected: TrainingPlanId): TrainingPlanId | null {
+  return current === selected ? null : selected;
+}
+
 export type RaceResult = {
   id: string; name: string; date?: string; distance?: string; finish?: string;
   pace?: string; story?: string; plan?: string;

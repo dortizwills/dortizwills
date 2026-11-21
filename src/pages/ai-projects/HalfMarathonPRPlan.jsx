@@ -3,179 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Trophy } from "lucide-react";
 import TrainingHistory from "./TrainingHistory";
 import SantaCruzPriorPlan from "./SantaCruzPriorPlan";
-import { suppliedVideo } from "./trainingHistory";
-
-const COLORS = {
-  bg: "#0D1117", surface: "#161B22", card: "#1C2330", border: "#2A3441",
-  accent: "#FF5D3B", accentSoft: "#FF5D3B22",
-  teal: "#2DD4BF", tealSoft: "#2DD4BF18",
-  amber: "#F59E0B", amberSoft: "#F59E0B18",
-  purple: "#A78BFA", purpleSoft: "#A78BFA18",
-  green: "#4ADE80", greenSoft: "#4ADE8018",
-  muted: "#6E7F96", text: "#E6EDF3", textSoft: "#9BA8B5",
-};
-
-const yt = (label, q) => ({ url: "https://www.youtube.com/results?search_query=" + encodeURIComponent(q), label, search: true });
-const VIDEO_LINKS = {
-  // Confirmed: the result title matched the exercise
-  "Standing quad stretch": { url: "https://www.youtube.com/watch?v=kia2OzZiwqw", label: "Standing Quad Stretch Tutorial - Proper Form" },
-  "Quad stretch": { url: "https://www.youtube.com/watch?v=kzAsm4WQqvQ", label: "How To Do A Standing Quad Stretch" },
-  "Seated hamstring stretch": { url: "https://www.youtube.com/watch?v=oJX8EKF3TqM", label: "Seated Forward Fold - Beginner Hamstring Stretch" },
-  "Standing hamstring": { url: "https://www.youtube.com/watch?v=QZC5kDtZTbc", label: "Hamstring Stretch Tutorial" },
-  "Hamstring stretch": { url: "https://www.youtube.com/watch?v=QZC5kDtZTbc", label: "Hamstring Stretch Tutorial" },
-  "Foam roll": { url: "https://www.youtube.com/watch?v=vL4hHo7PMp8", label: "15 Minute Guided Foam Rolling for Runners" },
-  // Not confirmed: opens YouTube search results for the exact move
-  "Pigeon pose": yt("Pigeon pose for runners", "pigeon pose stretch for runners"),
-  "IT band stretch": yt("IT band stretch for runners", "IT band stretch for runners"),
-  "Hip flexor stretch": { url: "https://www.youtube.com/watch?v=EXCIBkqxcYE", label: "Hip Flexor Stretch for Runners" },
-  "Calf stretch on wall": { url: "https://www.youtube.com/watch?v=y01ri_43G50", label: "Wall Calf Stretch" },
-  "Calf stretch wall": { url: "https://www.youtube.com/watch?v=y01ri_43G50", label: "Wall Calf Stretch" },
-  "Calf stretch": yt("Calf stretch for runners", "calf stretch for runners"),
-  "Figure-four glute stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
-  "Figure-four stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
-  "Glute stretch": yt("Figure-four glute stretch", "figure four glute stretch"),
-  "Ankle circles": yt("Ankle circles", "ankle circles mobility exercise"),
-  "Single-leg glute bridge": { url: "https://www.youtube.com/watch?v=ZJodU5OOaiA", label: "Single-Leg Glute Bridge" },
-  "Glute bridges": yt("Glute bridge", "glute bridge form"),
-  "Standing calf raise with weights": { url: "https://www.youtube.com/watch?v=wxwY7GXxL4k", label: "Standing Dumbbell Calf Raise" },
-  "Calf raise": { url: "https://www.youtube.com/shorts/hnzTTsY4thU", label: "Calf Raises for Shin Splints" },
-  "Goblet squat": { url: "https://www.youtube.com/watch?v=CkFzgR55gho", label: "Goblet Squat with a Dumbbell" },
-  "Reverse lunge": { url: "https://www.youtube.com/watch?v=RZKXLMxPF_I", label: "Reverse Lunge with Weights" },
-  "Banded lateral walk": { url: "https://www.youtube.com/watch?v=M5uxEQH5BUM", label: "Banded Lateral Walk" },
-  "Banded toe raise": { url: "https://www.youtube.com/watch?v=HNa-n4xq8ro", label: "Banded Toe Raise for Shin Strength" },
-  "Romanian deadlift": yt("Dumbbell Romanian deadlift", "dumbbell romanian deadlift form"),
-  "Bent-over row": yt("Dumbbell bent-over row", "dumbbell bent over row form"),
-  "Banded pull-apart": yt("Banded pull-apart", "resistance band pull apart form"),
-  "Overhead press": yt("Dumbbell overhead press", "dumbbell overhead press form"),
-  "Dead bug": yt("Dead bug", "dead bug exercise form"),
-  "Pallof press": yt("Band Pallof press", "resistance band pallof press form"),
-  "cycling": yt("Low-impact cross-training", "low impact cross training for runners cycling"),
-  "swimming": yt("Swimming for runners", "swimming cross training for runners beginners"),
-};
-
-function findVideoLink(stretchText) {
-  const supplied = suppliedVideo(stretchText);
-  if (supplied) return supplied;
-  for (const [key, val] of Object.entries(VIDEO_LINKS)) {
-    if (stretchText.toLowerCase().includes(key.toLowerCase())) return val;
-  }
-  return null;
-}
-
-const STRIDES_STEPS = [
-  { num: 1, phase: "Build-up", duration: "0–10s", detail: "Start from a jog, gradually accelerate over 10 seconds to about 85–90% of your top speed. Focus on smooth, relaxed form — don't sprint from the gun.", color: "#2DD4BF" },
-  { num: 2, phase: "Hold",     duration: "10–20s", detail: "Maintain that fast-but-controlled speed for the middle 10 seconds. You should feel quick and light — fast turnover, tall posture, arms driving forward and back (not crossing your body).", color: "#A78BFA" },
-  { num: 3, phase: "Wind-down",duration: "20–30s", detail: "Gradually decelerate over the final 10 seconds back to an easy jog. Don't slam the brakes — let your speed bleed off naturally.", color: "#F59E0B" },
-  { num: 4, phase: "Rest",     duration: "60–90s walk/jog", detail: "Walk or jog slowly between each stride to fully recover. You should feel ready to go again before starting the next one. Do this 4 times total.", color: "#6E7F96" },
-];
-
-const STRIDES_TIPS = [
-  { icon: "📍", tip: "Find a flat, straight stretch of road or path — about 80–100 meters long." },
-  { icon: "🏃", tip: "Stay relaxed. Your jaw, shoulders and hands should be loose — imagine holding potato chips without crushing them." },
-  { icon: "⏱️", tip: "Do strides at the END of your easy run, never at the start when cold." },
-  { icon: "👁️", tip: "Look ahead, not down. Keep your gaze about 20 meters in front of you." },
-  { icon: "💨", tip: "Aim for a fast, light footstrike — land under your hips, not out in front." },
-];
-
-function StridesGuide({ onClose }) {
-  return (
-    <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.75)", zIndex:1000, display:"flex", alignItems:"center", justifyContent:"center", padding:16 }}
-      onClick={onClose}>
-      <div style={{ background:COLORS.surface, border:`1px solid ${COLORS.border}`, borderRadius:16, maxWidth:520, width:"100%", maxHeight:"85vh", overflowY:"auto", padding:24 }}
-        onClick={e => e.stopPropagation()}>
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:16 }}>
-          <div>
-            <div style={{ fontSize:18, fontWeight:800, color:COLORS.text }}>How to Run Strides</div>
-            <div style={{ fontSize:12, color:COLORS.muted, marginTop:2 }}>4×30 seconds — step by step</div>
-          </div>
-          <button onClick={onClose} style={{ background:COLORS.card, border:`1px solid ${COLORS.border}`, borderRadius:8, color:COLORS.muted, fontSize:18, width:32, height:32, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center" }}>×</button>
-        </div>
-
-        <div style={{ background:COLORS.card, borderRadius:10, padding:"12px 14px", marginBottom:16, fontSize:12, color:COLORS.textSoft, lineHeight:1.6 }}>
-          <b style={{color:COLORS.text}}>What are strides?</b> Short, controlled accelerations done at the end of an easy run. They wake up your fast-twitch muscles, improve running form, and build speed without tiring you out. Think of them as a gentle preview of faster running — not an all-out sprint.
-        </div>
-
-        {/* Step-by-step timeline */}
-        <div style={{ fontSize:12, fontWeight:700, color:COLORS.muted, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:10 }}>One Stride (30 seconds)</div>
-        <div style={{ display:"flex", flexDirection:"column", gap:0, marginBottom:18, position:"relative" }}>
-          {STRIDES_STEPS.map((s, i) => (
-            <div key={i} style={{ display:"flex", gap:12, alignItems:"flex-start" }}>
-              <div style={{ display:"flex", flexDirection:"column", alignItems:"center", flexShrink:0 }}>
-                <div style={{ width:32, height:32, borderRadius:"50%", background:`${s.color}22`, border:`2px solid ${s.color}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:13, fontWeight:800, color:s.color }}>
-                  {s.num === 4 ? "↺" : s.num}
-                </div>
-                {i < STRIDES_STEPS.length - 1 && <div style={{ width:2, height:28, background:`${s.color}44`, margin:"2px 0" }} />}
-              </div>
-              <div style={{ paddingBottom:i < STRIDES_STEPS.length - 1 ? 0 : 0, marginBottom: i < STRIDES_STEPS.length - 1 ? 0 : 0 }}>
-                <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:3 }}>
-                  <span style={{ fontSize:13, fontWeight:700, color:s.color }}>{s.phase}</span>
-                  <span style={{ fontSize:11, color:COLORS.muted, background:COLORS.card, border:`1px solid ${COLORS.border}`, borderRadius:6, padding:"1px 7px" }}>{s.duration}</span>
-                </div>
-                <div style={{ fontSize:12, color:COLORS.textSoft, lineHeight:1.55, paddingBottom:14 }}>{s.detail}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Visual speed bar */}
-        <div style={{ marginBottom:18 }}>
-          <div style={{ fontSize:11, fontWeight:700, color:COLORS.muted, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8 }}>Speed Profile (one stride)</div>
-          <div style={{ background:COLORS.card, borderRadius:8, padding:"12px 14px" }}>
-            <div style={{ display:"flex", alignItems:"flex-end", gap:2, height:48, marginBottom:6 }}>
-              {[15,30,50,70,88,95,90,88,85,70,50,30,15].map((h,i) => {
-                const hue = h < 40 ? COLORS.teal : h < 75 ? COLORS.purple : COLORS.accent;
-                return <div key={i} style={{ flex:1, height:`${h}%`, background:hue, borderRadius:"3px 3px 0 0", opacity:0.8 }} />;
-              })}
-            </div>
-            <div style={{ display:"flex", justifyContent:"space-between", fontSize:10, color:COLORS.muted }}>
-              <span style={{color:COLORS.teal}}>Build-up</span>
-              <span style={{color:COLORS.purple}}>Hold fast</span>
-              <span style={{color:COLORS.amber}}>Wind-down</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Tips */}
-        <div style={{ fontSize:12, fontWeight:700, color:COLORS.muted, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8 }}>Form Tips</div>
-        <div style={{ display:"flex", flexDirection:"column", gap:6, marginBottom:18 }}>
-          {STRIDES_TIPS.map((t, i) => (
-            <div key={i} style={{ display:"flex", gap:10, alignItems:"flex-start", background:COLORS.card, borderRadius:8, padding:"9px 12px" }}>
-              <span style={{ fontSize:16, flexShrink:0 }}>{t.icon}</span>
-              <span style={{ fontSize:12, color:COLORS.textSoft, lineHeight:1.5 }}>{t.tip}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Full workout example */}
-        <div style={{ background:`${COLORS.accent}0d`, border:`1px solid ${COLORS.accent}33`, borderRadius:10, padding:"12px 14px" }}>
-          <div style={{ fontSize:12, fontWeight:700, color:COLORS.accent, marginBottom:8 }}>Full 4×30s Workout Example</div>
-          {[
-            { step:"Easy run",          time:"~20–30 min", note:"Conversational pace the whole way" },
-            { step:"Stride 1",          time:"30 sec fast", note:"Build → hold → wind-down on flat stretch" },
-            { step:"Recovery jog/walk", time:"60–90 sec", note:"Catch your breath fully" },
-            { step:"Stride 2",          time:"30 sec fast", note:"Same effort as stride 1" },
-            { step:"Recovery jog/walk", time:"60–90 sec", note:"" },
-            { step:"Stride 3",          time:"30 sec fast", note:"" },
-            { step:"Recovery jog/walk", time:"60–90 sec", note:"" },
-            { step:"Stride 4",          time:"30 sec fast", note:"Last one — make it count!" },
-            { step:"Cool-down walk",    time:"3–5 min", note:"Then stretch" },
-          ].map((r, i) => (
-            <div key={i} style={{ display:"flex", gap:10, padding:"5px 0", borderBottom: i < 8 ? `1px solid ${COLORS.border}` : "none" }}>
-              <span style={{ fontSize:12, fontWeight:600, color: r.step.includes("Stride") ? COLORS.accent : COLORS.text, minWidth:130 }}>{r.step}</span>
-              <span style={{ fontSize:11, color:COLORS.muted, minWidth:80 }}>{r.time}</span>
-              {r.note && <span style={{ fontSize:11, color:COLORS.textSoft }}>{r.note}</span>}
-            </div>
-          ))}
-        </div>
-
-        <button onClick={onClose} style={{ marginTop:16, width:"100%", padding:"11px", background:COLORS.accent, border:"none", borderRadius:10, color:"white", fontWeight:700, fontSize:14, cursor:"pointer" }}>
-          Got it — back to training plan
-        </button>
-      </div>
-    </div>
-  );
-}
-
+import { Card, getVideo, StridesGuide } from "./TrainingTutorials";
+import TrainingPlanCards from "./TrainingPlanCards";
+import { toggleTrainingPlan } from "./trainingHistory";
 
 const C = { bg:"#0D1117", surface:"#161B22", card:"#1C2330", border:"#2A3441", accent:"#FF5D3B", teal:"#2DD4BF", amber:"#F59E0B", purple:"#A78BFA", green:"#4ADE80", blue:"#60A5FA", muted:"#6E7F96", text:"#E6EDF3", soft:"#9BA8B5" };
 const PH = { Base:C.teal, Build:C.accent, Peak:C.purple, Taper:C.amber };
@@ -409,19 +239,6 @@ const ORIGINAL_WORKOUTS = SCHEDULE.flatMap((week) => week.days.map((workout, ind
   return { ...workout, id:`week-${week.n}-${workout.t}-${index}`, originalWeek:week.n, phase:week.phase, weekNote:week.note, date:dateToISO(date) };
 }));
 
-function getVideo(text, type) {
-  const match = findVideoLink(text);
-  if (match) {
-    const url = new URL(match.url);
-    const pathVideoId = url.pathname.match(/\/(?:shorts|embed)\/([^/]+)/)?.[1];
-    const shortVideoId = url.hostname === "youtu.be" ? url.pathname.split("/").filter(Boolean)[0] : null;
-    const videoId = match.search ? null : (url.searchParams.get("v") || pathVideoId || shortVideoId);
-    return { ...match, videoId };
-  }
-  const query = type === "strides" ? "how to run strides running drills" : `${text} running exercise tutorial`;
-  return yt(text, query);
-}
-
 function makeCards(workout) {
   const groups = [];
   if (workout.ex) {
@@ -440,30 +257,7 @@ function makeCards(workout) {
   return groups;
 }
 
-function Card({ workout, card, index, count, checked, onCheck, onVideo, onStrides }) {
-  function openCard() {
-    if (card.guide) return onStrides();
-    if (card.video.search) return window.open(card.video.url, "_blank", "noopener");
-    onVideo({ ...card.video, workoutId:workout.id, exerciseName:card.title });
-  }
-  return <article className={`hm-card${checked ? " is-checked" : ""}`}>
-    <div className="hm-card-top">
-      <input className="hm-check" aria-label={`Mark ${card.title} complete`} type="checkbox" checked={checked} onChange={onCheck} />
-      <div className="hm-card-heading"><div className="hm-card-title">{card.title}</div><div className="hm-card-sub">{card.subtitle}</div></div>
-    </div>
-    <div className="hm-card-body">{card.body}</div>
-    <div className="hm-card-bottom" role="button" tabIndex={0} aria-label={`Open ${card.guide ? "how-to guide" : "video"} for ${card.title}`} onClick={event => { if (event.target.closest("a,button")) return; openCard(); }} onKeyDown={event => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); openCard(); } }}>
-      {card.video.search
-        ? <a className="hm-watch search" href={card.video.url} target="_blank" rel="noreferrer">↗ Find video</a>
-        : <button type="button" className="hm-watch" onClick={() => onVideo({ ...card.video, workoutId:workout.id, exerciseName:card.title })}>▶ Watch</button>}
-      <span className="hm-card-index">{index + 1} / {count}</span>
-      {card.guide && <button type="button" className="hm-watch" onClick={onStrides}>How-to guide</button>}
-    </div>
-  </article>;
-}
-
-
-export default function HalfMarathonPRPlan() {
+function CurrentPRPlan({ onProgress, onPlans }) {
   const [view, setView] = useState("training");
   const [schedule, setSchedule] = useState(() => STORE.get("schedule", {}));
   const [completed, setCompleted] = useState(() => STORE.get("completed", {}));
@@ -485,7 +279,7 @@ export default function HalfMarathonPRPlan() {
   const todayWeek = dateToISO(mondayOf(today));
 
   useEffect(() => { STORE.set("schedule", schedule); }, [schedule]);
-  useEffect(() => { STORE.set("completed", completed); }, [completed]);
+  useEffect(() => { STORE.set("completed", completed); onProgress?.(completed); }, [completed, onProgress]);
   useEffect(() => { STORE.set("missed", missed); }, [missed]);
   useEffect(() => { STORE.set("race-date", raceDate); }, [raceDate]);
   useEffect(() => { STORE.set("open-day", openDay); }, [openDay]);
@@ -554,8 +348,7 @@ export default function HalfMarathonPRPlan() {
   }, [shownWeeks]);
 
   useEffect(() => {
-    const target = dayRefs.current.get(today);
-    if (target && !afterRace) window.setTimeout(() => target.scrollIntoView({ behavior:"smooth", block:"center" }), 180);
+    // Start at the expanded plan header; today remains accessible through the week strip.
   }, []);
 
   function dateFor(workout) { return workout.t === "race" ? raceDate : (schedule[workout.id] || workout.date); }
@@ -616,16 +409,10 @@ export default function HalfMarathonPRPlan() {
       </div>
     </div>
 
-    <section id="hm-prior-plan" aria-label="Completed prior training plan">
-      <div className="hm-info" style={{margin:"12px auto",maxWidth:900}}><strong style={{color:C.green}}>✓ Completed prior plan · Santa Cruz Half Marathon</strong><br />From zero running experience to a half marathon under a 12-minute mile. Scroll down for the current PR plan.</div>
-      <SantaCruzPriorPlan />
-      <div style={{textAlign:"center",padding:"8px 0 20px"}}><Button variant="outline" onClick={() => document.getElementById("hm-current-plan")?.scrollIntoView({behavior:"smooth"})}>↓ Current PR plan</Button></div>
-    </section>
-
     <div className="hm-layout" id="hm-current-plan">
       <main className="hm-main">
         <header className="hm-hero">
-          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="ghost" size="sm" className="hm-history-link" onClick={() => document.getElementById("hm-prior-plan")?.scrollIntoView({behavior:"smooth"})}>↑ Prior plan: Santa Cruz</Button><Button variant="ghost" size="sm" className="hm-history-link" onClick={() => setView("history")}><Trophy />Race results</Button></div>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="ghost" size="sm" className="hm-history-link" onClick={onPlans}>↑ All training plans</Button><Button variant="ghost" size="sm" className="hm-history-link" onClick={() => setView("history")}><Trophy />Race results</Button></div>
           <div className="hm-eyebrow">Private training plan · 17 weeks</div>
           <h1>Beat 2:29:30</h1>
           <div className="hm-subtitle">{formatDate(planStart, { month:"short", day:"numeric", year:"numeric" })} – <strong style={{color:C.accent}}>{formatDate(raceDate, { month:"short", day:"numeric", year:"numeric" })}</strong></div>
@@ -747,4 +534,31 @@ function ScheduleDialog({ dialog, workouts, raceDate, onCancel, onMove, onShift,
   return <div className="hm-dialog-backdrop" role="presentation" onClick={onCancel}><section className="hm-dialog" role="dialog" aria-modal="true" onClick={event => event.stopPropagation()}>
     {dialog.type === "move" ? <><h2>Move workout</h2><p>Choose the new scheduled date. Your original plan content stays the same.</p><input className="hm-date-input" type="date" value={date} onChange={event => setDate(event.target.value)} />{alerts.length > 0 && <div className="hm-warning">Hard-day spacing warning: {alerts.join(" ")}</div>}<div className="hm-dialog-actions"><button className="secondary" type="button" onClick={onCancel}>Cancel</button><button type="button" disabled={!date} onClick={() => onMove(workout,date)}>Save date</button></div></> : <><h2>Shift upcoming workouts</h2><p>Shift this workout and all later workouts by the number of days below. Race day stays fixed; change it in Plan settings.</p><label>Days to shift <input className="hm-shift-input" type="number" value={days} onChange={event => setDays(Number(event.target.value))} min="-90" max="90" /></label>{hardRunConflict && <div className="hm-warning">Review hard-day spacing after shifting. A quality run and long run may land on adjacent days.</div>}<div className="hm-dialog-actions"><button className="secondary" type="button" onClick={onCancel}>Cancel</button><button type="button" onClick={() => onShift(workout,Number(days))}>Shift schedule</button></div></>}
   </section></div>;
+}
+
+export default function HalfMarathonPRPlan() {
+  const [selected, setSelected] = useState(null);
+  const [progress, setProgress] = useState(() => STORE.get("completed", {}));
+  const allCards = ORIGINAL_WORKOUTS.flatMap(workout => makeCards(workout).flatMap(group => group.cards.map(card => cardProgressKey(workout.id, card.id))));
+  const done = allCards.filter(key => progress[key]).length;
+  const returnToPlans = () => document.getElementById("hm-plan-cards")?.scrollIntoView({ behavior:"smooth", block:"start" });
+  const select = id => {
+    setSelected(current => toggleTrainingPlan(current, id));
+  };
+  useEffect(() => {
+    const previousTitle = document.title;
+    const meta = document.querySelector('meta[name="robots"]') || document.createElement("meta");
+    const created = !meta.parentNode; const previous = meta.content;
+    meta.name = "robots"; meta.content = "noindex, nofollow";
+    if (created) document.head.appendChild(meta);
+    document.title = "Half Marathon Training Journey";
+    return () => { document.title = previousTitle; if (created) meta.remove(); else meta.content = previous; };
+  }, []);
+  return <div className="hm-shell"><style>{STYLES}</style>
+    <TrainingPlanCards selected={selected} onSelect={select} currentMiles={SCHEDULE.reduce((sum, week) => sum + week.total, 0)} currentCompletion={`${done} / ${allCards.length} activities`} currentPercent={allCards.length ? Math.round(done / allCards.length * 100) : 0} />
+    <section id="hm-expanded-plan" aria-label="Expanded training plan" aria-live="polite">
+      {selected === "current" && <CurrentPRPlan onProgress={setProgress} onPlans={returnToPlans} />}
+      {selected === "santa-cruz" && <SantaCruzPriorPlan onPlans={returnToPlans} />}
+    </section>
+  </div>;
 }

@@ -1,5 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { FIRST_RACE, resultPace, suppliedVideo } from './trainingHistory';
+import { FIRST_RACE, resultPace, suppliedVideo, toggleTrainingPlan } from './trainingHistory';
+
+describe('training plan selection', () => {
+  it('keeps only one training plan selected at a time', () => {
+    const current = toggleTrainingPlan(null, 'current');
+    expect(current).toBe('current');
+    expect(toggleTrainingPlan(current, 'santa-cruz')).toBe('santa-cruz');
+  });
+  it('closes a plan when its selected card is selected again', () => {
+    expect(toggleTrainingPlan('current', 'current')).toBeNull();
+    expect(toggleTrainingPlan('santa-cruz', 'santa-cruz')).toBeNull();
+  });
+});
 
 describe('supplied exercise tutorials', () => {
   const cases = [

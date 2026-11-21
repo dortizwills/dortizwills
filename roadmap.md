@@ -2,6 +2,10 @@
 
 ## Half-marathon portfolio
 
+- [x] Present both plans as tilted, mutually exclusive expandable cards with truthful quick stats.
+- [x] Match Santa Cruz workout cards and tutorial viewer to the current plan.
+- [x] Include the finish photo and course map; verify desktop/mobile selection and saved progress.
+
 - [x] Add the ten supplied exercise videos.
 - [x] Add race results and saved prior training plans without inventing missing history.
 - [x] Verify player links, persisted history and mobile layout (actual YouTube playback is controlled by YouTube).
