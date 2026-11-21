@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: dortizwills-afterhours
+    runtime: node
+    plan: free
+    rootDir: afterhours
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    domains:
+      - play.dortizwills.com
