@@ -2,9 +2,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { aiProjects, hiveyProjects } from '@/data/workProjects';
 
 const ProductDesigns = () => {
-  const projects = [
+  const projects: { title: string; description: string; path: string; image: string; status?: string }[] = [
+    ...hiveyProjects.map((p) => ({ ...p, status: 'NEW' })),
+    ...aiProjects.map((p) => ({ ...p, status: 'AI' })),
     {
       title: "Quick Services",
       description: "Reduce checkout times to 2-3 minutes for automotive shops.",

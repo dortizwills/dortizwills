@@ -1,6 +1,6 @@
 # Project decisions
 
-- Keep portfolio project listing content in the shared Work data module, so page cards stay consistent with their case-study links.
+- Keep portfolio project listing content (including Hivey and AI personal projects) in the shared Work data module, so homepage, Work, and Product Design cards stay consistent with their case-study links.
 - Store newly uploaded app imagery as Lovable Assets pointers, so the repository remains lightweight and served media stays durable.
 - Proxy CDN asset paths in local development, so newly uploaded artwork renders in the local preview as it does when hosted.
 - Resolve the Enterprise Checkout and Self-Service Onboarding chart asset pointers against the Lovable-hosted origin, so their images also work on external hosting without a CDN proxy.

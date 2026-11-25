@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { productProjects, visualProjects, type WorkProject } from '@/data/workProjects';
+import { aiProjects, productProjects, visualProjects, type WorkProject } from '@/data/workProjects';
 
 interface ProjectGroupProps {
   eyebrow: string;
@@ -102,6 +102,13 @@ const Work = () => (
       title="Visual Designs"
       description="Brand systems and campaign work built to make complex ideas memorable and useful."
       projects={visualProjects}
+    />
+
+    <ProjectGroup
+      eyebrow="03"
+      title="Personal Projects · AI Tools"
+      description="Self-directed projects where I use AI tools to plan, build, and measure real-life results."
+      projects={aiProjects}
     />
   </main>
 );

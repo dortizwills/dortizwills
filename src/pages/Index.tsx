@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { aiProjects, hiveyProjects } from '@/data/workProjects';
 
 interface FeaturedProject {
   id: string;
@@ -18,7 +19,13 @@ interface FeaturedProject {
   link: string;
 }
 
+const hiveyFeatured: FeaturedProject[] = hiveyProjects.map((p) => ({
+  id: p.path, title: p.title, company: 'Hivey', categories: ['Marketplace SaaS', 'Product Design'],
+  description: p.description, meta: p.meta, mediaSrc: p.image, mediaType: 'image', link: p.path,
+}));
+
 const featuredProjects: FeaturedProject[] = [
+  ...hiveyFeatured,
   {
     id: 'securing',
     title: 'Securing 100+ shops via Enterprise partnerships',
@@ -70,7 +77,7 @@ const featuredProjects: FeaturedProject[] = [
   },
 ];
 
-const trustLogos = ['Shopmonkey', 'Raborn Media', 'Grammy Museum Mississippi', 'Adhere+'];
+const trustLogos = ['Hivey', 'Shopmonkey', 'Raborn Media', 'Grammy Museum Mississippi', 'Adhere+'];
 
 const Index = () => {
   return (
@@ -236,6 +243,26 @@ const Index = () => {
               See all work
               <ArrowRight size={16} />
             </Link>
+          </div>
+        </section>
+
+        {/* Personal Projects */}
+        <section className="py-16 md:py-24 border-t border-editorial-line">
+          <div className="mb-12 max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-editorial-muted mb-3">Personal projects · AI tools</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-medium text-editorial-fg">Using AI to get real-life results</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {aiProjects.map((project) => (
+              <Link key={project.path} to={project.path} className="group block">
+                <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-6 bg-editorial-soft">
+                  <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                </div>
+                <p className="text-xs font-semibold tracking-wider uppercase text-editorial-muted mb-3">{project.meta}</p>
+                <h3 className="font-heading text-2xl font-medium text-editorial-fg mb-2 group-hover:text-editorial-accent transition-colors">{project.title}</h3>
+                <p className="text-editorial-muted leading-relaxed">{project.description}</p>
+              </Link>
+            ))}
           </div>
         </section>
 

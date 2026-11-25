@@ -1,3 +1,7 @@
+import hiveyInsurance from '@/assets/hivey-05-event-creation-layout-templates.png.asset.json';
+import hiveyCheckout from '@/assets/hivey-01-event-day-overview.png.asset.json';
+import hiveyOnboarding from '@/assets/hivey-08-onboarding-start.png.asset.json';
+import santaCruzFinish from '@/assets/santa-cruz-finish.png.asset.json';
 import mobileAppConcepts from '@/assets/mobile-app-concepts.png.asset.json';
 
 export interface WorkProject {
@@ -9,7 +13,18 @@ export interface WorkProject {
   external?: boolean;
 }
 
+export const hiveyProjects: WorkProject[] = [
+  { title: 'Embedded Vendor Insurance & Compliance', description: 'Insurance adoption tripled from 20% to 60% in one month by building coverage into event registration.', path: '/product-designs/hivey/vendor-insurance', image: hiveyInsurance.url, meta: 'Hivey · Product Design' },
+  { title: 'Enterprise Partnership & Checkout Architecture', description: 'An enterprise partnership turned into a reusable checkout system, increasing ARR by 22%.', path: '/product-designs/hivey/enterprise-checkout', image: hiveyCheckout.url, meta: 'Hivey · Product Strategy & Design' },
+  { title: 'Self-Service Onboarding & Automated Engagement', description: 'Onboarding redesigned so new hosts launch a live event without a support call.', path: '/product-designs/hivey/self-service-onboarding', image: hiveyOnboarding.url, meta: 'Hivey · Product Design' },
+];
+
+export const aiProjects: WorkProject[] = [
+  { title: 'Zero to Half Marathon with an AI Training Plan', description: 'An AI-built training plan that took me from no running experience to a half marathon finish under a 12-minute mile.', path: '/ai-projects/half-marathon-case-study', image: santaCruzFinish.url, meta: 'Personal Project · AI Tools' },
+];
+
 export const productProjects: WorkProject[] = [
+  ...hiveyProjects,
   { title: 'Quick Services', description: 'An express checkout experience that helps automotive shops complete routine orders in minutes.', path: '/product-designs/quick-services', image: '/lovable-uploads/01-express-lane/display-express-lane.png', meta: 'B2B SaaS · Product Design' },
   { title: 'Grammy Museum MS Redesign', description: 'A redesigned museum experience focused on discovery, ticket sales, and donations.', path: '/product-designs/grammy-museum', image: '/lovable-uploads/Grammy Museum/Slide 1.png', meta: 'Web · Brand & Product Design' },
   { title: 'Mobile App Portfolio', description: 'Two mobile concepts developed for potential partnerships across safety and recreation.', path: '/mobile-apps', image: '/lovable-uploads/01e339c9-3a76-4ecb-9a6b-5e9aeb6592a7.png', meta: 'Mobile Apps · Concept Design' },

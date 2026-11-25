@@ -30,6 +30,7 @@ import VendorInsurance from './pages/hivey/VendorInsurance';
 import EnterpriseCheckout from './pages/hivey/EnterpriseCheckout';
 import SelfServiceOnboarding from './pages/hivey/SelfServiceOnboarding';
 import RoomScanner from './pages/lab/RoomScanner';
+import HalfMarathonCaseStudy from './pages/ai-projects/HalfMarathonCaseStudy';
 import HalfMarathonPRPlan from './pages/ai-projects/HalfMarathonPRPlan';
 
 const AppContent: FC = () => {
@@ -66,6 +67,7 @@ const AppContent: FC = () => {
           <Route path="/product-designs/hivey/vendor-insurance" element={<VendorInsurance />} />
           <Route path="/product-designs/hivey/enterprise-checkout" element={<EnterpriseCheckout />} />
           <Route path="/product-designs/hivey/self-service-onboarding" element={<SelfServiceOnboarding />} />
+          <Route path="/ai-projects/half-marathon-case-study" element={<HalfMarathonCaseStudy />} />
           <Route path="/graphic-designs" element={<MarketingDesigns />} />
           <Route path="/graphic-designs/data-driven-ebooks" element={<DataDrivenEbooks />} />
           <Route path="/graphic-designs/email-marketing" element={<EmailMarketing />} />

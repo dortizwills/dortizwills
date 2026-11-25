@@ -91,6 +91,7 @@ const order = [
   { title: 'Vendor Insurance', path: '/product-designs/hivey/vendor-insurance' },
   { title: 'Enterprise Checkout', path: '/product-designs/hivey/enterprise-checkout' },
   { title: 'Self-Service Onboarding', path: '/product-designs/hivey/self-service-onboarding' },
+  { title: 'Zero to Half Marathon', path: '/ai-projects/half-marathon-case-study' },
 ];
 
 export const ProjectNavigation = ({ current }: { current: string }) => {
