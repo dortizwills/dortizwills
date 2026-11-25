@@ -1,5 +1,10 @@
 # Current work
 
+## Hivey section arrangement
+
+- [x] Move enterprise requests after What I Did and remove the closing team section.
+- [x] Move onboarding screenshots into What I Did and the impact chart to the end of Results; verify both pages.
+
 ## Half-marathon portfolio
 
 - [x] Present both plans as tilted, mutually exclusive expandable cards with truthful quick stats.

@@ -35,6 +35,17 @@ const EnterpriseCheckout = () => (
         <Decision number="03" title="Balanced speed with architecture" body="Every design had to answer three questions so we could secure the contract. Does it solve the partner's immediate request? Can Engineering ship it on the agreed upon timeline or should we reduce the scope? How can the revised design pattern best support future customers?" />
       </div>
     </CaseStudySection>
+    <ScreenshotGallery
+      title="Enterprise requests we answered"
+      intro="These screens show day-of vendor operations in the Hivey mobile app — the operational requests the enterprise partner brought, answered through the platform."
+      variant="mobile"
+      shots={[
+        { src: s01.url, alt: 'Hivey mobile event-day overview showing vendor check-in progress', caption: 'Event-day overview with check-in progress' },
+        { src: s02.url, alt: 'Hivey mobile arrival instructions screen for vendors', caption: 'Arrival instructions' },
+        { src: s03.url, alt: 'Hivey mobile booth map with color-coded booth markers', caption: 'Booth map with color-coded markers' },
+        { src: s04.url, alt: 'Hivey mobile sign-in screen with role-based access request', caption: 'Role-based sign in and access request' },
+      ]}
+    />
     <CaseStudySection title="Results">
       <p>We secured the partnership that delivered a $20K enterprise investment and $12K in new annual recurring revenue, a 22.3% increase over the $53.9K baseline.</p>
       <p>The partnership delivered a $20K enterprise investment and $12K in new ARR which was a 22.3% increase to the company's existing ARR.</p>
@@ -48,22 +59,8 @@ const EnterpriseCheckout = () => (
       <MediaBlock src={new URL(combinedBusinessImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Bar chart comparing baseline and projected annual recurring revenue, events, vendors, and total partnership value" />
       <p>These are projections of capacity, not measured growth.</p>
     </FinancialImpact>
-    <ScreenshotGallery
-      title="Enterprise requests we answered"
-      intro="These screens show day-of vendor operations in the Hivey mobile app — the operational requests the enterprise partner brought, answered through the platform."
-      variant="mobile"
-      shots={[
-        { src: s01.url, alt: 'Hivey mobile event-day overview showing vendor check-in progress', caption: 'Event-day overview with check-in progress' },
-        { src: s02.url, alt: 'Hivey mobile arrival instructions screen for vendors', caption: 'Arrival instructions' },
-        { src: s03.url, alt: 'Hivey mobile booth map with color-coded booth markers', caption: 'Booth map with color-coded markers' },
-        { src: s04.url, alt: 'Hivey mobile sign-in screen with role-based access request', caption: 'Role-based sign in and access request' },
-      ]}
-    />
     <CaseStudySection title="Takeaway">
       <p>Enterprise design is systems design. A customer's requirements often expose a weakness in the product, and fixing the system serves that customer and every customer after.</p>
-    </CaseStudySection>
-    <CaseStudySection title="What This Means for Your Team">
-      <p>I take a obscure &amp; demanding customer's requests, find the reusable pattern inside those requests, and collaborate strategically to ship solutions without building one-off features.</p>
     </CaseStudySection>
     <ProjectNavigation current="/product-designs/hivey/enterprise-checkout" />
   </CaseStudyShell>

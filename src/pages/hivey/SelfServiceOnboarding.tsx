@@ -35,10 +35,6 @@ const SelfServiceOnboarding = () => (
         <Decision number="02" title="Progressive configuration and reusable templates" body="Hosts set up the essentials first and add complexity later. Hosts are also given live templates and can customize or remove them for{'\u00a0'} their own recurring events." />
         <Decision number="03" title="Automated vendor communication" body="I created requirements and designed vendor-controlled SMS settings for fees due, payment reminders, and assignments, with opt-outs built in. This allowed our hosts to avoid any SMS fees associated from improper usage." />
       </div>
-    </CaseStudySection>
-    <CaseStudySection title="Results">
-      <p>Without a support call, a new host connected Stripe, created their own fee structures, built booth templates, and launched an event that received 17 paid applications for their first event — all without a single touchpoint from our staff.</p>
-      <p>This proved successful activation, not just feature usage. Now hosts shifted from asking "How do I set this up?" to "I can figure this out myself."</p>
       <ScreenshotGallery
         title="Onboarding sequence"
         embedded
@@ -52,6 +48,11 @@ const SelfServiceOnboarding = () => (
         ]}
       />
     </CaseStudySection>
+    <CaseStudySection title="Results">
+      <p>Without a support call, a new host connected Stripe, created their own fee structures, built booth templates, and launched an event that received 17 paid applications for their first event — all without a single touchpoint from our staff.</p>
+      <p>This proved successful activation, not just feature usage. Now hosts shifted from asking "How do I set this up?" to "I can figure this out myself."</p>
+      <MediaBlock src={new URL(projectedFinancialImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
+    </CaseStudySection>
     <MediaBlock />
     <FinancialImpact label="Modeled opportunity. Not measured cash savings." paragraphs={[
       'Before the redesign, onboarding one customer cost about $200 in labor per onboarded customer. Marketing acquisition cost an estimated $80 per customer. This would require a minimum of 3 months of membership per onboarded customer.',
@@ -60,9 +61,7 @@ const SelfServiceOnboarding = () => (
       'Over the next year, $25K in potential annual onboarding labor capacity and $8K in annual acquisition spend protected, at $80 per customer.',
       '',
       '$28K total modeled cost saving impact on resources.',
-    ]}>
-      <MediaBlock src={new URL(projectedFinancialImpact.url, 'https://dortiz-wills.lovable.app').href} alt="Line chart projecting cumulative labor savings and total modeled impact from resolving onboarding friction, Q1 2026 through Q4 2028" />
-    </FinancialImpact>
+    ]} />
     <CaseStudySection title="Where the Time Goes Instead">
       <p>Outbound Sales: prospecting and developing new enterprise host relationships.</p>
       <p>Customer Success: supporting complex existing customers instead of repeating initial setup.</p>
