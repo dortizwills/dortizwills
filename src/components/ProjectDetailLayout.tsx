@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -13,6 +12,7 @@ interface ProjectDetailLayoutProps {
     timeline?: string;
     responsibilities?: string;
     results?: string;
+    overview?: string;
   };
   relatedProjects?: Array<{
     title: string;
@@ -21,6 +21,7 @@ interface ProjectDetailLayoutProps {
     image?: string;
   }>;
   showWipTag?: boolean;
+  tagType?: 'NEW' | 'WIP';
 }
 
 const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({ 
@@ -31,7 +32,8 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   headerImage,
   projectDetails,
   relatedProjects,
-  showWipTag = false
+  showWipTag = false,
+  tagType = 'WIP'
 }) => {
   // Ensure the page scrolls to top when mounted
   React.useEffect(() => {
@@ -39,14 +41,14 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
   }, []);
 
   return (
-    <div className="sm:pl-[220px] pl-0 group" data-sidebar-collapsed="false">
-      <main className="max-w-7xl mx-auto px-6 py-12 max-sm:px-4 max-sm:max-w-full transition-all duration-300 group-[data-sidebar-collapsed=true]:sm:pl-[70px] group-[data-sidebar-collapsed=true]:sm:max-w-none">
+    <div className="group" data-sidebar-collapsed="false">
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-12 max-sm:px-4 max-sm:max-w-full transition-all duration-300 group-[data-sidebar-collapsed=true]:sm:pl-[70px] group-[data-sidebar-collapsed=true]:sm:max-w-none">
         <Link to={backTo} className="flex items-center text-designer-red mb-8 hover:underline">
           <ArrowLeft size={20} className="mr-2" />
           <span>{backLabel}</span>
         </Link>
         
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-8">{title}</h1>
+        <h1 className="font-unbounded text-4xl md:text-5xl font-bold mb-8">{title}</h1>
         
         {/* Hero image with 1:2.25 aspect ratio */}
         <div className="mb-8">
@@ -54,7 +56,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
             <img 
               src={headerImage} 
               alt={title} 
-              className="w-full rounded-lg object-cover object-top" 
+              className="w-full rounded-lg object-cover object-center" 
               style={{ aspectRatio: '2.25/1' }}
             />
           ) : (
@@ -71,11 +73,18 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
         {projectDetails && (
           <div className="bg-gray-50 rounded-lg mb-10">
             <div className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <h2 className="text-2xl font-display font-semibold">Project Details</h2>
+                <div className="flex items-center gap-3 mb-6">
+                <h2 className="text-2xl font-unbounded font-semibold">Project Details</h2>
                 {showWipTag && (
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    WIP
+                  <span 
+                    className={`px-3 py-1 rounded text-sm font-medium ${
+                      tagType === 'NEW' 
+                        ? 'bg-green-500 text-white' 
+                        : 'text-gray-600'
+                    }`}
+                    style={tagType === 'WIP' ? { backgroundColor: '#DAE4E9' } : {}}
+                  >
+                    {tagType}
                   </span>
                 )}
               </div>
@@ -91,6 +100,13 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                   <div className="border-b border-gray-200 pb-4">
                     <div className="font-medium text-gray-900 text-lg">Responsibilities</div>
                     <div className="text-gray-600 mt-1">{projectDetails.responsibilities}</div>
+                  </div>
+                )}
+                
+                {projectDetails.overview && (
+                  <div className="border-b border-gray-200 pb-4">
+                    <div className="font-medium text-gray-900 text-lg">Project Overview</div>
+                    <div className="text-gray-600 mt-1">{projectDetails.overview}</div>
                   </div>
                 )}
                 
@@ -115,7 +131,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                 <div className="grid grid-cols-3 gap-8">
                   {/* Left text section - top left aligned */}
                   <div className="col-span-1 flex flex-col justify-start">
-                    <h1 className="font-display text-4xl font-bold mb-4 text-left">Similar Projects</h1>
+                    <h1 className="font-unbounded text-4xl font-bold mb-4 text-left">Similar Projects</h1>
                     <p className="text-gray-600 text-left">Like what you see? Check out some of my other projects</p>
                   </div>
                   
@@ -142,7 +158,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                             )}
                           </div>
                           <div>
-                            <h3 className="font-display text-xl font-bold mb-2">{project.title}</h3>
+                            <h3 className="font-unbounded text-xl font-bold mb-2">{project.title}</h3>
                             <p className="text-gray-600 mb-4">
                               {project.description}
                             </p>
@@ -161,7 +177,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
 
             {/* Layout for 819px and below - current format with new text */}
             <div className="min-[820px]:hidden">
-              <h1 className="font-display text-4xl font-bold mb-2">Similar Projects</h1>
+              <h1 className="font-unbounded text-4xl font-bold mb-2">Similar Projects</h1>
               <p className="text-gray-600 mb-6">Like what you see? Check out some of my other projects</p>
               
               <div className="grid grid-cols-1 gap-6">
@@ -186,7 +202,7 @@ const ProjectDetailLayout: React.FC<ProjectDetailLayoutProps> = ({
                         )}
                       </div>
                       <div className="p-2">
-                        <h3 className="font-display text-xl font-medium mb-2">{project.title}</h3>
+                        <h3 className="font-unbounded text-xl font-medium mb-2">{project.title}</h3>
                         <p className="text-gray-600 mb-4">
                           {project.description}
                         </p>

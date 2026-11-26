@@ -1,14 +1,19 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /afterhours
 
 User-agent: Bingbot
 Allow: /
+Disallow: /afterhours
 
 User-agent: Twitterbot
 Allow: /
+Disallow: /afterhours
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /afterhours
 
 User-agent: *
 Allow: /
+Disallow: /afterhours
