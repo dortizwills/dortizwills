@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { assetUrl } from '@/lib/assetUrl';
 
 export interface Metric { value: string; label: string; note?: string }
 
@@ -51,8 +52,8 @@ export const MediaBlock = ({ src, alt, type = 'image' }: { src?: string; alt?: s
   return (
     <div className="overflow-hidden rounded-lg bg-editorial-media">
       {type === 'video'
-        ? <video src={src} className="w-full" autoPlay muted loop playsInline />
-        : <img src={src} alt={alt ?? ''} className="w-full" loading="lazy" />}
+        ? <video src={assetUrl(src)} className="w-full" autoPlay muted loop playsInline />
+        : <img src={assetUrl(src)} alt={alt ?? ''} className="w-full" loading="lazy" />}
     </div>
   );
 };
@@ -119,8 +120,6 @@ export const CaseStudyShell = ({ children }: { children: ReactNode }) => (
 
 export interface GalleryShot { src: string; alt: string; caption: string }
 
-const HOSTED_ORIGIN = 'https://dortiz-wills.lovable.app';
-
 /** Captioned screenshot sequence. Pointer URLs resolve against the Lovable-hosted origin so they also load on external hosting. */
 export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop', cropAspect, embedded }: {
   title: string; intro?: string; shots: GalleryShot[]; variant?: 'mobile' | 'desktop';
@@ -137,7 +136,7 @@ export const ScreenshotGallery = ({ title, intro, shots, variant = 'desktop', cr
         <li key={s.src}>
           <figure>
             <div className="overflow-hidden rounded-lg border border-editorial-line bg-editorial-media">
-              <img src={new URL(s.src, HOSTED_ORIGIN).href} alt={s.alt} loading="lazy"
+              <img src={assetUrl(s.src)} alt={s.alt} loading="lazy"
                 className={cropAspect ? 'w-full object-cover object-top' : 'w-full'}
                 style={cropAspect ? { aspectRatio: cropAspect } : undefined} />
             </div>

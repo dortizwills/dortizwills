@@ -1,5 +1,10 @@
 # Current work
 
+## External-hosted portfolio images
+
+- [x] Resolve portfolio cards, case-study media and training-plan media against the hosted asset origin.
+- [x] Verify actual image loading and regression tests before saving the fix.
+
 ## Hivey section arrangement
 
 - [x] Move enterprise requests after What I Did and remove the closing team section.
